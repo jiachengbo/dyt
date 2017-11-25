@@ -1,0 +1,326 @@
+<div class="baseinfomanage-modal">
+  <div class="modal-header">
+    <h3>{{vm.method}} 团员</h3>
+  </div>
+  <div class="modal-body col-md-12">
+    <form name="vm.leagueMemberTableForm" class="form-horizontal" novalidate>
+      <fieldset ng-disabled="vm.disabled">
+        <!--<div class="form-group" show-errors ng-repeat="col in vm.columnDefs">
+          <label class="control-label" for="{{col.field}}">{{col.displayName}}</label>
+          <input name="{{col.field}}" type="text" ng-model="vm.leagueMemberTableData[col.field]" id="{{col.field}}"
+                 class="form-control" placeholder="" required autofocus>
+          <div ng-messages="vm.leagueMemberTableForm[col.field].$error" role="alert">
+            <p class="help-block error-text" ng-message="required"> {{col.field}} is required.</p>
+          </div>
+        </div>-->
+        <!-- 第1行-->
+        <div class="row clearfix">
+          <div class="col-xs-4 column" style="margin-top: 0px;margin-bottom: 0px;">
+            <div class="form-group row" show-errors>
+              <div class="col-xs-12">
+                <label for="name">姓名</label>
+                <input name="name" type="text" ng-model="vm.leagueMemberTableData.name" id="name"
+                       class="form-control" placeholder="" required autofocus>
+                <div ng-messages="vm.leagueMemberTableForm.name.$error" role="alert">
+                  <p class="help-block error-text" ng-message="required">请输入姓名.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xs-4 column" style="margin-top: 0px;margin-bottom: 0px;">
+            <div class="form-group row" show-errors>
+              <div class="col-xs-12">
+                <label>性别</label>
+                <select class="form-control"
+                        ng-model="vm.leagueMemberTableData.sex"
+                        ng-options="cv_sex.name as cv_sex.name for cv_sex in cvs_sex"
+                        required
+                        name = 'sex'
+                >
+                </select>
+                <div ng-messages="vm.leagueMemberTableForm.sex.$error" role="alert">
+                  <p class="help-block error-text" ng-message="required">请选择性别.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xs-4 column" style="margin-top: 0px;margin-bottom: 0px;">
+            <div class="form-group row" show-errors>
+              <div class="col-xs-12">
+                <label>民族</label>
+                <select class="form-control"
+                        ng-model="vm.leagueMemberTableData.nation"
+                        ng-options="cv_nation.name as cv_nation.name for cv_nation in cvs_nation"
+                        required
+                        name = 'nation'
+                >
+                </select>
+                <div ng-messages="vm.leagueMemberTableForm.nation.$error" role="alert">
+                  <p class="help-block error-text" ng-message="required">请选择民族.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- 学历 政治面貌-->
+        <div class="row clearfix">
+          <div class="col-xs-6 column" style="margin-top: 0px;margin-bottom: 0px;">
+            <div class="form-group row" show-errors>
+              <div class="col-xs-12">
+                <label>学历</label>
+                <select class="form-control"
+                        ng-model="vm.leagueMemberTableData.education"
+                        ng-options="cv_education.name as cv_education.name for cv_education in cvs_education"
+                        required
+                        name = 'education'
+                >
+                </select>
+                <div ng-messages="vm.leagueMemberTableForm.education.$error" role="alert">
+                  <p class="help-block error-text" ng-message="required">请选择学历.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xs-6 column" style="margin-top: 0px;margin-bottom: 0px;">
+            <div class="form-group row" show-errors>
+              <div class="col-xs-12">
+                <label>政治面貌</label>
+                <select class="form-control"
+                        ng-model="vm.leagueMemberTableData.politics_status"
+                        ng-options="cv_politics_status.name as cv_politics_status.name for cv_politics_status in cvs_politics_status"
+                        required
+                        name="politics_status"
+                >
+                </select>
+                <div ng-messages="vm.leagueMemberTableForm.politics_status.$error" role="alert">
+                  <p class="help-block error-text" ng-message="required">请选择政治面貌.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 第2行-->
+        <div class="row clearfix">
+          <div class="col-xs-6 column" style="margin-top: 0px;margin-bottom: 0px;">
+            <div class="form-group row" show-errors>
+              <div class="col-xs-12">
+                <label for="id_card">身份证号</label>
+                <input name="id_card" type="text" ng-model="vm.leagueMemberTableData.id_card" id="id_card"
+                       class="form-control"
+                       placeholder=""
+                       maxlength="18"
+                       ng-minlength="18"
+                       ng-pattern="/^[1-9]\d{7}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}$|^[1-9]\d{5}[1-9]\d{3}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}([0-9]|X)$/"
+                       required/>
+
+                <div ng-show="vm.leagueMemberTableForm.id_card.$dirty && vm.leagueMemberTableForm.id_card.$invalid"
+                     class="has-error" role="alert">
+                  <p class="help-block error-text"
+                     ng-show="vm.leagueMemberTableForm.id_card.$error.pattern||vm.leagueMemberTableForm.id_card.$error.minlength">
+                    身份证有误,请重填.</p>
+                </div>
+                <div ng-messages="vm.leagueMemberTableForm.id_card.$error" role="alert">
+                  <p class="help-block error-text" ng-message="required">请输入身份证号.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xs-6 column" style="margin-top: 0px;margin-bottom: 0px;">
+            <div class="form-group row" show-errors>
+              <div class="col-xs-12">
+                <label for="birthday">出生日期</label>
+                <p class="input-group">
+                  <input name="birthday"
+                         type="text"
+                         ng-model="vm.leagueMemberTableData.birthday"
+                         id="birthday"
+                         uib-datepicker-popup
+                         is-open="popup1.opened"
+                         datepicker-options="inlineOptions"
+                         ng-required="true"
+                         current-text="今天"
+                         clear-text="清空"
+                         close-text="关闭"
+                         class="form-control"
+                         placeholder="1900-01-01"
+                         required/>
+                  <span class="input-group-btn">
+                      <button type="button"
+                              class="btn btn-default"
+                              ng-click="open1()">
+                        <i class="glyphicon glyphicon-calendar"></i>
+                      </button>
+                 </span>
+                </p>
+                <div ng-messages="vm.leagueMemberTableForm.birthday.$error" role="alert">
+                  <p class="help-block error-text" ng-message="required">请输入出生日期.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 第3行-->
+        <div class="row clearfix">
+          <div class="col-xs-6 column" style="margin-top: 0px;margin-bottom: 0px;">
+            <div class="form-group row" show-errors>
+              <div class="col-xs-12">
+                <label for="phone">电话号码</label>
+                <input name="phone"
+                       type="text"
+                       ng-model="vm.leagueMemberTableData.phone"
+                       ng-minlength="11"
+                       maxlength="11"
+                       ng-pattern="/^[0-9]*$/"
+                       id="phone"
+                       class="form-control"
+                       placeholder=""
+                       required>
+                <div ng-show="vm.leagueMemberTableForm.phone.$dirty && vm.leagueMemberTableForm.phone.$invalid"
+                     class="has-error" role="alert">
+                  <p class="help-block error-text"
+                     ng-show="vm.leagueMemberTableForm.phone.$error.pattern||vm.leagueMemberTableForm.phone.$error.minlength">
+                    电话号码有误,请重填.</p>
+                </div>
+                <div ng-messages="vm.leagueMemberTableForm.phone.$error" role="alert">
+                  <p class="help-block error-text" ng-message="required">请输入电话号码.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xs-6 column" style="margin-top: 0px;margin-bottom: 0px;">
+            <div class="form-group row" show-errors>
+              <div class="col-xs-12">
+                <label for="join_time">入团时间</label>
+                <p class="input-group">
+                  <input name="join_time"
+                         type="text"
+                         ng-model="vm.leagueMemberTableData.join_time"
+                         id="join_time"
+                         uib-datepicker-popup
+                         is-open="popup2.opened"
+                         datepicker-options="inlineOptions"
+                         ng-required="true"
+                         current-text="今天"
+                         clear-text="清空"
+                         close-text="关闭"
+                         class="form-control"
+                         placeholder="1900-01-01"
+                         required/>
+                  <span class="input-group-btn">
+                      <button type="button"
+                              class="btn btn-default"
+                              ng-click="open2()">
+                        <i class="glyphicon glyphicon-calendar"></i>
+                      </button>
+                 </span>
+                </p>
+                <div ng-messages="vm.leagueMemberTableForm.join_time.$error" role="alert">
+                  <p class="help-block error-text" ng-message="required">请输入入团时间.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- 第3行-->
+        <div class="row clearfix">
+          <div class="col-xs-6 column" style="margin-top: 0px;margin-bottom: 0px;">
+            <div class="form-group row" show-errors>
+              <div class="col-xs-12">
+                <label for="league_branch">所在团支部</label>
+                <input class="form-control"
+                       id="league_branch"
+                       type="text"
+                       name="league_branch"
+                       ng-model="vm.leagueMemberTableData.league_branch"
+                       required
+                />
+                <div ng-messages="vm.leagueMemberTableForm.league_branch.$error" role="alert">
+                  <p class="help-block error-text" ng-message="required">请输入所在团支部</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xs-6 column" style="margin-top: 0px;margin-bottom: 0px;">
+            <div class="form-group row" show-errors>
+              <div class="col-xs-12">
+                <label>社区</label>
+                <select class="form-control"
+                        ng-model="vm.leagueMemberTableData.community"
+                        ng-options="cv.name as cv.name for cv in cvs"
+                        required
+                        name = 'community'
+                >
+                </select>
+                <div ng-messages="vm.leagueMemberTableForm.community.$error" role="alert">
+                  <p class="help-block error-text" ng-message="required">请选择社区(村)</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- email is_local-->
+        <div class="row clearfix">
+          <div class="col-xs-6 column" style="margin-top: 0px;margin-bottom: 0px;">
+            <div class="form-group row" show-errors>
+              <div class="col-xs-12">
+                <label>是否本县区从业</label>
+                <select class="form-control"
+                        ng-model="vm.leagueMemberTableData.is_local"
+                        ng-options="cv_is_local.name as cv_is_local.name for cv_is_local in cvs_is_local"
+                        required
+                        name = 'is_local'
+                >
+                </select>
+                <div ng-messages="vm.leagueMemberTableForm.is_local.$error" role="alert">
+                  <p class="help-block error-text" ng-message="required">请选择是否本县区从业.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xs-6 column" style="margin-top: 0px;margin-bottom: 0px;">
+            <div class="form-group row" show-errors>
+              <div class="col-xs-12">
+                <label>电子邮箱</label>
+                <input name="email"
+                       type="text"
+                       ng-model="vm.leagueMemberTableData.email"
+                       id="email"
+                       class="form-control"
+                       ng-pattern="/\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/"
+                       placeholder=""
+                       required autofocus>
+                <div ng-show="vm.leagueMemberTableForm.email.$dirty && vm.leagueMemberTableForm.email.$invalid" class="has-error" role="alert">
+                  <p class="help-block error-text" ng-show="vm.leagueMemberTableForm.email.$error.pattern||vm.leagueMemberTableForm.email.$error.minlength">邮箱有误,请重填.</p>
+                </div>
+                <div ng-messages="vm.leagueMemberTableForm.email.$error" role="alert">
+                  <p class="help-block error-text" ng-message="required">请输入电子邮箱.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </fieldset>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-primary"
+            style="width: 100px"
+            ng-if="!vm.disabled"
+            ng-click="vm.ok(vm.leagueMemberTableForm.$valid)">确定
+    </button>
+    <button class="btn btn-warning"
+            style="width: 100px"
+            ng-click="vm.cancel()">取消
+    </button>
+  </div>
+</div>

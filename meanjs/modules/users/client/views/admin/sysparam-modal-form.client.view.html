@@ -1,0 +1,26 @@
+<div class="sysparam-modal">
+  <div class="modal-header">
+    <h1>{{vm.method}} 参数</h1>
+  </div>
+  <div class="modal-body col-md-12">
+    <form name="vm.sysparamForm" class="form-horizontal" novalidate>
+      <fieldset ng-disabled="vm.disabled">
+        <div class="form-group" show-errors>
+          <label class="control-label" for="name">参数名称</label>
+          <input name="name" type="text" ng-model="vm.sysparamData.name" id="name" class="form-control" placeholder="Title" required autofocus>
+          <div ng-messages="vm.sysparamForm.name.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Sysparam name is required.</p>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label" for="data">内容</label>
+          <textarea name="data" data-ng-model="vm.sysparamData.data" id="data" class="form-control" cols="30" rows="10" placeholder="Content"></textarea>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-primary" ng-if="!vm.disabled" ng-click="vm.ok(vm.sysparamForm.$valid)">保存</button>
+    <button class="btn btn-warning" ng-click="vm.cancel()">退出</button>
+  </div>
+</div>

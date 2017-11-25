@@ -1,0 +1,191 @@
+<section ng-style="vm.sectionStyle">
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    html,body,section:not(.page-footer){
+      width: 100%;
+      height: 100%;
+    }
+    .page-content{
+      padding: 0;
+    }
+    a{
+      text-decoration: none;
+    }
+    ul{
+      list-style-type: none;
+    }
+    @keyframes gun {
+      from{top: 10px;}
+      to{top: -210px;}
+    }
+    .cont{
+      position: absolute;
+      left: 18%;
+      top: 31%;
+      width: 30%;
+      height: 28%;
+      overflow: hidden;
+    }
+    .cont>p{
+      position: relative;
+      text-indent: 2em;
+      font-weight: bold;
+      height: auto;
+      font-size: 15px;
+      line-height: 30px;
+      padding-left: 40px;
+      padding-right: 40px;
+      /*animation: gun 15s linear infinite;*/
+    }
+    .cont>p:hover{
+      position: relative;
+      text-indent: 2em;
+      font-weight: bold;
+      font-size: 15px;
+      line-height: 30px;
+      padding-left: 40px;
+      padding-right: 40px;
+      animation-play-state:paused;
+    }
+    .footer{
+      position: absolute;
+      width: 60%;
+      bottom: 15%;
+      left: 19%;
+    }
+    .footer>ul li{
+      position: relative;
+      width: 12%;
+      height: 138px;
+      background: #fefac8;
+      border-radius: 5px;
+      float: left;
+      box-shadow: 0 0 5px 2px #aa8383;
+      -webkit-box-shadow: 0 0 5px 2px #aa8383;
+      -moz-box-shadow: 0 0 5px 2px #aa8383;
+    }
+    .footer>ul li>div{
+      width: 100%;
+      height: 60%;
+    }
+    .footer>ul li:hover div{
+      transform: rotateY(360deg);
+      transition: all 0.5s;
+    }
+    .footer>ul li>p{
+      position: relative;
+      top: 10px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #89511a;
+      text-align: center;
+      text-indent:0;
+    }
+    @keyframes flash1 {
+      from{transform: rotateY(0deg);}
+      to{transform: rotateY(360deg);}
+    }
+    body>.page-container{
+      margin-top: 0;
+    }
+    .logo{
+      width: 20%;
+      height: 65%;
+      position: absolute;
+      right: 100px;
+      bottom:0px;
+    }
+
+    .logo div{
+      position: absolute;
+      cursor: pointer;
+    }
+    .logo div a{
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+    .cen{
+      z-index: 10;
+    }
+    .cen:hover{
+      background-image: url("/modules/core/client/img/image/nav/center2.png")!important;
+      transform: scale(1.2);
+      transition: all 0.5s;
+    }
+    .city1:hover{
+      background-image: url("/modules/core/client/img/image/nav/city2.png")!important;
+      transform: scale(1.1);
+      transition: all 0.5s;
+    }
+    .comm1:hover{
+      background-image: url("/modules/core/client/img/image/nav/comm2.png")!important;
+      transform: scale(1.1);
+      transition: all 0.5s;
+    }
+    .feigong1:hover{
+      background-image: url("/modules/core/client/img/image/nav/feigong2.png")!important;
+      transform: scale(1.1);
+      transition: all 0.5s;
+    }
+    .nc1:hover{
+      background-image: url("/modules/core/client/img/image/nav/nc2.png")!important;
+      transform: scale(1.1);
+      transition: all 0.5s;
+    }
+    .jg1:hover{
+      background-image: url("/modules/core/client/img/image/nav/jg2.png")!important;
+      transform: scale(1.1);
+      transition: all 0.5s;
+    }
+  </style>
+  <div class="cont" ng-style="{marginLeft: vm.show ? '180px':0,width: vm.show? '700px':'46%'}" ng-show="!vm.show">
+    <p>
+      大雁塔街道办事处成立于1982年4月，位于举世闻名的大雁塔脚下，是陕西省委所在地，社会事务管理总面积约7.3平方公里，行政经济管理面积约3.2平方公里。下辖19个社区，6个村，驻地单位50余家，常驻人口约14万人。街道党工委下辖40个党支部，其中机关党支部1个，农村党支部6个，社区党支部19个，非公企业党支部12个，社会组织党支部2个，共有党员1315名。辖区旅游资源丰富，东有青龙寺，南与大雁塔北广场毗邻，西靠陕西省历史博物馆。以两横（南二环、西影路）、五纵（翠华路、雁塔路、西延路、经九路、经七路）构成道路网格，交通便捷。
+      近年来，大雁塔街道先后获得国卫复审工作先进单位，陕西省标准化示范街道、陕西省教育强街道、全省和谐社区建设示范街道，西安市文明单位、西安市人民满意的公务员集体、全市人力资源和社会保障先进单位、社会治理先进街道、青年文明号，雁塔区网络舆情处置工作先进单位等30余项荣誉称号。
+    </p>
+
+  </div>
+  <div class="footer" ng-show="!vm.show">
+    <ul>
+      <a href="/partyDQ">
+        <li>
+          <div style="background: url('/modules/core/client/img/image/nav/footer1.png') no-repeat center bottom"></div>
+          <p>党务知识</p>
+        </li>
+      </a>
+      <a href="/partyMY"><li style="left: 4%"><div style="background: url(/modules/core/client/img/image/nav/footer2.png) no-repeat center bottom"></div><p>党员缴费</p></li></a>
+      <a href="/partyGX"><li style="left: 8%"><div style="background: url(/modules/core/client/img/image/nav/footer3.png) no-repeat center bottom"></div><p>党员关系</p></li></a>
+      <a ui-sref="authentication.signin"><li style="left: 12%"><div style="background: url(/modules/core/client/img/image/nav/footer4.png) no-repeat center bottom"></div><p>党务服务</p></li></a>
+      <a href="/partyInter"><li style="left: 16%"><div style="background: url(/modules/core/client/img/image/nav/footer5.png) no-repeat center bottom"></div><p>发展党员</p></li></a>
+    </ul>
+  </div>
+  <div class="logo" style="transform: scale(0.85)" ng-show="!vm.show">
+    <div class="cen" style="width:180px;height:180px;background-image: url('/modules/core/client/img/image/nav/center1.png');top:0px;left: 0px;">
+      <a href="/index1"></a>
+    </div>
+      <div class="city1" style="width:260px;height:260px;background-image: url('/modules/core/client/img/image/nav/city1.png');top:-207px;left: -39px;">
+        <a ui-sref="authentication.signin"></a>
+      </div>
+      <div class="comm1" style="width:260px;height:260px;background-image: url('/modules/core/client/img/image/nav/comm1.png');top:84px;left: -139px;">
+        <a ui-sref="authentication.signin"></a>
+      </div>
+      <div class="feigong1" style="width:260px;height:260px;background-image: url('/modules/core/client/img/image/nav/feigong1.png');top:-90px;left: 113px;">
+        <a ui-sref="authentication.signin"></a>
+      </div>
+      <div class="nc1" style="width:260px;height:260px;background-image: url('/modules/core/client/img/image/nav/nc1.png');top:-92px;left: -197px;">
+        <a ui-sref="authentication.signin"></a>
+      </div>
+      <div class="jg1" style="width:260px;height:260px;background-image: url('/modules/core/client/img/image/nav/jg1.png');top:83px;left: 61px;">
+        <a ui-sref="authentication.signin"></a>
+      </div>
+  </div>
+</section>
+<div class="index1_foot" style="height: 53px;position: relative;bottom: 61px;color: #fff;" ng-show="!vm.show">
+  <div class="index1_mainbox">
+    <p style="font-size: 16px">主办：西安市雁塔区大雁塔街道 &nbsp;&nbsp;承办：西安杰森电子科技有限公司</p>
+  </div>
+</div>

@@ -1,0 +1,123 @@
+<style>
+  .container-fluid{
+    padding: 0;
+  }
+  .page-container{
+    margin-top: 0!important;
+  }
+  .keyword_ico {
+    background: url(/modules/core/client/img/image/basic/gcsy.png) no-repeat;
+  }
+  .keyworkxq_lnav>a:hover {
+    background-color: #F29D0B;
+  }
+  .keyworkxq_lnav>a{
+    background-color: #F29D0B;
+  }
+</style>
+<div class="logomask" ng-style="maskStyle" ng-show="logoShow"ng-click="showLogo()">
+</div>
+<div class="index1_model" ng-show="logoShow" style="height:logoHeight;width: 1200px;"ng-click="showLogo()">
+  <div class="asa">    <a href="#"></a>    <a href="#"></a>    <a href="javascript:void(0)" ng-click="toSHYK()"></a>    <a href="javascript:void(0)" ng-click="toLXYZ()"></a>    <a href="/partybuild#jiaoliu"></a>    <a href="/partyDQ#dangzhishi"></a>    <a href="/partyInter"></a>    <a href="/partydt"></a>    <a href="/basic"></a>    <a href="#"></a>    <a href="javascript:void(0)" ng-click="toGDDR()"></a>    <a href="/fulian"></a>    <a href="/study#studydt"></a>    <a href="http://www.12371.cn/special/zsjs/sj2/index.shtml"></a>    <a href="#"></a>    <a href="#"></a>    <a href="/minqingE"></a>    <a href="/basic#jiadaobanzi"></a>    <a href="#"></a>    <a href="/partybuild#jifen"></a>    <a href="/basic"></a>    <a href="http://dygbjy.12371.cn/"></a>    <a href="/partybuild#xiangmu1"></a>    <a href="#"></a>    <a href="/tuanwei#tuanwei"></a>    <a href="/xiaqu#xiaqu"></a>    <a href="/gonghui"></a>    <a href="/lingtouyan"></a>    <div class="clear"></div>  </div>
+</div>
+<div id="index1_nav" ng-style="{'min-height': index1_nav}">
+    <div class="index1_title1">
+        <div class="index1_airt">
+            <div class="index1_mainbox">
+                <div class="top_left lt">
+                    <a href="http://www.gov.cn/">中央人民政府</a>
+                    <span></span>
+                    <a href="http://www.shaanxi.gov.cn/">陕西省人民政府</a>
+                    <span></span>
+                    <a href="http://www.xa.gov.cn/ptl/index.html">西安市人民政府</a>
+                </div>
+              <div class="top_right rt">
+                <a href="#">
+                  <i class="ic"></i>
+                  <span ng-click="wap()">手机版</span>
+                  <div class="top_ewm" ng-show="phone" >
+                    <img src="/modules/core/client/img/image/index/wap.png" width="100px;">
+                    <b>关注我们</b>
+                  </div>
+                </a>
+                <a ui-sref="authentication.signin">
+                  <i class="ic1"></i>
+                  <span>登录</span>
+                </a>
+              </div>
+              <div class="top_right rt" style="margin-right: 10px">
+                <a ui-sref="authentication.signin">
+                  <i class="sb"></i>
+                  <span>民情地图</span>
+                </a>
+                <a ui-sref="authentication.signin">
+                  <i class="sb1"></i>
+                  <span>党建地图</span>
+                </a>
+              </div>
+            </div>
+        </div>
+        <!--<div class="index1_imgt">-->      <!--<div class="animated bounceInLeft" ng-style="leftStyle">-->        <!--<img src="/modules/core/client/img/image/shouye/tuceng9.png">-->      <!--</div>-->      <!--<div class="animated bounceInRight" ng-style="rightStyle">-->        <!--<img src="/modules/core/client/img/image/shouye/toptu2.png">-->      <!--</div>-->    <!--</div>-->
+    </div>
+    <div class="tubiao">
+        <div class="div" ng-style="{'marginLeft': fixedLeft}">
+            <span ></span>
+            <ul class="tiem">
+                <li><a href="/index1"><span class="wit1 tiem"></span><span class="tiem">首页</span></a></li>
+                <li><a href="/basic"><span class="wit2 tiem"></span><span class="tiem">基础信息管理</span></a></li>
+                <li><a href="/study"><span class="wit3 tiem"></span><span class="tiem">重点工作动态</span></a></li>
+                <li><a href="/partybuild"><span class="wit4 tiem"></span><span class="tiem">区域化党建</span></a></li>
+                <li><a href="/partymap"><span class="wit5 tiem"></span><span class="tiem">党建地图</span></a></li>
+                <li ng-click="showLogo()"><span class="wit6 tiem"></span><span class="tiem logo">logo</span></li>
+            </ul>
+        </div>
+    </div>
+    <div class="container">
+    <!--标体-->
+        <div>
+            <!--<img src="/modules/core/client/img/image/shouye/tt.png" >-->
+        </div>
+    <!--固定党日-->
+    <div class="keyworkxq_border">
+        <div class="keyworkxq_work">
+            <div class="keyworkxq_lnav lt">
+                <a href="/basic">
+                    <i class="keyword_ico"></i>
+                    <span>高层声音</span>
+                </a>
+                <!--<ul>-->
+                    <!--<li><a ui-sref="authentication.signin"><i class="keyword_icon"></i><span>固定党日</span></a></li>-->
+                <!--</ul>-->
+            </div>
+            <div class="keyworkxq_rnav lt">
+                <div class="keyworkxq_title">
+                    <b>
+                        <a href="/basic">
+                            <i></i>
+                            当前位置：高层声音详情
+                        </a>
+                    </b>
+                </div>
+                <div class="keyworkxq_main">
+                    <div class="keyworkxq_mainr" style="width: 100%;text-align: center">
+                       <h1 style="padding-top: 0;">{{vm.detailsData.title}}</h1>
+                       <img src="{{vm.detailsData.photos}}" >
+                        <p style="text-align: left">
+                          {{vm.detailsData.content}}
+                        </p>
+                    </div>
+                </div>
+              <iframe ng-src="{{vm.detailsData.file_path}}" width="100%" class="myiframe" frameborder="0"></iframe>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+</div>
+    <div class="keyworkxq_foot">
+        <div class="keyworkxq_mainbox">
+            <div class="keyworkxq_line"></div>
+            <div class="keyworkxq_line1"></div>
+            <p>主办：西安市雁塔区大雁塔街道 &nbsp;&nbsp;承办：西安杰森电子科技有限公司</p>
+        </div>
+    </div>
+</div>

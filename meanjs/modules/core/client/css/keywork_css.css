@@ -1,0 +1,212 @@
+.kwdangri_nav h3:hover{
+	color: red;
+}
+/*标体*/
+/*组织信息*/
+.keyword_border{
+    margin-bottom: 10px;
+}
+.keyword_person{
+    width: 100%;
+    background-color: #fff;
+    padding:20px;
+    border:1px solid #DDDDDD;
+    border-top:none;
+}
+.keyword_person1{
+    width: 210px;
+    float: left;
+}
+.keyword_person2{
+    width: 306px;
+    float: left;
+}
+.keyword_person1>a{
+    background-color: #E86C28;
+    color: #fff;
+    width:100%;
+    height: 90px;
+    display: inline-block;
+    text-align: center;
+}
+.keyword_person1>a i{
+    width:50px;
+    height: 50px;
+    display: block;
+    margin: 5px auto;
+}
+.keyword_ico{
+    background: url("/modules/core/client/img/image/tubiao/zuzhiguanli.png") no-repeat;
+}
+.keyword_ico1{
+    background: url("/modules/core/client/img/image/tubiao/ketang.png") no-repeat;
+}
+.keyword_person1>a:hover{
+    background-color: #E86C28;
+}
+
+/*左边栏*/
+.keyword_person1>ul>li {
+    padding:10px;
+    text-align: center;
+}
+.keyword_person1>ul>li a span{
+    width: 46%;
+    display: inline-block;
+    height: 24px;
+    font-size: 14px;
+    text-align: left;
+    line-height: 24px;
+    font-weight: bold;
+    vertical-align: bottom;
+}
+.keyword_person1>ul>li>a>i{
+    margin-left: 14px;
+    display: inline-block;
+    width:24px;
+    height: 24px;
+    margin-right: 5px;
+    vertical-align: bottom;
+}
+.keyword_icon{
+     background: url("/modules/core/client/img/image/index1/xuexi.png") no-repeat 0 0;
+ }
+.keyword_icon1{
+    background: url("/modules/core/client/img/image/index1/riqi.png") no-repeat 0 0;
+}
+.keyword_icon2{
+    background: url("/modules/core/client/img/image/index1/sanhuiyike.png") no-repeat 0 0;
+}
+.keyword_icon3{
+    background: url("/modules/core/client/img/image/index1/xuexidongtai.png")no-repeat 0 0;
+}
+.keyword_icon4{
+    background: url("/modules/core/client/img/image/index1/zaixian.png")no-repeat 0 0;
+}
+.keyword_icon5{
+    background: url("/modules/core/client/img/image/index1/yuanchengxiezhu.png")no-repeat 0 0;
+}
+.keyword_person1>ul>li a:hover{
+    color:#F29D0B;
+}
+.keyword_person1>ul>li a:hover i.keyword_icon{
+    background: url("/modules/core/client/img/image/shouye/xuexi.png") no-repeat 0 0;
+}
+.keyword_person1>ul>li a:hover i.keyword_icon1{
+    background: url("/modules/core/client/img/image/shouye/riqi.png") no-repeat 0 0;
+}
+.keyword_person1>ul>li a:hover i.keyword_icon2{
+    background: url("/modules/core/client/img/image/shouye/sanhuiyike.png") no-repeat 0 0;
+}
+.keyword_person1>ul>li a:hover i.keyword_icon3{
+    background: url("/modules/core/client/img/image/shouye/xuexidongtai.png") no-repeat 0 0;
+}
+.keyword_person1>ul>li a:hover i.keyword_icon4{
+    background: url("/modules/core/client/img/image/shouye/zaixian1.png")no-repeat 0 0;
+}
+.keyword_person1>ul>li a:hover i.keyword_icon5{
+    background: url("/modules/core/client/img/image/shouye/yuanchengxiezhu.png")no-repeat 0 0;
+}
+.keyword_person1>ul>li>a:hover i{
+    vertical-align: bottom;
+    transition: transform 0.7s ease-out;
+    transform: rotateY(360deg);
+}
+.keyword_title{
+    height: 35px;
+    margin-bottom: 5px;
+    line-height: 34px;
+    border-bottom: 1px solid #dddddd;
+    width: 100%;
+}
+.keyword_title>b{
+    color: #333;
+    float: left;
+    font-weight: normal;
+    display: block;
+    padding: 0 20px;
+}
+.keyword_active{
+    border-bottom: 2px solid #d80000;
+}
+.keyword_title>b>a{
+    float: right;
+    display: block;
+    width: 65px;
+    text-align: right;
+    font-size: 16px;
+}
+.keyword_zuzhi{
+    width:80%;
+    margin-left: 20px;
+}
+.keyword_zuzhi .row{
+    margin-right: -15px;
+    margin-left:0;
+}
+.keyword_zuzhi .col-md-3{
+    padding-left: 0;
+    padding-right:20px;
+}
+.keyword_zuzhi  .thumbnail{
+    padding:0;
+}
+.keyword_zuzhi .thumbnail > img{
+    width:100%;
+}
+.keyword_zuzhi .thumbnail > p{
+    width: 100%;
+    padding:10px 5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.keyword_zuzhi table{
+    margin-top: 15px;
+    text-align: center;
+}
+.keywork-hover > tbody > tr:hover {
+    /*background-color: #E86C28;*/
+    color: #E86C28;
+}
+.keyword_person .keyword_zuzhi table td{
+   padding:8px 0;
+    font-size: 14px;
+
+}
+.keyword_person .keyword_zuzhi table thead td{
+    font-weight: bold;
+    font-size: 16px;
+}
+.keyword_zuzhi table thead tr{
+   background-color: #E7E7E7;
+}
+.keyword_zuzhi table tbody tr:nth-of-type(1) td{
+    border: none;
+}
+/*foot*/
+.index1_foot{
+    padding-bottom: 60px;
+    text-align: center;
+    font-size: 14px;
+}
+.index1_mainbox{
+    width: 1200px;
+    margin: 0 auto;
+}
+.index1_foot .index1_line{
+    height: 1px;
+    background: #d80000;
+}
+.index1_foot .index1_line1{
+    height: 10px;
+    background: #d80000;
+    margin-top: 5px;
+}
+.index1_foot>.index1_mainbox>p{
+    height: auto;
+    font-size: 13px;
+    text-indent: 2em;
+    padding: 5px 10px;
+    line-height: 43px;
+}

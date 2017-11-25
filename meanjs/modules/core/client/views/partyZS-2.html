@@ -1,0 +1,212 @@
+<style>
+  .container-fluid {
+    padding: 0;
+  }
+
+  .page-container {
+    margin-top: 0 !important;
+  }
+  .keyworkxq_lnav>a {
+    background-color: #22709D;
+  }
+  .keyworkxq_lnav>a:hover {
+    background-color: #22709D;
+  }
+</style>
+<div class="logomask" ng-style="maskStyle" ng-show="logoShow"ng-click="showLogo()">
+</div>
+<div class="index1_model" ng-show="logoShow" style="height:logoHeight;width: 1200px;"ng-click="showLogo()">
+  <div class="asa">    <a href="#"></a>    <a href="#"></a>    <a href="javascript:void(0)" ng-click="toSHYK()"></a>    <a href="javascript:void(0)" ng-click="toLXYZ()"></a>    <a href="/partybuild#jiaoliu"></a>    <a href="/partyDQ#dangzhishi"></a>    <a href="/partyInter"></a>    <a href="/partydt"></a>    <a href="/basic"></a>    <a href="#"></a>    <a href="javascript:void(0)" ng-click="toGDDR()"></a>    <a href="/fulian"></a>    <a href="/study#studydt"></a>    <a href="http://www.12371.cn/special/zsjs/sj2/index.shtml"></a>    <a href="#"></a>    <a href="#"></a>    <a href="/minqingE"></a>    <a href="/basic#jiadaobanzi"></a>    <a href="#"></a>    <a href="/partybuild#jifen"></a>    <a href="/basic"></a>    <a href="http://dygbjy.12371.cn/"></a>    <a href="/partybuild#xiangmu1"></a>    <a href="#"></a>    <a href="/tuanwei#tuanwei"></a>    <a href="/xiaqu#xiaqu"></a>    <a href="/gonghui"></a>    <a href="/lingtouyan"></a>    <div class="clear"></div>  </div>
+</div>
+<div id="index1_nav">
+    <div class="index1_title1">
+        <div class="index1_airt">
+            <div class="index1_mainbox">
+                <div class="top_left lt">
+                    <a href="http://www.gov.cn/">中央人民政府</a>
+                    <span></span>
+                    <a href="http://www.shaanxi.gov.cn/">陕西省人民政府</a>
+                    <span></span>
+                    <a href="http://www.xa.gov.cn/ptl/index.html">西安市人民政府</a>
+                </div>
+              <div class="top_right rt">
+                <a href="#">
+                  <i class="ic"></i>
+                  <span ng-click="wap()">手机版</span>
+                  <div class="top_ewm" ng-show="phone" >
+                    <img src="/modules/core/client/img/image/index/wap.png" width="100px;">
+                    <b>关注我们</b>
+                  </div>
+                </a>
+                <a ui-sref="authentication.signin">
+                  <i class="ic1"></i>
+                  <span>登录</span>
+                </a>
+              </div>
+              <div class="top_right rt" style="margin-right: 10px">
+                <a ui-sref="authentication.signin">
+                  <i class="sb"></i>
+                  <span>民情地图</span>
+                </a>
+                <a ui-sref="authentication.signin">
+                  <i class="sb1"></i>
+                  <span>党建地图</span>
+                </a>
+              </div>
+            </div>
+        </div>
+      <!--<div class="index1_imgt">-->      <!--<div class="animated bounceInLeft" ng-style="leftStyle">-->        <!--<img src="/modules/core/client/img/image/shouye/tuceng9.png">-->      <!--</div>-->      <!--<div class="animated bounceInRight" ng-style="rightStyle">-->        <!--<img src="/modules/core/client/img/image/shouye/toptu2.png">-->      <!--</div>-->    <!--</div>-->
+    </div>
+  <div class="tubiao">
+    <div class="div" ng-style="{'marginLeft': fixedLeft}">
+            <span ></span>
+            <ul class="tiem">
+                <li><a href="/index1"><span class="wit1 tiem"></span><span class="tiem">首页</span></a></li>
+                <li><a href="/basic"><span class="wit2 tiem"></span><span class="tiem">基础信息管理</span></a></li>
+                <li><a href="/study"><span class="wit3 tiem"></span><span class="tiem">重点工作动态</span></a></li>
+                <li><a href="/partybuild"><span class="wit4 tiem"></span><span class="tiem">区域化党建</span></a></li>
+                <li><a href="/partymap"><span class="wit5 tiem"></span><span class="tiem">党建地图</span></a></li>
+              <li ng-click="showLogo()"><span class="wit6 tiem"></span><span class="tiem logo">logo</span></li>
+            </ul>
+        </div>
+    </div>
+    <div class="container">
+    <!--标体-->
+
+    <!--固定党日-->
+    <div class="keyworkxq_border">
+        <div class="keyworkxq_work">
+            <div class="keyworkxq_lnav lt">
+                <a href="/index1">
+                    <i class="keyword_ico"></i>
+                    <span>党务知识</span>
+                </a>
+              <div class="basic_zhishi">
+                <ul>
+                  <li class="basic_dangbiao lt">
+                    <a href="/partyDQ">
+                      <span>党旗</span>
+                    </a>
+                  </li>
+                  <li class="basic_dangbiao rt">
+                    <a href="/partyDH">
+                      <span>党徽</span>
+                    </a>
+                  </li>
+                  <li class="basic_dangbiao lt">
+                    <a href="/partyDZ">
+                      <span>党章</span>
+                    </a>
+                  </li>
+                  <li class="basic_dangbiao rt">
+                    <a href="/partyInter">
+                      <span>入党流程</span>
+                    </a>
+                  </li>
+                  <li class="clear">
+                    <a href="/partyZS-1">
+                      <span>党员基本知识</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/partyZS-2">
+                      <span>党员组织关系</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/partyZS-3">
+                      <span>党的组织生活</span>
+                    </a>
+                  </li>
+                  <li>
+                  <li>
+                    <a href="/partyZS-4">
+                      <span>党费的收缴标准</span>
+                    </a>
+                  </li>
+                  <li>
+                  <li>
+                    <a href="/partyZS-5">
+                      <span>党员的权利和义务</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/partyGC">
+                      <span>高层声音之共享创新发展</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/partyGC-1">
+                      <span>高层声音之体育强国</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/partyGC-2">
+                      <span>高层声音之青年红色筑梦之旅</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/partyGC-3">
+                      <span>高层声音之模范先锋</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/partyGC-5">
+                      <span>高层声音之在陕西</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/partyGC-6">
+                      <span>高层声音之加强联系专家</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="keyworkxq_rnav lt">
+                <div class="keyworkxq_title">
+                    <b>
+                        <a href="/index1">
+                            <i></i>
+                            当前位置：基础信息>党务知识>党员组织关系
+                        </a>
+                    </b>
+                </div>
+                <div class="keyworkxq_main">
+                       <div class="keyworkxq_mainr">
+                        <h1 style="text-align: center;">什么是党员组织关系？ 怎样确定党员的组织关系？ 党组织关系如何转接？</h1>
+                        <br>
+                        <div class="keyworkxq_js">
+                            <div style="font-size:18px;font-family:SimSun;">
+                               <p style="text-indent:2em;">党员组织关系，是指党员对党的基层组织的隶属关系。
+                                </p>
+                            </div>
+                            <div style="font-size:18px;font-family:SimSun;">
+                                <p style="text-indent:2em;">
+                                   按照党章规定，每个党员不论职务高低，都必须编入党的一个支部、小组或其他特定组织，参加党的组织生活，接受党内外群众的监督。申请入党的人一经被批准入党，接收其入党的党组织就把其编入党的基层组织之中，从此就确定了他的组织关系。党员的组织关系一经确定，党员就可以而且必须参加该组织的生活，并在其中积极工作。在通常情况下，党员的组织关系与行政关系应当一致。党员组织关系的概念有广义和狭义之分，广义概念包括正式组织关系和临时组织关系，转移正式组织关系需开具"党员组织关系介绍信"，转移临时组织关系需开具"党员证明信"。狭义概念特指正式组织关系。在一般情况下，当我们说加强党员组织管理时， 是广义概念；当我们说转移党员组织关系时，是狭义概念。
+                                </p>
+                            </div>
+                            <div style="font-size:18px;font-family:SimSun;">
+
+                               <p style="text-indent:2em;">
+                                  中组部《关于进一步加强党员组织关系管理的意见》规定：凡党员所去单位已建立党组织的，应当将党员组织关系转移到单位党组织；单位未建立党组织的，应当将其组织关系转移到单位所在地或其居住地党组织，也可以转移到行业主管部门党组织，或县以上政府人事（劳动）部门所属的人才（劳动）服务机构党组织。
+                                                                  </p>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+</div>
+    <div class="keyworkxq_foot">
+        <div class="keyworkxq_mainbox">
+            <div class="keyworkxq_line"></div>
+            <div class="keyworkxq_line1"></div>
+            <p>主办：西安市雁塔区大雁塔街道 &nbsp;&nbsp;承办：西安杰森电子科技有限公司</p>
+        </div>
+    </div>
+</div>

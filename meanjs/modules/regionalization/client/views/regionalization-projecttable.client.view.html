@@ -1,0 +1,37 @@
+<section>
+  <div class="page-header">
+    <h3>
+      项目管理
+      <div class="btn-group pull-right" role="group" aria-label="oper">
+        <a class="btn btn-primary" ng-click="vm.add()"
+           tooltip-placement="top" uib-tooltip="项目立项">
+          <i class="glyphicon glyphicon-plus"></i>
+        </a>
+        <a class="btn btn-primary"
+           ng-click="vm.approval()" ng-show="!!vm.selectedRow"
+           tooltip-placement="top" uib-tooltip="项目审核">
+          <i class="glyphicon glyphicon-pawn"></i>
+        </a>
+        <a class="btn btn-primary" ng-click="vm.update()" ng-show="!!vm.selectedRow"
+           tooltip-placement="top" uib-tooltip="项目修改">
+          <i class="glyphicon glyphicon-edit"></i>
+        </a>
+        <a class="btn btn-primary" ng-click="vm.remove()" ng-show="!!vm.selectedRow"
+           tooltip-placement="top" uib-tooltip="项目删除">
+          <i class="glyphicon glyphicon-trash"></i>
+        </a>
+        <a class="btn btn-primary" ng-click="vm.view()" ng-show="!!vm.selectedRow"
+           tooltip-placement="top" uib-tooltip="项目查看">
+          <i class="glyphicon glyphicon-eye-open"></i>
+        </a>
+        <a class="btn btn-primary" ng-click="vm.knot()" ng-show="!!vm.selectedRow"
+           tooltip-placement="top" uib-tooltip="项目结项">
+          <i class="glyphicon glyphicon-ok"></i>
+        </a>
+      </div>
+    </h3>
+  </div>
+
+  <div ui-grid="vm.gridOptions" ui-grid-selection ui-grid-pagination ui-grid-resize-columns
+       class="regionalization-grid"></div>
+</section>

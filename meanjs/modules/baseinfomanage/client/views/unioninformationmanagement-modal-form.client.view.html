@@ -1,0 +1,227 @@
+<div class="baseinfomanage-modal">
+  <div class="modal-header">
+    <h3>{{vm.method}} 工会信息</h3>
+  </div>
+  <div class="modal-body col-md-12">
+    <form name="vm.unionInformationManagementForm" class="form-horizontal" novalidate>
+      <fieldset ng-disabled="vm.disabled">
+        <!-- 第1行-->
+        <div class="row clearfix">
+          <div class="col-xs-6 column" style="margin-top: 0px;margin-bottom: 0px;">
+            <div class="form-group" show-errors>
+              <div class="col-xs-12">
+                <label class="control-label"
+                       for="name">名称</label>
+                <input name="name"
+                       type="text"
+                       ng-model="vm.unionInformationManagementData.name"
+                       id="name"
+                       class="form-control"
+                       placeholder=""
+                       required autofocus>
+                <div ng-messages="vm.unionInformationManagementForm.name.$error" role="alert">
+                  <p class="help-block error-text"
+                     ng-message="required"> 请输入名称.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xs-6 column" style="margin-top: 0px;margin-bottom: 0px;">
+            <div class="form-group" show-errors>
+              <div class="col-xs-12">
+                <label class="control-label"
+                       for="union_code">工会编码</label>
+                <input name="union_code"
+                       type="text"
+                       ng-model="vm.unionInformationManagementData.union_code"
+                       id="union_code"
+                       class="form-control"
+                       placeholder=""
+                       required autofocus>
+                <div ng-messages="vm.unionInformationManagementForm.union_code.$error" role="alert">
+                  <p class="help-block error-text"
+                     ng-message="required"> 请输入工会编码.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+<!-- 第2行-->
+        <div class="row clearfix">
+          <div class="col-xs-6 column" style="margin-top: 0px;margin-bottom: 0px;">
+            <div class="form-group" show-errors>
+              <div class="col-xs-12">
+                <label class="control-label"
+                       for="approval_number">年批文号</label>
+                <input name="approval_number"
+                       type="text"
+                       ng-model="vm.unionInformationManagementData.approval_number"
+                       id="approval_number"
+                       class="form-control"
+                       placeholder=""
+                       required autofocus>
+                <div ng-messages="vm.unionInformationManagementForm.approval_number.$error" role="alert">
+                  <p class="help-block error-text"
+                     ng-message="required"> 请输入年批文号.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xs-6 column" style="margin-top: 0px;margin-bottom: 0px;">
+            <div class="form-group" show-errors>
+              <div class="col-xs-12">
+                <label class="control-label"
+                       for="member_num">会员人数</label>
+                <input name="member_num"
+                       type="text"
+                       ng-model="vm.unionInformationManagementData.member_num"
+                       id="member_num"
+                       ng-pattern="/^[0-9]*$/"
+                       class="form-control"
+                       placeholder=""
+                       required autofocus>
+                <div ng-messages="vm.unionInformationManagementForm.member_num.$error" role="alert">
+                  <p class="help-block error-text"
+                     ng-message="required"> 请输入会员人数.</p>
+                  <p class="help-block error-text" ng-show="vm.unionInformationManagementForm.member_num.$error.pattern">请输入数字</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+<!-- 第3行-->
+        <div class="row clearfix">
+          <div class="col-xs-6 column" style="margin-top: 0px;margin-bottom: 0px;">
+            <div class="form-group" show-errors>
+              <div class="col-xs-12">
+                <label class="control-label"
+                       for="employees_num">职工人数</label>
+                <input name="employees_num"
+                       type="text"
+                       ng-model="vm.unionInformationManagementData.employees_num"
+                       id="employees_num"
+                       ng-pattern="/^[0-9]*$/"
+                       class="form-control"
+                       placeholder=""
+                       required autofocus>
+                <div ng-messages="vm.unionInformationManagementForm.employees_num.$error" role="alert">
+                  <p class="help-block error-text"
+                     ng-message="required"> 请输入职工人数.</p>
+                  <p class="help-block error-text" ng-show="vm.unionInformationManagementForm.employees_num.$error.pattern">请输入数字</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xs-6 column" style="margin-top: 0px;margin-bottom: 0px;">
+            <div class="form-group" show-errors>
+              <div class="col-xs-12">
+                <label class="control-label"
+                       for="migrant_workers">农民工数</label>
+                <input name="migrant_workers"
+                       type="text"
+                       ng-model="vm.unionInformationManagementData.migrant_workers"
+                       id="migrant_workers"
+                       class="form-control"
+                       ng-pattern="/^[0-9]*$/"
+                       placeholder=""
+                       required autofocus>
+                <div ng-messages="vm.unionInformationManagementForm.migrant_workers.$error" role="alert">
+                  <p class="help-block error-text"
+                     ng-message="required"> 请输入农民工数.</p>
+                  <p class="help-block error-text" ng-show="vm.unionInformationManagementForm.migrant_workers.$error.pattern">请输入数字</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+<!-- 第4行-->
+        <div class="row clearfix">
+          <div class="col-xs-6 column" style="margin-top: 0px;margin-bottom: 0px;">
+            <div class="form-group" show-errors>
+              <div class="col-xs-12">
+                <label class="control-label"
+                       for="address">地址</label>
+                <input name="address"
+                       type="text"
+                       ng-model="vm.unionInformationManagementData.address"
+                       id="address"
+                       class="form-control"
+                       placeholder=""
+                       required autofocus>
+                <div ng-messages="vm.unionInformationManagementForm.address.$error" role="alert">
+                  <p class="help-block error-text"
+                     ng-message="required"> 请输入地址.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xs-6 column" style="margin-top: 0px;margin-bottom: 0px;">
+            <div class="form-group" show-errors>
+              <div class="col-xs-12">
+                <label class="control-label"
+                       for="chairman_name">主席名称</label>
+                <input name="chairman_name"
+                       type="text"
+                       ng-model="vm.unionInformationManagementData.chairman_name"
+                       id="chairman_name"
+                       class="form-control"
+                       maxlength="20"
+                       placeholder=""
+                       required autofocus>
+                <div ng-messages="vm.unionInformationManagementForm.chairman_name.$error" role="alert">
+                  <p class="help-block error-text"
+                     ng-message="required"> 请输入主席名称.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+<!-- 第5行-->
+        <div class="row clearfix">
+          <div class="col-xs-6 column" style="margin-top: 0px;margin-bottom: 0px;">
+            <div class="form-group" show-errors>
+              <div class="col-xs-12">
+                <label class="control-label"
+                       for="contact_information">联系电话</label>
+                <input name="contact_information"
+                       type="text"
+                       ng-model="vm.unionInformationManagementData.contact_information"
+                       id="contact_information"
+                       class="form-control"
+                       ng-minlength="11"
+                       maxlength="11"
+                       ng-pattern="/^[0-9]*$/"
+                       placeholder=""
+                       required autofocus>
+                <div ng-show="vm.unionInformationManagementForm.contact_information.$dirty && vm.unionInformationManagementForm.contact_information.$invalid" class="has-error" role="alert">
+                  <p class="help-block error-text" ng-show="vm.unionInformationManagementForm.contact_information.$error.pattern||vm.unionInformationManagementForm.contact_information.$error.minlength">联系电话有误,请重填.</p>
+                </div>
+                <div ng-messages="vm.unionInformationManagementForm.contact_information.$error" role="alert">
+                  <p class="help-block error-text"
+                     ng-message="required"> 请输入联系电话.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </fieldset>
+    </form>
+  </div>
+
+  <div class="modal-footer">
+    <button class="btn btn-primary"
+            style="width: 100px"
+            ng-if="!vm.disabled"
+            ng-click="vm.ok(vm.unionInformationManagementForm.$valid)">确定
+    </button>
+    <button class="btn btn-warning"
+            style="width: 100px"
+            ng-click="vm.cancel()">取消</button>
+  </div>
+
+</div>

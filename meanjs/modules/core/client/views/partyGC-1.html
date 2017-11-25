@@ -1,0 +1,299 @@
+<style>
+  .container-fluid {
+    padding: 0;
+  }
+
+  .page-container {
+    margin-top: 0 !important;
+  }
+  .keyworkxq_lnav>a {
+    background-color: #22709D;
+  }
+  .keyworkxq_lnav>a:hover {
+    background-color: #22709D;
+  }
+</style>
+<div class="logomask" ng-style="maskStyle" ng-show="logoShow"ng-click="showLogo()">
+</div>
+<div class="index1_model" ng-show="logoShow" style="height:logoHeight;width: 1200px;"ng-click="showLogo()">
+  <div class="asa">    <a href="#"></a>    <a href="#"></a>    <a href="javascript:void(0)" ng-click="toSHYK()"></a>    <a href="javascript:void(0)" ng-click="toLXYZ()"></a>    <a href="/partybuild#jiaoliu"></a>    <a href="/partyDQ#dangzhishi"></a>    <a href="/partyInter"></a>    <a href="/partydt"></a>    <a href="/basic"></a>    <a href="#"></a>    <a href="javascript:void(0)" ng-click="toGDDR()"></a>    <a href="/fulian"></a>    <a href="/study#studydt"></a>    <a href="http://www.12371.cn/special/zsjs/sj2/index.shtml"></a>    <a href="#"></a>    <a href="#"></a>    <a href="/minqingE"></a>    <a href="/basic#jiadaobanzi"></a>    <a href="#"></a>    <a href="/partybuild#jifen"></a>    <a href="/basic"></a>    <a href="http://dygbjy.12371.cn/"></a>    <a href="/partybuild#xiangmu1"></a>    <a href="#"></a>    <a href="/tuanwei#tuanwei"></a>    <a href="/xiaqu#xiaqu"></a>    <a href="/gonghui"></a>    <a href="/lingtouyan"></a>    <div class="clear"></div>  </div>
+</div>
+<div id="index1_nav">
+    <div class="index1_title1">
+        <div class="index1_airt">
+            <div class="index1_mainbox">
+                <div class="top_left lt">
+                    <a href="http://www.gov.cn/">中央人民政府</a>
+                    <span></span>
+                    <a href="http://www.shaanxi.gov.cn/">陕西省人民政府</a>
+                    <span></span>
+                    <a href="http://www.xa.gov.cn/ptl/index.html">西安市人民政府</a>
+                </div>
+              <div class="top_right rt">
+                <a href="#">
+                  <i class="ic"></i>
+                  <span ng-click="wap()">手机版</span>
+                  <div class="top_ewm" ng-show="phone" >
+                    <img src="/modules/core/client/img/image/index/wap.png" width="100px;">
+                    <b>关注我们</b>
+                  </div>
+                </a>
+                <a ui-sref="authentication.signin">
+                  <i class="ic1"></i>
+                  <span>登录</span>
+                </a>
+              </div>
+              <div class="top_right rt" style="margin-right: 10px">
+                <a ui-sref="authentication.signin">
+                  <i class="sb"></i>
+                  <span>民情地图</span>
+                </a>
+                <a ui-sref="authentication.signin">
+                  <i class="sb1"></i>
+                  <span>党建地图</span>
+                </a>
+              </div>
+            </div>
+        </div>
+      <!--<div class="index1_imgt">-->      <!--<div class="animated bounceInLeft" ng-style="leftStyle">-->        <!--<img src="/modules/core/client/img/image/shouye/tuceng9.png">-->      <!--</div>-->      <!--<div class="animated bounceInRight" ng-style="rightStyle">-->        <!--<img src="/modules/core/client/img/image/shouye/toptu2.png">-->      <!--</div>-->    <!--</div>-->
+    </div>
+  <div class="tubiao">
+    <div class="div" ng-style="{'marginLeft': fixedLeft}">
+            <span ></span>
+            <ul class="tiem">
+                <li><a href="/index1"><span class="wit1 tiem"></span><span class="tiem">首页</span></a></li>
+                <li><a href="/basic"><span class="wit2 tiem"></span><span class="tiem">基础信息管理</span></a></li>
+                <li><a href="/study"><span class="wit3 tiem"></span><span class="tiem">重点工作动态</span></a></li>
+                <li><a href="/partybuild"><span class="wit4 tiem"></span><span class="tiem">区域化党建</span></a></li>
+                <li><a href="/partymap"><span class="wit5 tiem"></span><span class="tiem">党建地图</span></a></li>
+               <li ng-click="showLogo()"><span class="wit6 tiem"></span><span class="tiem logo">logo</span></li>
+            </ul>
+        </div>
+    </div>
+    <div class="container">
+    <!--标体-->
+
+    <!--固定党日-->
+    <div class="keyworkxq_border">
+        <div class="keyworkxq_work">
+            <div class="keyworkxq_lnav lt">
+                <a href="/index1">
+                    <i class="keyword_ico"></i>
+                    <span>党务知识</span>
+                </a>
+              <div class="basic_zhishi">
+                <ul>
+                  <li class="basic_dangbiao lt">
+                    <a href="/partyDQ">
+                      <span>党旗</span>
+                    </a>
+                  </li>
+                  <li class="basic_dangbiao rt">
+                    <a href="/partyDH">
+                      <span>党徽</span>
+                    </a>
+                  </li>
+                  <li class="basic_dangbiao lt">
+                    <a href="/partyDZ">
+                      <span>党章</span>
+                    </a>
+                  </li>
+                  <li class="basic_dangbiao rt">
+                    <a href="/partyInter">
+                      <span>入党流程</span>
+                    </a>
+                  </li>
+                  <li class="clear">
+                    <a href="/partyZS-1">
+                      <span>党员基本知识</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/partyZS-2">
+                      <span>党员组织关系</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/partyZS-3">
+                      <span>党的组织生活</span>
+                    </a>
+                  </li>
+                  <li>
+                  <li>
+                    <a href="/partyZS-4">
+                      <span>党费的收缴标准</span>
+                    </a>
+                  </li>
+                  <li>
+                  <li>
+                    <a href="/partyZS-5">
+                      <span>党员的权利和义务</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/partyGC">
+                      <span>高层声音之共享创新发展</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/partyGC-1">
+                      <span>高层声音之体育强国</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/partyGC-2">
+                      <span>高层声音之青年红色筑梦之旅</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/partyGC-3">
+                      <span>高层声音之模范先锋</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/partyGC-5">
+                      <span>高层声音之在陕西</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/partyGC-6">
+                      <span>高层声音之加强联系专家</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="keyworkxq_rnav lt">
+                <div class="keyworkxq_title">
+                    <b>
+                        <a href="/index1">
+                            <i></i>
+                            当前位置：基础信息>党务知识>高层声音
+                        </a>
+                    </b>
+                </div>
+                <div class="keyworkxq_main">
+                       <div class="keyworkxq_mainr">
+                        <h1 style="text-align: center;">习近平：开创我国体育事业发展新局面 加快把我国建设成为体育强国</h1>
+                        <br>
+                        <div class="keyworkxq_js">
+                            <div style="font-size:18px;font-family:SimSun;">
+                              <img src="/modules/core/client/img/image/images/3.png">
+                            </div>
+                            <div style="font-size:18px;font-family:SimSun;">
+                                <p style="text-indent:2em;">
+                                 8月27日，在第十三届全国运动会即将开幕之际，中共中央总书记、国家主席、中央军委主席习近平在天津会见全国群众体育先进单位、先进个人代表和全国体育系统先进集体、先进工作者代表以及在本届全运会群众比赛项目中获奖的运动员代表，并发表重要讲话。
+                              </p>
+                            </div>
+                            <div style="font-size:18px;font-family:SimSun;">
+
+                               <p style="text-indent:2em;">
+                              	在第十三届全国运动会即将开幕之际，中共中央总书记、国家主席、中央军委主席习近平27日上午在天津会见了全国群众体育先进单位、先进个人代表和全国体育系统先进集体、先进工作者代表以及在本届全运会群众比赛项目中获奖的运动员代表，并发表重要讲话。习近平强调，体育承载着国家强盛、民族振兴的梦想。体育强则中国强，国运兴则体育兴。要把发展体育工作摆上重要日程，精心谋划，狠抓落实，不断开创我国体育事业发展新局面，加快把我国建设成为体育强国。
+                              </p>
+                            </div>
+                                <div style="font-size:18px;font-family:SimSun;">
+
+                               <p style="text-indent:2em;">
+                             当天上午，天津宾馆会议厅内洋溢着热烈的气氛，参加会见的代表们情绪饱满、精神振奋，有的身穿少数民族盛装，有的胸前佩挂着闪亮的奖牌。11时许，习近平等来到天津宾馆会议厅，全场爆发出雷鸣般的掌声。习近平同参加会见的代表亲切握手，不时交谈并合影留念。
+                                  </p>
+                            </div>
+                           <div style="font-size:18px;font-family:SimSun;">
+
+                               <p style="text-indent:2em;">
+                             在热烈的掌声中，习近平发表了重要讲话。他首先代表党中央、国务院和中央军委，向大家表示热烈的祝贺，向全国体育战线全体同志致以诚挚的问候。习近平表示，党的十八大以来，我国体育事业取得长足发展，全民健身蓬勃开展，竞技体育成绩显著，体育改革不断深化，成功申办2022年冬奥会。大家为此付出了辛勤努力，我作为中共中央总书记、国家主席、中央军委主席，也作为普通的体育爱好者，向同志们表示衷心的感谢。
+                                  </p>
+                            </div>
+                              <div style="font-size:18px;font-family:SimSun;">
+
+                               <p style="text-indent:2em;">
+                             习近平指出，加快建设体育强国，就要把握体育强国梦与中国梦息息相关的定位，把体育事业融入实现"两个一百年"奋斗目标大格局中去谋划，深化体育改革，更新体育理念，推动群众体育、竞技体育、体育产业协调发展。
+                                  </p>
+                            </div>
+                             <div style="font-size:18px;font-family:SimSun;">
+
+                               <p style="text-indent:2em;">
+                             习近平强调，加快建设体育强国，就要坚持以人民为中心的思想，把人民作为发展体育事业的主体，把满足人民健身需求、促进人的全面发展作为体育工作的出发点和落脚点，落实全民健身国家战略，不断提高人民健康水平。把群众性体育纳入全运会，组织人民群众广泛参与，就更好起到了举办全运会的作用。
+                                  </p>
+                            </div>
+                             <div style="font-size:18px;font-family:SimSun;">
+
+                               <p style="text-indent:2em;">
+                             习近平指出，加快建设体育强国，就要弘扬中华体育精神，弘扬体育道德风尚，坚定自信，奋力拼搏，提高竞技体育综合实力，更好发挥举国体制作用，把竞技体育搞得更好、更快、更高、更强，提高为国争光能力，让体育为社会提供强大正能量。
+                                  </p>
+                            </div>
+                             <div style="font-size:18px;font-family:SimSun;">
+
+                               <p style="text-indent:2em;">
+                             习近平强调，加快建设体育强国，就要高质量筹办2022年北京冬奥会，全力做好各项筹办工作，特别是要做好备战工作，加快冰雪运动普及和提高，努力举办一届精彩、非凡、卓越的奥运盛会。
+                                  </p>
+                            </div>
+                             <div style="font-size:18px;font-family:SimSun;">
+
+                               <p style="text-indent:2em;">
+                             最后，习近平指出，体育代表着青春、健康、活力，关乎人民幸福，关乎民族未来。党的十九大即将召开，办好本届全运会将为党的十九大胜利召开营造良好氛围。希望同志们在新的起点上推动我国体育事业不断实现新进步，在体育强国建设中再立新功。
+                                  </p>
+                            </div>
+                             <div style="font-size:18px;font-family:SimSun;">
+
+                               <p style="text-indent:2em;">
+                             王沪宁、刘延东、许其亮、栗战书、王晨、卢展工等参加会见。
+                                  </p>
+                            </div>
+                            <div style="font-size:18px;font-family:SimSun;">
+
+                               <p style="text-indent:2em;">
+                             全国群众体育先进表彰活动自1993年第七届全国运动会开始，每4年表彰一次，已连续在6届全运会期间进行表彰。第十三届全国运动会期间，共表彰2013－2016年度全国群众体育先进单位3259个、全国群众体育先进个人2465名、全国体育系统先进集体70个、全国体育系统先进工作者44人。
+                                  </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+</div>
+    <div class="keyworkxq_foot">
+        <div class="keyworkxq_mainbox">
+            <div class="keyworkxq_line"></div>
+            <div class="keyworkxq_line1"></div>
+            <p>主办：西安市雁塔区大雁塔街道 &nbsp;&nbsp;承办：西安杰森电子科技有限公司</p>
+        </div>
+    </div>
+</div>
+<script>
+    $('.top_right a').eq(0).mouseover(function(){
+        $('.top_ewm').css('display','block');
+    });
+    $('.top_right a').eq(0).mouseout(function(){
+        $('.top_ewm').css('display','none');
+    });
+    $(function() {
+        var left = ($(window).width() - 1200) / 2;
+        $('.tubiao>div').css('left', (left - 40) + 'px');
+        $('.asa').css('left', left + 'px');
+        $('.index1_imgt div:nth-of-type(2)').css({
+            'margin-right':(left-50)+'px'
+        });
+        $('.index1_imgt div:nth-of-type(1)').css({
+            'margin-left':(left-50)+'px'
+        });
+        $('.logo').click(function (event) {
+            event.preventDefault();
+            $('#index1_nav').css({
+                'background': '#ddd',
+                'opacity': 0.5
+            });
+            $('.asa').css('display', 'block');
+        });
+        $('.asa').on('click', function () {
+            $('.asa').css('display', 'none');
+            $('#index1_nav').css({
+                'background': '',
+                'opacity': ''
+            });
+        });
+    })
+</script>
+</body>
+</html>

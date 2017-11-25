@@ -1,0 +1,226 @@
+<div class="baseinfomanage-modal">
+  <div class="modal-header">
+    <h3>{{vm.method}} 文明单位</h3>
+  </div>
+  <div class="modal-body col-md-12">
+    <form name="vm.advancedUnitManagementForm" class="form-horizontal" novalidate>
+      <fieldset ng-disabled="vm.disabled">
+        <!--第1行-->
+        <div class="row clearfix">
+          <div class="col-xs-6 column" style="margin-top: 0px;margin-bottom: 0px;">
+            <div class="form-group" show-errors>
+              <div class="col-xs-12">
+                <label class="control-label"
+                       for="name">单位名称</label>
+                <input name="name"
+                       type="text"
+                       ng-model="vm.advancedUnitManagementData.name"
+                       id="name"
+                       class="form-control"
+                       placeholder=""
+                       required autofocus>
+                <div ng-messages="vm.advancedUnitManagementForm.name.$error" role="alert">
+                  <p class="help-block error-text"
+                     ng-message="required">请输入单位名称.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xs-6 column" style="margin-top: 0px;margin-bottom: 0px;">
+            <div class="form-group" show-errors>
+              <div class="col-xs-12">
+                <label class="control-label"
+                       for="level">级别</label>
+                <input name="level"
+                       type="text"
+                       ng-model="vm.advancedUnitManagementData.level"
+                       id="level"
+                       class="form-control"
+                       placeholder=""
+                       required autofocus>
+                <div ng-messages="vm.advancedUnitManagementForm.level.$error" role="alert">
+                  <p class="help-block error-text"
+                     ng-message="required">请输入级别.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!--第2行-->
+        <div class="row clearfix">
+          <div class="col-xs-6 column" style="margin-top: 0px;margin-bottom: 0px;">
+            <div class="form-group" show-errors>
+              <div class="col-xs-12">
+                <label class="control-label"
+                       for="first_declare">初次申报</label>
+                <p class="input-group">
+                  <input name="first_declare"
+                         type="text"
+                         ng-model="vm.advancedUnitManagementData.first_declare"
+                         id="first_declare"
+                         class="form-control"
+                         uib-datepicker-popup
+                         is-open="popup1.opened"
+                         datepicker-options="inlineOptions"
+                         ng-required="true"
+                         current-text="今天"
+                         clear-text="清空"
+                         close-text="关闭"
+                         placeholder="1900-01-01"
+                         required autofocus/>
+                  <span class="input-group-btn">
+                      <button type="button"
+                              class="btn btn-default"
+                              ng-click="open1()">
+                        <i class="glyphicon glyphicon-calendar"></i>
+                      </button>
+                 </span>
+                </p>
+                <div ng-messages="vm.advancedUnitManagementForm.first_declare.$error" role="alert">
+                  <p class="help-block error-text"
+                     ng-message="required">请输入初次申报.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xs-6 column" style="margin-top: 0px;margin-bottom: 0px;">
+            <div class="form-group" show-errors>
+              <div class="col-xs-12">
+                <label class="control-label"
+                       for="last_expired">上次届满</label>
+                <p class="input-group">
+                  <input name="last_expired"
+                         type="text"
+                         ng-model="vm.advancedUnitManagementData.last_expired"
+                         id="last_expired"
+                         class="form-control"
+                         uib-datepicker-popup
+                         is-open="popup2.opened"
+                         datepicker-options="inlineOptions"
+                         ng-required="true"
+                         current-text="今天"
+                         clear-text="清空"
+                         close-text="关闭"
+                         placeholder="1900-01-01"
+                         required autofocus/>
+                  <span class="input-group-btn">
+                      <button type="button"
+                              class="btn btn-default"
+                              ng-click="open2()">
+                        <i class="glyphicon glyphicon-calendar"></i>
+                      </button>
+                 </span>
+                </p>
+                <div ng-messages="vm.advancedUnitManagementForm.last_expired.$error" role="alert">
+                  <p class="help-block error-text"
+                     ng-message="required">请输入上次届满.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!--第3行-->
+        <div class="row clearfix">
+          <div class="col-xs-6 column" style="margin-top: 0px;margin-bottom: 0px;">
+            <div class="form-group" show-errors>
+              <div class="col-xs-12">
+                <label class="control-label"
+                       for="addrss">地址</label>
+                <input name="addrss"
+                       type="text"
+                       ng-model="vm.advancedUnitManagementData.addrss"
+                       id="addrss"
+                       class="form-control"
+                       placeholder=""
+                       required autofocus>
+                <div ng-messages="vm.advancedUnitManagementForm.addrss.$error" role="alert">
+                  <p class="help-block error-text"
+                     ng-message="required">请输入地址.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xs-6 column" style="margin-top: 0px;margin-bottom: 0px;">
+            <div class="form-group" show-errors>
+              <div class="col-xs-12">
+                <label class="control-label"
+                       for="fzr">负责人</label>
+                <input name="fzr"
+                       type="text"
+                       ng-model="vm.advancedUnitManagementData.fzr"
+                       id="fzr"
+                       class="form-control"
+                       placeholder=""
+                       required autofocus>
+                <div ng-messages="vm.advancedUnitManagementForm.fzr.$error" role="alert">
+                  <p class="help-block error-text"
+                     ng-message="required">请输入负责人.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!--第4行-->
+        <div class="row clearfix">
+          <div class="col-xs-6 column" style="margin-top: 0px;margin-bottom: 0px;">
+            <div class="form-group" show-errors>
+              <div class="col-xs-12">
+                <label class="control-label"
+                       for="charge_leader">分管领导</label>
+                <input name="charge_leader"
+                       type="text"
+                       ng-model="vm.advancedUnitManagementData.charge_leader"
+                       id="charge_leader"
+                       class="form-control"
+                       placeholder=""
+                       required autofocus>
+                <div ng-messages="vm.advancedUnitManagementForm.charge_leader.$error" role="alert">
+                  <p class="help-block error-text"
+                     ng-message="required">请输入分管领导.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xs-6 column" style="margin-top: 0px;margin-bottom: 0px;">
+            <div class="form-group" show-errors>
+              <div class="col-xs-12">
+                <label class="control-label"
+                       for="full_time_cadre">专干</label>
+                <input name="full_time_cadre"
+                       type="text"
+                       ng-model="vm.advancedUnitManagementData.full_time_cadre"
+                       id="full_time_cadre"
+                       class="form-control"
+                       placeholder=""
+                       required autofocus>
+                <div ng-messages="vm.advancedUnitManagementForm.full_time_cadre.$error" role="alert">
+                  <p class="help-block error-text"
+                     ng-message="required">请输入专干.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </fieldset>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-primary"
+            style="width: 100px"
+            ng-if="!vm.disabled"
+            ng-click="vm.ok(vm.advancedUnitManagementForm.$valid)">确定
+    </button>
+    <button class="btn btn-warning"
+            style="width: 100px"
+            ng-click="vm.cancel()">取消
+    </button>
+  </div>
+</div>

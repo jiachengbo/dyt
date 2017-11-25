@@ -1,0 +1,350 @@
+<style>
+  .container-fluid {
+    padding: 0;
+  }
+
+  .page-container {
+    margin-top: 0 !important;
+  }
+  .keyworkxq_lnav>a {
+    background-color: #22709D;
+  }
+  .keyworkxq_lnav>a:hover {
+    background-color: #22709D;
+  }
+</style>
+<div class="logomask" ng-style="maskStyle" ng-show="logoShow"ng-click="showLogo()">
+</div>
+<div class="index1_model" ng-show="logoShow" style="height:logoHeight;width: 1200px;"ng-click="showLogo()">
+  <div class="asa">    <a href="#"></a>    <a href="#"></a>    <a href="javascript:void(0)" ng-click="toSHYK()"></a>    <a href="javascript:void(0)" ng-click="toLXYZ()"></a>    <a href="/partybuild#jiaoliu"></a>    <a href="/partyDQ#dangzhishi"></a>    <a href="/partyInter"></a>    <a href="/partydt"></a>    <a href="/basic"></a>    <a href="#"></a>    <a href="javascript:void(0)" ng-click="toGDDR()"></a>    <a href="/fulian"></a>    <a href="/study#studydt"></a>    <a href="http://www.12371.cn/special/zsjs/sj2/index.shtml"></a>    <a href="#"></a>    <a href="#"></a>    <a href="/minqingE"></a>    <a href="/basic#jiadaobanzi"></a>    <a href="#"></a>    <a href="/partybuild#jifen"></a>    <a href="/basic"></a>    <a href="http://dygbjy.12371.cn/"></a>    <a href="/partybuild#xiangmu1"></a>    <a href="#"></a>    <a href="/tuanwei#tuanwei"></a>    <a href="/xiaqu#xiaqu"></a>    <a href="/gonghui"></a>    <a href="/lingtouyan"></a>    <div class="clear"></div>  </div>
+</div>
+<div id="index1_nav">
+    <div class="index1_title1">
+        <div class="index1_airt">
+            <div class="index1_mainbox">
+                <div class="top_left lt">
+                    <a href="http://www.gov.cn/">中央人民政府</a>
+                    <span></span>
+                    <a href="http://www.shaanxi.gov.cn/">陕西省人民政府</a>
+                    <span></span>
+                    <a href="http://www.xa.gov.cn/ptl/index.html">西安市人民政府</a>
+                </div>
+              <div class="top_right rt">
+                <a href="#">
+                  <i class="ic"></i>
+                  <span ng-click="wap()">手机版</span>
+                  <div class="top_ewm" ng-show="phone" >
+                    <img src="/modules/core/client/img/image/index/wap.png" width="100px;">
+                    <b>关注我们</b>
+                  </div>
+                </a>
+                <a ui-sref="authentication.signin">
+                  <i class="ic1"></i>
+                  <span>登录</span>
+                </a>
+              </div>
+              <div class="top_right rt" style="margin-right: 10px">
+                <a ui-sref="authentication.signin">
+                  <i class="sb"></i>
+                  <span>民情地图</span>
+                </a>
+                <a ui-sref="authentication.signin">
+                  <i class="sb1"></i>
+                  <span>党建地图</span>
+                </a>
+              </div>
+            </div>
+        </div>
+      <!--<div class="index1_imgt">-->      <!--<div class="animated bounceInLeft" ng-style="leftStyle">-->        <!--<img src="/modules/core/client/img/image/shouye/tuceng9.png">-->      <!--</div>-->      <!--<div class="animated bounceInRight" ng-style="rightStyle">-->        <!--<img src="/modules/core/client/img/image/shouye/toptu2.png">-->      <!--</div>-->    <!--</div>-->
+    </div>
+  <div class="tubiao">
+    <div class="div" ng-style="{'marginLeft': fixedLeft}">
+            <span ></span>
+            <ul class="tiem">
+                <li><a href="/index1"><span class="wit1 tiem"></span><span class="tiem">首页</span></a></li>
+                <li><a href="/basic"><span class="wit2 tiem"></span><span class="tiem">基础信息管理</span></a></li>
+                <li><a href="/study"><span class="wit3 tiem"></span><span class="tiem">重点工作动态</span></a></li>
+                <li><a href="/partybuild"><span class="wit4 tiem"></span><span class="tiem">区域化党建</span></a></li>
+                <li><a href="/partymap"><span class="wit5 tiem"></span><span class="tiem">党建地图</span></a></li>
+              <li ng-click="showLogo()"><span class="wit6 tiem"></span><span class="tiem logo">logo</span></li>
+            </ul>
+        </div>
+    </div>
+    <div class="container">
+    <!--标体-->
+
+    <!--固定党日-->
+    <div class="keyworkxq_border">
+        <div class="keyworkxq_work">
+            <div class="keyworkxq_lnav lt">
+                <a href="/index1">
+                    <i class="keyword_ico"></i>
+                    <span>党务知识</span>
+                </a>
+              <div class="basic_zhishi">
+                <ul>
+                  <li class="basic_dangbiao lt">
+                    <a href="/partyDQ">
+                      <span>党旗</span>
+                    </a>
+                  </li>
+                  <li class="basic_dangbiao rt">
+                    <a href="/partyDH">
+                      <span>党徽</span>
+                    </a>
+                  </li>
+                  <li class="basic_dangbiao lt">
+                    <a href="/partyDZ">
+                      <span>党章</span>
+                    </a>
+                  </li>
+                  <li class="basic_dangbiao rt">
+                    <a href="/partyInter">
+                      <span>入党流程</span>
+                    </a>
+                  </li>
+                  <li class="clear">
+                    <a href="/partyZS-1">
+                      <span>党员基本知识</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/partyZS-2">
+                      <span>党员组织关系</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/partyZS-3">
+                      <span>党的组织生活</span>
+                    </a>
+                  </li>
+                  <li>
+                  <li>
+                    <a href="/partyZS-4">
+                      <span>党费的收缴标准</span>
+                    </a>
+                  </li>
+                  <li>
+                  <li>
+                    <a href="/partyZS-5">
+                      <span>党员的权利和义务</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/partyGC">
+                      <span>高层声音之共享创新发展</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/partyGC-1">
+                      <span>高层声音之体育强国</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/partyGC-2">
+                      <span>高层声音之青年红色筑梦之旅</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/partyGC-3">
+                      <span>高层声音之模范先锋</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/partyGC-5">
+                      <span>高层声音之在陕西</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/partyGC-6">
+                      <span>高层声音之加强联系专家</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="keyworkxq_rnav lt">
+                <div class="keyworkxq_title">
+                    <b>
+                        <a href="/index1">
+                            <i></i>
+                            当前位置：基础信息>党务知识>党的组织生活
+                        </a>
+                    </b>
+
+                </div>
+                <div class="keyworkxq_main">
+                       <div class="keyworkxq_mainr">
+                        <h1 style="text-align:center;">什么是党的组织生活，共产党员为什么必须参加党的组织生活？</h1>
+                        <br>
+                        <div class="keyworkxq_js">
+                            <div style="font-size:18px;font-family:SimSun;">
+                               <p style="text-indent:2em;">我们通常说的党的组织生活，主要是指由支部委员会或党小组组织召开的，以上党课、学习党内文件、汇报思想情况、总结报告工作等为主要内容的活动或会议。例如支部委员会或党小组召开的组织生活会，以及党员领导干部单独召开的党内民主生活会。
+                                </p>
+                            </div>
+                            <div style="font-size:18px;font-family:SimSun;">
+                                <p style="text-indent:2em;">
+                                   这里需要弄清楚的是党的组织生活与党的生活的区别与联系。从广义上讲，党内各种活动，包括党小组会、党员大会、党的各级委员会召开的会议、党代表大会、党代表会议、党内选举、党的民主生活会、上党课、阅读党刊和党内文件、听取党内报告以及党内的其他政治活动等等，都是党的生活。可见，党的生活包括党的组织生活，而党的组织生活，不完全等于党的生活。
+                                </p>
+                            </div>
+                            <div style="font-size:18px;font-family:SimSun;">
+
+                               <p style="text-indent:2em;">
+                                 党章明确规定，每个党员必须参加党的组织生活，这对于加强党员教育管理和监督，保持党组织先进性，充分发挥党员先锋模范作用诸方面，都有很重要的意义。对党员来说，通过参加组织生活，可以接受党组织的教育，取得党员之间的互相帮助，得到锻炼，增强组织观念，提高思想觉悟和政治水平；可以在党组织和党内外群众的监督下，发扬优点，克服缺点，纠正错误。对党的组织来说，通过组织生活，可以广泛吸收党员群众的正确意见和建议，加强和改进党的工作，更好地贯彻执行党的路线、方针、政策；可以了解党员的思想、工作、学习等情况，有针对性地对党员进行思想教育工作，监督党员切实履行党员义务，遵守纪律；可以经过讨论和开展正确的思想斗争，保证党在思想上、政治上的一致，巩固组织上的团结和统一，提高党的凝聚力和战斗力。
+                                                                  </p>
+                            </div>
+                           <div style="font-size:18px;font-family:SimSun;">
+
+                               <p style="text-indent:2em;">
+                                 ——　（摘自《党员行为规范问答》（新版）中共中央党校出版社）
+                                                                  </p>
+                            </div>
+                            <div style="font-size:18px;font-family:SimSun;">
+
+                               <p style="text-indent:2em;">
+                                 组织生活包括哪些形式？
+                                                                  </p>
+                            </div>
+                            <div style="font-size:18px;font-family:SimSun;">
+
+                               <p style="text-indent:2em;">
+                                 党的组织生活就其内容来讲必须具有政治性、思想性、原则性和针对性；就其形式来讲，则应力求灵活多样、生动活泼、富有实效。一次成功的组织生活必须是内容与形式的统一。由于组织生活的内容随时代不断地变化，其形式也应该不断地改变和创新，使党的组织生活从传统形式逐步向多样化、现代化发展。党支部必须适应这个变化趋势，在继承发扬优良传统的同时，不断开拓组织生活的新形式。特别要注意各种形式的交叉使用和组合使用，使形式更富有时代气息，更好地为内容服务。
+                                                                  </p>
+                            </div>
+                            <div style="font-size:18px;font-family:SimSun;">
+
+                               <p style="text-indent:2em;">
+                                 1．理论灌输式　这是正面教育的方法。常用的方法有学习、传达、党课、讲座、讨论等。
+                                                                  </p>
+                            </div>
+                            <div style="font-size:18px;font-family:SimSun;">
+
+                               <p style="text-indent:2em;">
+                                2．思想汇报式　这是党组织了解党员思想和工作的一种方法。目的是要党员牢记党员标淮，发挥先锋模范作用。它体现了组织生活会的管理和监督职能。
+                                                                  </p>
+                            </div>
+                            <div style="font-size:18px;font-family:SimSun;">
+
+                               <p style="text-indent:2em;">
+                                 3．民主生活式　民主生活是组织生活的一项制度，也是组织生活的一种形式。通过民主生活，党员相互之间开诚布公地开展批评与自我批评．坚持真理，修正错误，达到团结一致的目的。
+                                                                  </p>
+                            </div>
+                            <div style="font-size:18px;font-family:SimSun;">
+
+                               <p style="text-indent:2em;">
+                                 4．节日纪念式　党支部要选择有教育意义的纪念日，运用各种形式，在组织生活会上对党员进行教育，使党员进一步树立理想，坚定信念，牢记宗旨。
+                                                                  </p>
+                            </div>
+                             <div style="font-size:18px;font-family:SimSun;">
+
+                               <p style="text-indent:2em;">
+                                 5．典型示范式　树立先进典型，启发引导党员学先进、找差距；利用反面典型使党员吸取教训、引以为戒。这也是党的组织生活会的一种有效形式。
+                                                                  </p>
+                            </div>
+                             <div style="font-size:18px;font-family:SimSun;">
+
+                               <p style="text-indent:2em;">
+                                6．民主讨论式　通过对本单位重大问题民主讨论，一事一议，献计献策等形式，发挥和调动党员的积极性和创造性。
+                                                                  </p>
+                            </div>
+                             <div style="font-size:18px;font-family:SimSun;">
+
+                               <p style="text-indent:2em;">
+                                7．调查研究式　通过典型调查、抽样调查、个别调查、民意测验等形式，使党员对某些问题或理论加深理解，提高认识。
+                                                                  </p>
+                            </div>
+                             <div style="font-size:18px;font-family:SimSun;">
+
+                               <p style="text-indent:2em;">
+                                8．义务劳动式　通过公益性的社会服务和义务劳动来教育党员和体现党员的先锋模范作用。
+                                                                  </p>
+                            </div>
+                              <div style="font-size:18px;font-family:SimSun;">
+
+                               <p style="text-indent:2em;">
+                                9．评比竞赛式　通过知识竞赛、活动竞赛、劳动竞赛等形式，调动党员的积极性，形成一种人人向上、不甘落后的局面。
+                                                                  </p>
+                            </div>
+                              <div style="font-size:18px;font-family:SimSun;">
+
+                               <p style="text-indent:2em;">
+                                10．形象直观式即通过组织文体活动、电化教育等形式，生动活泼地开展组织生活。
+                                                                  </p>
+                            </div>
+                              <div style="font-size:18px;font-family:SimSun;">
+
+                               <p style="text-indent:2em;">
+                                11．联谊活动式支部与其他支部或与党外群众一起开展联谊生活，起到互相交流、互相促进的作用。
+                                                                  </p>
+                            </div>
+                              <div style="font-size:18px;font-family:SimSun;">
+
+                               <p style="text-indent:2em;">
+                               12．自我教育式组织党员根据党性原则和党的要求，对自己进行自我评价，肯定优点，找出差距，以求得自我更新，自我发展。
+                                                                  </p>
+                            </div>
+                             <div style="font-size:18px;font-family:SimSun;">
+
+                               <p style="text-indent:2em;">
+                               ——　（摘自《党支部工作》人民日报出版社）
+                                                                  </p>
+                            </div>
+                             <div style="font-size:18px;font-family:SimSun;">
+
+                               <p style="text-indent:2em;">
+                              严格党的组织生活的措施有哪些？
+                                                                  </p>
+                            </div>
+                             <div style="font-size:18px;font-family:SimSun;">
+
+                               <p style="text-indent:2em;">
+                            	1．建立健全组织生活制度检查党支部的组织生活制度是否严格，主要有三条，一是能否全面落实；二是能否经常坚持；三是能否保证质量。
+                                                                  </p>
+                            </div>
+                             <div style="font-size:18px;font-family:SimSun;">
+
+                               <p style="text-indent:2em;">
+                               2．不断提高党员参加组织生活的自觉性在教育的基础上，建立党员参加组织生活的考勤制度，定期公布和讲评。
+                                                                  </p>
+                            </div>
+                             <div style="font-size:18px;font-family:SimSun;">
+
+                               <p style="text-indent:2em;">
+                              	3．组织生活要讲求实效党的组织生活会要议大事，集中研究党支部建设中的重大问题。每次组织生活活动前要有准备，内容要集中，形式要灵活，每次都能解决一、二个问题。
+                                                                  </p>
+                            </div>
+                             <div style="font-size:18px;font-family:SimSun;">
+
+                               <p style="text-indent:2em;">
+                              	4．要切实批评与自我批评要认真解决"党内批评难"的问题，党支部书记和委员要带头开展批评。批评要坚持党的原则，讲究批评艺术，要真正做到实事求是，要与人为善。
+                                                                  </p>
+                            </div>
+                             <div style="font-size:18px;font-family:SimSun;">
+
+                               <p style="text-indent:2em;">
+                              	5．党员领导干部要带头执行组织生活制度党员领导干部要按照《准则》的有关规定，过好双重组织生活，自觉地接受党内外群众的监督。
+                                                                  </p>
+                            </div>
+                             <div style="font-size:18px;font-family:SimSun;">
+
+                               <p style="text-indent:2em;">
+                              ——　（ 摘自《党支部工作》人民日报出版社）
+                                                                  </p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+</div>
+    <div class="keyworkxq_foot">
+        <div class="keyworkxq_mainbox">
+            <div class="keyworkxq_line"></div>
+            <div class="keyworkxq_line1"></div>
+            <p>主办：西安市雁塔区大雁塔街道 &nbsp;&nbsp;承办：西安杰森电子科技有限公司</p>
+        </div>
+    </div>
+</div>

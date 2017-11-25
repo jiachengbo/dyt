@@ -1,0 +1,203 @@
+<style>
+  .container-fluid {
+    padding: 0;
+  }
+
+  .page-container {
+    margin-top: 0 !important;
+  }
+
+  .keyworkxq_lnav > ul > li a {
+    display: block;
+    width: 100%;
+    text-align: left;
+  }
+
+  .keyworkxq_lnav > ul > li {
+    border: 1px solid #ccc;
+    margin-top: 10px;
+    padding: 5px 0;
+    background-color: #F8F6F6;
+  }
+
+  .keyworkxq_lnav > ul > li a {
+    text-align: center;
+  }
+
+  .keyworkxq_lnav > ul > li a span {
+    width: 84%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .keyworkxq_rnav {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .keyworkxq_border {
+    padding: 20px 100px;
+  }
+
+  p {
+    line-height: 40px;
+    font-size: 20px;
+    text-indent: 0em;
+  }
+  .word>p:nth-child(1) strong{
+    font-size: 36px;
+  }
+  .word>p:nth-child(1){
+    text-align: center;
+  }
+</style>
+<div class="logomask" ng-style="maskStyle" ng-show="logoShow" ng-click="showLogo()">
+</div>
+<div class="index1_model" ng-show="logoShow" ng-style="logoHeight" ng-click="showLogo()">
+  <div class="asa">    <a href="#"></a>    <a href="#"></a>    <a href="javascript:void(0)" ng-click="toSHYK()"></a>    <a href="javascript:void(0)" ng-click="toLXYZ()"></a>    <a href="/partybuild#jiaoliu"></a>    <a href="/partyDQ#dangzhishi"></a>    <a href="/partyInter"></a>    <a href="/partydt"></a>    <a href="/basic"></a>    <a href="#"></a>    <a href="javascript:void(0)" ng-click="toGDDR()"></a>    <a href="/fulian"></a>    <a href="/study#studydt"></a>    <a href="http://www.12371.cn/special/zsjs/sj2/index.shtml"></a>    <a href="#"></a>    <a href="#"></a>    <a href="/minqingE"></a>    <a href="/basic#jiadaobanzi"></a>    <a href="#"></a>    <a href="/partybuild#jifen"></a>    <a href="/basic"></a>    <a href="http://dygbjy.12371.cn/"></a>    <a href="/partybuild#xiangmu1"></a>    <a href="#"></a>    <a href="/tuanwei#tuanwei"></a>    <a href="/xiaqu#xiaqu"></a>    <a href="/gonghui"></a>    <a href="/lingtouyan"></a>    <div class="clear"></div>  </div>
+</div>
+<div id="index1_nav">
+  <div class="index1_title1">
+    <div class="index1_airt">
+      <div class="index1_mainbox">
+        <div class="top_left lt">
+          <a href="http://www.gov.cn/">中央人民政府</a>
+          <span></span>
+          <a href="http://www.shaanxi.gov.cn/">陕西省人民政府</a>
+          <span></span>
+          <a href="http://www.xa.gov.cn/ptl/index.html">西安市人民政府</a>
+        </div>
+        <div class="top_right rt">
+          <a href="#">
+            <i class="ic"></i>
+            <span ng-click="wap()">手机版</span>
+            <div class="top_ewm" ng-show="phone" >
+              <img src="/modules/core/client/img/image/index/wap.png" width="100px;">
+              <b>关注我们</b>
+            </div>
+          </a>
+          <a ui-sref="authentication.signin">
+            <i class="ic1"></i>
+            <span>登录</span>
+          </a>
+        </div>
+        <div class="top_right rt" style="margin-right: 10px">
+          <a ui-sref="authentication.signin">
+            <i class="sb"></i>
+            <span>民情地图</span>
+          </a>
+          <a ui-sref="authentication.signin">
+            <i class="sb1"></i>
+            <span>党建地图</span>
+          </a>
+        </div>
+      </div>
+    </div>
+    <!--<div class="index1_imgt">-->      <!--<div class="animated bounceInLeft" ng-style="leftStyle">-->
+    <!--<img src="/modules/core/client/img/image/shouye/tuceng9.png">-->      <!--</div>-->
+    <!--<div class="animated bounceInRight" ng-style="rightStyle">-->
+    <!--<img src="/modules/core/client/img/image/shouye/toptu2.png">-->      <!--</div>-->    <!--</div>-->
+  </div>
+  <div class="tubiao">
+    <div class="div" ng-style="{'marginLeft': fixedLeft}">
+      <span></span>
+      <ul class="tiem">
+        <li><a href="/index1"><span class="wit1 tiem"></span><span class="tiem">首页</span></a></li>
+        <li><a href="/basic"><span class="wit2 tiem"></span><span class="tiem">基础信息管理</span></a></li>
+        <li><a href="/study"><span class="wit3 tiem"></span><span class="tiem">重点工作动态</span></a></li>
+        <li><a href="/partybuild"><span class="wit4 tiem"></span><span class="tiem">区域化党建</span></a></li>
+        <li><a href="/partymap"><span class="wit5 tiem"></span><span class="tiem">党建地图</span></a></li>
+        <li ng-click="showLogo()"><span class="wit6 tiem"></span><span class="tiem logo">logo</span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="container" style="background-color: #fff;">
+    <!--固定党日-->
+    <div class="keyworkxq_border">
+      <div class="keyworkxq_work">
+        <div class="keyworkxq_rnav lt">
+          <div class="keyworkxq_main">
+            <div class="keyworkxq_mainr">
+
+              <div id="font_area" class="font_area_mid"><!--正文页内容-->
+                <!--repaste.body.begin--><div class="con"><div class="word">
+                  <p><strong>“红色义工”的追求——记湖北省秭归县在宜农民工服务中心主任王华君</strong></p>
+                  <p>　　迎着朝阳出发，披着星月归来，作为雷锋出租车队队长，他驾驶印有雷锋头像标识的出租车，奔跑在城内郊外；作为农民工服务中心主任，他甘当农民工的&ldquo;义工&rdquo;，为622名流动党员、28600多名进城农民工架起服务的桥梁；作为党的十九大代表、全国劳动模范、全国出租车优秀驾驶员，被誉为&ldquo;红色义工&rdquo;&ldquo;峡江活雷锋&rdquo;，他就是湖北省宜昌市的农民工共产党员、出租车司机王华君。</p>
+                  <p>　　王华君出生在秭归县水田坝乡的深山农村，由于家庭困难，初中毕业后就辍学。1995年，17岁的王华君来到宜昌城区。他做过建筑搬运工，也当过巴士售票员。</p>
+                  <p>　　后来，王华君开上了出租车，也开启了他不一样的人生。2002年的一天，王华君看到一名女乘客在胜利四路拦车。等他送了一趟乘客再回来时，发现那名女乘客还站在原地。他主动停车问：&ldquo;大姐，去哪里？我送你！&rdquo;女乘客面带微笑，却半天没有动。王华君下车一看，原来她身有残疾，行走缓慢。王华君连忙上前，将她搀进车里。</p>
+                  <p>　　通过攀谈，王华君得知她叫杨丽华，4岁时得了小儿佝偻病，落下残疾。下车时，王华君没有收她的钱，还将自己的电话留给杨丽华说：&ldquo;你以后出门就打我电话，我免费送你。&rdquo;之后，杨丽华外出不便时，就拨打王华君的电话。这样一直坚持了15年。</p>
+                  <p>　　近20年来，他开出租车安全行驶200万公里，服务投诉为零。他拾金不昧，归还失物价值达35万元，接到乘客送来感谢信、锦旗36次，被称为康龙出租车雷锋车队里的&ldquo;活雷锋&rdquo;。</p>
+                  <p>　　在做好事的过程中，王华君也在反思：&ldquo;我一个人的力量有限，还是要团结广大党员和群众的集体力量，才能发出更大的光芒，帮助更多的人。&rdquo;王华君决定依托党组织这个阵地，为家乡建设贡献力量。</p>
+                  <p>　　2013年，在一次老乡聚会上，王华君得知像他这样从秭归来宜昌打工的流动党员有600多名。王华君决定把这些党员们召集起来成立一个党支部，发挥堡垒作用。当年5月，秭归县水田坝乡流动党员宜昌城区支部选举暨成立大会举行，王华君当选为党支部书记。</p>
+                  <p>　　在王华君的带领下，党支部建立流动党员活动室，制定各项规章制度，定期组织流动党员开展活动。2014年7月，宜昌市委组织部、秭归县委和伍家岗区委主动服务，由宝塔河街办免费提供办公场所，城区首个在宜农民工服务中心在这里挂牌，王华君被任命为秭归县在宜农民工服务中心党委副书记、主任。</p>
+                  <p>　　多年来，王华君带领一班人，义务服务秭归在宜务工党员、农民工。他说：&ldquo;我们所做的工作，就是让他们离乡不离&lsquo;家&rsquo;，流动不流失。党建带工建，农民变市民。&rdquo;</p>
+                  <p>　　2016年12月，正在宜昌一建筑工地施工的农民工姜从科不幸从33层高楼坠落。王华君带中心党委成员和律师赶往现场协调。从当天下午4时，一直持续到次日凌晨6时，双方达成赔偿协议，维护了秭归在宜农民工的权利。</p>
+                  <p>　　3年来，在宜农民工服务中心党委通过法律援助中心，协助相关部门为农民工挽回损失1380万元，捐款50万元助力精准扶贫。</p>
+                  <p>　　王华君说，融入真情、落实真管、着眼真帮，才能让每一个党员成为一面旗帜，在城市建设中发挥主人翁的作用。</p>
+                  <p>　　目前，秭归农民工服务中心党委下辖8个支部、622名党员。4年来，党组织发展新党员19名，有110多名优秀务工人员递交了入党申请书。</p></div></div><!--repaste.body.end-->
+              </div>
+
+
+
+
+
+
+
+
+
+
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="clear"></div>
+    </div>
+  </div>
+</div>
+<div class="keyworkxq_foot">
+  <div class="keyworkxq_mainbox">
+    <div class="keyworkxq_line"></div>
+    <div class="keyworkxq_line1"></div>
+    <p>主办：西安市雁塔区大雁塔街道 &nbsp;&nbsp;承办：西安杰森电子科技有限公司</p>
+  </div>
+</div>
+</div>
+<!--<script>-->
+<!--$('.top_right a').eq(0).mouseover(function(){-->
+<!--$('.top_ewm').css('display','block');-->
+<!--});-->
+<!--$('.top_right a').eq(0).mouseout(function(){-->
+<!--$('.top_ewm').css('display','none');-->
+<!--});-->
+<!--$(function() {-->
+<!--var left = ($(window).width() - 1200) / 2;-->
+<!--$('.tubiao>div').css('left', (left - 40) + 'px');-->
+<!--$('.asa').css('left', left + 'px');-->
+<!--$('.index1_imgt div:nth-of-type(2)').css({-->
+<!--'margin-right':(left-50)+'px'-->
+<!--});-->
+<!--$('.index1_imgt div:nth-of-type(1)').css({-->
+<!--'margin-left':(left-50)+'px'-->
+<!--});-->
+<!--$('.logo').click(function (event) {-->
+<!--event.preventDefault();-->
+<!--$('#index1_nav').css({-->
+<!--'background': '#ddd',-->
+<!--'opacity': 0.5-->
+<!--});-->
+<!--$('.asa').css('display', 'block');-->
+<!--});-->
+<!--$('.asa').on('click', function () {-->
+<!--$('.asa').css('display', 'none');-->
+<!--$('#index1_nav').css({-->
+<!--'background': '',-->
+<!--'opacity': ''-->
+<!--});-->
+<!--});-->
+<!--})-->
+<!--</script>-->
+<!--</body>-->
+<!--</html>-->

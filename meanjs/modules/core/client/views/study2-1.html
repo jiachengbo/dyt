@@ -1,0 +1,203 @@
+<style>
+  .container-fluid {
+    padding: 0;
+  }
+
+  .page-container {
+    margin-top: 0 !important;
+  }
+
+  .keyworkxq_lnav > ul > li a {
+    display: block;
+    width: 100%;
+    text-align: left;
+  }
+
+  .keyworkxq_lnav > ul > li {
+    border: 1px solid #ccc;
+    margin-top: 10px;
+    padding: 5px 0;
+    background-color: #F8F6F6;
+  }
+
+  .keyworkxq_lnav > ul > li a {
+    text-align: center;
+  }
+
+  .keyworkxq_lnav > ul > li a span {
+    width: 84%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .keyworkxq_rnav {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .keyworkxq_border {
+    padding: 20px 100px;
+  }
+
+  p {
+    line-height: 40px;
+    font-size: 20px;
+    text-indent: 0em;
+  }
+  .word>p:nth-child(1) strong{
+    font-size: 36px;
+  }
+  .word>p:nth-child(1){
+    text-align: center;
+  }
+</style>
+<div class="logomask" ng-style="maskStyle" ng-show="logoShow" ng-click="showLogo()">
+</div>
+<div class="index1_model" ng-show="logoShow" ng-style="logoHeight" ng-click="showLogo()">
+  <div class="asa">    <a href="#"></a>    <a href="#"></a>    <a href="javascript:void(0)" ng-click="toSHYK()"></a>    <a href="javascript:void(0)" ng-click="toLXYZ()"></a>    <a href="/partybuild#jiaoliu"></a>    <a href="/partyDQ#dangzhishi"></a>    <a href="/partyInter"></a>    <a href="/partydt"></a>    <a href="/basic"></a>    <a href="#"></a>    <a href="javascript:void(0)" ng-click="toGDDR()"></a>    <a href="/fulian"></a>    <a href="/study#studydt"></a>    <a href="http://www.12371.cn/special/zsjs/sj2/index.shtml"></a>    <a href="#"></a>    <a href="#"></a>    <a href="/minqingE"></a>    <a href="/basic#jiadaobanzi"></a>    <a href="#"></a>    <a href="/partybuild#jifen"></a>    <a href="/basic"></a>    <a href="http://dygbjy.12371.cn/"></a>    <a href="/partybuild#xiangmu1"></a>    <a href="#"></a>    <a href="/tuanwei#tuanwei"></a>    <a href="/xiaqu#xiaqu"></a>    <a href="/gonghui"></a>    <a href="/lingtouyan"></a>    <div class="clear"></div>  </div>
+</div>
+<div id="index1_nav">
+  <div class="index1_title1">
+    <div class="index1_airt">
+      <div class="index1_mainbox">
+        <div class="top_left lt">
+          <a href="http://www.gov.cn/">中央人民政府</a>
+          <span></span>
+          <a href="http://www.shaanxi.gov.cn/">陕西省人民政府</a>
+          <span></span>
+          <a href="http://www.xa.gov.cn/ptl/index.html">西安市人民政府</a>
+        </div>
+        <div class="top_right rt">
+          <a href="#">
+            <i class="ic"></i>
+            <span ng-click="wap()">手机版</span>
+            <div class="top_ewm" ng-show="phone" >
+              <img src="/modules/core/client/img/image/index/wap.png" width="100px;">
+              <b>关注我们</b>
+            </div>
+          </a>
+          <a ui-sref="authentication.signin">
+            <i class="ic1"></i>
+            <span>登录</span>
+          </a>
+        </div>
+        <div class="top_right rt" style="margin-right: 10px">
+          <a ui-sref="authentication.signin">
+            <i class="sb"></i>
+            <span>民情地图</span>
+          </a>
+          <a ui-sref="authentication.signin">
+            <i class="sb1"></i>
+            <span>党建地图</span>
+          </a>
+        </div>
+      </div>
+    </div>
+    <!--<div class="index1_imgt">-->      <!--<div class="animated bounceInLeft" ng-style="leftStyle">-->
+    <!--<img src="/modules/core/client/img/image/shouye/tuceng9.png">-->      <!--</div>-->
+    <!--<div class="animated bounceInRight" ng-style="rightStyle">-->
+    <!--<img src="/modules/core/client/img/image/shouye/toptu2.png">-->      <!--</div>-->    <!--</div>-->
+  </div>
+  <div class="tubiao">
+    <div class="div" ng-style="{'marginLeft': fixedLeft}">
+      <span></span>
+      <ul class="tiem">
+        <li><a href="/index1"><span class="wit1 tiem"></span><span class="tiem">首页</span></a></li>
+        <li><a href="/basic"><span class="wit2 tiem"></span><span class="tiem">基础信息管理</span></a></li>
+        <li><a href="/study"><span class="wit3 tiem"></span><span class="tiem">重点工作动态</span></a></li>
+        <li><a href="/partybuild"><span class="wit4 tiem"></span><span class="tiem">区域化党建</span></a></li>
+        <li><a href="/partymap"><span class="wit5 tiem"></span><span class="tiem">党建地图</span></a></li>
+        <li ng-click="showLogo()"><span class="wit6 tiem"></span><span class="tiem logo">logo</span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="container">
+    <!--固定党日-->
+    <div class="keyworkxq_border">
+      <div class="keyworkxq_work">
+        <div class="keyworkxq_rnav lt">
+          <div class="keyworkxq_main">
+            <div class="keyworkxq_mainr">
+
+              <div id="font_area" class="font_area_mid"><!--正文页内容-->
+                <!--repaste.body.begin--><div class="con"><div class="word">
+                  <p><strong>习近平对推进“两学一做”学习教育常态化制度化作出重要指示</strong></p>
+                  <p style="text-align: center;"><strong>习近平对推进&ldquo;两学一做&rdquo;学习教育常态化制度化作出重要指示强调</strong></p>
+                  <p style="text-align: center;"><strong>抓住&ldquo;关键少数&rdquo; 抓实基层支部</strong></p>
+                  <p style="text-align: center;"><strong>保证广大党员以身作则发挥先锋模范作用</strong></p>
+                  <p style="text-align: center;"><strong>刘云山出席推进&ldquo;两学一做&rdquo;学习教育常态化制度化工作座谈会</strong></p>
+                  <p style="text-align: center;"><strong><a href="http://news.12371.cn/2017/04/16/VIDE1492343402989172.shtml" target="_blank">点击观看视频</a></strong></p>
+                  <p>　　中共中央总书记、国家主席、中央军委主席习近平日前作出重要指示强调，在全党开展&ldquo;两学一做&rdquo;学习教育，取得了显著成效。实践证明，&ldquo;两学一做&rdquo;学习教育是推进思想建党、组织建党、制度治党的有力抓手，是全面从严治党的基础性工程，要坚持不懈抓下去。要把思想政治建设摆在首位，坚持用党章党规规范党员、干部言行，用党的创新理论武装全党，引导全体党员做合格党员。要抓住&ldquo;关键少数&rdquo;，抓实基层支部，坚持问题导向，发挥先进典型示范作用。要落实各级党委（党组）主体责任，落实好&ldquo;两学一做&rdquo;学习教育常态化制度化各项举措，保证党的组织履行职能、发挥核心作用，保证领导干部忠诚干净担当、发挥表率作用，保证广大党员以身作则、发挥先锋模范作用，为统筹推进&ldquo;五位一体&rdquo;总体布局和协调推进&ldquo;四个全面&rdquo;战略布局提供坚强组织保证。</p>
+                  <p style="text-align: center;"><img src="http://p1.img.cctvpic.com/photoworkspace/contentimg/2017/04/16/2017041619490337471.jpg" alt="4月16日，推进&ldquo;两学一做&rdquo;学习教育常态化制度化工作座谈会在北京召开。中共中央政治局常委、中央书记处书记刘云山在座谈会上发表讲话。" /></p>
+                  <p class="photo_title">　　4月16日，推进&ldquo;两学一做&rdquo;学习教育常态化制度化工作座谈会在北京召开。中共中央政治局常委、中央书记处书记刘云山在座谈会上发表讲话。</p>
+                  <p style="text-align: center;"><strong><a href="http://news.12371.cn/2017/04/16/VIDE1492343406234183.shtml" target="_blank">点击观看视频</a></strong></p>
+                  <p>　　16日，推进&ldquo;两学一做&rdquo;学习教育常态化制度化工作座谈会在京召开。中共中央政治局常委、中央书记处书记刘云山在座谈会上发表讲话。他指出，习近平总书记重要指示充分肯定&ldquo;两学一做&rdquo;学习教育成效，深刻阐明推进&ldquo;两学一做&rdquo;学习教育常态化制度化的重大意义、目标任务和基本要求，为我们做好工作提供了重要遵循。推进学习教育常态化制度化，要在真学实做上深化拓展，注重融入日常、抓在经常，引导广大党员深入学习党章党规，深入学习习近平总书记系列重要讲话精神和党中央治国理政新理念新思想新战略，增强&ldquo;四个意识&rdquo;，在思想上政治上行动上同以习近平同志为核心的党中央保持高度一致，做到政治合格、执行纪律合格、品德合格、发挥作用合格。要更好发挥&ldquo;关键少数&rdquo;示范带动作用，用有效制度机制推动领导干部以身作则、当好表率，带头旗帜鲜明讲政治、带头强化党性修养、带头严格自律，切实做到忠诚干净担当。要牢固树立党的一切工作到支部的鲜明导向，把&ldquo;两学一做&rdquo;作为&ldquo;三会一课&rdquo;基本内容固定下来、坚持下去，抓好基层支部相关制度建设，夯实党的组织基础。要完善查找解决问题的长效机制，经常进行党性体检，深化问题整改，在补齐基层党建短板、解决群众身边不正之风和腐败问题上持续用力。要推动学习教育与中心工作深度融合，激发党员干部干事创业的内生动力，凝心聚力促进改革发展稳定大局。各级党委要认真落实主体责任，把&ldquo;两学一做&rdquo;学习教育常态化制度化作为深化全面从严治党的重要任务，作为党建工作考核的重要内容，细化责任清单，加强分类指导，注重典型引路，充分调动基层单位的主动性创造性，以学习教育的新成效迎接党的十九大胜利召开。</p>
+                  <p>　　中共中央政治局委员、中组部部长赵乐际在会上传达了习近平的重要指示并作总结讲话。他表示，要在推进&ldquo;两学一做&rdquo;学习教育常态化制度化中，不断用习近平总书记系列重要讲话精神武装头脑、指导实践、推动工作，做到学思践悟、学做结合、知行合一。要突出思想政治建设这个首要任务，整体推进党的思想、组织、作风、反腐倡廉和制度建设，着力推进中国特色社会主义伟大事业。要充分发挥党的组织功能、组织优势、组织力量，把党支部建设作为最重要的基本建设，把党员、群众组织起来，为实现党确定的宏伟目标共同奋斗。</p>
+                  <p>　　内蒙古自治区、福建省、湖北省和交通运输部、中国商用飞机有限责任公司、中国人民大学党委（党组）负责同志在会上交流发言。</p>
+                  <p>　　刘奇葆、张春贤、赵洪祝出席会议。</p>
+                  <p>　　各省区市和副省级城市、新疆生产建设兵团党委组织部部长，中央和国家机关各部门、各人民团体以及中管企业、金融机构和高校党委（党组）主要负责同志，中央军委政治工作部、武警部队政治工作部负责同志参加会议。</p>
+                  <p>　　<strong>延伸阅读</strong></p>
+                  <p><strong></strong>　　<a href="http://news.12371.cn/2017/04/20/ARTI1492639016509272.shtml" target="_blank">推进&ldquo;两学一做&rdquo;学习教育常态化制度化工作座谈会发言摘编</a></p>
+                  <p>　　<a href="http://news.12371.cn/2017/04/17/ARTI1492380246262576.shtml" target="_blank">人民日报一论</a> <a href="http://news.12371.cn/2017/04/18/ARTI1492465427790584.shtml" target="_blank">二论</a> <a href="http://news.12371.cn/2017/04/20/ARTI1492637422473179.shtml" target="_blank">三论扎实推进&ldquo;两学一做&rdquo;学习教育常态化制度化</a></p>
+                  <p>　　<a href="http://news.12371.cn/2017/04/17/ARTI1492366413513341.shtml" target="_blank">新华社评论员：把&ldquo;两学一做&rdquo;坚持不懈抓下去</a></p>
+                  <p>　　<a href="http://lxyz.12371.cn/" target="_blank">&ldquo;学党章党规、学系列讲话，做合格党员&rdquo;学习教育</a></p></div></div><!--repaste.body.end-->
+              </div>
+
+
+
+
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="clear"></div>
+    </div>
+  </div>
+</div>
+<div class="keyworkxq_foot">
+  <div class="keyworkxq_mainbox">
+    <div class="keyworkxq_line"></div>
+    <div class="keyworkxq_line1"></div>
+    <p>主办：西安市雁塔区大雁塔街道 &nbsp;&nbsp;承办：西安杰森电子科技有限公司</p>
+  </div>
+</div>
+</div>
+<!--<script>-->
+<!--$('.top_right a').eq(0).mouseover(function(){-->
+<!--$('.top_ewm').css('display','block');-->
+<!--});-->
+<!--$('.top_right a').eq(0).mouseout(function(){-->
+<!--$('.top_ewm').css('display','none');-->
+<!--});-->
+<!--$(function() {-->
+<!--var left = ($(window).width() - 1200) / 2;-->
+<!--$('.tubiao>div').css('left', (left - 40) + 'px');-->
+<!--$('.asa').css('left', left + 'px');-->
+<!--$('.index1_imgt div:nth-of-type(2)').css({-->
+<!--'margin-right':(left-50)+'px'-->
+<!--});-->
+<!--$('.index1_imgt div:nth-of-type(1)').css({-->
+<!--'margin-left':(left-50)+'px'-->
+<!--});-->
+<!--$('.logo').click(function (event) {-->
+<!--event.preventDefault();-->
+<!--$('#index1_nav').css({-->
+<!--'background': '#ddd',-->
+<!--'opacity': 0.5-->
+<!--});-->
+<!--$('.asa').css('display', 'block');-->
+<!--});-->
+<!--$('.asa').on('click', function () {-->
+<!--$('.asa').css('display', 'none');-->
+<!--$('#index1_nav').css({-->
+<!--'background': '',-->
+<!--'opacity': ''-->
+<!--});-->
+<!--});-->
+<!--})-->
+<!--</script>-->
+<!--</body>-->
+<!--</html>-->

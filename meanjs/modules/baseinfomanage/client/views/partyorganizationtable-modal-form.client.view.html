@@ -1,0 +1,374 @@
+<div class="baseinfomanage-modal">
+  <div class="modal-header">
+    <h3>{{vm.method}} 党组织</h3>
+  </div>
+  <div class="modal-body col-md-12">
+    <form name="vm.partyOrganizationTableForm" class="form-horizontal" novalidate>
+      <fieldset ng-disabled="vm.disabled">
+        <!--第1行-->
+        <div class="row clearfix">
+          <div class="col-xs-9 column" style="margin-top: 0px;margin-bottom: 0px;">
+            <div class="form-group row" show-errors>
+              <div class="col-xs-12">
+                <label for="name">支部名称</label>
+                <input name="name" type="text" ng-model="vm.partyOrganizationTableData.name" id="name"
+                       class="form-control" placeholder="" required autofocus>
+                <div ng-messages="vm.partyOrganizationTableForm.name.$error" role="alert">
+                  <p class="help-block error-text" ng-message="required">请输入支部名称.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xs-3 column" style="margin-top: 0px;margin-bottom: 0px;">
+            <div class="form-group row" show-errors>
+              <div class="col-xs-12">
+                <label for="established_time">成立时间</label>
+                <p class="input-group">
+                  <input name="established_time"
+                         type="text"
+                         ng-model="vm.partyOrganizationTableData.established_time"
+                         id="established_time"
+                         uib-datepicker-popup
+                         is-open="popup1.opened"
+                         datepicker-options="inlineOptions"
+                         ng-required="true"
+                         current-text="今天"
+                         clear-text="清空"
+                         close-text="关闭"
+                         class="form-control"
+                         placeholder="1900-01-01"
+                         required/>
+                  <span class="input-group-btn">
+                      <button type="button"
+                              class="btn btn-default"
+                              ng-click="open1()">
+                        <i class="glyphicon glyphicon-calendar"></i>
+                      </button>
+                 </span>
+                </p>
+                <div ng-messages="vm.partyOrganizationTableForm.established_time.$error" role="alert">
+                  <p class="help-block error-text" ng-message="required">请输入成立时间.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xs-6 column" style="margin-top: 0px;margin-bottom: 0px;">
+            <div class="form-group row" show-errors>
+              <div class="col-xs-12">
+                <label for="party_organization">上级党组织</label>
+
+                <input name="party_organization" type="text" ng-model="vm.partyOrganizationTableData.party_organization"
+                       id="party_organization"
+                       class="form-control" placeholder="" required>
+                <div ng-messages="vm.partyOrganizationTableForm.party_organization.$error" role="alert">
+                  <p class="help-block error-text" ng-message="required">请输入上级党组织.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-6 column" style="margin-top: 0px;margin-bottom: 0px;">
+            <div class="form-group row" show-errors>
+              <div class="col-xs-12">
+                <label for="general_branch">上级党总支</label>
+                <input name="general_branch" type="text" ng-model="vm.partyOrganizationTableData.general_branch"
+                       id="general_branch"
+                       class="form-control" placeholder="" required>
+                <div ng-messages="vm.partyOrganizationTableForm.general_branch.$error" role="alert">
+                  <p class="help-block error-text" ng-message="required">请输入上级党总支.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--第2行-->
+        <div class="row clearfix">
+
+          <div class="col-xs-3 column" style="margin-top: 0px;margin-bottom: 0px;">
+            <div class="form-group row" show-errors>
+              <div class="col-xs-12">
+                <label for="member_ship">隶属关系</label>
+                <input name="member_ship" type="text" ng-model="vm.partyOrganizationTableData.member_ship"
+                       id="member_ship"
+                       class="form-control" placeholder="" required autofocus>
+                <div ng-messages="vm.partyOrganizationTableForm.member_ship.$error" role="alert">
+                  <p class="help-block error-text" ng-message="required">请输入隶属关系.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xs-3 column" style="margin-top: 0px;margin-bottom: 0px;">
+            <div class="form-group row" show-errors>
+              <div class="col-xs-12">
+                <label for="secretary">书记</label>
+                <input name="secretary" type="text" ng-model="vm.partyOrganizationTableData.secretary" id="secretary"
+                       class="form-control" placeholder="" required autofocus>
+                <div ng-messages="vm.partyOrganizationTableForm.secretary.$error" role="alert">
+                  <p class="help-block error-text" ng-message="required">请输入书记.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xs-3 column" style="margin-top: 0px;margin-bottom: 0px;">
+            <div class="form-group row" show-errors>
+              <div class="col-xs-12">
+                <label for="party_zhuangan">党务专干</label>
+                <input name="party_zhuangan" type="text" ng-model="vm.partyOrganizationTableData.party_zhuangan"
+                       id="party_zhuangan"
+                       class="form-control" placeholder="" required autofocus>
+                <div ng-messages="vm.partyOrganizationTableForm.party_zhuangan.$error" role="alert">
+                  <p class="help-block error-text" ng-message="required">请输入党务专干.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xs-3 column" style="margin-top: 0px;margin-bottom: 0px;">
+            <div class="form-group row" show-errors>
+              <div class="col-xs-12">
+                <label for="concat_phone">联系电话</label>
+                <input name="concat_phone"
+                       type="text"
+                       ng-model="vm.partyOrganizationTableData.concat_phone"
+                       id="concat_phone"
+                       ng-minlength="11"
+                       maxlength="11"
+                       ng-pattern="/^[0-9]*$/"
+                       class="form-control"
+                       placeholder=""
+                       required autofocus/>
+                <div
+                  ng-show="vm.partyOrganizationTableForm.concat_phone.$dirty && vm.partyOrganizationTableForm.concat_phone.$invalid"
+                  class="has-error" role="alert">
+                  <p class="help-block error-text"
+                     ng-show="vm.partyOrganizationTableForm.concat_phone.$error.pattern||vm.partyOrganizationTableForm.concat_phone.$error.minlength">
+                    联系电话有误,请重填.</p>
+                </div>
+                <div ng-messages="vm.partyOrganizationTableForm.concat_phone.$error" role="alert">
+                  <p class="help-block error-text" ng-message="required">请输入联系电话.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--第3行-->
+        <div class="row clearfix">
+          <div class="col-xs-3 column" style="margin-top: 0px;margin-bottom: 0px;">
+            <div class="form-group row" show-errors>
+              <div class="col-xs-12">
+                <label for="concat_address">联系地址</label>
+                <input name="concat_address" type="text" ng-model="vm.partyOrganizationTableData.concat_address"
+                       id="concat_address"
+                       class="form-control" placeholder="" required autofocus>
+                <div ng-messages="vm.partyOrganizationTableForm.concat_address.$error" role="alert">
+                  <p class="help-block error-text" ng-message="required">请输入联系地址.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xs-3 column" style="margin-top: 0px;margin-bottom: 0px;">
+            <div class="form-group row" show-errors>
+              <div class="col-xs-12">
+                <label for="party_number">党员人数</label>
+                <input name="party_number"
+                       type="text"
+                       ng-model="vm.partyOrganizationTableData.party_number"
+                       id="party_number"
+                       class="form-control"
+                       ng-pattern="/^[0-9]*$/"
+                       required autofocus>
+                <div ng-messages="vm.partyOrganizationTableForm.party_number.$error" role="alert">
+                  <p class="help-block error-text"
+                     ng-show="vm.partyOrganizationTableForm.party_number.$error.pattern">
+                    请输入数字</p>
+                  <p class="help-block error-text" ng-message="required">请输入党员人数.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xs-3 column" style="margin-top: 0px;margin-bottom: 0px;">
+            <div class="form-group row">
+              <div class="col-xs-12">
+                <label>单位类别</label>
+                <select class="form-control"
+                        id="company_type"
+                        ng-disabled="true"
+                        ng-model="vm.partyOrganizationTableData.company_type"
+                        ng-options="cv_company_type.id as cv_company_type.name for cv_company_type in cvs_company_type"
+                        required
+                >
+                </select>
+                <!--<input name="company_type" type="text" ng-model="vm.partyOrganizationTableData.company_type"
+                       id="company_type"
+                       class="form-control" placeholder="" required autofocus>
+                <div ng-messages="vm.partyOrganizationTableForm.company_type.$error" role="alert">
+                  <p class="help-block error-text" ng-message="required">请输入单位类别.</p>
+                </div>-->
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xs-3 column" style="margin-top: 0px;margin-bottom: 0px;">
+            <div class="form-group row">
+              <div class="col-xs-12">
+                <label for="community">所在社区</label>
+                <select class="form-control"
+                        id="community"
+                        ng-disabled="vm.userCommId"
+                        ng-model="vm.partyOrganizationTableData.community"
+                        ng-options="cv.id as cv.name for cv in cvs"
+                        required
+                >
+                </select>
+                <!--<input name="community" type="text" ng-model="vm.partyOrganizationTableData.community" id="community"
+                       class="form-control" placeholder="" required autofocus>-->
+                <div ng-messages="vm.partyOrganizationTableForm.community.$error" role="alert">
+                  <p class="help-block error-text" ng-message="required">请选择社区.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--第4行-->
+        <div class="row clearfix">
+
+          <div class="col-xs-3 column" style="margin-top: 0px;margin-bottom: 0px;">
+            <div class="form-group row" show-errors>
+              <div class="col-xs-12">
+                <label for="longitude">经度</label>
+                <input name="longitude"
+                       type="text"
+                       ng-model="vm.partyOrganizationTableData.longitude"
+                       id="longitude"
+                       class="form-control"
+                       placeholder="点击地图获取"
+                       required autofocus>
+                <div ng-messages="vm.partyOrganizationTableForm.longitude.$error" role="alert">
+                  <p class="help-block error-text" ng-message="required">请输入经度.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xs-3 column" style="margin-top: 0px;margin-bottom: 0px;">
+            <div class="form-group row" show-errors>
+              <div class="col-xs-12">
+                <label for="latitude">纬度</label>
+                <input name="latitude" type="text" ng-model="vm.partyOrganizationTableData.latitude" id="latitude"
+                       class="form-control" placeholder="点击地图获取" required autofocus>
+                <div ng-messages="vm.partyOrganizationTableForm.latitude.$error" role="alert">
+                  <p class="help-block error-text" ng-message="required">请输入纬度.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xs-3 column" style="margin-top: 0px;margin-bottom: 0px;">
+            <div class="form-group row" show-errors>
+              <div class="col-xs-12">
+                <label for="condition_type">组织类别</label>
+                <input name="condition_type" type="text" ng-model="vm.partyOrganizationTableData.condition_type"
+                       id="condition_type"
+                       class="form-control" placeholder="" required autofocus>
+                <div ng-messages="vm.partyOrganizationTableForm.condition_type.$error" role="alert">
+                  <p class="help-block error-text" ng-message="required">请输入组织类别.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xs-3 column" style="margin-top: 0px;margin-bottom: 0px;">
+            <div class="form-group row" show-errors>
+              <div class="col-xs-12">
+                <label for="company_condition">组织所在单位情况</label>
+                <input name="company_condition" type="text" ng-model="vm.partyOrganizationTableData.company_condition"
+                       id="company_condition"
+                       class="form-control" placeholder="" required autofocus>
+                <div ng-messages="vm.partyOrganizationTableForm.company_condition.$error" role="alert">
+                  <p class="help-block error-text" ng-message="required">请输入所在单位情况.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--第5行-->
+        <div class="row clearfix">
+
+          <div class="col-xs-6 column" style="margin-top: 0px;margin-bottom: 0px;">
+            <div class="form-group row" show-errors>
+              <div class="col-xs-12">
+                <label for="company_name">单位名称</label>
+                <input name="company_name" type="text" ng-model="vm.partyOrganizationTableData.company_name"
+                       id="company_name"
+                       class="form-control" placeholder="" required autofocus>
+                <div ng-messages="vm.partyOrganizationTableForm.company_name.$error" role="alert">
+                  <p class="help-block error-text" ng-message="required">请输入单位名称.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xs-3 column" style="margin-top: 0px;margin-bottom: 0px;">
+            <div class="form-group row" show-errors>
+              <div class="col-xs-12">
+                <label for="organize_condition">单位建立组织情况</label>
+                <input name="organize_condition" type="text" ng-model="vm.partyOrganizationTableData.organize_condition"
+                       id="organize_condition"
+                       class="form-control" placeholder="" required autofocus>
+                <div ng-messages="vm.partyOrganizationTableForm.organize_condition.$error" role="alert">
+                  <p class="help-block error-text" ng-message="required">请输入单位建立组织情况.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xs-3 column" style="margin-top: 0px;margin-bottom: 0px;">
+            <div class="form-group row" show-errors>
+              <div class="col-xs-12">
+                <label for="code">党组织所在单位代码</label>
+                <input name="code" type="text" ng-model="vm.partyOrganizationTableData.code"
+                       id="code"
+                       class="form-control" placeholder="" required autofocus>
+                <div ng-messages="vm.partyOrganizationTableForm.code.$error" role="alert">
+                  <p class="help-block error-text" ng-message="required">请输入党组织所在单位代码.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!--百度地图选党组织地址经纬度点-->
+
+
+      </fieldset>
+    </form>
+    <div class="row clearfix">
+
+      <div id="allmap" style="height: 350px;width: 100%"></div>
+
+      <!--<div id="map" style="height: 350px;width: 100%"
+           ui-baidu-map="myMap"
+           map-event="{'map-click': 'onMapClick($event, $params)', 'map-loaded': 'onMapLoaded($event, $params)'}"
+           map-options="vm.mapOpts">
+      </div>-->
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-primary"
+            style="width: 100px"
+            ng-if="!vm.disabled"
+            ng-click="vm.ok(vm.partyOrganizationTableForm.$valid)">确定
+    </button>
+    <button class="btn btn-warning"
+            style="width: 100px"
+            ng-click="vm.cancel()">取消
+    </button>
+  </div>
+</div>
+
+

@@ -1,0 +1,247 @@
+<div class="baseinfomanage-modal">
+  <div class="modal-header">
+    <h3>{{vm.method}} 三长三员</h3>
+  </div>
+  <div class="modal-body col-md-12">
+    <form name="vm.threeMasterMemberManagementForm" class="form-horizontal" novalidate>
+      <fieldset ng-disabled="vm.disabled">
+        <!-- 第1行-->
+        <div class="row clearfix">
+          <div class="col-xs-6 column" style="margin-top: 0px;margin-bottom: 0px;">
+            <div class="form-group row" show-errors>
+              <div class="col-xs-12">
+                <label for="name">姓名</label>
+                <input class="form-control"
+                       id="name"
+                       name="name"
+                       type="text"
+                       ng-model="vm.threeMasterMemberManagementData.name"
+                       required
+                       autofocus
+                >
+                <div ng-messages="vm.threeMasterMemberManagementForm.name.$error" role="alert">
+                  <p class="help-block error-text" ng-message="required">请输入姓名</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xs-6 column" style="margin-top: 0px;margin-bottom: 0px;">
+            <div class="form-group row" show-errors>
+              <div class="col-xs-12">
+                <label for="sex">性别</label>
+                <select class="form-control"
+                        id="sex"
+                        ng-options="cv_sex.name as cv_sex.name for cv_sex in cvs_sex"
+                        ng-model="vm.threeMasterMemberManagementData.sex"
+                        required
+                        name = 'sex'
+                >
+                </select>
+                <div ng-messages="vm.threeMasterMemberManagementForm.sex.$error" role="alert">
+                  <p class="help-block error-text" ng-message="required">请选择性别</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- 第2行-->
+        <div class="row clearfix">
+          <div class="col-xs-6 column" style="margin-top: 0px;margin-bottom: 0px;">
+            <div class="form-group row" show-errors>
+              <div class="col-xs-12">
+                <label>民族</label>
+                <select class="form-control"
+                        ng-model="vm.threeMasterMemberManagementData.nation"
+                        ng-options="cv_nation.name as cv_nation.name for cv_nation in cvs_nation"
+                        required
+                        name = 'nation'
+                >
+                </select>
+                <div ng-messages="vm.threeMasterMemberManagementForm.nation.$error" role="alert">
+                  <p class="help-block error-text" ng-message="required">请选择民族.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xs-6 column" style="margin-top: 0px;margin-bottom: 0px;">
+            <div class="form-group row" show-errors>
+              <div class="col-xs-12">
+                <label for="birth_date">出生日期</label>
+                <p class="input-group">
+                  <input class="form-control"
+                         type="text"
+                         name="birth_date"
+                         id="birth_date"
+                         ng-model="vm.threeMasterMemberManagementData.birth_date"
+                         uib-datepicker-popup
+                         is-open="popup1.opened"
+                         datepicker-options="inlineOptions"
+                         ng-required="true"
+                         current-text="今天"
+                         clear-text="清空"
+                         close-text="关闭"
+                         required
+
+                  />
+                  <span class="input-group-btn">
+                      <button type="button"
+                              class="btn btn-default"
+                              ng-click="open1()">
+                        <i class="glyphicon glyphicon-calendar"></i>
+                      </button>
+                 </span>
+                </p>
+                <div ng-messages="vm.threeMasterMemberManagementForm.birth_date.$error" role="alert">
+                  <p class="help-block error-text" ng-message="required">请输入出生日期</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- 第3行-->
+        <div class="row clearfix">
+          <div class="col-xs-6 column" style="margin-top: 0px;margin-bottom: 0px;">
+            <div class="form-group row" show-errors>
+              <div class="col-xs-12">
+                <label>文化程度</label>
+                <select class="form-control"
+                        ng-model="vm.threeMasterMemberManagementData.education_degree"
+                        ng-options="cv_education_degree.name as cv_education_degree.name for cv_education_degree in cvs_education_degree"
+                        required
+                        name = 'education_degree'
+                >
+                </select>
+                <div ng-messages="vm.threeMasterMemberManagementForm.education_degree.$error" role="alert">
+                  <p class="help-block error-text" ng-message="required">请选择文化程度.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xs-6 column" style="margin-top: 0px;margin-bottom: 0px;">
+            <div class="form-group row" show-errors>
+              <div class="col-xs-12">
+                <label for="work_unit">工作单位及职务</label>
+                <input class="form-control"
+                       id="work_unit"
+                       name="work_unit"
+                       type="text"
+                       ng-model="vm.threeMasterMemberManagementData.work_unit"
+                       required
+                       autofocus
+                >
+                <div ng-messages="vm.threeMasterMemberManagementForm.work_unit.$error" role="alert">
+                  <p class="help-block error-text" ng-message="required">请输入工作单位及职务</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- 第4行-->
+        <div class="row clearfix">
+          <div class="col-xs-6 column" style="margin-top: 0px;margin-bottom: 0px;">
+            <div class="form-group row" show-errors>
+              <div class="col-xs-12">
+                <label>类型</label>
+                <select class="form-control"
+                        ng-model="vm.threeMasterMemberManagementData.type_style"
+                        ng-options="cv_type_style.name as cv_type_style.name for cv_type_style in cvs_type_style"
+                        required
+                        name = 'type_style'
+                >
+                </select>
+                <div ng-messages="vm.threeMasterMemberManagementForm.type_style.$error" role="alert">
+                  <p class="help-block error-text" ng-message="required">请选择类型.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xs-6 column" style="margin-top: 0px;margin-bottom: 0px;">
+            <div class="form-group row" show-errors>
+              <div class="col-xs-12">
+                <label for="home_address">家庭住址</label>
+                <input class="form-control"
+                       id="home_address"
+                       name="home_address"
+                       type="text"
+                       ng-model="vm.threeMasterMemberManagementData.home_address"
+                       required
+                       autofocus
+                >
+                <div ng-messages="vm.threeMasterMemberManagementForm.home_address.$error" role="alert">
+                  <p class="help-block error-text" ng-message="required">请输入家庭住址</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- 第5行-->
+        <div class="row clearfix">
+          <div class="col-xs-6 column" style="margin-top: 0px;margin-bottom: 0px;">
+            <div class="form-group row" show-errors>
+              <div class="col-xs-12">
+                <label>所属社区</label>
+                <select class="form-control"
+                        ng-disabled="vm.userCommId"
+                        ng-model="vm.threeMasterMemberManagementData.community"
+                        ng-options="cv.id as cv.name for cv in cvs"
+                        required
+                        name = 'community'
+                >
+                </select>
+                <div ng-messages="vm.threeMasterMemberManagementForm.community.$error" role="alert">
+                  <p class="help-block error-text" ng-message="required">请选择社区.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xs-6 column" style="margin-top: 0px;margin-bottom: 0px;">
+            <div class="form-group row" show-errors>
+              <div class="col-xs-12">
+                <label for="contact_information">联系方式</label>
+                <input class="form-control"
+                       id="contact_information"
+                       name="contact_information"
+                       type="text"
+                       ng-model="vm.threeMasterMemberManagementData.contact_information"
+                       ng-minlength="11"
+                       maxlength="11"
+                       ng-pattern="/^[0-9]*$/"
+                       required
+                       autofocus
+                >
+                <div
+                  ng-show="vm.threeMasterMemberManagementForm.contact_information.$dirty && vm.threeMasterMemberManagementForm.contact_information.$invalid"
+                  class="has-error" role="alert">
+                  <p class="help-block error-text"
+                     ng-show="vm.threeMasterMemberManagementForm.contact_information.$error.pattern||vm.threeMasterMemberManagementForm.contact_information.$error.minlength">
+                    联系电话有误,请重填.</p>
+                </div>
+
+                <div ng-messages="vm.threeMasterMemberManagementForm.contact_information.$error" role="alert">
+                  <p class="help-block error-text" ng-message="required">请输入联系方式</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </fieldset>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-primary"
+            style="width: 100px"
+            ng-if="!vm.disabled"
+            ng-click="vm.ok(vm.threeMasterMemberManagementForm.$valid)">确定
+    </button>
+    <button class="btn btn-warning"
+            style="width: 100px"
+            ng-click="vm.cancel()">取消
+    </button>
+  </div>
+</div>

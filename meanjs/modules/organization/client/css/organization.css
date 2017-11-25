@@ -1,0 +1,13 @@
+/*模态窗口*/
+.organization-modal {
+    margin: 10px;
+}
+/*表格*/
+.organization-grid {
+    height: 740px;
+}
+/*图片*/
+.organization-profile-picture {
+	max-height: 140px;
+	min-height: 140px;
+}

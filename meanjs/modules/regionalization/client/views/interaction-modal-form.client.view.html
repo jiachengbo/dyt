@@ -1,0 +1,38 @@
+<div class="regionalization-modal">
+  <div class="modal-header">
+    <h3>{{vm.method}} 互动交流</h3>
+  </div>
+  <div class="modal-body col-md-12">
+    <form name="vm.interactionForm" class="form-horizontal" novalidate>
+      <fieldset ng-disabled="vm.disabled">
+        <div class="col-md-12 form-group">
+          <label class="control-label" for="problem">问题内容</label>
+          <textarea name="problem" data-ng-model="vm.interactionData.problem"
+                    id="problem" class="form-control" cols="30" maxlength="2500"
+                    rows="3" placeholder="请输入问题内容"></textarea>
+          <div>
+            <span style="color: red"
+                  ng-show="vm.yzProblem">*问题内容不能为空！</span>
+          </div>
+        </div>
+        <div class="col-md-12 form-group">
+          <label class="control-label">所属社区</label>
+          <select class="form-control"
+                  ng-disabled="vm.userCommId"
+                  ng-model="vm.interactionData.communityid"
+                  ng-options="pt.id as pt.name for pt in communityInfo">
+          </select>
+        </div>
+        <div class="row" ng-show="vm.iscreatedate">
+          <div class="col-md-12">
+            <label>创建时间：{{vm.interactionData.createdate | date:'yyyy-MM-dd HH:mm:ss'}}</label>
+          </div>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-primary" ng-if="!vm.disabled" ng-click="vm.ok(vm.interactionForm.$valid)">提交</button>
+    <button class="btn btn-warning" ng-click="vm.cancel()">取消</button>
+  </div>
+</div>

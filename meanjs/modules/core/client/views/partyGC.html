@@ -1,0 +1,216 @@
+<style>
+  .container-fluid {
+    padding: 0;
+  }
+
+  .page-container {
+    margin-top: 0 !important;
+  }
+  .keyworkxq_lnav>a {
+    background-color: #22709D;
+  }
+  .keyworkxq_lnav>a:hover {
+    background-color: #22709D;
+  }
+</style>
+<div class="logomask" ng-style="maskStyle" ng-show="logoShow"ng-click="showLogo()">
+</div>
+<div class="index1_model" ng-show="logoShow" style="height:logoHeight;width: 1200px;"ng-click="showLogo()">
+  <div class="asa">    <a href="#"></a>    <a href="#"></a>    <a href="javascript:void(0)" ng-click="toSHYK()"></a>    <a href="javascript:void(0)" ng-click="toLXYZ()"></a>    <a href="/partybuild#jiaoliu"></a>    <a href="/partyDQ#dangzhishi"></a>    <a href="/partyInter"></a>    <a href="/partydt"></a>    <a href="/basic"></a>    <a href="#"></a>    <a href="javascript:void(0)" ng-click="toGDDR()"></a>    <a href="/fulian"></a>    <a href="/study#studydt"></a>    <a href="http://www.12371.cn/special/zsjs/sj2/index.shtml"></a>    <a href="#"></a>    <a href="#"></a>    <a href="/minqingE"></a>    <a href="/basic#jiadaobanzi"></a>    <a href="#"></a>    <a href="/partybuild#jifen"></a>    <a href="/basic"></a>    <a href="http://dygbjy.12371.cn/"></a>    <a href="/partybuild#xiangmu1"></a>    <a href="#"></a>    <a href="/tuanwei#tuanwei"></a>    <a href="/xiaqu#xiaqu"></a>    <a href="/gonghui"></a>    <a href="/lingtouyan"></a>    <div class="clear"></div>  </div>
+</div>
+<div id="index1_nav">
+    <div class="index1_title1">
+        <div class="index1_airt">
+            <div class="index1_mainbox">
+                <div class="top_left lt">
+                    <a href="http://www.gov.cn/">中央人民政府</a>
+                    <span></span>
+                    <a href="http://www.shaanxi.gov.cn/">陕西省人民政府</a>
+                    <span></span>
+                    <a href="http://www.xa.gov.cn/ptl/index.html">西安市人民政府</a>
+                </div>
+              <div class="top_right rt">
+                <a href="#">
+                  <i class="ic"></i>
+                  <span ng-click="wap()">手机版</span>
+                  <div class="top_ewm" ng-show="phone" >
+                    <img src="/modules/core/client/img/image/index/wap.png" width="100px;">
+                    <b>关注我们</b>
+                  </div>
+                </a>
+                <a ui-sref="authentication.signin">
+                  <i class="ic1"></i>
+                  <span>登录</span>
+                </a>
+              </div>
+              <div class="top_right rt" style="margin-right: 10px">
+                <a ui-sref="authentication.signin">
+                  <i class="sb"></i>
+                  <span>民情地图</span>
+                </a>
+                <a ui-sref="authentication.signin">
+                  <i class="sb1"></i>
+                  <span>党建地图</span>
+                </a>
+              </div>
+            </div>
+        </div>
+      <!--<div class="index1_imgt">-->      <!--<div class="animated bounceInLeft" ng-style="leftStyle">-->        <!--<img src="/modules/core/client/img/image/shouye/tuceng9.png">-->      <!--</div>-->      <!--<div class="animated bounceInRight" ng-style="rightStyle">-->        <!--<img src="/modules/core/client/img/image/shouye/toptu2.png">-->      <!--</div>-->    <!--</div>-->
+    </div>
+  <div class="tubiao">
+    <div class="div" ng-style="{'marginLeft': fixedLeft}">
+            <span ></span>
+            <ul class="tiem">
+                <li><a href="/index1"><span class="wit1 tiem"></span><span class="tiem">首页</span></a></li>
+                <li><a href="/basic"><span class="wit2 tiem"></span><span class="tiem">基础信息管理</span></a></li>
+                <li><a href="/study"><span class="wit3 tiem"></span><span class="tiem">重点工作动态</span></a></li>
+                <li><a href="/partybuild"><span class="wit4 tiem"></span><span class="tiem">区域化党建</span></a></li>
+                <li><a href="/partymap"><span class="wit5 tiem"></span><span class="tiem">党建地图</span></a></li>
+                <li ng-click="showLogo()"><span class="wit6 tiem"></span><span class="tiem logo">logo</span></li>
+            </ul>
+        </div>
+    </div>
+    <div class="container">
+    <!--标体-->
+
+    <!--固定党日-->
+    <div class="keyworkxq_border">
+        <div class="keyworkxq_work">
+            <div class="keyworkxq_lnav lt">
+                <a href="/index1">
+                    <i class="keyword_ico"></i>
+                    <span>党务知识</span>
+                </a>
+              <div class="basic_zhishi">
+                <ul>
+                  <li class="basic_dangbiao lt">
+                    <a href="/partyDQ">
+                      <span>党旗</span>
+                    </a>
+                  </li>
+                  <li class="basic_dangbiao rt">
+                    <a href="/partyDH">
+                      <span>党徽</span>
+                    </a>
+                  </li>
+                  <li class="basic_dangbiao lt">
+                    <a href="/partyDZ">
+                      <span>党章</span>
+                    </a>
+                  </li>
+                  <li class="basic_dangbiao rt">
+                    <a href="/partyInter">
+                      <span>入党流程</span>
+                    </a>
+                  </li>
+                  <li class="clear">
+                    <a href="/partyZS-1">
+                      <span>党员基本知识</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/partyZS-2">
+                      <span>党员组织关系</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/partyZS-3">
+                      <span>党的组织生活</span>
+                    </a>
+                  </li>
+                  <li>
+                  <li>
+                    <a href="/partyZS-4">
+                      <span>党费的收缴标准</span>
+                    </a>
+                  </li>
+                  <li>
+                  <li>
+                    <a href="/partyZS-5">
+                      <span>党员的权利和义务</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/partyGC">
+                      <span>高层声音之共享创新发展</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/partyGC-1">
+                      <span>高层声音之体育强国</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/partyGC-2">
+                      <span>高层声音之青年红色筑梦之旅</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/partyGC-3">
+                      <span>高层声音之模范先锋</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/partyGC-5">
+                      <span>高层声音之在陕西</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/partyGC-6">
+                      <span>高层声音之加强联系专家</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="keyworkxq_rnav lt">
+                <div class="keyworkxq_title">
+                    <b>
+                        <a href="/index1">
+                            <i></i>
+                            当前位置：基础信息>党务知识>高层声音
+                        </a>
+                    </b>
+                </div>
+                <div class="keyworkxq_main">
+                       <div class="keyworkxq_mainr">
+                        <h1 style="text-align: center;">张广智：城市基层党建要统筹推进融合共享创新发展</h1>
+                        <br>
+                        <div class="keyworkxq_js">
+                            <div style="font-size:18px;font-family:SimSun;">
+                              <img src="/modules/core/client/img/image/images/4.jpg">
+                            </div>
+                            <div style="font-size:18px;font-family:SimSun;">
+                                <p style="text-indent:2em;">
+                                 8月29日，全省城市基层党建工作经验交流座谈会在西安召开。省委常委、省委组织部部长张广智出席会议并讲话，强调要深入贯彻全国座谈会精神和省委要求，坚持以人民为中心，把各领域党组织力量统筹起来，更好地发挥组织优势、服务功能，为完善城市治理体系、提高群众生活质量服务。
+                              </p>
+                            </div>
+                            <div style="font-size:18px;font-family:SimSun;">
+
+                               <p style="text-indent:2em;">
+                              	张广智指出，城市基层党组织是党在城市的执政基础，担负着直接联系服务群众的重要职责。要主动适应城市发展的新变化新要求，创新体制机制，逐级建立党建联席会议，坚持条条和块块双向用力，推动各领域党组织组织共建、活动共联、资源共享。要优化街道社区职能设置，赋予一定考核监督权限，加强党组织自身建设，不断强化政治功能和服务功能。要加强基础保障，加大经费投入力度，规范阵地管理使用，稳定工作队伍，确保街道社区有资源、有能力为群众服务。要创新方式方法，积极推进商务楼宇、商圈市场、互联网业等新兴领域党的建设，不断提高党的组织和工作有效覆盖。要靠实工作责任，加强督查指导，注重典型引路，推动城市基层党建工作不断开创新局面，为决胜全面小康、奋力追赶超越提供坚强组织保障。
+                              </p>
+                            </div>
+                                <div style="font-size:18px;font-family:SimSun;">
+
+                               <p style="text-indent:2em;">
+                              会议传达了全国城市基层党建工作座谈会精神。与会同志实地考察了西安市城市基层党建工作。西安市、宝鸡市、咸阳市秦都区、延安市宝塔区、城固县博望街道、西安市莲湖区学习巷社区作了交流发言。
+                                  </p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+</div>
+    <div class="keyworkxq_foot">
+        <div class="keyworkxq_mainbox">
+            <div class="keyworkxq_line"></div>
+            <div class="keyworkxq_line1"></div>
+            <p>主办：西安市雁塔区大雁塔街道 &nbsp;&nbsp;承办：西安杰森电子科技有限公司</p>
+        </div>
+    </div>
+</div>

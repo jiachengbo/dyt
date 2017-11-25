@@ -1,0 +1,363 @@
+<style>
+  .container-fluid {
+    padding: 0;
+  }
+
+  .page-container {
+    margin-top: 0 !important;
+  }
+  .keyworkxq_lnav>a {
+    background-color: #22709D;
+  }
+  .keyworkxq_lnav>a:hover {
+    background-color: #22709D;
+  }
+</style>
+<div class="logomask" ng-style="maskStyle" ng-show="logoShow"ng-click="showLogo()">
+</div>
+<div class="index1_model" ng-show="logoShow" style="height:logoHeight;width: 1200px;"ng-click="showLogo()">
+  <div class="asa">    <a href="#"></a>    <a href="#"></a>    <a href="javascript:void(0)" ng-click="toSHYK()"></a>    <a href="javascript:void(0)" ng-click="toLXYZ()"></a>    <a href="/partybuild#jiaoliu"></a>    <a href="/partyDQ#dangzhishi"></a>    <a href="/partyInter"></a>    <a href="/partydt"></a>    <a href="/basic"></a>    <a href="#"></a>    <a href="javascript:void(0)" ng-click="toGDDR()"></a>    <a href="/fulian"></a>    <a href="/study#studydt"></a>    <a href="http://www.12371.cn/special/zsjs/sj2/index.shtml"></a>    <a href="#"></a>    <a href="#"></a>    <a href="/minqingE"></a>    <a href="/basic#jiadaobanzi"></a>    <a href="#"></a>    <a href="/partybuild#jifen"></a>    <a href="/basic"></a>    <a href="http://dygbjy.12371.cn/"></a>    <a href="/partybuild#xiangmu1"></a>    <a href="#"></a>    <a href="/tuanwei#tuanwei"></a>    <a href="/xiaqu#xiaqu"></a>    <a href="/gonghui"></a>    <a href="/lingtouyan"></a>    <div class="clear"></div>  </div>
+</div>
+<div id="index1_nav">
+    <div class="index1_title1">
+        <div class="index1_airt">
+            <div class="index1_mainbox">
+                <div class="top_left lt">
+                    <a href="http://www.gov.cn/">中央人民政府</a>
+                    <span></span>
+                    <a href="http://www.shaanxi.gov.cn/">陕西省人民政府</a>
+                    <span></span>
+                    <a href="http://www.xa.gov.cn/ptl/index.html">西安市人民政府</a>
+                </div>
+              <div class="top_right rt">
+                <a href="#">
+                  <i class="ic"></i>
+                  <span ng-click="wap()">手机版</span>
+                  <div class="top_ewm" ng-show="phone" >
+                    <img src="/modules/core/client/img/image/index/wap.png" width="100px;">
+                    <b>关注我们</b>
+                  </div>
+                </a>
+                <a ui-sref="authentication.signin">
+                  <i class="ic1"></i>
+                  <span>登录</span>
+                </a>
+              </div>
+              <div class="top_right rt" style="margin-right: 10px">
+                <a ui-sref="authentication.signin">
+                  <i class="sb"></i>
+                  <span>民情地图</span>
+                </a>
+                <a ui-sref="authentication.signin">
+                  <i class="sb1"></i>
+                  <span>党建地图</span>
+                </a>
+              </div>
+            </div>
+        </div>
+      <!--<div class="index1_imgt">-->      <!--<div class="animated bounceInLeft" ng-style="leftStyle">-->        <!--<img src="/modules/core/client/img/image/shouye/tuceng9.png">-->      <!--</div>-->      <!--<div class="animated bounceInRight" ng-style="rightStyle">-->        <!--<img src="/modules/core/client/img/image/shouye/toptu2.png">-->      <!--</div>-->    <!--</div>-->
+    </div>
+  <div class="tubiao">
+    <div class="div" ng-style="{'marginLeft': fixedLeft}">
+            <span ></span>
+            <ul class="tiem">
+                <li><a href="/index1"><span class="wit1 tiem"></span><span class="tiem">首页</span></a></li>
+                <li><a href="/basic"><span class="wit2 tiem"></span><span class="tiem">基础信息管理</span></a></li>
+                <li><a href="/study"><span class="wit3 tiem"></span><span class="tiem">重点工作动态</span></a></li>
+                <li><a href="/partybuild"><span class="wit4 tiem"></span><span class="tiem">区域化党建</span></a></li>
+                <li><a href="/partymap"><span class="wit5 tiem"></span><span class="tiem">党建地图</span></a></li>
+              <li ng-click="showLogo()"><span class="wit6 tiem"></span><span class="tiem logo">logo</span></li>
+            </ul>
+        </div>
+    </div>
+    <div class="container">
+    <!--标体-->
+
+    <!--固定党日-->
+    <div class="keyworkxq_border">
+        <div class="keyworkxq_work">
+            <div class="keyworkxq_lnav lt">
+                <a href="/index1">
+                    <i class="keyword_ico"></i>
+                    <span>党务知识</span>
+                </a>
+              <div class="basic_zhishi">
+                <ul>
+                  <li class="basic_dangbiao lt">
+                    <a href="/partyDQ">
+                      <span>党旗</span>
+                    </a>
+                  </li>
+                  <li class="basic_dangbiao rt">
+                    <a href="/partyDH">
+                      <span>党徽</span>
+                    </a>
+                  </li>
+                  <li class="basic_dangbiao lt">
+                    <a href="/partyDZ">
+                      <span>党章</span>
+                    </a>
+                  </li>
+                  <li class="basic_dangbiao rt">
+                    <a href="/partyInter">
+                      <span>入党流程</span>
+                    </a>
+                  </li>
+                  <li class="clear">
+                    <a href="/partyZS-1">
+                      <span>党员基本知识</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/partyZS-2">
+                      <span>党员组织关系</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/partyZS-3">
+                      <span>党的组织生活</span>
+                    </a>
+                  </li>
+                  <li>
+                  <li>
+                    <a href="/partyZS-4">
+                      <span>党费的收缴标准</span>
+                    </a>
+                  </li>
+                  <li>
+                  <li>
+                    <a href="/partyZS-5">
+                      <span>党员的权利和义务</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/partyGC">
+                      <span>高层声音之共享创新发展</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/partyGC-1">
+                      <span>高层声音之体育强国</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/partyGC-2">
+                      <span>高层声音之青年红色筑梦之旅</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/partyGC-3">
+                      <span>高层声音之模范先锋</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/partyGC-5">
+                      <span>高层声音之在陕西</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/partyGC-6">
+                      <span>高层声音之加强联系专家</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="keyworkxq_rnav lt">
+                <div class="keyworkxq_title">
+                    <b>
+                        <a href="/index1">
+                            <i></i>
+                            当前位置：基础信息>党务知识>入党流程
+                        </a>
+                    </b>
+                </div>
+                <!--<div class="keyworkxq_main">-->
+                    <!--<div class="keyworkxq_mainr">-->
+                        <!--<h1 align="center">党员入党流程</h1>-->
+                        <!--<br>-->
+                       	<!--<div align="center"><img src="/modules/core/client/img/image/images/入党流程.png"></div>-->
+
+                  <!--</div>-->
+
+                <!--</div>-->
+              <div class="basic_border">
+                <div class="basic_fazhan">
+                  <div class="basic_menu_site">
+                    <ul>
+                      <li class="basic_current" ng-click="vm.tupain(1)"><a href="javascript:void(0)">入党申请</a></li>
+                      <li class=""  ng-click="vm.tupain(2)"><a href="javascript:void(0)">入党积极分子</a><b></b></li>
+                      <li class=""  ng-click="vm.tupain(3)"><a href="javascript:void(0)">党员发展对象</a><b></b></li>
+                      <li class=""  ng-click="vm.tupain(4)"><a href="javascript:void(0)">预备党员</a><b></b></li>
+                      <li class=""  ng-click="vm.tupain(5)"><a href="javascript:void(0)">党员转正</a><b></b></li>
+                    </ul>
+                    <div class="clear"></div>
+                  </div>
+                  <!--<div class="basic_form lt">-->
+                    <!--<form name="rudang_form" novalidate>-->
+                      <!--<div class="form-group col-md-6">-->
+                        <!--<label for="username">姓名：</label>-->
+                        <!--<input type="text" id="username" ng-model="rudang.username" class="form-control" name="username" required-->
+                               <!--ng-pattern="/^[^#]*$/">-->
+                        <!--<span class="glyphicon glyphicon-ok right" ng-show="rudang_form.username.$valid"></span>-->
+                        <!--<div class="alert alert-danger" ng-show="rudang_form.username.$error.required && rudang_form.username.$touched">-->
+                          <!--<strong>请注意！</strong>-->
+                          <!--姓名不能为空。-->
+                        <!--</div>-->
+                      <!--</div>-->
+                      <!--<div class="form-group col-md-6">-->
+                        <!--<span style="font-weight: bold">性别：</span>-->
+                        <!--<input type="radio" id="man" ng-model="rudang.memberSex" class="form-control"checked name="memberSex" value="1" style="height:20px;width:40px;vertical-align: top">-->
+                        <!--<label for="man" style="float: none;text-align: left">男</label>-->
+                        <!--<input type="radio" id="woman" ng-model="rudang.memberSex" class="form-control" name="memberSex" value="2"style="height:20px;width:40px;vertical-align: top">-->
+                        <!--<label for="woman" style="float: none;text-align: left">女</label>-->
+                      <!--</div>-->
+                      <!--<div class="form-group col-md-6">-->
+                        <!--<label for="mingzu">民族：</label>-->
+                        <!--<select id="mingzu" required name="mingzu" ng-model="rudang.mingzu">-->
+                          <!--<option value>&#45;&#45;请选择&#45;&#45;</option>-->
+                          <!--<option value="1">汉族</option>-->
+                          <!--<option value="2">苗族</option>-->
+                        <!--</select>-->
+                        <!--<span class="glyphicon glyphicon-ok right" ng-show="rudang_form.mingzu.$valid"></span>-->
+                        <!--<div class="alert alert-danger" ng-show="rudang_form.mingzu.$error.required && rudang_form.mingzu.$touched">-->
+                          <!--<strong>请注意！</strong>-->
+                          <!--民族不能为空。-->
+                        <!--</div>-->
+                      <!--</div>-->
+                      <!--<div class="form-group col-md-6">-->
+                        <!--<label for="phone">手机号：</label>-->
+                        <!--<input type="text" id="phone" ng-model="rudang.phone" class="form-control" name="phone" required-->
+                               <!--ng-pattern="/^1[34578]\d{9}$/">-->
+                        <!--<span class="glyphicon glyphicon-ok right" ng-show="rudang_form.phone.$valid"></span>-->
+                        <!--<div class="alert alert-danger" ng-show="rudang_form.phone.$error.required && rudang_form.phone.$touched">-->
+                          <!--<strong>请注意！</strong>-->
+                          <!--手机号不能为空。-->
+                        <!--</div>-->
+                        <!--<div class="alert alert-danger" ng-show="rudang_form.IDcard.$error.pattern">-->
+                          <!--<strong>请注意！</strong>-->
+                          <!--手机号格式有误。-->
+                        <!--</div>-->
+                      <!--</div>-->
+                      <!--<div class="form-group col-md-6">-->
+                        <!--<label for="IDcard">身份证号：</label>-->
+                        <!--<input type="text" id="IDcard" ng-model="rudang.IDcard" class="form-control" name="IDcard" required-->
+                               <!--ng-pattern="/^(\d{15}$|^\d{18}$|^\d{17}(\d|X|x))$/">-->
+                        <!--<span class="glyphicon glyphicon-ok right" ng-show="rudang_form.IDcard.$valid"></span>-->
+                        <!--<div class="alert alert-danger" ng-show="rudang_form.IDcard.$error.required && rudang_form.IDcard.$touched">-->
+                          <!--<strong>请注意！</strong>-->
+                          <!--身份证号不能为空。-->
+                        <!--</div>-->
+                        <!--<div class="alert alert-danger" ng-show="rudang_form.IDcard.$error.pattern">-->
+                          <!--<strong>请注意！</strong>-->
+                          <!--身份证号格式有误。-->
+                        <!--</div>-->
+                      <!--</div>-->
+                      <!--<div class="form-group col-md-6">-->
+                        <!--<label for="brith">出生日期：</label>-->
+                        <!--<input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="rudang.brith" is-open="popup1.opened" close-text="关闭"clear-text="清空" current-text="今天" ng-focus="open1()" name="brith" id="brith" required  popup-placement="auto bottom-left"/>-->
+                        <!--<span class="glyphicon glyphicon-ok right" ng-show="rudang_form.brith.$valid"></span>-->
+                        <!--<div class="alert alert-danger" ng-show="rudang_form.brith.$error.required && rudang_form.brith.$touched">-->
+                          <!--<strong>请注意！</strong>-->
+                          <!--出生日期不能为空。-->
+                        <!--</div>-->
+                      <!--</div>-->
+                      <!--<div class="form-group col-md-6">-->
+                        <!--<label for="culture">文化程度：</label>-->
+                        <!--<select id="culture" required name="culture" ng-model="rudang.culture">-->
+                          <!--<option value>&#45;&#45;请选择&#45;&#45;</option>-->
+                          <!--<option value="1">研究生</option>-->
+                          <!--<option value="2">本科</option>-->
+                        <!--</select>-->
+                        <!--<span class="glyphicon glyphicon-ok right" ng-show="rudang_form.culture.$valid"></span>-->
+                        <!--<div class="alert alert-danger" ng-show="rudang_form.culture.$error.required && rudang_form.culture.$touched">-->
+                          <!--<strong>请注意！</strong>-->
+                          <!--文化程度不能为空。-->
+                        <!--</div>-->
+                      <!--</div>-->
+                      <!--<div class="form-group col-md-6">-->
+                        <!--<label for="huji">户籍所在地：</label>-->
+                        <!--<input type="text" id="huji" ng-model="rudang.huji" class="form-control" name="huji" required>-->
+                        <!--<span class="glyphicon glyphicon-ok right" ng-show="rudang_form.huji.$valid"></span>-->
+                        <!--<div class="alert alert-danger" ng-show="rudang_form.huji.$error.required && rudang_form.huji.$touched">-->
+                          <!--<strong>请注意！</strong>-->
+                          <!--户籍所在地不能为空。-->
+                        <!--</div>-->
+                      <!--</div>-->
+                      <!--<div class="form-group col-md-6">-->
+                        <!--<label for="worktime">参加工作时间：</label>-->
+                        <!--<input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="rudang.worktime" is-open="popup2.opened" close-text="关闭"clear-text="清空" current-text="今天" ng-focus="open2()" name="worktime" id="worktime" required popup-placement="auto bottom-left"/>-->
+                        <!--<span class="glyphicon glyphicon-ok right" ng-show="rudang_form.worktime.$valid"></span>-->
+                        <!--<div class="alert alert-danger" ng-show="rudang_form.worktime.$error.required && rudang_form.worktime.$touched">-->
+                          <!--<strong>请注意!</strong>-->
+                          <!--参加工作时间不能为空。-->
+                        <!--</div>-->
+                      <!--</div>-->
+                      <!--<div class="form-group col-md-6">-->
+                        <!--<label for="zhibu">选择支部：</label>-->
+                        <!--<select id="zhibu" required name="zhibu" ng-model="rudang.zhibu">-->
+                        <!--<option value>&#45;&#45;请选择&#45;&#45;</option>-->
+                        <!--<option value="1">一支部</option>-->
+                        <!--<option value="2">二支部</option>-->
+                        <!--</select>-->
+                        <!--<span class="glyphicon glyphicon-ok right" ng-show="rudang_form.zhibu.$valid"></span>-->
+                        <!--<div class="alert alert-danger" ng-show="rudang_form.zhibu.$error.required && rudang_form.zhibu.$touched">-->
+                          <!--<strong>请注意！</strong>-->
+                          <!--支部不能为空。-->
+                        <!--</div>-->
+                      <!--</div>-->
+                      <!--<div class="form-group col-md-6">-->
+                        <!--<label for="address">现居住地：</label>-->
+                        <!--<input type="text" id="address" ng-model="rudang.address" class="form-control" name="address" required>-->
+                        <!--<span class="glyphicon glyphicon-ok right" ng-show="rudang_form.address.$valid"></span>-->
+                        <!--<div class="alert alert-danger" ng-show="rudang_form.address.$error.required && rudang_form.address.$touched">-->
+                          <!--<strong>请注意！</strong>-->
+                          <!--现居住地不能为空。-->
+                        <!--</div>-->
+                      <!--</div>-->
+                      <!--<div class="form-group col-md-6">-->
+                        <!--<label for="profession">职业：</label>-->
+                        <!--<select id="profession" required name="profession" ng-model="rudang.profession">-->
+                          <!--<option value>&#45;&#45;请选择&#45;&#45;</option>-->
+                          <!--<option value="1">农民</option>-->
+                          <!--<option value="2">工人</option>-->
+                        <!--</select>-->
+                        <!--<span class="glyphicon glyphicon-ok right" ng-show="rudang_form.profession.$valid"></span>-->
+                        <!--<div class="alert alert-danger" ng-show="rudang_form.profession.$error.required && rudang_form.profession.$touched">-->
+                          <!--<strong>请注意！</strong>-->
+                          <!--职业不能为空。-->
+                        <!--</div>-->
+                      <!--</div>-->
+                      <!--<div class="form-group col-md-6">-->
+                        <!--<label for="danwei">工作单位及职务：</label>-->
+                        <!--<input type="text" id="danwei" ng-model="rudang.danwei" class="form-control" name="danwei" required>-->
+                        <!--<span class="glyphicon glyphicon-ok right" ng-show="rudang_form.danwei.$valid"></span>-->
+                        <!--<div class="alert alert-danger" ng-show="rudang_form.danwei.$error.required && rudang_form.danwei.$touched">-->
+                          <!--<strong>请注意！</strong>-->
+                          <!--工作单位及职务不能为空。-->
+                        <!--</div>-->
+                      <!--</div>-->
+                      <!--&lt;!&ndash; 在表单不合法时禁用提交按钮 &ndash;&gt;-->
+                      <!--<button class="btn btn-block btn-primary" type="submit" ng-disabled="rudang_form.$invalid" ng-click="save()">提交-->
+                      <!--</button>-->
+                    <!--</form>-->
+                  <!--</div>-->
+                  <div class="rudang">
+                    <img ng-src="{{vm.src}}">
+                    <button ng-click="vm.tupain()">下一步</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+</div>
+    <div class="keyworkxq_foot">
+        <div class="keyworkxq_mainbox">
+            <div class="keyworkxq_line"></div>
+            <div class="keyworkxq_line1"></div>
+            <p>主办：西安市雁塔区大雁塔街道 &nbsp;&nbsp;承办：西安杰森电子科技有限公司</p>
+        </div>
+    </div>
+</div>

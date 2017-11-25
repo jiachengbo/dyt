@@ -1,0 +1,414 @@
+<style>
+  .container-fluid {
+    padding: 0;
+  }
+
+  .page-container {
+    margin-top: 0 !important;
+  }
+  .workr-hover:hover {
+    cursor: pointer;
+  }
+  .xiangmu tr td span {
+    display: block;
+    width: 284px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap
+  }
+  .xiangmu tr td:nth-child(3):hover {
+    cursor: pointer;
+  }
+  .partybuild_dongt .icon {
+    width: 24px;;
+    height: 24px;
+    display: block;
+    background-image: url("/modules/core/client/img/image/index1/sanhuiyike1.png");
+    float: left;
+  }
+  .partybuild_dongt .icon.pgy{
+    background-image: url("/modules/core/client/img/image/fulian/jgfc.png");
+  }
+  .partybuild_dongt .icon.syc{
+    background-image: url("/modules/core/client/img/image/fulian/wcnr.png");
+  }
+  .partybuild_dongt .icon.xrk{
+    background-image: url("/modules/core/client/img/image/fulian/wqfy.png");
+  }
+  .partybuild_dongt .icon_huodong {
+    width: 24px;;
+    height: 24px;
+    display: block;
+    background-image: url("/modules/core/client/img/image/index1/sanhuiyike1.png");
+    float: left;
+  }
+
+  .baokan > div > div {
+    float: left;
+    width: 25%;
+    height: 200px;
+    text-align: center;
+    padding-right: 15px;
+  }
+
+  .baokan > div > div:nth-last-child(5n) {
+    margin-right: 0;
+  }
+
+  .baokan > div > div > a {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  .baokan > div > div > a > img {
+    width: 100%;
+    height: 170px;
+  }
+
+  .baokan > div > div > a > span {
+    display: block;
+    width: 100%;
+    height: 20px;
+    line-height: 20px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap
+  }
+  .index1_xiugai .index1_basicl:nth-of-type(1)>a{
+    background-color: #F29D0B;
+  }
+  .index1_xiugai .index1_basicl:nth-of-type(1)>a i {
+    background: url(/modules/core/client/img/image/fulian/fl.png) no-repeat;
+  }
+  .index1_xiugai ul>li:nth-of-type(1) a i {
+    background: url(/modules/core/client/img/image/fulian/jgfc.png)no-repeat 0px 0px;
+  }
+  .index1_xiugai ul>li:nth-of-type(1) a:hover i {
+    background: url(/modules/core/client/img/image/fulian/jgfc.png)no-repeat 0px 0px;
+  }
+  .index1_xiugai ul>li:nth-of-type(2) a i {
+    background: url(/modules/core/client/img/image/fulian/wcnr.png)no-repeat 0px 0px;
+  }
+  .index1_xiugai ul>li:nth-of-type(2) a:hover i {
+    background: url(/modules/core/client/img/image/fulian/wcnr.png)no-repeat 0px 0px;
+  }
+  .index1_xiugai ul>li:nth-of-type(3) a i {
+    background: url(/modules/core/client/img/image/fulian/wqfy.png)no-repeat 0px 0px;
+  }
+  .index1_xiugai ul>li:nth-of-type(3) a:hover i {
+    background: url(/modules/core/client/img/image/fulian/wqfy.png)no-repeat 0px 0px;
+  }
+  .index1_title a i.index1_icon4 {
+    background: url(/modules/core/client/img/image/tuanwei/zcfg.png)no-repeat 0px 0px;
+  }
+  .partybuild_dongt .icon_huodong {
+    background-image: url(/modules/core/client/img/image/tuanwei/hddt.png);
+  }
+  .workr-hover > tbody > tr td:nth-child(2) {
+    text-align: right;
+  }
+  .dash > tbody > tr:nth-of-type(2n){
+    background-color: #fff;
+  }
+  .dash > tbody > tr{
+    background-color: #fff;
+    border-bottom: 1px dashed #ccc;
+  }
+  .dash > tbody > tr>td:nth-child(2){
+    text-align: right;
+    padding-right: 5px;
+  }
+  .dash > tbody > tr:hover td{
+    cursor: pointer;
+    background: #F29D0B!important;
+  }
+  .table > tbody > tr > td{
+    border-bottom: 0px solid #fff;
+  }
+  .index1_xiugai ul>li:nth-of-type(2) a i {
+    background: url(/modules/core/client/img/image/gonghui/zx1.png)no-repeat 0px 0px;
+  }
+  .index1_xiugai ul>li:nth-of-type(2) a:hover i {
+    background: url(/modules/core/client/img/image/gonghui/zx1.png)no-repeat 0px 0px;
+  }
+  .index1_xiugai ul>li:nth-of-type(1) a i {
+    background: url(/modules/core/client/img/image/gonghui/jigou.png)no-repeat 0px 0px;
+  }
+  .index1_xiugai ul>li:nth-of-type(1) a:hover i {
+    background: url(/modules/core/client/img/image/gonghui/jigou.png)no-repeat 0px 0px;
+  }
+</style>
+<div class="logomask" ng-style="maskStyle" ng-show="logoShow"ng-click="showLogo()">
+</div>
+<div class="index1_model" ng-show="logoShow" style="height:logoHeight;width: 1200px;" ng-click="showLogo()">
+  <div class="asa">
+    <a href="#"></a>
+    <a href="#"></a>
+    <a href="javascript:void(0)" ng-click="toSHYK()"></a>
+    <a href="javascript:void(0)" ng-click="toLXYZ()"></a>
+    <a href="/partybuild#jiaoliu"></a>
+    <a href="/partyDQ#dangzhishi"></a>
+    <a href="/partyInter"></a>
+    <a href="/partydt"></a>
+    <a href="/basic"></a>
+    <a href="#"></a>
+    <a href="javascript:void(0)" ng-click="toGDDR()"></a>
+    <a href="/fulian"></a>
+    <a href="/study#studydt"></a>
+    <a href="http://www.12371.cn/special/zsjs/sj2/index.shtml"></a>
+    <a href="#"></a>
+    <a href="#"></a>
+    <a href="/minqingE"></a>
+    <a href="/basic#jiadaobanzi"></a>
+    <a href="#"></a>
+    <a href="/partybuild#jifen"></a>
+    <a href="/basic"></a>
+    <a href="http://dygbjy.12371.cn/"></a>
+    <a href="/partybuild.xiangmu"></a>
+    <a href="#"></a>
+    <a href="/tuanwei#tuanwei"></a>
+    <a href="/xiaqu#xiaqu"></a>
+    <a href="/gonghui"></a>
+    <a href="/lingtouyan"></a>
+    <div class="clear"></div>
+  </div>
+</div>
+<div id="index1_nav" class="index1_nav">
+  <div class="index1_title1">
+    <div class="index1_airt">
+      <div class="index1_mainbox">
+        <div class="top_left lt">
+          <a href="http://www.gov.cn/">中央人民政府</a>
+          <span></span>
+          <a href="http://www.shaanxi.gov.cn/">陕西省人民政府</a>
+          <span></span>
+          <a href="http://www.xa.gov.cn/ptl/index.html">西安市人民政府</a>
+        </div>
+        <div class="top_right rt">          <a href="#">            <i class="ic"></i>            <span ng-click="wap()">手机版</span>            <div class="top_ewm" ng-show="phone" >              <img src="/modules/core/client/img/image/index/wap.png" width="100px;">              <b>关注我们</b>            </div>          </a>          <a ui-sref="authentication.signin">            <i class="ic1"></i>            <span>登录</span>          </a>        </div>        <div class="top_right rt" style="margin-right: 10px">          <a ui-sref="authentication.signin">            <i class="sb"></i>            <span>民情地图</span>          </a>          <a ui-sref="authentication.signin">            <i class="sb1"></i>            <span>党建地图</span>          </a>        </div>
+      </div>
+    </div>
+  </div>
+  <div class="tubiao">
+    <div class="div" ng-style="{'marginLeft': fixedLeft}">
+      <span></span>
+      <ul class="tiem">
+        <li><a href="/index1"><span class="wit1 tiem"></span><span class="tiem">首页</span></a></li>
+        <li><a href="/basic"><span class="wit2 tiem"></span><span class="tiem">基础信息管理</span></a></li>
+        <li><a href="/study"><span class="wit3 tiem"></span><span class="tiem">重点工作动态</span></a></li>
+        <li><a href="/partybuild"><span class="wit4 tiem"></span><span class="tiem">区域化党建</span></a></li>
+        <li><a href="/partymap"><span class="wit5 tiem"></span><span class="tiem">党建地图</span></a></li>
+        <li ng-click="showLogo()"><span class="wit6 tiem"></span><span class="tiem logo">logo</span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="container">
+    <div class="index1_basic index1_xiugai">
+      <div class="index1_basicl lt">
+        <a href="/index1">
+          <i></i>
+          <span>妇联信息</span>
+        </a>
+        <ul>
+          <li><a href="/fulianjg"><i></i><span>组织机构</span></a></li>
+          <li><a href="javascript:void(0)"><i></i><span>妇联资讯</span></a></li>
+        </ul>
+      </div>
+      <div class="partybuild_dongt"
+           style="width: 80%;height:90px;margin-top: 20px;padding-right: 20px;">
+        <div class="inner" style="height:90px;background-image:url('/modules/core/client/img/image/fulian/zixun.png');"></div>
+      </div>
+      <div class="partybuild_dongt"
+           style="width: 40%;padding-right: 25px;float: left;padding-top: 20px;">
+        <table class="table table-hover dash" style="text-align: center;width: 455px;">
+          <tbody id='xiangmu2' class="xiangmu">
+          <tr ng-repeat="v in vm.leftData track by $index">
+            <td><span ng-click="vm.toDetails(v.id)">{{v.title}}</span></td>
+            <td ng-click="vm.toDetails(v.id)">{{v.time_update | date:'yyyy-MM-dd'}}</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="partybuild_dongt"
+           style="width: 40%;padding-right: 25px;margin-bottom: 20px;float: left;padding-top: 20px;">
+        <table class="table fulian-hover dash" style="text-align: center;width: 455px;">
+          <tbody id='xiangmu3' class="xiangmu">
+          <tr ng-repeat="v in vm.rightData track by $index">
+            <td ><span ng-click="vm.toDetails(v.id)">{{v.title}}</span></td>
+            <td ng-click="vm.toDetails(v.id)">{{v.time_update | date:'yyyy-MM-dd'}}</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="clear"></div>
+    </div>
+    <div class="index1_basic index1_xiugai">
+      <div class="index1_basicl lt">
+        <a href="/index1">
+          <i></i>
+          <span>妇联活动</span>
+        </a>
+        <ul>
+          <li ng-click="vm.showPGY()"><a href="javascript:void(0)"><i></i><span>巾帼风采</span></a></li>
+          <li ng-click="vm.showSYC()"><a href="javascript:void(0)"><i></i><span>未成年人</span></a></li>
+          <li ng-click="vm.showXRK()"><a href="javascript:void(0)"><i></i><span>维权法苑</span></a></li>
+        </ul>
+      </div>
+      <div class="index1_basicr lt" style="width: 40%;float: left;padding-top: 20px">
+        <div class="index1_basicrl lt">
+          <div class="index1_title">
+            <a href="javascript:void(0)">
+              <i class="index1_icon0"></i>
+              <span>活动照片</span>
+            </a>
+          </div>
+          <div id="slider">
+            <div >
+              <div uib-carousel active="active" interval="myInterval" no-wrap="noWrapSlides">
+                <div uib-slide ng-repeat="slide in slides track by slide.id" index="slide.id">
+                  <img ng-src="{{slide.image}}" style="margin:auto;height: 280px;">
+                  <div class="carousel-caption">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="partybuild_dongt"
+           style="width: 40%;padding-right: 25px;margin-bottom: 20px;float: left;padding-top: 20px;">
+        <div class="partybuild_title" style="margin-bottom: 0px;border: 0;">
+          <b class="partybuild_tactive" style="border: 0;">
+            <i class="icon ygdicon"></i>
+            <a href="javascript:void (0)">
+              {{vm.ygTitle}}
+            </a>
+          </b>
+          <a ui-sref="authentication.signin" class="rt">
+          <span>更多+</span>
+          </a>
+        </div>
+        <table class="table fulian-hover" style="text-align: center;width: 455px;">
+          <thead>
+          <tr>
+            <td>活动时间</td>
+            <td>活动标题</td>
+            <td>查看详情</td>
+          </tr>
+          </thead>
+          <tbody id='xiangmu1' class="xiangmu">
+          <tr ng-repeat="v in vm.listData track by $index">
+            <td ng-click="vm.toDetails(v.id)" width="100px">{{v.time_update | date:'yyyy-MM-dd'}}</td>
+            <td width="100px"><span ng-click="vm.toDetails(v.id)">{{v.title}}</span></td>
+            <td width="100px"><a href="javascript:void(0)" ng-click="vm.toDetails(v.id)">更多</a></td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="clear"></div>
+    </div>
+    <div class="index1_basicr lt" style="width:100%;margin-bottom: 10px;padding-top: 20px;box-shadow: 3px 5px 5px 0px #aaa;">
+      <div class="partybuild_dongt" style="width: 100%;margin-bottom: 20px;padding: 0 20px;">
+        <div class="partybuild_title" style="margin-bottom: 10px;">
+          <b class="partybuild_tactive" style="border-bottom: 0">
+            <i class="icon_huodong"></i>
+            <a ui-sref="authentication.signin">
+              活动动态
+            </a>
+            <a ui-sref="authentication.signin" class="rt">
+              <span>更多+</span>
+            </a>
+          </b>
+        </div>
+        <div class="baokan">
+          <div style="overflow: hidden;" class="row">
+            <div class="item" ng-repeat="v in vm.bottomData">
+              <a href="javascript: void (0)">
+                <img width="100%" height="260" src="{{v.photo}}">
+                <span ng-click="vm.toDetails(v.id)">
+                  {{v.title}}
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="index1_basic index1_member">
+      <div class="index1_basicr lt" style="width: 100%;float: left;">
+        <div class="index1_workr lt" style="width: 100%;padding: 20px 20px;">
+          <div class="index1_title">
+            <a href="javascript:void(0)">
+              <i class="index1_icon4"></i>
+              <span>政策法规</span>
+            </a>
+            <a ui-sref="authentication.signin" class="rt">
+              <span>更多+</span>
+            </a>
+          </div>
+          <table class="table fulian-hover"
+                 style="width: 49%;float: left;border: 1px solid #ddd;box-sizing: border-box;padding: 10px 10px;border-collapse: separate;">
+            <tbody>
+            <tr ng-click="vm.toNext(0)">
+              <td>中华全国妇女联合会章程
+              </td>
+              <td>2013-10-31</td>
+            </tr>
+            <tr ng-click="vm.toNext(1)">
+              <td>妇女联合会农村基层组织工作条例
+              </td>
+              <td>2010-01-13</td>
+            </tr>
+            <tr ng-click="vm.toNext(2)">
+              <td>妇女联合会城市街道、社区基层组织工作条例
+              </td>
+              <td>2010-01-13</td>
+            </tr>
+            <tr ng-click="vm.toNext(3)">
+              <td>妇女联合会机关、事业单位基层组织工作条例
+              </td>
+              <td>2010-01-13</td>
+            </tr>
+            </tbody>
+          </table>
+          <table class="table fulian-hover"
+                 style="width: 49%;float: right;border: 1px solid #ddd;box-sizing: border-box;padding: 10px 10px;border-collapse: separate;">
+            <tbody>
+            <tr ng-click="vm.toNext(4)">
+              <td>妇女联合会团体会员工作条例
+              </td>
+              <td>2010-01-13</td>
+            </tr>
+            <tr ng-click="vm.toNext(5)">
+              <td>妇女联合会选举工作条例
+              </td>
+              <td>2010-01-12</td>
+            </tr>
+            <tr ng-click="vm.toNext(6)">
+              <td>妇女联合会执行委员会委员替补、增补及常务委员会组成人员增补的规定
+              </td>
+              <td>2017-02-16</td>
+            </tr>
+            <tr ng-click="vm.toNext(7)">
+              <td>中华人民共和国婚姻法
+              </td>
+              <td>1980-09-10</td>
+            </tr>
+            </tbody>
+          </table>
+
+        </div>
+      </div>
+    </div>
+    <div class="clear"></div>
+  </div>
+  <!--<div class="jigou" ng-style="vm.fixedStyle" ng-click="vm.showZZJG()"></div>-->
+</div>
+<div class="index1_foot">
+  <div class="index1_mainbox">
+    <div class="index1_line"></div>
+    <div class="index1_line1"></div>
+    <p>主办：西安市雁塔区大雁塔街道 &nbsp;&nbsp;承办：西安杰森电子科技有限公司</p>
+  </div>
+</div>
+</div>

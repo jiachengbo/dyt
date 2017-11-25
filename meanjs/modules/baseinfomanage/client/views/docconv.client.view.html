@@ -1,0 +1,18 @@
+<!-- The chat view -->
+<section>
+  <div class="view-header">
+    <form class="col-xs-12 col-md-offset-4 col-md-4" ng-submit="vm.conv();">
+      <fieldset class="row">
+        <div class="input-group">
+          <input type="text" class="form-control" ng-model="vm.inputDocFile" placeholder="Enter doc filename" autofocus>
+          <span class="input-group-btn">
+          <button type="submit" class="btn btn-primary" ng-disabled="!vm.inputDocFile.length">Submit</button>
+        </span>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+  <!-- The message form -->
+  <iframe ng-src="{{vm.docFileName}}" width="100%" auto-height="-54"></iframe>
+
+</section>

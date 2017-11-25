@@ -1,0 +1,146 @@
+
+/*标体*/
+#partybuild{
+    background: #AF0102;
+}
+/*固定党日*/
+.kwdangri_border{
+    width:100%;
+    padding:20px;
+    background-color: #FFF;
+}
+.kwdangri_lnav{
+    width: 210px;
+}
+/*左边栏*/
+.kwdangri_lnav>a{
+    background-color: #E86C28;
+    color: #fff;
+    width:100%;
+    height: 90px;
+    display: inline-block;
+    text-align: center;
+}
+.kwdangri_lnav>a i{
+    width:50px;
+    height: 50px;
+    display: block;
+    margin: 5px auto;
+}
+.keyword_ico{
+    background: url("/modules/core/client/img/image/tubiao/zuzhiguanli.png") no-repeat;
+}
+.keyword_ico1{
+    background: url("/modules/core/client/img/image/tubiao/ketang.png") no-repeat;
+}
+.kwdangri_lnav>a:hover{
+    background-color: #E86C28;
+}
+.kwdangri_lnav>ul>li {
+    padding:10px;
+    text-align: center;
+}
+.kwdangri_lnav>ul>li a span{
+    width: 46%;
+    display: inline-block;
+    height: 24px;
+    font-size: 14px;
+    text-align: left;
+    line-height: 24px;
+    font-weight: bold;
+    vertical-align: bottom;
+}
+.kwdangri_lnav>ul>li>a>i{
+    margin-left: 14px;
+    display: inline-block;
+    width:24px;
+    height: 24px;
+    margin-right: 5px;
+    vertical-align: bottom;
+}
+.keyword_icon{
+    background: url("/modules/core/client/img/image/index1/lingdao.png") no-repeat 0 0;
+}
+.keyword_icon1{
+    background: url("/modules/core/client/img/image/index1/2.png") no-repeat 0 0;
+}
+.keyword_icon2{
+    background: url("/modules/core/client/img/image/index1/3.png") no-repeat 0 0;
+}
+.kwdangri_lnav>ul>li a:hover{
+    color:#F29D0B;
+}
+.kwdangri_lnav>ul>li a:hover i.keyword_icon{
+    background: url("/modules/core/client/img/image/shouye/lingdao.png") no-repeat 0 0;
+}
+.kwdangri_lnav>ul>li a:hover i.keyword_icon1{
+    background: url("/modules/core/client/img/image/shouye/555.png") no-repeat 0 0;
+}
+.kwdangri_lnav>ul>li a:hover i.keyword_icon2{
+    background: url("/modules/core/client/img/image/shouye/zhidaobiaozhun.png") no-repeat 0 0;
+}
+.kwdangri_lnav>ul>li>a:hover i{
+    vertical-align: bottom;
+    transition: transform 0.7s ease-out;
+    transform: rotateY(360deg);
+}
+
+
+.kwdangri_rnav{
+    margin-left: 20px;
+    width:78%;
+}
+.kwdangri_rnav .kwdangri_title{
+    width: 100%;
+    padding:10px;
+    padding-top:0;
+    border-bottom: 1px dashed #ddd;
+}
+.kwdangri_rnav .kwdangri_title a i{
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    background: url("/modules/core/client/img/image/tubiao/dw.png") no-repeat;
+    vertical-align: bottom;
+}
+.kwdangri_rnav .kwdangri_nav{
+    margin-top: 20px;
+}
+.kwdangri_fenye ul li{
+    float: right;
+}
+.kwdangri_fenye ul li a{
+    padding:10px;
+    border: 1px solid #dddddd;
+
+    border-radius: 5px;
+}
+.kwdangri_fenye ul li.active a{
+    background-color: #2aabd2;
+}
+/*foot*/
+.index1_foot{
+    padding-bottom: 60px;
+    text-align: center;
+    font-size: 14px;
+}
+.index1_mainbox{
+    width: 1200px;
+    margin: 0 auto;
+}
+.index1_foot .index1_line{
+    height: 1px;
+    background: #d80000;
+}
+.index1_foot .index1_line1{
+    height: 10px;
+    background: #d80000;
+    margin-top: 5px;
+}
+.index1_foot>.index1_mainbox>p{
+    height: auto;
+    font-size: 13px;
+    text-indent: 2em;
+    padding: 5px 10px;
+    line-height: 43px;
+}
