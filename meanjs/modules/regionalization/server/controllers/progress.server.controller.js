@@ -13,7 +13,7 @@ var path = require('path'),
 //创建项目进展对象
 var uploadImage = new multer('progressPicfileimg',
   100 * 1024 * 1024,
-  /image/, '.jpg');
+  /image/, '.html');
 //创建目录
 uploadImage.mkPaths();
 /**

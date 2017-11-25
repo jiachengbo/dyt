@@ -14,7 +14,7 @@ var path = require('path'),
 //创建项目Logo对象
 var uploadImage = new multer('projectLogofileimg',
   100 * 1024 * 1024,
-  /image/, '.jpg');
+  /image/, '.html');
 //创建目录
 uploadImage.mkPaths();
 exports.create = function (req, res) {
