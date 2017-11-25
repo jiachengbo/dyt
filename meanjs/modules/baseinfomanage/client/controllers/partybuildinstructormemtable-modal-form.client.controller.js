@@ -27,7 +27,7 @@
       if (vm.photo) {
         vm.partyBuildInstructorTableData.photo = vm.photo;
       }
-      // 每次 提交 所管理的社区，需要重写字段
+      // 每次 提交 农村或者社区党建指导员 所管理的社区，需要重写字段
       vm.partyBuildInstructorTableData.communityIds = '';
       vm.partyBuildInstructorTableData.communityIndexs = '';
 
@@ -92,24 +92,7 @@
           }
         }
       }
-      /*
-       if (vm.cvsList[b].name.match('村') || vm.cvsList[b].name.match('社区')) {
-       vm.sqcs.push({name: vm.cvsList[b].name, id: vm.cvsList[b].id});
-       $scope.sqc.push(false);//全部默认不选任何社区
-       // 循环赋值 所选
-       if (method === '修改' || method === '浏览') {
-       var indexIds = vm.partyBuildInstructorTableData.communityIndexs;
-       if (indexIds !== null && indexIds !== '' && indexIds !== undefined) {
-       var indexs = indexIds.split(',');
-       for (var k = 0; k < indexs.length; k++) {
-       if (indexs[k] !== "" && indexs[k] !== undefined) {
-       $scope.sqc[indexs[k]] = true;
-       }
-       }
-       }
-       }
-       }*/
-
+      
     }
   }
 }());
