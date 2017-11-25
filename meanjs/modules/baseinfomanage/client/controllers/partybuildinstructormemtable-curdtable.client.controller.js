@@ -162,7 +162,8 @@
         {field: 'rid', displayName: '序号', width: 80},
         {field: 'name', displayName: '姓名', width: 140},
         {field: 'sex', displayName: '性别', width: 80},
-        {field: 'tel', displayName: '联系电话', width: 240},
+        {field: 'tel', displayName: '联系电话', width: 200},
+        {field: 'party', displayName: '党建类型', width: 140},
         {field: 'address', displayName: '地址'}
       ],
 //-------------分页1.页面操作参数---------------
@@ -192,19 +193,21 @@
     var partyrole = localStorageService.getItems('PartyOrganizationUnitTypeConstant');
     if (Authentication.user !== null) {
       if (Authentication.user.roles[1].indexOf('_') !== -1) {
+        //社区或者村
         angular.forEach(partyrole, function (value, key) {
           if (value.roles.indexOf(Authentication.user.roles[1].split('_')[0]) !== -1) {
             vm.type = value.id;
           }
         });
       } else {
+        // 党建 5 中类型
         angular.forEach(partyrole, function (value, key) {
           if (value.roles === Authentication.user.roles[1]) {
             vm.type = value.id;
           }
         });
       }
-
+/*
       vm.queryParam = {
         partyBuildInstructorMemberId: 0,
         limit: 0,
@@ -213,15 +216,16 @@
       };
       //分页4： 刷新记录总数
       refreshRecordCount(vm.queryParam);
+*/
 
-      // console.info(vm.type);
-      /*
+      // 社区 村账号 登录， do 查看 本社区 上级添加的 党建指导员，don't 增删改
       if (Authentication.user.roles[1].indexOf('_') !== -1) {
         var role = Authentication.user.roles[1].split('_');
         CommunityService.query({
           roles: role[1]
         }).$promise.then(function (data) {
           vm.userCommId = data[0].id;
+          //判断是否社区人员或者村 管理员 登录，只显示查看 按钮
           if (vm.type) {
             vm.queryParam = {
               partyBuildInstructorMemberId: 0,
@@ -261,7 +265,7 @@
         //分页4： 刷新记录总数
         refreshRecordCount(vm.queryParam);
       }
-      */
+
     }
 
     //刷新页面数据
@@ -269,13 +273,6 @@
       vm.gridOptions.paginationCurrentPage = pageNumber;//当前页码
       //页面，记录数限制参数
       var pageParam;
-      pageParam = {
-        partyBuildInstructorMemberId: 0,
-        limit: (pageNumber - 1) * pageSize,
-        offset: pageSize,
-        party: vm.type
-      };
-      /*
       if (vm.type) {
         pageParam = {
           partyBuildInstructorMemberId: 0,
@@ -291,7 +288,7 @@
           offset: pageSize,
           communityId: vm.userCommId
         };
-      }*/
+      }
       //取后台数据，默认按创建时间降序排序
       return PartyBuildInstructorTableService.query(pageParam).$promise
         .then(function (data) {
@@ -300,7 +297,7 @@
             for (var m = 0; m < data.length; m++) {
               data[m].rid = m + 1 + (pageNumber - 1) * pageSize;
             }
-          }/*
+          }
           angular.forEach(data, function (value, key) {
             if (value.party === 1) {
               value.party = '社区党建';
@@ -313,7 +310,7 @@
             } else if (value.party === 5) {
               value.party = '非公党建';
             }
-          });*/
+          });
           vm.gridOptions.data = vm.tableData = data;
           return data;
         })

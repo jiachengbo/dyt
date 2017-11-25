@@ -5,8 +5,8 @@
     .module('dynamic')
     .controller('DynamicMainOneTableController', DynamicMainOneTableController);
 
-  DynamicMainOneTableController.$inject = ['$scope', '$stateParams', 'Notification', '$log', '$window', 'DynamicService', '$uibModal', 'Upload', 'Authentication', 'CommunityService', '$timeout', 'localStorageService', '$state'];
-  function DynamicMainOneTableController($scope, $stateParams, Notification, $log, $window, DynamicService, $uibModal, Upload, Authentication, CommunityService, $timeout, localStorageService, $state) {
+  DynamicMainOneTableController.$inject = ['$scope', '$stateParams', 'Notification', '$log', '$window', 'DynamicService', '$uibModal', 'Upload', 'Authentication', 'CommunityService', '$timeout', 'localStorageService', '$state', '$rootScope'];
+  function DynamicMainOneTableController($scope, $stateParams, Notification, $log, $window, DynamicService, $uibModal, Upload, Authentication, CommunityService, $timeout, localStorageService, $state, $rootScope) {
     var vmo = this;
     vmo.userCommId = '';
     //获取参数
@@ -120,17 +120,24 @@
       });
       // 模态窗口关闭之后返回的值
       modalInstance.result.then(function (result) {
+        $rootScope._openModal();
         $log.log('modal ok:', result);
         Upload.upload({
           url: '/api/dynamic',
           data: result
         })
           .then(function (res) {
+            if (res) {
+              $rootScope.cancel();
+            }
             //vmo.gridOptions.data.push(new DynamicService(res.data));
             refreshRecordCount(vmo.queryParam);
             Notification.success({message: '<i class="glyphicon glyphicon-ok"></i> 新增成功!'});
           })
           .catch(function (err) {
+            if (err) {
+              $rootScope.cancel();
+            }
             $log.error('dynamic add save error:', err.data.message);
             Notification.error({
               message: err.data.message, title: '<i class="glyphicon glyphicon-remove"></i>' +
@@ -139,6 +146,9 @@
           });
       })
         .catch(function (reason) {
+          /*$timeout(function () {
+           $rootScope.cancel();
+           }, 2000);*/
           $log.log('Modal dismissed:', reason);
         });
     };
@@ -188,6 +198,7 @@
       });
 
       modalInstance.result.then(function (result) {
+        $rootScope._openModal();
         $log.log('modal ok:', result);
         if (isupdate) {
           Upload.upload({
@@ -196,10 +207,16 @@
           })
             .then(function (res) {
               //修改表格显示的数据
+              if (res) {
+                $rootScope.cancel();
+              }
               angular.extend(vmo.selectedRow, res.data);
               Notification.success({message: '<i class="glyphicon glyphicon-ok"></i> 修改成功!'});
             })
             .catch(function (err) {
+              if (err) {
+                $rootScope.cancel();
+              }
               $log.error('dynamic update save error:', err.data.message);
               Notification.error({
                 message: err.data.message, title: '<i class="glyphicon glyphicon-remove"></i> ' +

@@ -22,3 +22,10 @@
 	margin-bottom: 0px;
 	/* height: 70px; */
 }
+
+.pbimem_li {
+	list-style: none;
+	width: 25%;
+	float: left;
+
+}

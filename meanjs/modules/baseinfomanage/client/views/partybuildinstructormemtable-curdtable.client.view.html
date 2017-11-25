@@ -2,7 +2,7 @@
   <div class="page-header">
     <h3>
       党建指导员管理
-      <div class="btn-group pull-right" role="group" aria-label="oper">
+      <div class="btn-group pull-right" role="group" aria-label="oper" ng-show="vm.userCommId === ''">
         <a class="btn btn-primary" ng-click="vm.add()"
            tooltip-placement="top" uib-tooltip="新增">
           <i class="glyphicon glyphicon-plus"></i>
@@ -19,7 +19,14 @@
            tooltip-placement="top" uib-tooltip="查看">
           <i class="glyphicon glyphicon-eye-open"></i>
         </a>
+
       </div>
+      <div class="btn-group pull-right" role="group" aria-label="oper" ng-show="vm.userCommId !== ''">
+      <a class="btn btn-primary" ng-click="vm.view()"
+         tooltip-placement="top" uib-tooltip="查看">
+        <i class="glyphicon glyphicon-eye-open"></i>
+      </a>
+  </div>
     </h3>
   </div>
 

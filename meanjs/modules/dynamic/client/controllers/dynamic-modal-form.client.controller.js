@@ -209,7 +209,6 @@
       }
       return '';
     }
-
     //在这里处理要进行的操作
     mo.ok = function (isValid) {
       if (!isValid) {

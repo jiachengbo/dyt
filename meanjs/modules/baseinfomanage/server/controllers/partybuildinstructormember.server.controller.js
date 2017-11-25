@@ -48,11 +48,15 @@ exports.create = function (req, res) {
         if (files && files.photo && files.photo.length === 1) {
           pbiMember.photo = path.join(uploadImage.mountDir, files.photo[0].filename).replace(/\\/g, '/');
         }
-        pbiMember.party = req.body.party; // user_id
+        pbiMember.party = req.body.party; // 党建类型1-5
         pbiMember.name = req.body.name;
         pbiMember.sex = req.body.sex;
         pbiMember.tel = req.body.tel;
         pbiMember.address = req.body.address;
+        // 所管理的社区或者村 Id
+        pbiMember.communityIds = req.body.communityIds;
+        // 所管理社区 村 对应的 ui-li index,方便修改反显
+        pbiMember.communityIndexs = req.body.communityIndexs;
         //图片
         pbiMember.save().then(function () {
           resolve();
@@ -112,6 +116,8 @@ exports.update = function (req, res) {
         pbiMember.sex = req.body.sex;
         pbiMember.tel = req.body.tel;
         pbiMember.address = req.body.address;
+        pbiMember.communityIds = req.body.communityIds;
+        pbiMember.communityIndexs = req.body.communityIndexs;
         //图片
         pbiMember.save().then(function () {
           resolve();
@@ -123,6 +129,7 @@ exports.update = function (req, res) {
       }
     });
   }
+
   function deleteOldImage() {
     return new Promise(function (resolve, reject) {
       if (existingImageUrl && newingImageUrl) {
@@ -160,29 +167,71 @@ exports.delete = function (req, res) {
  */
 exports.list = function (req, res) {
   /*
-  var PartyBuildInstructorTable = sequelize.model('PartyBuildInstructorMember');
-  PartyBuildInstructorTable.findAll({
-    limit: [0, 20],
-    order: 'id desc'
-  }).then(function (partyBuildInstructorTable) {
-    return res.jsonp(partyBuildInstructorTable);
-  }).catch(function (err) {
-    logger.error('PartyBuildInstructorMember list error:', err);
-    return res.status(422).send(err);
-  });*/
+   var PartyBuildInstructorTable = sequelize.model('PartyBuildInstructorMember');
+   PartyBuildInstructorTable.findAll({
+   limit: [0, 20],
+   order: 'id desc'
+   }).then(function (partyBuildInstructorTable) {
+   return res.jsonp(partyBuildInstructorTable);
+   }).catch(function (err) {
+   logger.error('PartyBuildInstructorMember list error:', err);
+   return res.status(422).send(err);
+   });*/
 };
 //----分页
 function listByPage(req, res, limit, offset, party) {
   var PartyBuildInstructorMember = sequelize.model('PartyBuildInstructorMember');
   var where;
-  where = {
-    party: party
-  };
-  PartyBuildInstructorMember.findAll({
-    where: where,
-    limit: [limit, offset],
-    order: 'id DESC'
-  }).then(function (partyBuildInstructorMember) {
+  if (party) {
+    where = {
+      where: {
+        party: party
+      },
+      limit: [limit, offset],
+      order: 'id DESC'
+    };
+  } else {
+    where = {
+      limit: [limit, offset],
+      order: 'id DESC'
+    };
+  }
+
+  PartyBuildInstructorMember.findAll(where).then(function (partyBuildInstructorMember) {
+    return res.jsonp(partyBuildInstructorMember);
+  }).catch(function (err) {
+    logger.error('PartyBuildInstructorMember list error:', err);
+    return res.status(422).send(err);
+  });
+}
+//---社区人员-分页
+function listByPage_comm(req, res, limit, offset, commId, party) {
+  var PartyBuildInstructorMember = sequelize.model('PartyBuildInstructorMember');
+  var where;
+  if (party) {
+    where = {
+      where: {
+        communityIds: {
+          $like: '%' + commId + '%'
+        },
+        party: party
+      },
+      limit: [limit, offset],
+      order: 'id DESC'
+    };
+  } else {
+    where = {
+      where: {
+        communityIds: {
+          $like: '%' + commId + '%'
+        }
+      },
+      limit: [limit, offset],
+      order: 'id DESC'
+    };
+  }
+
+  PartyBuildInstructorMember.findAll(where).then(function (partyBuildInstructorMember) {
     return res.jsonp(partyBuildInstructorMember);
   }).catch(function (err) {
     logger.error('PartyBuildInstructorMember list error:', err);
@@ -192,7 +241,26 @@ function listByPage(req, res, limit, offset, party) {
 //---------总数
 function listCount(req, res, party) {
   var sql;
-  sql = 'select count(*) sum from PartyBuildInstructorMember where party = ' + party;
+  if (party) {
+    sql = 'select count(*) sum from PartyBuildInstructorMember where party = ' + party;
+  } else {
+    sql = 'select count(*) sum from PartyBuildInstructorMember';
+  }
+  sequelize.query(sql, {type: sequelize.QueryTypes.SELECT}).then(function (infos) {
+    res.jsonp(infos);
+  }).catch(function (err) {
+    logger.error('listCount error:', err);
+    return res.status(422).send(err);
+  });
+}
+//-----社区----总数
+function listCount_comm(req, res, commId, party) {
+  var sql;
+  if (party) {
+    sql = 'select count(*) sum from PartyBuildInstructorMember where party = ' + party + ' and find_in_set(' + commId + ', communityIds)';
+  } else {
+    sql = 'select count(*) sum from PartyBuildInstructorMember where find_in_set(' + commId + ', communityIds)';
+  }
   sequelize.query(sql, {type: sequelize.QueryTypes.SELECT}).then(function (infos) {
     res.jsonp(infos);
   }).catch(function (err) {
@@ -207,25 +275,52 @@ exports.partyBuildInstructorMemberByID = function (req, res, next, id) {
   var limit = parseInt(req.query.limit, 0);//(pageNum-1)*10
   var offset = parseInt(req.query.offset, 0);//10 每页总数
   var party = req.query.party;
+  var commId = req.query.communityId;
   var PartyBuildInstructorMember = sequelize.model('PartyBuildInstructorMember');
   if (offset !== 0 && id === '0') {
-    listByPage(req, res, limit, offset, party);
+    if (commId !== '') {
+      if (party) {
+        listByPage_comm(req, res, limit, offset, parseInt(commId, 0), party);
+      } else {
+        listByPage_comm(req, res, limit, offset, parseInt(commId, 0));
+      }
+    } else {
+      if (party) {
+        listByPage(req, res, limit, offset, party);
+      } else {
+        listByPage(req, res, limit, offset);
+      }
+    }
+    // listByPage(req, res, limit, offset, party);
   } else if (limit === 0 && offset === 0 && id === '0') {
-    listCount(req, res, party);
+    // listCount(req, res, party);
+    if (commId !== '') {
+      if (party) {
+        listCount_comm(req, res, parseInt(commId, 0), party);
+      } else {
+        listCount_comm(req, res, parseInt(commId, 0));
+      }
+    } else {
+      if (party) {
+        listCount(req, res, party);
+      } else {
+        listCount(req, res);
+      }
+    }
   } else if (id !== '0') {
     PartyBuildInstructorMember.findOne({
       where: {id: id}
     }).then(function (partyBuildInstructorMember) {
       if (!partyBuildInstructorMember) {
-        logger.error('No partyBuildInstructorTable with that identifier has been found');
+        logger.error('No PartyBuildInstructorMember with that identifier has been found');
         return res.status(404).send({
-          message: 'No partyBuildInstructorTable with that identifier has been found'
+          message: 'No PartyBuildInstructorMember with that identifier has been found'
         });
       }
       req.model = partyBuildInstructorMember;
       next();
     }).catch(function (err) {
-      logger.error('partyBuildInstructorMember ByID error:', err);
+      logger.error('PartyBuildInstructorMember ByID error:', err);
       res.status(422).send({
         message: errorHandler.getErrorMessage(err)
       });

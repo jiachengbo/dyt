@@ -34,7 +34,15 @@ module.exports = function (sequelize, DataTypes) {
       party: {
         type: DataTypes.INTEGER,
         defaultValue: 0,
-        comment: 'user_id'
+        comment: '党建类型'
+      },
+      communityIds: {
+        type: DataTypes.STRING,
+        comment: '所管理的社区或者村'
+      },
+      communityIndexs: {
+        type: DataTypes.STRING,
+        comment: '所管理的社区或者村反显index'
       },
       photo: {
         type: DataTypes.STRING,

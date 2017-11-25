@@ -6,10 +6,10 @@
     .controller('HeaderController', HeaderController);
 
   HeaderController.$inject = ['$scope', 'Notification', '$log', 'Authentication', 'menuService',
-    'Socket', '$rootScope', '$window', '$state', '$interval', '$location', '$timeout'];
+    'Socket', '$rootScope', '$window', '$state', '$interval', '$location', '$timeout', '$uibModal'];
 
   function HeaderController($scope, Notification, $log, Authentication, menuService,
-                            Socket, $rootScope, $window, $state, $interval, $location, $timeout) {
+                            Socket, $rootScope, $window, $state, $interval, $location, $timeout, $uibModal) {
     var vm = this;
     if (Authentication.user) {
       history.pushState(null, null, '/homeback');
@@ -123,6 +123,18 @@
         $state.go('homeback');
       }
     };
+    //全局模态框
+    $rootScope._openModal = function (resarg) {
+      return $uibModal.open({
+        templateUrl: '/modules/core/client/views/openmodule-modal-form.client.view.html',
+        controller: 'openmoduleController',
+        controllerAs: 'vm',
+        backdrop: 'static',
+        resolve: resarg,
+        size: 'lg'
+      });
+    };
+
     /*
      //用户待处理任务
      vm.userWaitHandles = [];
