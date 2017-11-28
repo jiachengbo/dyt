@@ -1,0 +1,55 @@
+<style>
+  .navbar-inverse .navbar-toggle:hover, .navbar-inverse .navbar-toggle:focus {
+    background-color: transparent;
+  }
+  .dropdown{
+    margin-top: 20px;
+  }
+  .button:hover{
+    cursor: pointer;
+  }
+</style>
+<div class="kk" style="width: 100%;height: 80px;"  ng-controller="HeaderController as vm" ng-show="vm.show"></div>
+<div class="container-fluid navbar navbar-fixed-top navbar-inverse" ng-controller="HeaderController as vm" style="background-image: url('/modules/core/client/img/imageh/header.png');background-repeat: round;height: 80px;" ng-show="vm.show">
+  <div class="header-inner">
+    <!--<a ui-sref="home" class="navbar-brand">-->
+
+    <!--</a>-->
+    <div style="width: 30px;height: 30px;float: left;margin-top: 25px;text-align: center;line-height: 30px;background-color: transparent;color: #fff" ng-click="vm.goBack()" class="button">返回</div>
+    <button class="navbar-toggle show toggle-sidebarmenu" type="button" ng-if="vm.authentication.user"
+            ng-click="vm.menus.leftMenusCollapsed = !vm.menus.leftMenusCollapsed" style="background-image: url('/modules/core/client/img/imageh/menu.png');width: 30px;height: 30px;border: 0;margin-top: 25px;margin-left: 120px;">
+      <!--<span class="sr-only">Toggle navigation</span>-->
+      <!--<span class="icon-bar"></span>-->
+      <!--<span class="icon-bar"></span>-->
+      <!--<span class="icon-bar"></span>-->
+    </button>
+  </div>
+  <div class="top-menu">
+    <ul class="nav navbar-nav navbar-right" ng-hide="vm.authentication.user">
+      <li ui-sref-active="active">
+        <a ui-sref="authentication.signup">注册</a>
+      </li>
+      <li class="divider-vertical"></li>
+      <li ui-sref-active="active">
+        <a ui-sref="authentication.signin">登录</a>
+      </li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right" ng-show="vm.authentication.user">
+      <li class="dropdown" uib-dropdown>
+        <a class="dropdown-toggle user-header-dropdown-toggle" uib-dropdown-toggle role="button">
+          <img ng-src="{{vm.authentication.user.profileImageURL}}" alt="{{vm.authentication.user.displayName}}" class="header-profile-image" />
+          <span ng-bind="vm.authentication.user.displayName"></span> <b class="caret"></b>
+        </a>
+        <ul class="dropdown-menu" role="menu">
+          <li ui-sref-active="active" ng-repeat="item in vm.accountMenu.items">
+            <a ui-sref="{{item.state}}" ng-bind="item.title"></a>
+          </li>
+          <li class="divider"></li>
+          <li>
+            <a href="/api/auth/signout" target="_self">注销</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>

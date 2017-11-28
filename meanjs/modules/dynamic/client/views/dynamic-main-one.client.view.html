@@ -1,0 +1,40 @@
+<section>
+  <div class="row">
+    <div class="col-md-6" style="{{vmo.style}}">
+      <select ng-model="vmo.typeid" ng-change="vmo.disn()" ng-options="type.id as type.name for type in vmo.keytype">
+        <!--<option value="{{type.id}}" ng-repeat="type in vmo.keytype">{{type.name}}</option>-->
+      </select>
+      <!--<select ng-model="vmo.typeid" ng-change="vmo.disn()">-->
+        <!--<option value="3">基层动态</option>-->
+      <!--</select>-->
+    </div>
+    <div class="col-md-3 col-md-offset-3">
+      <div class="btn-group pull-right" role="group" aria-label="oper">
+        <a class="btn btn-primary" ng-click="vmo.add()"
+           tooltip-placement="top" uib-tooltip="新增">
+          <i class="glyphicon glyphicon-plus"></i>
+        </a>
+        <a class="btn btn-primary" ng-click="vmo.update()" ng-show="!!vmo.selectedRow"
+           tooltip-placement="top" uib-tooltip="修改">
+          <i class="glyphicon glyphicon-edit"></i>
+        </a>
+        <a class="btn btn-primary" ng-click="vmo.remove()" ng-show="!!vmo.selectedRow"
+           tooltip-placement="top" uib-tooltip="删除">
+          <i class="glyphicon glyphicon-trash"></i>
+        </a>
+        <a class="btn btn-primary" ng-click="vmo.view()" ng-show="!!vmo.selectedRow"
+           tooltip-placement="top" uib-tooltip="查看">
+          <i class="glyphicon glyphicon-eye-open"></i>
+        </a>
+      </div>
+    </div>
+    <div class="col-md-12">
+      <div ui-grid="vmo.gridOptions"
+           ui-grid-selection
+           ui-grid-pagination
+           ui-grid-resize-columns
+           class="regionalization-grid">
+      </div>
+    </div>
+  </div>
+</section>

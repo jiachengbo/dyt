@@ -1,0 +1,221 @@
+<div class="baseinfomanage-modal">
+  <div class="modal-header">
+    <h3>{{vm.method}} 党建指导员</h3>
+  </div>
+  <div class="modal-body col-md-12">
+    <form name="vm.partyBuildInstructorTableForm" class="form-horizontal" novalidate>
+      <fieldset ng-disabled="vm.disabled">
+        <div class="row clearfix">
+          <div class="col-xs-6 column" style="margin-top: 0px;margin-bottom: 0px;">
+            <div class="form-group row" show-errors>
+              <div class="col-xs-12">
+                <label for="name">名称</label>
+                <input name="name" type="text" ng-model="vm.partyBuildInstructorTableData.name" id="name"
+                       class="form-control" placeholder="" required autofocus>
+                <div ng-messages="vm.partyBuildInstructorTableForm.name.$error" role="alert">
+                  <p class="help-block error-text" ng-message="required">请输入名称.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xs-6 column" style="margin-top: 0px;margin-bottom: 0px;">
+            <div class="form-group row" show-errors>
+              <div class="col-xs-12">
+                <label for="type_style">类别</label>
+                <select class="form-control"
+                        id="type_style"
+                        ng-model="vm.partyBuildInstructorTableData.type_style"
+                        ng-options="cv.name as cv.name for cv in cvs"
+                        required
+                        name="type_style"
+                >
+                </select>
+                <!--  <input name="type_style" type="text" ng-model="vm.partyBuildInstructorTableData.type_style"
+                         id="type_style"
+                         class="form-control" placeholder="" required autofocus/>-->
+                <div ng-messages="vm.partyBuildInstructorTableForm.type_style.$error" role="alert">
+                  <p class="help-block error-text" ng-message="required">请选择类别.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row clearfix">
+          <div class="col-xs-6 column" style="margin-top: 0px;margin-bottom: 0px;">
+            <div class="form-group row" show-errors>
+              <div class="col-xs-12">
+                <label for="member_number">职工人数</label>
+                <input name="member_number" type="text" ng-model="vm.partyBuildInstructorTableData.member_number"
+                       ng-pattern="/^[0-9]*$/"
+                       id="member_number"
+                       class="form-control" placeholder="" required autofocus>
+                <div ng-messages="vm.partyBuildInstructorTableForm.member_number.$error" role="alert">
+                  <p class="help-block error-text" ng-message="required">请输入职工人数.</p>
+                  <p class="help-block error-text"
+                     ng-show="vm.partyBuildInstructorTableForm.member_number.$error.pattern">
+                    请输入数字</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-6 column" style="margin-top: 0px;margin-bottom: 0px;">
+            <div class="form-group row" show-errors>
+              <div class="col-xs-12">
+                <label for="mass_organization">群团组织</label>
+                <input name="mass_organization" type="text"
+                       ng-model="vm.partyBuildInstructorTableData.mass_organization" id="mass_organization"
+                       class="form-control" placeholder="" required autofocus>
+                <div ng-messages="vm.partyBuildInstructorTableForm.mass_organization.$error" role="alert">
+                  <p class="help-block error-text" ng-message="required">请输入群团组织.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row clearfix">
+          <div class="col-xs-6 column" style="margin-top: 0px;margin-bottom: 0px;">
+            <div class="form-group row" show-errors>
+              <div class="col-xs-12">
+                <label for="business_contact">企业联系人</label>
+                <input name="business_contact" type="text" ng-model="vm.partyBuildInstructorTableData.business_contact"
+                       id="business_contact"
+                       class="form-control" placeholder="" required autofocus>
+                <div ng-messages="vm.partyBuildInstructorTableForm.business_contact.$error" role="alert">
+                  <p class="help-block error-text" ng-message="required">请输入企业联系人.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-6 column" style="margin-top: 0;margin-bottom: 0;">
+            <div class="form-group row" show-errors>
+              <div class="col-xs-12">
+                <label for="contact_number">企业联系人联系电话</label>
+                <input name="contact_number" type="text" ng-model="vm.partyBuildInstructorTableData.contact_number"
+                       id="contact_number"
+                       class="form-control" placeholder=""
+                       ng-minlength="11"
+                       maxlength="11"
+                       ng-pattern="/^[0-9]*$/"
+                       required autofocus>
+                <div
+                  ng-show="vm.partyBuildInstructorTableForm.contact_number.$dirty && vm.partyBuildInstructorTableForm.contact_number.$invalid"
+                  class="has-error" role="alert">
+                  <p class="help-block error-text"
+                     ng-show="vm.partyBuildInstructorTableForm.contact_number.$error.pattern||vm.partyBuildInstructorTableForm.contact_number.$error.minlength">
+                    联系电话有误,请重填.</p>
+                </div>
+
+                <div ng-messages="vm.partyBuildInstructorTableForm.contact_number.$error" role="alert">
+                  <p class="help-block error-text" ng-message="required">请输入企业联系人联系电话.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row clearfix">
+          <div class="col-xs-6 column" style="margin-top: 0px;margin-bottom: 0px;">
+            <div class="form-group row" show-errors>
+              <div class="col-xs-12">
+                <label for="address">地址</label>
+                <input name="address" type="text" ng-model="vm.partyBuildInstructorTableData.address"
+                       id="address"
+                       class="form-control" placeholder="" required autofocus>
+                <div ng-messages="vm.partyBuildInstructorTableForm.address.$error" role="alert">
+                  <p class="help-block error-text" ng-message="required">请输入地址.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-6 column" style="margin-top: 0px;margin-bottom: 0px;">
+            <div class="form-group row" show-errors>
+              <div class="col-xs-12">
+                <label for="build_instructor">党建指导员</label>
+                <input name="build_instructor" type="text" ng-model="vm.partyBuildInstructorTableData.build_instructor"
+                       id="build_instructor"
+                       class="form-control" placeholder="" required autofocus>
+                <div ng-messages="vm.partyBuildInstructorTableForm.build_instructor.$error" role="alert">
+                  <p class="help-block error-text" ng-message="required">请输入党建指导员.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row clearfix">
+          <div class="col-xs-4 column" style="margin-top: 0px;margin-bottom: 0px;">
+            <div class="form-group row" show-errors>
+              <div class="col-xs-12">
+                <label for="instructor_number">党建指导员联系电话</label>
+                <input name="instructor_number" type="text"
+                       ng-model="vm.partyBuildInstructorTableData.instructor_number"
+                       id="instructor_number"
+                       class="form-control" placeholder=""
+                       ng-minlength="11"
+                       maxlength="11"
+                       ng-pattern="/^[0-9]*$/"
+                       required autofocus>
+                <div
+                  ng-show="vm.partyBuildInstructorTableForm.instructor_number.$dirty && vm.partyBuildInstructorTableForm.instructor_number.$invalid"
+                  class="has-error" role="alert">
+                  <p class="help-block error-text"
+                     ng-show="vm.partyBuildInstructorTableForm.instructor_number.$error.pattern||vm.partyBuildInstructorTableForm.instructor_number.$error.minlength">
+                    联系电话有误,请重填.</p>
+                </div>
+                <div ng-messages="vm.partyBuildInstructorTableForm.instructor_number.$error" role="alert">
+                  <p class="help-block error-text" ng-message="required">请输入联系电话.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-4 column" style="margin-top: 0px;margin-bottom: 0px;">
+            <div class="form-group row" show-errors>
+              <div class="col-xs-12">
+                <label class="control-label">党建类型</label>
+                <select class="form-control"
+                        name="party"
+                        required
+                        ng-disabled="true"
+                        ng-model="vm.partyBuildInstructorTableData.party"
+                        ng-options="pt.id as pt.name for pt in vm.partyorg">
+                </select>
+                <div ng-messages="vm.partyBuildInstructorTableForm.party.$error" role="alert">
+                  <p class="help-block error-text" ng-message="required">请选择党建类型</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-4 column" style="margin-top: 0px;margin-bottom: 0px;">
+            <div class="form-group row" show-errors>
+              <div class="col-xs-12">
+                <label class="control-label">所属社区</label>
+                <select class="form-control"
+                        name="communityid"
+                        required
+                        ng-disabled="vm.userCommId"
+                        ng-model="vm.partyBuildInstructorTableData.communityid"
+                        ng-options="pt.id as pt.name for pt in communityInfo">
+                </select>
+                <div ng-messages="vm.partyBuildInstructorTableForm.communityid.$error" role="alert">
+                  <p class="help-block error-text" ng-message="required">请选择党建类型</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-primary"
+            style="width: 100px"
+            ng-if="!vm.disabled" ng-click="vm.ok(vm.partyBuildInstructorTableForm.$valid)">确定
+    </button>
+    <button class="btn btn-warning"
+            style="width: 100px"
+            ng-click="vm.cancel()">取消
+    </button>
+  </div>
+</div>

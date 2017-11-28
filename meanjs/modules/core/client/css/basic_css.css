@@ -1,0 +1,384 @@
+
+/*标体*/
+#partybuild{
+    background: #AF0102;
+}
+/*成员*/
+.basic_border{
+    margin-bottom: 10px;
+}
+.basic_biaoti{
+    font-size: 14px;
+    background: #F3F3F3;
+    padding: 10px;
+    line-height: 35px;
+}
+.basic_biaoti>b{
+    color: #ffffff;
+    background: #E80000;
+    float: left;
+    text-align: center;
+    display: block;
+    width: 96px;
+}
+.basic_biaoti>b>a{
+    color: #fff;
+    display: block;
+    font-size: 14px;
+    text-decoration: none;
+}
+.basic_person{
+    width: 100%;
+    background-color: #fff;
+    padding:20px;
+    border:1px solid #DDDDDD;
+    border-top:none;
+}
+.basic_person1{
+    width: 210px;
+    float: left;
+}
+.basic_person2{
+    width: 100%;
+    float: left;
+}
+/*左边栏*/
+.basic_person1>a{
+    background-color: #F29D0B;
+    color: #fff;
+    width:100%;
+    height: 90px;
+    display: inline-block;
+    text-align: center;
+}
+.basic_person1>a i{
+    width:50px;
+    height: 50px;
+    display: block;
+    margin: 5px auto;
+}
+.keyword_ico{
+    background: url("/modules/core/client/img/image/tubiao/zuzhi.png") no-repeat;
+}
+.keyword_ico1{
+    background: url("/modules/core/client/img/image/tubiao/fuwu.png") no-repeat;
+}
+.basic_person1>a:hover{
+    background-color: #F29D0B;
+}
+.basic_person1>ul>li {
+    padding:10px;
+    text-align: center;
+}
+.basic_person1>ul>li a span{
+    width: 46%;
+    display: inline-block;
+    height: 24px;
+    font-size: 14px;
+    text-align: left;
+    line-height: 24px;
+    font-weight: bold;
+    vertical-align: bottom;
+}
+.basic_person1>ul>li>a>i{
+    margin-left: 14px;
+    display: inline-block;
+    width:24px;
+    height: 24px;
+    margin-right: 5px;
+    vertical-align: bottom;
+}
+.keyword_icon{
+    background: url("/modules/core/client/img/image/index1/lingdao.png") no-repeat 0 0;
+}
+.keyword_icon1{
+    background: url("/modules/core/client/img/image/index1/2.png") no-repeat 0 0;
+}
+.keyword_icon2{
+    background: url("/modules/core/client/img/image/index1/3.png") no-repeat 0 0;
+}
+.basic_person1>ul>li a:hover{
+    color:#F29D0B;
+}
+.basic_person1>ul>li a:hover i.keyword_icon{
+    background: url("/modules/core/client/img/image/shouye/lingdao.png") no-repeat 0 0;
+}
+.basic_person1>ul>li a:hover i.keyword_icon1{
+    background: url("/modules/core/client/img/image/shouye/555.png") no-repeat 0 0;
+}
+.basic_person1>ul>li a:hover i.keyword_icon2{
+    background: url("/modules/core/client/img/image/shouye/zhidaobiaozhun.png") no-repeat 0 0;
+}
+.basic_person1>ul>li>a:hover i{
+    vertical-align: bottom;
+    transition: transform 0.7s ease-out;
+    transform: rotateY(360deg);
+}
+
+/*右边栏*/
+.basic_nav{
+    float: left;
+    width: 80%;
+    margin-left: 20px;
+    overflow: hidden;
+}
+.row {
+     margin-right: 0;
+     margin-left: 0;
+}
+.thumbnail{
+    padding: 0;
+}
+.col-md-6{
+    padding-left: 0;
+}
+.thumbnail > img, .thumbnail a > img{
+    height: 150px;
+}
+.thumbnail h3{
+    padding:10px 5px;
+    margin: 0 auto;
+    text-align: center;
+}
+/*党务知识*/
+.basic_title{
+    height: 30px;
+    margin-bottom: 10px;
+    line-height: 30px;
+    width: 100%;
+}
+.basic_title>b{
+    color: #333;
+    border-bottom: 2px solid #d80000;
+    float: left;
+    font-weight: normal;
+    display: block;
+    padding: 0 20px;
+}
+.basic_title>b>a{
+    float: right;
+    display: block;
+    width: 90px;
+    text-align: center;
+    font-size: 14px;
+}
+.basic_zhishi ul>li{
+   margin-bottom: 8px;
+    width:300px;
+    text-align: center;
+    border:1px solid #dddddd;
+    background-color: #F8F6F6;
+}
+.basic_zhishi ul>li a{
+    padding:5px;
+    display: inline-block;
+}
+.basic_zhishi li.basic_dangbiao{
+    width: 145px;
+}
+.basic_dangwu{
+    width:300px;
+    margin-right: 25px;
+}
+.basic_dangbao{
+    width: 833px;
+}
+.basic_dangbao>ul>li{
+    margin:10px 5px;
+    font-size: 15px;
+}
+.basic_dangbao>ul>li a span:nth-of-type(2){
+    display: inline-block;
+    width: 80%;
+    overflow: hidden;
+    margin-right: 10px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.basic_dangbao>ul>li a span:nth-of-type(1){
+    display: inline-block;
+    width: 150px;
+    text-align: right;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.basic_dangbao>ul>li a:hover{
+    color:#F29D0B;
+}
+/*妇联信息*/
+/*党务服务*/
+.basic_fuwu{
+    width: 80%;
+    overflow: hidden;
+    float: left;
+    margin-left: 20px;
+}
+.basic_basicrz{
+    width: 48%;
+}
+.basic_xul1 li{
+    border-bottom: 1px dashed #aaa;
+}
+.basic_xul1 li a:hover{
+    color:#F29D0B;
+}
+.basic_basicrz:nth-of-type(2){
+    margin-left: 20px;
+}
+.basic_xinxi>ul>li{
+     padding:5px;
+    overflow: hidden;
+    margin-right: 10px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+ }
+.basic_xul>li:nth-of-type(2n){
+    background-color: #E2E2E2;
+}
+.basic_xul>li:hover{
+    background-color: #F29D0B;
+    color: #fff;
+}
+.basic_xul>li a:hover{
+    color:#fff;
+}
+/*发展党员*/
+.basic_menu_site{ background: url(/modules/core/client/img/image/index/menu_bj.png) repeat-x; height:39px; width:100%; border-left:1px solid #fab519; border-right:1px solid #fab519;}
+.basic_menu_site ul li{  width:14.2%; text-align:center; padding:0; line-height:39px; float:left; position:relative; z-index:1; }
+.basic_menu_site ul li b {width:15%; height:39px; background:url(/modules/core/client/img/image/index/menu_a.png) left top no-repeat; left:0; position:absolute; z-index:2;
+}
+.basic_menu_site ul li a{ float:left; width:94%;margin-left: 10px; text-align:center; color:#533f00; font:18px '微软雅黑'; line-height:39px; padding:0 10% ; position:relative; text-decoration:none;}
+.basic_menu_site ul li:hover,.basic_menu_site ul li.basic_current{background:url(/modules/core/client/img/image/index/011.png) right top no-repeat; position:relative; z-index:4;
+}
+.basic_menu_site ul li:hover b,.basic_menu_site ul li.basic_current b {width:15%; right:-25%; background:url(/modules/core/client/img/image/index/011.png) left  top no-repeat; position:absolute; z-index:3;
+}
+.basic_menu_site ul li a:hover{ color:#fff;}
+.basic_menu_site ul li.basic_current a{ color:#fff;}
+.basic_fazhan{
+    width: 100%;
+    background-color: #fff;
+    overflow: hidden;
+}
+/*表单验证*/
+.basic_form{
+    width:100%;
+    margin:50px auto;
+    position:relative;
+    height: 400px;
+    /*left:400px;*/
+}
+.basic_form .basic_dc{
+    width:430px;
+    margin-top:10px;
+    margin-left:20px;
+    float: left;
+    overflow:hidden;
+}
+.basic_form .basic_dc h3{
+    text-align:center;
+}
+.basic_form b{
+    display:inline-block;
+    height:40px;
+    line-height: 40px;
+    /*margin-left:20px;*/
+}
+.basic_form input,.basic_form select{
+    text-align: center;
+    display:inline-block;
+    border: 1px solid #000;
+    height:34px;
+    width:225px;
+    border-radius:2px;
+    /*margin-left:60px;*/
+    padding-left:10px;
+}
+.basic_form select{
+    padding: 0 10%;
+    margin: 0;
+}
+.basic_form select option{
+    text-align: center;
+}
+.basic_pc{
+    width:170px;
+    height:40px;
+    float:right;
+    line-height:40px;
+    text-align:center;
+    margin:0 10px 0;
+    background:#333;
+    color:#fff;
+    font-weight:bold;
+    border-radius:8px;
+    display:none;
+}
+input#sub{
+    display:inline-block;
+    width:215px;
+    background:#FFDC6C;
+    margin-left:144px;
+}
+.basic_pass{
+    background:limegreen;
+    display:block;
+}
+.basic_warn{
+    background:#e4393c;
+    display:block;
+}
+#audio_bground{
+    width:100%;
+    height:100%;
+    background:#afa;
+    position:absolute;
+    z-index:-10;
+}
+.basic_dc>b{
+    width: 140px;
+    text-align: right;
+}
+.basic_dc input[name="memberSex"]{
+    width:20px;
+    height: 15px;
+    margin-top:10px;
+}
+.basic_sub{
+    position: absolute;
+    left: 40%;
+    bottom:0;
+}
+.basic_sub input[type="submit"]{
+    background-color: #CE0104;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 6px;
+    border: none;
+}
+/*foot*/
+.index1_foot{
+    padding-bottom: 60px;
+    text-align: center;
+    font-size: 14px;
+}
+.index1_mainbox{
+    width: 1200px;
+    margin: 0 auto;
+}
+.index1_foot .index1_line{
+    height: 1px;
+    background: #d80000;
+}
+.index1_foot .index1_line1{
+    height: 10px;
+    background: #d80000;
+    margin-top: 5px;
+}
+.index1_foot>.index1_mainbox>p{
+    height: auto;
+    font-size: 13px;
+    text-indent: 2em;
+    padding: 5px 10px;
+    line-height: 43px;
+}

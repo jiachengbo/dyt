@@ -1,0 +1,47 @@
+<style>
+  .sidebar-menu > ul > li:nth-of-type(1) > a {
+    color: #d9d9d9;
+  }
+</style>
+<div ng-controller="SidebarMenuController as vm" >
+  <div class="sidebar-menu" ng-if="!vm.menus.leftMenusCollapsed && vm.authentication.user;">
+    <ul class="nav navbar" ng-if="vm.sidemenu.shouldRender(vm.authentication.user);">
+      <li ng-repeat="item in vm.sidemenu.items | orderBy: 'position'"
+          ng-if="item.shouldRender(vm.authentication.user);"
+          ng-switch="item.type"
+          class="{{item.class}}"
+          ng-class="{'selected': item.isSelected}">
+
+        <a ng-switch-when="dropdown" ng-click="vm.toggleMenuItem(item);" role="button" style="color:#000;">
+          <div class="row">
+            <div class="col-sm-3 col-xs-3">
+              <img src="{{item.isSelected?item.icon2:item.icon1}}" alt="">
+            </div>
+            <div class="com-sm-9 col-xs-9">
+              {{::item.title}}
+            </div>
+          </div>
+          <i class="icon-arrow glyphicon"
+             ng-class="{true: 'glyphicon-chevron-right', false: 'glyphicon-chevron-down'}[item.isCollapsed]">
+          </i>
+        </a>
+        <ul ng-switch-when="dropdown" uib-collapse="item.isCollapsed" class="nav navbar submenu">
+          <li ng-repeat="subitem in item.items | orderBy: 'position'"
+              ng-if="subitem.shouldRender(vm.authentication.user);" ng-class="{'selected': subitem.isSelected}">
+            <a ui-sref="{{subitem.state}}({{subitem.params}})" ui-sref-opts="{reload: true}" ng-click="vm.clickMenuItem(subitem);" ng-bind="subitem.title" role="button" style="color:#000;"></a>
+          </li>
+        </ul>
+        <a ng-switch-default ui-sref="{{item.state}}({{item.params}})" ui-sref-opts="{reload: true}" ng-click="vm.clickMenuItem(item);" role="button">
+          <div class="row">
+            <div class="col-sm-3 col-xs-3">
+              <img src="{{item.isSelected?item.icon2:item.icon1}}" alt="">
+            </div>
+            <div class="com-sm-9 col-xs-9">
+              {{item.title}}
+            </div>
+          </div>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>

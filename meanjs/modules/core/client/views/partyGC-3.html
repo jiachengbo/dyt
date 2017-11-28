@@ -1,0 +1,277 @@
+<style>
+  .container-fluid {
+    padding: 0;
+  }
+
+  .page-container {
+    margin-top: 0 !important;
+  }
+  .keyworkxq_lnav>a {
+    background-color: #22709D;
+  }
+  .keyworkxq_lnav>a:hover {
+    background-color: #22709D;
+  }
+</style>
+<div class="logomask" ng-style="maskStyle" ng-show="logoShow"ng-click="showLogo()">
+</div>
+<div class="index1_model" ng-show="logoShow" style="height:logoHeight;width: 1200px;"ng-click="showLogo()">
+  <div class="asa">    <a href="#"></a>    <a href="#"></a>    <a href="javascript:void(0)" ng-click="toSHYK()"></a>    <a href="javascript:void(0)" ng-click="toLXYZ()"></a>    <a href="/partybuild#jiaoliu"></a>    <a href="/partyDQ#dangzhishi"></a>    <a href="/partyInter"></a>    <a href="/partydt"></a>    <a href="/basic"></a>    <a href="#"></a>    <a href="javascript:void(0)" ng-click="toGDDR()"></a>    <a href="/fulian"></a>    <a href="/study#studydt"></a>    <a href="http://www.12371.cn/special/zsjs/sj2/index.shtml"></a>    <a href="#"></a>    <a href="#"></a>    <a href="/minqingE"></a>    <a href="/basic#jiadaobanzi"></a>    <a href="#"></a>    <a href="/partybuild#jifen"></a>    <a href="/basic"></a>    <a href="http://dygbjy.12371.cn/"></a>    <a href="/partybuild#xiangmu1"></a>    <a href="#"></a>    <a href="/tuanwei#tuanwei"></a>    <a href="/xiaqu#xiaqu"></a>    <a href="/gonghui"></a>    <a href="/lingtouyan"></a>    <div class="clear"></div>  </div>
+</div>
+<div id="index1_nav">
+    <div class="index1_title1">
+        <div class="index1_airt">
+            <div class="index1_mainbox">
+                <div class="top_left lt">
+                    <a href="http://www.gov.cn/">中央人民政府</a>
+                    <span></span>
+                    <a href="http://www.shaanxi.gov.cn/">陕西省人民政府</a>
+                    <span></span>
+                    <a href="http://www.xa.gov.cn/ptl/index.html">西安市人民政府</a>
+                </div>
+              <div class="top_right rt">
+                <a href="#">
+                  <i class="ic"></i>
+                  <span ng-click="wap()">手机版</span>
+                  <div class="top_ewm" ng-show="phone" >
+                    <img src="/modules/core/client/img/image/index/wap.png" width="100px;">
+                    <b>关注我们</b>
+                  </div>
+                </a>
+                <a ui-sref="authentication.signin">
+                  <i class="ic1"></i>
+                  <span>登录</span>
+                </a>
+              </div>
+              <div class="top_right rt" style="margin-right: 10px">
+                <a ui-sref="authentication.signin">
+                  <i class="sb"></i>
+                  <span>民情地图</span>
+                </a>
+                <a ui-sref="authentication.signin">
+                  <i class="sb1"></i>
+                  <span>党建地图</span>
+                </a>
+              </div>
+            </div>
+        </div>
+      <!--<div class="index1_imgt">-->      <!--<div class="animated bounceInLeft" ng-style="leftStyle">-->        <!--<img src="/modules/core/client/img/image/shouye/tuceng9.png">-->      <!--</div>-->      <!--<div class="animated bounceInRight" ng-style="rightStyle">-->        <!--<img src="/modules/core/client/img/image/shouye/toptu2.png">-->      <!--</div>-->    <!--</div>-->
+    </div>
+  <div class="tubiao">
+    <div class="div" ng-style="{'marginLeft': fixedLeft}">
+            <span ></span>
+            <ul class="tiem">
+                <li><a href="/index1"><span class="wit1 tiem"></span><span class="tiem">首页</span></a></li>
+                <li><a href="/basic"><span class="wit2 tiem"></span><span class="tiem">基础信息管理</span></a></li>
+                <li><a href="/study"><span class="wit3 tiem"></span><span class="tiem">重点工作动态</span></a></li>
+                <li><a href="/partybuild"><span class="wit4 tiem"></span><span class="tiem">区域化党建</span></a></li>
+                <li><a href="/partymap"><span class="wit5 tiem"></span><span class="tiem">党建地图</span></a></li>
+              <li ng-click="showLogo()"><span class="wit6 tiem"></span><span class="tiem logo">logo</span></li>
+            </ul>
+        </div>
+    </div>
+    <div class="container">
+    <!--标体-->
+
+    <!--固定党日-->
+    <div class="keyworkxq_border">
+        <div class="keyworkxq_work">
+            <div class="keyworkxq_lnav lt">
+                <a href="/index1">
+                    <i class="keyword_ico"></i>
+                    <span>党务知识</span>
+                </a>
+              <div class="basic_zhishi">
+                <ul>
+                  <li class="basic_dangbiao lt">
+                    <a href="/partyDQ">
+                      <span>党旗</span>
+                    </a>
+                  </li>
+                  <li class="basic_dangbiao rt">
+                    <a href="/partyDH">
+                      <span>党徽</span>
+                    </a>
+                  </li>
+                  <li class="basic_dangbiao lt">
+                    <a href="/partyDZ">
+                      <span>党章</span>
+                    </a>
+                  </li>
+                  <li class="basic_dangbiao rt">
+                    <a href="/partyInter">
+                      <span>入党流程</span>
+                    </a>
+                  </li>
+                  <li class="clear">
+                    <a href="/partyZS-1">
+                      <span>党员基本知识</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/partyZS-2">
+                      <span>党员组织关系</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/partyZS-3">
+                      <span>党的组织生活</span>
+                    </a>
+                  </li>
+                  <li>
+                  <li>
+                    <a href="/partyZS-4">
+                      <span>党费的收缴标准</span>
+                    </a>
+                  </li>
+                  <li>
+                  <li>
+                    <a href="/partyZS-5">
+                      <span>党员的权利和义务</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/partyGC">
+                      <span>高层声音之共享创新发展</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/partyGC-1">
+                      <span>高层声音之体育强国</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/partyGC-2">
+                      <span>高层声音之青年红色筑梦之旅</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/partyGC-3">
+                      <span>高层声音之模范先锋</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/partyGC-5">
+                      <span>高层声音之在陕西</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/partyGC-6">
+                      <span>高层声音之加强联系专家</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="keyworkxq_rnav lt">
+                <div class="keyworkxq_title">
+                    <b>
+                        <a href="/index1">
+                            <i></i>
+                            当前位置：基础信息>党务知识>高层声音
+                        </a>
+                    </b>
+                </div>
+                <div class="keyworkxq_main">
+                       <div class="keyworkxq_mainr">
+                        <h1 style="text-align: center;">中共中央关于追授黄大年同志"全国优秀共产党员"称号的决定</h1>
+                        <br>
+                        <div class="keyworkxq_js">
+                            <div style="font-size:18px;font-family:SimSun;">
+                              <p align="center">（2017年7月23日）</p>
+                            </div>
+                            <br>
+                            <div style="font-size:18px;font-family:SimSun;">
+                                <p style="text-indent:2em;">
+                                 2017年5月24日，习近平总书记对吉林大学地球探测科学与技术学院原教授黄大年同志先进事迹作出重要指示强调，黄大年同志秉持科技报国理想，把为祖国富强、民族振兴、人民幸福贡献力量作为毕生追求，为我国教育科研事业作出了突出贡献，他的先进事迹感人肺腑。我们要以黄大年同志为榜样，学习他心有大我、至诚报国的爱国情怀，学习他教书育人、敢为人先的敬业精神，学习他淡泊名利、甘于奉献的高尚情操，把爱国之情、报国之志融入祖国改革发展的伟大事业之中、融入人民创造历史的伟大奋斗之中，从自己做起，从本职岗位做起，为实现"两个一百年"奋斗目标、实现中华民族伟大复兴的中国梦贡献智慧和力量。
+                              </p>
+                            </div>
+                            <div style="font-size:18px;font-family:SimSun;">
+
+                               <p style="text-indent:2em;">
+                              	黄大年，男，广西南宁人，1958年8月出生，1975年10月参加工作，中共党员，著名地球物理学家、国家"千人计划"专家。生前担任吉林大学新兴交叉学科学部学部长，地球探测科学与技术学院教授、博士生导师。2017年1月8日因病去世，年仅58岁。
+                              </p>
+                            </div>
+                                <div style="font-size:18px;font-family:SimSun;">
+
+                               <p style="text-indent:2em;">
+                             黄大年同志对党、对祖国无限热爱，矢志不渝实践科技报国理想，把毕生精力奉献给祖国的教育科研事业，是"两学一做"学习教育中涌现出的先进典型，是新时期归国留学人员心系祖国、报效人民的杰出楷模，是广大知识分子把爱国之情、报国之志自觉融入中华民族伟大复兴宏伟事业的优秀代表。黄大年同志青年时期就立下"振兴中华，乃我辈之责"的宏大志向，他常说"我是国家培养出来的，我的归宿在中国"，自觉把个人理想和国家发展融为一体，毅然放弃国外优越条件回到祖国。归国7年多，他作为国家多个技术攻关项目的首席专家，带领科技团队只争朝夕、顽强拼搏，取得一系列重大科技成果，填补多项国内技术空白，部分成果达到国际领先水平。他秉持"祖国的需要就是最高需要"的人生信条，为实现科技强国梦殚精竭虑，经常工作到凌晨，几乎没有休过寒暑假和节假日，多次累倒在工作岗位上，直到生命最后一刻。他倾尽心血为国育才，主动担任本科层次"李四光实验班"的班主任，言传身教、诲人不倦，叮嘱学生"出去了要回来，出息了要报国"，激励学生树立远大理想和家国情怀，支持资助学生参加国际学术交流，为国家培养出一批"出得去、回得来"的优秀科技人才。他以崇高的爱国情怀、强烈的敬业精神、深厚的学术造诣和高洁的道德品行，赢得学校师生、科研同事和社会各方面广泛赞誉。
+                                  </p>
+                            </div>
+                           <div style="font-size:18px;font-family:SimSun;">
+
+                               <p style="text-indent:2em;">
+                             为深入学习贯彻习近平总书记重要指示精神，表彰先进、弘扬正气，引导广大党员、干部胸怀理想、坚定信念，开拓进取、敬业奉献，在改革开放和社会主义现代化建设各项事业中发挥先锋模范作用，党中央决定，追授黄大年同志"全国优秀共产党员"称号。
+                                  </p>
+                            </div>
+                              <div style="font-size:18px;font-family:SimSun;">
+
+                               <p style="text-indent:2em;">
+                            党中央号召，广大党员、干部向黄大年同志学习。要像黄大年同志那样坚定信仰信念，对党忠诚、心系祖国，把为党和人民事业不懈奋斗作为毕生追求。要像黄大年同志那样刻苦学习钻研，牢记使命、勇担重任，用知识和本领回报祖国、服务人民。要像黄大年同志那样发扬拼搏精神，勇于创新、攻坚克难，努力创造一流业绩。要像黄大年同志那样涵养高尚情操，不忘初心、淡泊名利，自觉践行共产党人价值观，用模范行动展示共产党员的人格力量。
+                                  </p>
+                            </div>
+                             <div style="font-size:18px;font-family:SimSun;">
+
+                               <p style="text-indent:2em;">
+                             各级党组织要把学习黄大年同志先进事迹纳入推进"两学一做"学习教育常态化制度化重要内容，与学党章党规、学系列讲话结合起来，与做好改革发展稳定各项工作结合起来，采取多种形式广泛开展学习宣传。要引导党员、干部以先进典型为榜样，牢固树立"四个意识"，自觉践行"三严三实"要求，努力做到"四个合格"，更加紧密地团结在以习近平同志为核心的党中央周围，立足岗位履职尽责，奋发有为再创佳绩，把爱国之情、报国之志融入祖国改革发展的伟大事业之中、融入人民创造历史的伟大奋斗之中，为统筹推进"五位一体"总体布局和协调推进"四个全面"战略布局，实现"两个一百年"奋斗目标、实现中华民族伟大复兴的中国梦作出新的更大贡献。
+                                  </p>
+                            </div>
+                             <div style="font-size:18px;font-family:SimSun;">
+
+                               <p style="text-indent:2em;">
+                            （新华社北京7月23日电）
+                                  </p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+</div>
+    <div class="keyworkxq_foot">
+        <div class="keyworkxq_mainbox">
+            <div class="keyworkxq_line"></div>
+            <div class="keyworkxq_line1"></div>
+            <p>主办：西安市雁塔区大雁塔街道 &nbsp;&nbsp;承办：西安杰森电子科技有限公司</p>
+        </div>
+    </div>
+</div>
+<script>
+    $('.top_right a').eq(0).mouseover(function(){
+        $('.top_ewm').css('display','block');
+    });
+    $('.top_right a').eq(0).mouseout(function(){
+        $('.top_ewm').css('display','none');
+    });
+    $(function() {
+        var left = ($(window).width() - 1200) / 2;
+        $('.tubiao>div').css('left', (left - 40) + 'px');
+        $('.asa').css('left', left + 'px');
+        $('.index1_imgt div:nth-of-type(2)').css({
+            'margin-right':(left-50)+'px'
+        });
+        $('.index1_imgt div:nth-of-type(1)').css({
+            'margin-left':(left-50)+'px'
+        });
+        $('.logo').click(function (event) {
+            event.preventDefault();
+            $('#index1_nav').css({
+                'background': '#ddd',
+                'opacity': 0.5
+            });
+            $('.asa').css('display', 'block');
+        });
+        $('.asa').on('click', function () {
+            $('.asa').css('display', 'none');
+            $('#index1_nav').css({
+                'background': '',
+                'opacity': ''
+            });
+        });
+    })
+</script>
+</body>
+</html>

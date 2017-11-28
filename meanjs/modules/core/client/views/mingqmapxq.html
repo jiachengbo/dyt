@@ -1,0 +1,285 @@
+<style>
+  .container-fluid {
+    padding: 0;
+  }
+
+  .page-container {
+    margin-top: 0 !important;
+  }
+
+  .keyworkxq_title {
+    padding-left: 10px;
+    padding-bottom: 10px;
+  }
+
+  .keyworkxq_title a i {
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    background: url(/modules/core/client/img/image/tubiao/dw.png) no-repeat;
+    vertical-align: bottom;
+  }
+  .basic_person1>ul>li a:hover i.keyword_icon{
+    background: url("/modules/core/client/img/image/xiaqu/comm1.png") no-repeat!important;
+  }
+  .basic_person1>ul>li a:hover i.keyword_icon1{
+    background: url("/modules/core/client/img/image/xiaqu/cun1.png") no-repeat!important;
+  }
+  h3{
+    cursor: pointer;
+  }
+  h3:hover{
+    color: red;
+  }
+  #streed .person ul li{
+    height: 32px;
+    line-height: 32px;
+  }
+  .thumbnails{
+    height: 280px;
+    border: 0;
+  }
+  .thumbnails img{
+    height: 240px;
+  }
+  .person .col-md-3{
+    margin-top: 10px;
+  }
+</style>
+<div class="logomask" ng-style="maskStyle" ng-show="logoShow"ng-click="showLogo()">
+
+</div>
+<div class="index1_model" ng-show="logoShow" style="height:logoHeight;width: 1200px;" ng-click="showLogo()">
+  <div class="asa">    <a href="#"></a>    <a href="#"></a>    <a href="javascript:void(0)" ng-click="toSHYK()"></a>    <a href="javascript:void(0)" ng-click="toLXYZ()"></a>    <a href="/partybuild#jiaoliu"></a>    <a href="/partyDQ#dangzhishi"></a>    <a href="/partyInter"></a>    <a href="/partydt"></a>    <a href="/basic"></a>    <a href="#"></a>    <a href="javascript:void(0)" ng-click="toGDDR()"></a>    <a href="/fulian"></a>    <a href="/study#studydt"></a>    <a href="http://www.12371.cn/special/zsjs/sj2/index.shtml"></a>    <a href="#"></a>    <a href="#"></a>    <a href="/minqingE"></a>    <a href="/basic#jiadaobanzi"></a>    <a href="#"></a>    <a href="/partybuild#jifen"></a>    <a href="/basic"></a>    <a href="http://dygbjy.12371.cn/"></a>    <a href="/partybuild#xiangmu1"></a>    <a href="#"></a>    <a href="/tuanwei#tuanwei"></a>    <a href="/xiaqu#xiaqu"></a>    <a href="/gonghui"></a>    <a href="/lingtouyan"></a>    <div class="clear"></div>  </div>
+</div>
+<div id="index1_nav" ng-style="{'min-height': index1_nav}">
+  <div class="index1_title1">
+    <div class="index1_airt">
+      <div class="index1_mainbox">
+        <div class="top_left lt">
+          <a href="http://www.gov.cn/">中央人民政府</a>
+          <span></span>
+          <a href="http://www.shaanxi.gov.cn/">陕西省人民政府</a>
+          <span></span>
+          <a href="http://www.xa.gov.cn/ptl/index.html">西安市人民政府</a>
+        </div>
+        <div class="top_right rt">
+          <a href="#">
+            <i class="ic"></i>
+            <span ng-click="wap()">手机版</span>
+            <div class="top_ewm" ng-show="phone" >
+              <img src="/modules/core/client/img/image/index/wap.png" width="100px;">
+              <b>关注我们</b>
+            </div>
+          </a>
+          <a ui-sref="authentication.signin">
+            <i class="ic1"></i>
+            <span>登录</span>
+          </a>
+        </div>
+        <div class="top_right rt" style="margin-right: 10px">
+          <a ui-sref="authentication.signin">
+            <i class="sb"></i>
+            <span>民情地图</span>
+          </a>
+          <a ui-sref="authentication.signin">
+            <i class="sb1"></i>
+            <span>党建地图</span>
+          </a>
+        </div>
+      </div>
+    </div>
+    <!--<div class="index1_imgt">-->
+    <!--<div class="animated bounceInLeft" ng-style="leftStyle">-->
+    <!--<img src="/modules/core/client/img/image/shouye/tuceng9.png" >-->
+    <!--</div>-->
+    <!--<div class="animated bounceInRight" ng-style="rightStyle">-->
+    <!--<img src="/modules/core/client/img/image/shouye/toptu2.png" >-->
+    <!--</div>-->
+    <!--</div>-->
+  </div>
+  <div class="tubiao">
+    <div class="div" ng-style="{'marginLeft': fixedLeft}">
+      <span ></span>
+      <ul class="tiem">
+        <li><a href="/index1"><span class="wit1 tiem"></span><span class="tiem">首页</span></a></li>
+        <li><a href="/basic"><span class="wit2 tiem"></span><span class="tiem">基础信息管理</span></a></li>
+        <li><a href="/study"><span class="wit3 tiem"></span><span class="tiem">重点工作动态</span></a></li>
+        <li><a href="/partybuild"><span class="wit4 tiem"></span><span class="tiem">区域化党建</span></a></li>
+        <li><a href="/partymap"><span class="wit5 tiem"></span><span class="tiem">党建地图</span></a></li>
+        <li ng-click="showLogo()"><span class="wit6 tiem"></span><span class="tiem logo">logo</span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="container">
+    <!--标体-->
+    <!--成员信息-->
+    <div class="basic_border">
+      <div class="basic_person">
+        <div class="basic_person1">
+          <a href="/mingqingmap">
+            <i class="keyword_ico" style="background: url(/modules/core/client/img/image/xiaqu/xiaqu.png) no-repeat"></i>
+            <span>民情地图</span>
+          </a>
+          <!--<ul>-->
+            <!--<li><a href="javascript:void(0)">-->
+              <!--<i class="keyword_icon" style="background: url(/modules/core/client/img/image/xiaqu/comm2.png) no-repeat"></i>-->
+              <!--<span>社区简介</span></a></li>-->
+            <!--<li><a href="javascript:void(0)">-->
+            <!--<i class="keyword_icon1" style="background: url(/modules/core/client/img/image/xiaqu/cun2.png) no-repeat"></i>-->
+            <!--<span>班子成员</span></a></li>-->
+          <!--</ul>-->
+        </div>
+        <div class="basic_nav">
+          <div class="keyworkxq_title">
+            <b>
+              <a href="/mingqingmap">
+                <i></i>
+                当前位置：民情地图&gt;社区信息&gt;{{vm.unit}}
+              </a>
+            </b>
+          </div>
+          <div class="row" id='mingqingmap'>
+            <div class="col-md-12">
+              <div class="bayi">
+              <h1>八一社区</h1>
+                <img src="/modules/core/client/img/image/mingqingmap/81.jpg">
+              </div>
+              <div class="cuihuabeilu">
+                <h1>翠华北路社区</h1>
+                <img src="/modules/core/client/img/image/mingqingmap/cuihuabeilu.png">
+              </div>
+              <div class="cuihuananlu">
+                <h1>翠华南路社区</h1>
+                <img src="/modules/core/client/img/image/mingqingmap/cuihuananlu.jpg">
+              </div>
+              <div class="dayanta">
+                <h1>大雁塔社区</h1>
+                <img src="/modules/core/client/img/image/mingqingmap/dayanta.jpg">
+              </div>
+              <div class="haiboziting">
+                <h1>海珀紫庭社区</h1>
+                <img src="/modules/core/client/img/image/mingqingmap/haiboziting10.jpg">
+              </div>
+              <div class="houcun">
+                <h1>后村社区</h1>
+                <img src="/modules/core/client/img/image/mingqingmap/houcun3.jpg">
+              </div>
+              <div class="jianyuan">
+                <h1>建苑社区</h1>
+                <img src="/modules/core/client/img/image/mingqingmap/jianyuan4.JPG">
+              </div>
+              <div class="jiaodacaijing">
+                <h1>交大财经社区</h1>
+                <img src="/modules/core/client/img/image/mingqingmap/jiaodacaijing4.jpg">
+              </div>
+              <div class="keda">
+                <h1>西安科技大学社区</h1>
+                <img src="/modules/core/client/img/image/mingqingmap/keda.png">
+                <img src="/modules/core/client/img/image/mingqingmap/keda5.png">
+              </div>
+              <div class="qinglong">
+                <h1>青龙社区</h1>
+                <img src="/modules/core/client/img/image/mingqingmap/qinglong6.png">
+              </div>
+              <div class="shengwei">
+                <h1>省委社区</h1>
+                <p>省委机关东小区社区属单位型社区，位于南二环东段368号，由省委东小区、东院、西院和联建小区组成，驻区单位为中共陕西省委，社区占地近380余亩，辖区共有1500余户，4500余人。</p>
+                <p>社区工作人员共13人，包括社区主任1人，副主任1人，委员5人（其中一名专干兼委员），社区专干2人，公益性岗位4人，监委会委员2人（其中一名协管兼任）。</p>
+                <p>社区主要工作范围包括经适房、廉租房、公租房申请和办理、居民医保、居民养老、就业失业登记证办理、计划生育、高龄补贴、低保认定等工作。
+                  省委机关东小区社区成立于2006年1月，现有办公用房330平米，活动场地1000余平米，社区设有图书室、棋牌室、象棋室、健身房、乒乓球室等居民活动场所。
+                </p>
+                <p>社区现直管党员25人，在支部班子领导的带领下，积极开展各种活动，组织学习党员远程教育相关内容，社区党支部认真贯彻落实基层党建“三有一化”的要求，有力促进了社区的和谐发展。</p>
+                <p>近年来，社区先后被评为“园林式住宅区”、“陕西省妇女儿童工作示范社区”、“国家卫生城市先进单位”、“安全生产先进集体”、“西安市和谐社区建设示范社区“等荣誉称号。</p>
+                <p>社区班子成员通过不断努力，努力建设一个服务全面、环境优美、秩序优良、人际关系和谐的新社区。
+
+                </p>
+                <hr>
+              </div>
+              <div class="tieyiyuan">
+                <h1>铁一院社区</h1>
+                <img src="/modules/core/client/img/image/mingqingmap/tieyiyuan.jpg">
+              </div>
+              <div class="wujingyiyuan">
+                <h1>武警医院社区</h1>
+                <img src="/modules/core/client/img/image/mingqingmap/wujingyiyuan.jpg">
+              </div>
+              <div class="xikan">
+                <h1>西勘社区</h1>
+                <img src="/modules/core/client/img/image/mingqingmap/xikan.png">
+              </div>
+              <div class="xiyanlu">
+                <h1>西延路社区</h1>
+                <img src="/modules/core/client/img/image/mingqingmap/xiyanlu9.jpg">
+                <img src="/modules/core/client/img/image/mingqingmap/xiyanlu10.jpg">
+                <img src="/modules/core/client/img/image/mingqingmap/xiyanlu11.jpg">
+                <img src="/modules/core/client/img/image/mingqingmap/xiyanlu12.jpg">
+                <img src="/modules/core/client/img/image/mingqingmap/xiyanlu13.jpg">
+                <img src="/modules/core/client/img/image/mingqingmap/xiyanlu14.jpg">
+                <img src="/modules/core/client/img/image/mingqingmap/xiyanlu15.jpg">
+                <img src="/modules/core/client/img/image/mingqingmap/xiyanlu16.jpg">
+                <img src="/modules/core/client/img/image/mingqingmap/xiyanlu17.jpg">
+                <img src="/modules/core/client/img/image/mingqingmap/xiyanlu18.jpg">
+                <img src="/modules/core/client/img/image/mingqingmap/xiyanlu19.jpg">
+                <img src="/modules/core/client/img/image/mingqingmap/xiyanlu20.jpg">
+              </div>
+              <div class="xiying">
+                <h1>西影社区</h1>
+                <img src="/modules/core/client/img/image/mingqingmap/xiying.jpg">
+                <img src="/modules/core/client/img/image/mingqingmap/xiying1.jpg">
+              </div>
+              <div class="xingke">
+                <h1>兴科社区</h1>
+                <img src="/modules/core/client/img/image/mingqingmap/xingke.png">
+              </div>
+              <div class="yantalu">
+                <h1>雁塔路社区</h1>
+                <img src="/modules/core/client/img/image/mingqingmap/yantalu.jpg">
+              </div>
+              <div class="yanxi">
+                <h1>雁西社区</h1>
+                <img src="/modules/core/client/img/image/mingqingmap/yanxi.png">
+                <img src="/modules/core/client/img/image/mingqingmap/yanxi1.png">
+              </div>
+              <div class="dayantacun">
+                <h1>大雁塔村</h1>
+                <img src="/modules/core/client/img/image/commPerson/dayantacun/minqing.jpg" alt="">
+              </div>
+              <div class="guanyinmiaocun">
+                <h1>观音庙村</h1>
+                <img src="/modules/core/client/img/image/commPerson/guanyinmiao/minqing.jpg" alt="">
+              </div>
+              <div class="taipingbaocun">
+                <h1>太平堡村</h1>
+                <img src="/modules/core/client/img/image/commPerson/taipingbaocun/minqing.jpg" alt="">
+              </div>
+              <div class="tieercun">
+                <h1>铁二村</h1>
+                <img src="/modules/core/client/img/image/commPerson/tieercun/minqing.jpg" alt="">
+              </div>
+              <div class="tieyicun">
+                <h1>铁一村</h1>
+                <img src="/modules/core/client/img/image/commPerson/tieyicun/minqing.jpg" alt="">
+              </div>
+              <div class="wangjiacun">
+                <h1>王家村</h1>
+                <img src="/modules/core/client/img/image/commPerson/wangjiacun/minqing.jpg" alt="">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="clear"></div>
+      </div>
+
+    </div>
+  </div>
+  <div class="index1_foot">
+    <div class="index1_mainbox">
+      <div class="index1_line"></div>
+      <div class="index1_line1"></div>
+      <p>主办：西安市雁塔区组织部 承办：西安市雁塔区电子政务办公室</p>
+    </div>
+  </div>
+</div>
+
+

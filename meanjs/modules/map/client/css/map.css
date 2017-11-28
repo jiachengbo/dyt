@@ -1,0 +1,15 @@
+/*模态窗口*/
+.map-modal {
+	margin: 10px;
+}
+
+/*表格*/
+.map-grid {
+	height: 740px;
+}
+
+/*图片*/
+.person-profile-picture {
+	max-height: 210px;
+	min-height: 210px;
+}

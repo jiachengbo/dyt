@@ -1,0 +1,317 @@
+<style>
+  .container-fluid {
+    padding: 0;
+  }
+
+  .page-container {
+    margin-top: 0 !important;
+  }
+
+  .workr-hover:hover {
+    cursor: pointer;
+  }
+
+  #xiangmu1 tr td span {
+    display: block;
+    width: 284px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap
+  }
+
+  #xiangmu1 tr td:nth-child(1) {
+    width: 130px!important;
+  }
+  #xiangmu1 tr td:nth-child(3) {
+    width: 120px!important;
+  }
+  #xiangmu1 tr td:nth-child(3):hover {
+    cursor: pointer;
+  }
+  .partybuild_dongt .icon {
+    width: 24px;;
+    height: 24px;
+    display: block;
+    background-image: url("/modules/core/client/img/image/index1/sanhuiyike1.png");
+    float: left;
+  }
+  .partybuild_dongt .icon.pgy{
+    background-image: url("/modules/core/client/img/image/gonghui/zx2.png");
+  }
+  .partybuild_dongt .icon_huodong {
+    width: 24px;;
+    height: 24px;
+    display: block;
+    background-image: url("/modules/core/client/img/image/index1/sanhuiyike1.png");
+    float: left;
+  }
+  .baokan > div > div {
+    float: left;
+    width: 25%;
+    height: 200px;
+    text-align: center;
+    padding-right: 15px;
+  }
+  .baokan > div > div:nth-last-child(1) {
+    margin-right: 0;
+  }
+  .baokan > div > div > a {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+  .baokan > div > div > a > img {
+    width: 100%;
+    height: 170px;
+  }
+  .baokan > div > div > a > span {
+    display: block;
+    width: 100%;
+    height: 20px;
+    line-height: 20px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap
+  }
+  .index1_xiugai .index1_basicl:nth-of-type(1)>a{
+    background-color: #F29D0B;
+  }
+  .index1_xiugai .index1_basicl:nth-of-type(1)>a i {
+    background: url(/modules/core/client/img/image/gonghui/gh.png) no-repeat;
+  }
+  .index1_xiugai ul>li:nth-of-type(2) a i {
+    background: url(/modules/core/client/img/image/gonghui/zx1.png)no-repeat 0px 0px;
+  }
+  .index1_xiugai ul>li:nth-of-type(2) a:hover i {
+    background: url(/modules/core/client/img/image/gonghui/zx1.png)no-repeat 0px 0px;
+  }
+  .index1_xiugai ul>li:nth-of-type(1) a i {
+    background: url(/modules/core/client/img/image/gonghui/jigou.png)no-repeat 0px 0px;
+  }
+  .index1_xiugai ul>li:nth-of-type(1) a:hover i {
+    background: url(/modules/core/client/img/image/gonghui/jigou.png)no-repeat 0px 0px;
+  }
+  .index1_title a i.index1_icon4 {
+    background: url(/modules/core/client/img/image/tuanwei/zcfg.png)no-repeat 0px 0px;
+  }
+  .partybuild_dongt .icon_huodong {
+    background-image: url(/modules/core/client/img/image/tuanwei/hddt.png);
+  }
+  .xinxiang{
+    width: 110px;
+    height: 110px;
+    background-image: url("/modules/core/client/img/image/gonghui/xinxiang.png");
+    position: fixed;
+    top: 300px;
+    text-align: center;
+    line-height: 60px;
+    color: white;
+    cursor: pointer;
+  }
+  .partybuild_dongt ul li span:nth-of-type(1) {
+    width: 13%;
+  }
+  .index1_workr table tr td:nth-child(2){
+    text-align: right;
+  }
+</style>
+<div class="logomask" ng-style="maskStyle" ng-show="logoShow"ng-click="showLogo()">
+</div>
+<div class="index1_model" ng-show="logoShow" style="height:logoHeight;width: 1200px;" ng-click="showLogo()">
+  <div class="asa">    <a href="#"></a>    <a href="#"></a>    <a href="javascript:void(0)" ng-click="toSHYK()"></a>    <a href="javascript:void(0)" ng-click="toLXYZ()"></a>    <a href="/partybuild#jiaoliu"></a>    <a href="/partyDQ#dangzhishi"></a>    <a href="/partyInter"></a>    <a href="/partydt"></a>    <a href="/basic"></a>    <a href="#"></a>    <a href="javascript:void(0)" ng-click="toGDDR()"></a>    <a href="/fulian"></a>    <a href="/study#studydt"></a>    <a href="http://www.12371.cn/special/zsjs/sj2/index.shtml"></a>    <a href="#"></a>    <a href="#"></a>    <a href="/minqingE"></a>    <a href="/basic#jiadaobanzi"></a>    <a href="#"></a>    <a href="/partybuild#jifen"></a>    <a href="/basic"></a>    <a href="http://dygbjy.12371.cn/"></a>    <a href="/partybuild#xiangmu1"></a>    <a href="#"></a>    <a href="/tuanwei#tuanwei"></a>    <a href="/xiaqu#xiaqu"></a>    <a href="/gonghui"></a>    <a href="/lingtouyan"></a>    <div class="clear"></div>  </div>
+</div>
+<div id="index1_nav" class="index1_nav">
+  <div class="index1_title1">
+    <div class="index1_airt">
+      <div class="index1_mainbox">
+        <div class="top_left lt">
+          <a href="http://www.gov.cn/">中央人民政府</a>
+          <span></span>
+          <a href="http://www.shaanxi.gov.cn/">陕西省人民政府</a>
+          <span></span>
+          <a href="http://www.xa.gov.cn/ptl/index.html">西安市人民政府</a>
+        </div>
+        <div class="top_right rt">          <a href="#">            <i class="ic"></i>            <span ng-click="wap()">手机版</span>            <div class="top_ewm" ng-show="phone" >              <img src="/modules/core/client/img/image/index/wap.png" width="100px;">              <b>关注我们</b>            </div>          </a>          <a ui-sref="authentication.signin">            <i class="ic1"></i>            <span>登录</span>          </a>        </div>        <div class="top_right rt" style="margin-right: 10px">          <a ui-sref="authentication.signin">            <i class="sb"></i>            <span>民情地图</span>          </a>          <a ui-sref="authentication.signin">            <i class="sb1"></i>            <span>党建地图</span>          </a>        </div>
+      </div>
+    </div>
+  </div>
+  <div class="tubiao">
+    <div class="div" ng-style="{'marginLeft': fixedLeft}">
+      <span></span>
+      <ul class="tiem">
+        <li><a href="/index1"><span class="wit1 tiem"></span><span class="tiem">首页</span></a></li>
+        <li><a href="/basic"><span class="wit2 tiem"></span><span class="tiem">基础信息管理</span></a></li>
+        <li><a href="/study"><span class="wit3 tiem"></span><span class="tiem">重点工作动态</span></a></li>
+        <li><a href="/partybuild"><span class="wit4 tiem"></span><span class="tiem">区域化党建</span></a></li>
+        <li><a href="/partymap"><span class="wit5 tiem"></span><span class="tiem">党建地图</span></a></li>
+        <li ng-click="showLogo()"><span class="wit6 tiem"></span><span class="tiem logo">logo</span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="container">
+    <div class="index1_basic index1_xiugai">
+      <div class="index1_basicl lt">
+        <a href="/index1">
+          <i></i>
+          <span>工会</span>
+        </a>
+        <ul>
+          <li ><a href="/gonghujg"><i></i><span>组织机构</span></a></li>
+          <li ng-click="vm.showPGY()"><a href="javascript:void(0)"><i></i><span>工会资讯</span></a></li>
+        </ul>
+      </div>
+      <div class="index1_basicr lt" style="width: 40%;float: left;padding-top: 20px">
+        <div class="index1_basicrl lt">
+          <div class="index1_title">
+            <a href="javascript:void(0)">
+              <i class="index1_icon0"></i>
+              <span>活动照片</span>
+            </a>
+          </div>
+          <div id="slider">
+            <div >
+              <div uib-carousel active="active" interval="myInterval" no-wrap="noWrapSlides">
+                <div uib-slide ng-repeat="slide in slides track by slide.id" index="slide.id">
+                  <img ng-src="{{slide.image}}" style="margin:auto;height: 280px;">
+                  <div class="carousel-caption">
+                    <p style="overflow: hidden;text-overflow: ellipsis;white-space: nowrap;">{{slide.text}}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="partybuild_dongt"
+           style="width: 40%;padding-right: 25px;margin-bottom: 20px;float: left;padding-top: 20px;">
+        <div class="partybuild_title" style="margin-bottom: 0px;border: 0;">
+          <b class="partybuild_tactive" style="border: 0;">
+            <i class="icon ygdicon"></i>
+            <a href="javascript:void (0)">
+              {{vm.ygTitle}}
+            </a>
+          </b>
+          <a ui-sref="authentication.signin" class="rt">
+            <span>更多+</span>
+          </a>
+        </div>
+        <div class="index1_basicrz lt" style="margin: 0;">
+          <div class="index1_xinxi">
+            <ul >
+              <li ng-repeat="v in vm.zxData" style="width: 100%;padding-left: 0;" ng-click="vm.toDetails(v.id)">
+                <a href="javascript: void (0)">
+                  <span class="rt" >{{v.createdate | date:'yyyy-MM-dd'}}</span>
+                  <span style="text-align: left;float: left;margin-left: 24px;">{{v.name}}</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="clear"></div>
+    </div>
+    <div class="index1_basicr lt" style="width:100%;margin-bottom: 10px;padding-top: 20px;box-shadow: 3px 5px 5px 0px #aaa;">
+      <div class="partybuild_dongt" style="width: 100%;margin-bottom: 20px;padding: 0 20px;">
+        <div class="partybuild_title" style="margin-bottom: 10px;">
+          <b class="partybuild_tactive" style="border-bottom: 0">
+            <i class="icon_huodong"></i>
+            <a href="javascript:void (0)">
+              工会动态
+            </a>
+            <a ui-sref="authentication.signin" class="rt">
+              <span>更多+</span>
+            </a>
+          </b>
+        </div>
+        <div class="baokan">
+          <div style="overflow: hidden;" class="row">
+            <div class="item" ng-repeat="v in vm.dtData" >
+              <a href="javascript:void (0)" id="{{v.id}}">
+                <img width="100%" height="260" src="{{v.photos}}" ng-click="vm.toDetails2($event)">
+                <span ng-click="vm.toDetails2($event)">
+                  {{v.name}}
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="index1_basic index1_member">
+      <div class="index1_basicr lt" style="width: 100%;float: left;">
+        <div class="index1_workr lt" style="width: 100%;padding: 20px 20px;">
+          <div class="index1_title">
+            <a href="javascript:void(0)">
+              <i class="index1_icon4"></i>
+              <span>政策法规</span>
+            </a>
+            <a ui-sref="authentication.signin" class="rt">
+              <span>更多+</span>
+            </a>
+          </div>
+          <table class="table fulian-hover"
+                 style="width: 49%;float: left;border: 1px solid #ddd;box-sizing: border-box;padding: 10px 10px;border-collapse: separate;">
+            <tbody>
+            <tr ng-click="vm.toNext(0)">
+              <td>劳务派遣暂行规定
+              </td>
+              <td>2014-03-01</td>
+            </tr>
+            <tr ng-click="vm.toNext(1)">
+              <td>工伤保险条例
+              </td>
+              <td>2004-01-01</td>
+            </tr>
+            <tr ng-click="vm.toNext(2)">
+              <td>实施《中华人民共和国社会保险法》若干规定
+              </td>
+              <td>2011-07-01</td>
+            </tr>
+            <tr ng-click="vm.toNext(3)">
+              <td>中国工会章程
+              </td>
+              <td>2013-10-22</td>
+            </tr>
+            </tbody>
+          </table>
+          <table class="table fulian-hover"
+                 style="width: 49%;float: right;border: 1px solid #ddd;box-sizing: border-box;padding: 10px 10px;border-collapse: separate;">
+            <tbody>
+            <tr ng-click="vm.toNext(4)">
+              <td>禁止使用童工规定
+              </td>
+              <td>2002-12-01</td>
+            </tr>
+            <tr ng-click="vm.toNext(5)">
+              <td>未成年工特殊保护规定
+              </td>
+              <td>1995-01-01</td>
+            </tr>
+            <tr ng-click="vm.toNext(6)">
+              <td>城市居民最低生活保障条例
+              </td>
+              <td>1999-10-01</td>
+            </tr>
+            <tr ng-click="vm.toNext(7)">
+              <td>女职工劳动保护规定
+              </td>
+              <td>1988-09-01</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="clear"></div>
+    <div class="xinxiang" ng-style="vm.fixedStyle" ng-click="vm.weiquan()"></div>
+    <!--<div class="jigou" ng-style="vm.fixedStyle" ng-click="vm.showZZJG()"></div>-->
+  </div>
+</div>
+<div class="index1_foot">
+  <div class="index1_mainbox">
+    <div class="index1_line"></div>
+    <div class="index1_line1"></div>
+    <p>主办：西安市雁塔区大雁塔街道 &nbsp;&nbsp;承办：西安杰森电子科技有限公司</p>
+  </div>
+</div>
+</div>

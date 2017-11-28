@@ -1,0 +1,29 @@
+<section>
+  <div class="page-header">
+    <div class="row">
+      <div class="col-md-12">
+        <h3>重点工作动态管理</h3>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="su-menu">
+          <ul class="nav nav-tabs" role="tablist">
+            <li role="presentation" ng-class="menu === vm.activeTab ? 'active' : ''"
+                ng-repeat="menu in vm.menus"
+                ng-click="vm.selected(menu)">
+              <a>
+                {{menu.name}}
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="page-content">
+    <div class="row">
+      <div class="col-md-12" ui-view="grid"></div>
+    </div>
+  </div>
+</section>

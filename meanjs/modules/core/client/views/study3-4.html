@@ -1,0 +1,220 @@
+<style>
+  .container-fluid {
+    padding: 0;
+  }
+
+  .page-container {
+    margin-top: 0 !important;
+  }
+
+  .keyworkxq_lnav > ul > li a {
+    display: block;
+    width: 100%;
+    text-align: left;
+  }
+
+  .keyworkxq_lnav > ul > li {
+    border: 1px solid #ccc;
+    margin-top: 10px;
+    padding: 5px 0;
+    background-color: #F8F6F6;
+  }
+
+  .keyworkxq_lnav > ul > li a {
+    text-align: center;
+  }
+
+  .keyworkxq_lnav > ul > li a span {
+    width: 84%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .keyworkxq_rnav {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .keyworkxq_border {
+    padding: 20px 100px;
+  }
+
+  p {
+    line-height: 40px;
+    font-size: 20px;
+    text-indent: 0em;
+  }
+  .word>p:nth-child(1) strong{
+    font-size: 36px;
+  }
+  .word>p:nth-child(1){
+    text-align: center;
+  }
+</style>
+<div class="logomask" ng-style="maskStyle" ng-show="logoShow" ng-click="showLogo()">
+</div>
+<div class="index1_model" ng-show="logoShow" ng-style="logoHeight" ng-click="showLogo()">
+  <div class="asa">    <a href="#"></a>    <a href="#"></a>    <a href="javascript:void(0)" ng-click="toSHYK()"></a>    <a href="javascript:void(0)" ng-click="toLXYZ()"></a>    <a href="/partybuild#jiaoliu"></a>    <a href="/partyDQ#dangzhishi"></a>    <a href="/partyInter"></a>    <a href="/partydt"></a>    <a href="/basic"></a>    <a href="#"></a>    <a href="javascript:void(0)" ng-click="toGDDR()"></a>    <a href="/fulian"></a>    <a href="/study#studydt"></a>    <a href="http://www.12371.cn/special/zsjs/sj2/index.shtml"></a>    <a href="#"></a>    <a href="#"></a>    <a href="/minqingE"></a>    <a href="/basic#jiadaobanzi"></a>    <a href="#"></a>    <a href="/partybuild#jifen"></a>    <a href="/basic"></a>    <a href="http://dygbjy.12371.cn/"></a>    <a href="/partybuild#xiangmu1"></a>    <a href="#"></a>    <a href="/tuanwei#tuanwei"></a>    <a href="/xiaqu#xiaqu"></a>    <a href="/gonghui"></a>    <a href="/lingtouyan"></a>    <div class="clear"></div>  </div>
+</div>
+<div id="index1_nav">
+  <div class="index1_title1">
+    <div class="index1_airt">
+      <div class="index1_mainbox">
+        <div class="top_left lt">
+          <a href="http://www.gov.cn/">中央人民政府</a>
+          <span></span>
+          <a href="http://www.shaanxi.gov.cn/">陕西省人民政府</a>
+          <span></span>
+          <a href="http://www.xa.gov.cn/ptl/index.html">西安市人民政府</a>
+        </div>
+        <div class="top_right rt">
+          <a href="#">
+            <i class="ic"></i>
+            <span ng-click="wap()">手机版</span>
+            <div class="top_ewm" ng-show="phone" >
+              <img src="/modules/core/client/img/image/index/wap.png" width="100px;">
+              <b>关注我们</b>
+            </div>
+          </a>
+          <a ui-sref="authentication.signin">
+            <i class="ic1"></i>
+            <span>登录</span>
+          </a>
+        </div>
+        <div class="top_right rt" style="margin-right: 10px">
+          <a ui-sref="authentication.signin">
+            <i class="sb"></i>
+            <span>民情地图</span>
+          </a>
+          <a ui-sref="authentication.signin">
+            <i class="sb1"></i>
+            <span>党建地图</span>
+          </a>
+        </div>
+      </div>
+    </div>
+    <!--<div class="index1_imgt">-->      <!--<div class="animated bounceInLeft" ng-style="leftStyle">-->
+    <!--<img src="/modules/core/client/img/image/shouye/tuceng9.png">-->      <!--</div>-->
+    <!--<div class="animated bounceInRight" ng-style="rightStyle">-->
+    <!--<img src="/modules/core/client/img/image/shouye/toptu2.png">-->      <!--</div>-->    <!--</div>-->
+  </div>
+  <div class="tubiao">
+    <div class="div" ng-style="{'marginLeft': fixedLeft}">
+      <span></span>
+      <ul class="tiem">
+        <li><a href="/index1"><span class="wit1 tiem"></span><span class="tiem">首页</span></a></li>
+        <li><a href="/basic"><span class="wit2 tiem"></span><span class="tiem">基础信息管理</span></a></li>
+        <li><a href="/study"><span class="wit3 tiem"></span><span class="tiem">重点工作动态</span></a></li>
+        <li><a href="/partybuild"><span class="wit4 tiem"></span><span class="tiem">区域化党建</span></a></li>
+        <li><a href="/partymap"><span class="wit5 tiem"></span><span class="tiem">党建地图</span></a></li>
+        <li ng-click="showLogo()"><span class="wit6 tiem"></span><span class="tiem logo">logo</span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="container" style="background-color: #fff;">
+    <!--固定党日-->
+    <div class="keyworkxq_border">
+      <div class="keyworkxq_work">
+        <div class="keyworkxq_rnav lt">
+          <div class="keyworkxq_main">
+            <div class="keyworkxq_mainr">
+
+              <div id="font_area" class="font_area_mid"><!--正文页内容-->
+                <!--repaste.body.begin--><div class="con"><div class="word">
+                  <p><strong>大秦铁路电路维修工王养国：44公里 来回走了27年</strong></p>
+                  <p style="text-align: center;"><a href="http://www.12371.cn/special/lxyzby/" target="_blank"><img src="http://p2.img.cctvpic.com/photoworkspace/contentimg/2017/08/03/2017080306581658673.jpg" alt="" /></a></p>
+                  <p class="photo_title" style="text-align: center;"><a href="http://www.12371.cn/special/lxyzby/" target="_blank">两学一做&middot;榜样</a></p>
+                  <p align="center"><img src="http://p2.img.cctvpic.com/photoworkspace/contentimg/2017/09/11/2017091105164585528.jpg" alt="" /></p>
+                  <p class="pictext" align="center"><span style="font-family: KaiTi_GB2312;">王养国在对接触网设备进行巡视。</span></p>
+                  <p>　　雁北的夏天正悄悄地溜走。傍晚时分，王养国一行人头戴蓝色头盔，沿着铁路从夕阳中走来，肩披一片霞光。大秦铁路大同西供电段阳原供电运行工区这44公里的沿线，王养国来回走了27年。</p>
+                  <p>　　<strong>&ldquo;哪里容易出问题，闭着眼睛都知道&rdquo;</strong></p>
+                  <p>　　王养国局促地坐在那里，双手不知该往哪放。许久，这位雁北汉子咧嘴说：&ldquo;我这些事都是稀松平常，其实没啥可说的。&rdquo;在他看来，巡线中多发现几处漏洞，工作结束后早点回去陪陪妻子和儿子，是更重要的事情。</p>
+                  <p>　　王养国所在的单位，是太原铁路局大秦铁路公司大同西供电段阳原供电运行工区。大同西供电段位于山西省大同市，而阳原段已到河北阳原县境内。百十来公里的路，他和工友们每次回大同的家都得花近两个钟头。</p>
+                  <p>　　铁路电路维修是一项磨人的工作：因为需要巡线、维修，每天都是和高压电网、铁路钢轨打交道，与外界交流甚少；因为远离城市，他们一上班就是一整周，一周内&ldquo;半军事化&rdquo;作业，和家人、朋友的交流存在断隔。但这27年中，王养国就这样来回地跑，从未想过调回大同，离家人近一点。这么多年，他身边的人换了一茬又一茬，但他依然倔强地守在这里。</p>
+                  <p>　　熟悉王养国的人都知道他有个&ldquo;别名&rdquo;&mdash;&mdash;开玩笑的时候，大家会叫他&ldquo;王养驴&rdquo;，他也只是微微一笑。工友们都知道，到了工作中，玩笑可开不得，任何一个小失误，都会让他大发&ldquo;驴脾气&rdquo;。</p>
+                  <p>　　有一件事情让阳原供电车间主任李小明印象深刻。一天中午，他们顶着大太阳巡视，回来后总结，一名工友报告说某个点&ldquo;B值&rdquo;（接触网补偿装置离地值）偏小。王养国当场就反问：&ldquo;B值偏小，到底是多少？&rdquo;工友答不上来。王养国又开始较真：&ldquo;B值标准是多少，多少算是安全区间，你清楚吗？&rdquo;最后，王养国领着这名工友步行3公里返回到该点，测量出具体数值，才放下心来。</p>
+                  <p>　　爱钻研、爱较真，这么多年，大家都知道跟着王养国干活&ldquo;不好交差&rdquo;，但跟着他干活心里踏实。跟着王养国一同巡线，每走到一个点，王养国都会招呼人&ldquo;看看上面的螺帽松了没有&rdquo;&ldquo;看看这里的B值是不是偏低了&rdquo;，记者好奇地问：&ldquo;你也没用工具测量，怎么就知道有问题？&rdquo;他笑笑：&ldquo;这么多年，哪里容易出问题，闭着眼睛都知道。&rdquo;</p>
+                  <p>　　自信的背后，是他多年的踏实巡线、认真钻研。正是这股子执着劲，使他成为阳原供电车间的&ldquo;意见领袖&rdquo;和行家里手，工友徒弟们有啥解决不了的问题，找他准没错。2014年，他又带着工友们完成了《接触网工岗位作业指导书》，为接触网检修人员提供了作业标准和检修工艺标准。</p>
+                  <p>　　王养国的较真也曾让很多人下不来台。一次上级部门在检查中发现一处问题，当时是阳原供电维修段车间主任的赵佃举提出让优先解决，不料当时还是副班长的王养国当着众人面就回顶了他：&ldquo;本来都是安排好的电路检修，肯定会检修到这一处，这个不影响供电行车，为什么要打乱计划？&rdquo;</p>
+                  <p>　　赵佃举说起当时，笑着摇摇头：&ldquo;&lsquo;王养驴&rsquo;当时就让我下不来台。但实话说，他这种&lsquo;不唯上、不唯书、只唯实&rsquo;的工匠精神，恰恰是我们所需要的。&rdquo;</p>
+                  <p>　　<strong>&ldquo;他在身边，我就踏实&rdquo;</strong></p>
+                  <p>　　王养国知道自己身上的&ldquo;毛病&rdquo;，他家里的墙上挂着一幅字，上书&ldquo;宁静致远&rdquo;四个大字。王养国自己挠着头说：&ldquo;我觉得自己性子倔、爱较真，容易着急，工作中一有不对就爱骂工友，希望自己能克制一点，就请一个会书法的工友写了这几个字。&rdquo;</p>
+                  <p>　　妻子赵建军在身旁瞪了他一眼：&ldquo;急？你可不急，家里这么多事情，没见你慌过神！&rdquo;在妻子看来，王养国就是这个家不倒的靠山，也是个幽默、浪漫的人。</p>
+                  <p>　　王养国是个孝子。他的老父亲生前爱泡澡；他每周回去的时候，都会扶着父亲去澡堂，为他搓背。2015年春运，正是铁路最繁忙的时候，王养国身为班长，自然得在一线坚守。不料，父亲突发脑溢血，他急忙赶回去，安顿好老父亲的住院事宜，又赶回了阳原。临走的时候，他趴在老父亲的耳旁轻声说：&ldquo;爸，您安心养病，等春运结束我回来，再带您去澡堂痛快泡个澡！&rdquo;</p>
+                  <p>　　让王养国没想到的是，这话竟成了他对父亲最后的承诺&hellip;&hellip;父亲去世不久，妻子赵建军突发高烧，持续不退。平时感冒什么的，扛一扛就过去了，这回她自己感觉&ldquo;不太对劲&rdquo;。过了几天，实在难受得不行，她给丈夫打了个电话：&ldquo;养国，你回来带我去医院看看吧。&rdquo;</p>
+                  <p>　　去医院检查，&ldquo;癌&rdquo;字一映入眼帘，王养国的第一反应不是&ldquo;怔住&rdquo;，也不是&ldquo;难过&rdquo;，而是&ldquo;愧疚&rdquo;。他破天荒地请了三个星期假，陪妻子检查、做手术。恢复的时候，王养国怕妻子心里难过，天天抱着手机给妻子讲笑话。赵建军说：&ldquo;其实那笑话一点都不好笑，但他在我身边，我就踏实。人们都说他严格，但他其实是一个很浪漫的人。&rdquo;</p>
+                  <p>　　铁汉也有柔情。儿子王涛在一旁插话说：&ldquo;我妈每年过生日，我爸都会提前领着我去订个鲜花蛋糕，或者买个手镯当礼物。他还嘱咐我不要&lsquo;剧透&rsquo;，过生日的时候装作忘记了，然后再突然给我妈一个惊喜。&rdquo;</p>
+                  <p>　　赵建军在一旁幸福地笑着，术后的那段时间，是他们夫妻二人共同生活最长的一段时间，她说：&ldquo;人离得近了，心离得更近了&rdquo;。原来，出院之后，除了定期化疗，平时怎么照顾妻子，是摆在王养国面前的一个难题。长期请假不行，申请调回他也不舍，怎么办？思量再三，他最终决定把妻子接到身边来。在阳原段旁边的老旧居民楼里，他租了个40平方米的单间。一推门，出租屋的条件差到难以想象：水泥地面裂着一道道缝，墙面是黑乎乎的，厕所连水都没通，得拿盆装水去冲。</p>
+                  <p>　　知道情况的工友们来看他，他一点都不介意：&ldquo;没事，一年四千，挺便宜！&rdquo;工友们帮他重新刷了墙，又接通了厕所的水，段里和车间又为他陆续添置了洗衣机等生活用品。王养国很感动：&ldquo;想不到我平时对他们这么严厉，遇到困难时兄弟们这么给力！&rdquo;</p>
+                  <p>　　<strong>&ldquo;作为党员，就是要身先士卒，带领大家迎难而上&rdquo;</strong></p>
+                  <p>　　王养国一开始并不想让单位知道妻子的事。&ldquo;一次我带爱人去医院体检，看到王养国坐在住院部的椅子上。我看他脸色不对劲，问他到底怎么了。他才叹一口气：&lsquo;安书记，兄弟我摊上事了&rsquo;&rdquo;。阳原段党总支书记安玺琳这才知道，王养国的妻子罹患癌症，&ldquo;说白了，他就是不想把生活中的问题带到工作中，不想给单位添麻烦。&rdquo;</p>
+                  <p>　　但就是这么一个不愿意给组织添麻烦的人，却时常考虑别人的麻烦。一次，工友袁晓峰出生没多久的孩子便血，急得他团团转。王养国知道后，让他赶紧回去照顾孩子。第二天一早，他打电话给袁晓峰：&ldquo;我给你联系好北京儿童医院的大夫了，我把联系方式给你，你赶最早的火车带孩子去看病。&rdquo;</p>
+                  <p>　　还有一次，让工友张雁陵印象深刻：&ldquo;我寝室的一个工友突发肠胃炎，师父带着他从医院打点滴回来。当天晚上，每隔半个钟头，师父都要上来看看这个工友的情况，几乎一晚上没睡觉。&rdquo;</p>
+                  <p>　　跟别人开口觉得千难万难，帮别人却千方百计。他较真、严肃，又温情、浪漫。这样的王养国，是一个普通人，也是一个真实的人。他说他没有什么事情可讲，但27年离家闷头研究路网作业，照顾患病妻子却选择了最困难的模式来解决，这份看似普通的坚守和担当，又有几人能做到。</p>
+                  <p>　　工友都喜欢叫王养国&ldquo;师父&rdquo;，诚然，王养国就是他们这个工区的&ldquo;家长&rdquo;。平时，每个工友过生日，他都把大伙聚起来热闹热闹。过年的时候，他也让工友把家属叫过来，大家一块包饺子。</p>
+                  <p>　　除了工长的身份，他还是工区的党支部书记。太原铁路局开展了党员&ldquo;三问&rdquo;：入党为什么、在党像什么、为党做什么。他在&ldquo;入党为什么&rdquo;中写过一段话：&ldquo;小的时候村里放抗战电影，共产党员会说&lsquo;兄弟们，跟我上&rsquo;，而国民党军官会说&lsquo;弟兄们，给我上&rsquo;。那会不太懂，现在我明白了，作为一名党员，就是要身先士卒。虽然我只是一名最基层的支部书记，但也要用行动带领大家迎难而上&hellip;&hellip;&rdquo;</p></div></div><!--repaste.body.end-->
+              </div>
+
+
+
+
+
+
+
+
+
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="clear"></div>
+    </div>
+  </div>
+</div>
+<div class="keyworkxq_foot">
+  <div class="keyworkxq_mainbox">
+    <div class="keyworkxq_line"></div>
+    <div class="keyworkxq_line1"></div>
+    <p>主办：西安市雁塔区大雁塔街道 &nbsp;&nbsp;承办：西安杰森电子科技有限公司</p>
+  </div>
+</div>
+</div>
+<!--<script>-->
+<!--$('.top_right a').eq(0).mouseover(function(){-->
+<!--$('.top_ewm').css('display','block');-->
+<!--});-->
+<!--$('.top_right a').eq(0).mouseout(function(){-->
+<!--$('.top_ewm').css('display','none');-->
+<!--});-->
+<!--$(function() {-->
+<!--var left = ($(window).width() - 1200) / 2;-->
+<!--$('.tubiao>div').css('left', (left - 40) + 'px');-->
+<!--$('.asa').css('left', left + 'px');-->
+<!--$('.index1_imgt div:nth-of-type(2)').css({-->
+<!--'margin-right':(left-50)+'px'-->
+<!--});-->
+<!--$('.index1_imgt div:nth-of-type(1)').css({-->
+<!--'margin-left':(left-50)+'px'-->
+<!--});-->
+<!--$('.logo').click(function (event) {-->
+<!--event.preventDefault();-->
+<!--$('#index1_nav').css({-->
+<!--'background': '#ddd',-->
+<!--'opacity': 0.5-->
+<!--});-->
+<!--$('.asa').css('display', 'block');-->
+<!--});-->
+<!--$('.asa').on('click', function () {-->
+<!--$('.asa').css('display', 'none');-->
+<!--$('#index1_nav').css({-->
+<!--'background': '',-->
+<!--'opacity': ''-->
+<!--});-->
+<!--});-->
+<!--})-->
+<!--</script>-->
+<!--</body>-->
+<!--</html>-->

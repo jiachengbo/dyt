@@ -1,0 +1,442 @@
+<div class="baseinfomanage-modal">
+  <div class="modal-header">
+    <h3>{{vm.method}} 党员</h3>
+  </div>
+  <div class="modal-body col-md-12">
+    <form name="vm.partyMemberTableForm" class="form-horizontal" novalidate
+          ng-submit="vm.ok(vm.partyMemberTableForm.$valid)" style="">
+      <fieldset ng-disabled="vm.disabled">
+        <!-- 第1行-->
+        <div class="row clearfix">
+          <div class="col-xs-3 column" style="margin-top: 0px;margin-bottom: 0px;">
+            <div class="form-group row" show-errors>
+              <div class="col-xs-12">
+                <label for="name">姓名</label>
+                <input name="name" type="text" ng-model="vm.partyMemberTableData.name" id="name"
+                       class="form-control" placeholder="" required autofocus>
+                <div ng-messages="vm.partyMemberTableForm.name.$error" role="alert">
+                  <p class="help-block error-text" ng-message="required">请输入姓名.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xs-3 column" style="margin-top: 0px;margin-bottom: 0px;">
+            <div class="form-group row" show-errors>
+              <div class="col-xs-12">
+                <label>性别</label>
+                <select class="form-control"
+                        ng-model="vm.partyMemberTableData.sex"
+                        ng-options="cv_sex.name as cv_sex.name for cv_sex in cvs_sex"
+                        required
+                        name='sex'
+                >
+                </select>
+                <div ng-messages="vm.partyMemberTableForm.sex.$error" role="alert">
+                  <p class="help-block error-text" ng-message="required">请选择性别.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xs-3 column" style="margin-top: 0px;margin-bottom: 0px;">
+            <div class="form-group row" show-errors>
+              <div class="col-xs-12">
+                <label>民族</label>
+                <select class="form-control"
+                        ng-model="vm.partyMemberTableData.nation"
+                        ng-options="cv_nation.name as cv_nation.name for cv_nation in cvs_nation"
+                        required
+                        name='nation'
+                >
+                </select>
+                <div ng-messages="vm.partyMemberTableForm.nation.$error" role="alert">
+                  <p class="help-block error-text" ng-message="required">请选择民族.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xs-3 column" style="margin-top: 0px;margin-bottom: 0px;">
+            <div class="form-group row" show-errors>
+              <div class="col-xs-12">
+                <label>籍贯</label>
+                <select class="form-control"
+                        ng-model="vm.partyMemberTableData.nation_place"
+                        ng-options="cv_nation_place.name as cv_nation_place.name for cv_nation_place in cvs_nation_place"
+                        required
+                        name='nation_place'
+                >
+                </select>
+                <div ng-messages="vm.partyMemberTableForm.nation_place.$error" role="alert">
+                  <p class="help-block error-text" ng-message="required">请选择籍贯.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- 第2行-->
+        <div class="row clearfix">
+
+          <div class="col-xs-6 column" style="margin-top: 0px;margin-bottom: 0px;">
+            <div class="form-group row" show-errors>
+              <div class="col-xs-12">
+                <label for="work_unit">工作单位</label>
+                <input name="work_unit" type="text" ng-model="vm.partyMemberTableData.work_unit" id="work_unit"
+                       class="form-control" placeholder="" required>
+                <div ng-messages="vm.partyMemberTableForm.work_unit.$error" role="alert">
+                  <p class="help-block error-text" ng-message="required">请输入工作单位.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-6 column" style="margin-top: 0px;margin-bottom: 0px;">
+            <div class="form-group row" show-errors>
+              <div class="col-xs-12">
+                <label for="id_card">身份证号</label>
+
+                <input name="id_card" type="text" ng-model="vm.partyMemberTableData.id_card" id="id_card"
+                       class="form-control"
+                       placeholder=""
+                       maxlength="18"
+                       ng-minlength="18"
+                       ng-pattern="/^[1-9]\d{7}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}$|^[1-9]\d{5}[1-9]\d{3}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}([0-9]|X)$/"
+                       required/>
+
+                <div ng-show="vm.partyMemberTableForm.id_card.$dirty && vm.partyMemberTableForm.id_card.$invalid"
+                     class="has-error" role="alert">
+                  <p class="help-block error-text"
+                     ng-show="vm.partyMemberTableForm.id_card.$error.pattern||vm.partyMemberTableForm.id_card.$error.minlength">
+                    身份证有误,请重填.</p>
+                </div>
+                <div ng-messages="vm.partyMemberTableForm.id_card.$error" role="alert">
+                  <p class="help-block error-text" ng-message="required">请输入身份证号.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- 第3行-->
+        <div class="row clearfix">
+          <div class="col-xs-3 column" style="margin-top: 0px;margin-bottom: 0px;">
+            <div class="form-group row" show-errors>
+              <div class="col-xs-12">
+                <label for="birthday">出生日期</label>
+                <p class="input-group">
+                  <input name="birthday"
+                         type="text"
+                         ng-model="vm.partyMemberTableData.birthday"
+                         id="birthday"
+                         uib-datepicker-popup
+                         is-open="popup1.opened"
+                         datepicker-options="inlineOptions"
+                         ng-required="true"
+                         current-text="今天"
+                         clear-text="清空"
+                         close-text="关闭"
+                         class="form-control"
+                         placeholder="1900-01-01"
+                         required/>
+                  <span class="input-group-btn">
+                      <button type="button"
+                              class="btn btn-default"
+                              ng-click="open1()">
+                        <i class="glyphicon glyphicon-calendar"></i>
+                      </button>
+                 </span>
+                </p>
+                <div ng-messages="vm.partyMemberTableForm.birthday.$error" role="alert">
+                  <p class="help-block error-text" ng-message="required">请输入出生日期.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-3 column" style="margin-top: 0px;margin-bottom: 0px;">
+            <div class="form-group row" show-errors>
+              <div class="col-xs-12">
+                <label for="phone">联系电话</label>
+                <input name="phone"
+                       type="text"
+                       ng-model="vm.partyMemberTableData.phone"
+                       ng-minlength="11"
+                       maxlength="11"
+                       ng-pattern="/^[0-9]*$/"
+                       id="phone"
+                       class="form-control"
+                       placeholder=""
+                       required>
+                <div ng-show="vm.partyMemberTableForm.phone.$dirty && vm.partyMemberTableForm.phone.$invalid"
+                     class="has-error" role="alert">
+                  <p class="help-block error-text"
+                     ng-show="vm.partyMemberTableForm.phone.$error.pattern||vm.partyMemberTableForm.phone.$error.minlength">
+                    联系电话有误,请重填.</p>
+                </div>
+                <div ng-messages="vm.partyMemberTableForm.phone.$error" role="alert">
+                  <p class="help-block error-text" ng-message="required">请输入联系电话.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-3 column" style="margin-top: 0px;margin-bottom: 0px;">
+            <div class="form-group row" show-errors>
+              <div class="col-xs-12">
+                <label for="join_time">入党时间</label>
+                <p class="input-group">
+                  <input name="join_time"
+                         type="text"
+                         ng-model="vm.partyMemberTableData.join_time"
+                         id="join_time"
+                         uib-datepicker-popup
+                         is-open="popup2.opened"
+                         datepicker-options="inlineOptions"
+                         ng-required="true"
+                         current-text="今天"
+                         clear-text="清空"
+                         close-text="关闭"
+                         class="form-control"
+                         required/>
+                  <span class="input-group-btn">
+                      <button type="button"
+                              class="btn btn-default"
+                              ng-click="open2()">
+                        <i class="glyphicon glyphicon-calendar"></i>
+                      </button>
+                 </span>
+                </p>
+                <div ng-messages="vm.partyMemberTableForm.join_time.$error" role="alert">
+                  <p class="help-block error-text" ng-message="required">请输入入党时间.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-3 column" style="margin-top: 0px;margin-bottom: 0px;">
+            <div class="form-group row" show-errors>
+              <div class="col-xs-12">
+                <label for="party_type">党员类别</label>
+                <select class="form-control"
+                        id="party_type"
+                        ng-model="vm.partyMemberTableData.party_type"
+                        ng-options="cv_party_type.name as cv_party_type.name for cv_party_type in cvs_party_type"
+                        required
+                        name='party_type'
+                >
+                </select>
+                <div ng-messages="vm.partyMemberTableForm.party_type.$error" role="alert">
+                  <p class="help-block error-text" ng-message="required">请选择党员类别.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- 第4行-->
+        <div class="row clearfix">
+          <div class="col-xs-3 column" style="margin-top: 0px;margin-bottom: 0px;">
+            <div class="form-group row" show-errors>
+              <div class="col-xs-12">
+                <label for="is_float">是否流动党员</label>
+                <select class="form-control"
+                        id="is_float"
+                        ng-model="vm.partyMemberTableData.is_float"
+                        ng-options="cv_is_float.name as cv_is_float.name for cv_is_float in cvs_is_float"
+                        required
+                        name='is_float'>
+                </select>
+                <div ng-messages="vm.partyMemberTableForm.is_float.$error" role="alert">
+                  <p class="help-block error-text" ng-message="required">请选择是否流动党员.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-3 column" style="margin-top: 0px;margin-bottom: 0px;">
+            <div class="form-group row" show-errors>
+              <div class="col-xs-12">
+                <label>党建类型</label>
+                <select class="form-control"
+                        ng-model="vm.partyMemberTableData.partytype"
+                        ng-options="party.id as party.name for party in vm.partyorg"
+                        required
+                        ng-disabled="true"
+                        name='partytype'
+                >
+                </select>
+                <div ng-messages="vm.partyMemberTableForm.partytype.$error" role="alert">
+                  <p class="help-block error-text" ng-message="required">请选择党建类型</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-3 column" style="margin-top: 0px;margin-bottom: 0px;">
+            <div class="form-group row" show-errors>
+              <div class="col-xs-12">
+                <label for="is_lost">是否失联</label>
+                <select class="form-control"
+                        id="is_lost"
+                        ng-model="vm.partyMemberTableData.is_lost"
+                        ng-change="vm.Selected(vm.partyMemberTableData.is_lost)"
+                        ng-options="cv_is_lost.name as cv_is_lost.name for cv_is_lost in cvs_is_lost"
+                        required
+                        name='is_lost'>
+                </select>
+                <div ng-messages="vm.partyMemberTableForm.is_lost.$error" role="alert">
+                  <p class="help-block error-text" ng-message="required">请输入是否失联.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-3 column" style="margin-top: 0px;margin-bottom: 0px;">
+            <div class="form-group row" ng-show="vm.partyMemberTableData.is_lost==='是'" show-errors>
+              <div class="col-xs-12">
+                <label for="lost_time">失联时间</label>
+                <p class="input-group">
+                  <input name="lost_time"
+                         type="text"
+                         ng-model="vm.partyMemberTableData.lost_time"
+                         id="lost_time"
+                         uib-datepicker-popup
+                         is-open="popup3.opened"
+                         datepicker-options="inlineOptions"
+                         ng-required="true"
+                         current-text="今天"
+                         clear-text="清空"
+                         close-text="关闭"
+                         class="form-control"
+                  />
+                  <span class="input-group-btn">
+                      <button type="button"
+                              class="btn btn-default"
+                              ng-click="open3()">
+                        <i class="glyphicon glyphicon-calendar"></i>
+                      </button>
+                 </span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- 第5行-->
+        <div class="row clearfix">
+          <div class="col-xs-3 column" style="margin-top: 0px;margin-bottom: 0px;">
+            <div class="form-group row" show-errors>
+              <div class="col-xs-12">
+                <!--<label for="community">社区</label>-->
+                <label>所在社区</label>
+                <select class="form-control"
+                        ng-model="vm.partyMemberTableData.community"
+                        ng-options="cv.id as cv.name for cv in cvs"
+                        required
+                        ng-disabled="vm.userCommId"
+                        name='community'
+                        ng-change="vm.shequ(vm.partyMemberTableData.community)"
+                >
+                </select>
+                <div ng-messages="vm.partyMemberTableForm.community.$error" role="alert">
+                  <p class="help-block error-text" ng-message="required">请选择社区(村)</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-3 column" style="margin-top: 0px;margin-bottom: 0px;">
+            <div class="form-group row" show-errors>
+              <div class="col-xs-12">
+                <label for="party_branch">所在党支部</label>
+                <select class="form-control"
+                        id="party_branch"
+                        ng-model="vm.partyMemberTableData.party_branch"
+                        ng-options="cv_party_branch.name as cv_party_branch.name for cv_party_branch in cvs_party_branch"
+                        required
+                        name='party_branch'
+                >
+                </select>
+                <div ng-messages="vm.partyMemberTableForm.party_branch.$error" role="alert">
+                  <p class="help-block error-text" ng-message="required">请输入所在党支部</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-3 column" style="margin-top: 0px;margin-bottom: 0px;">
+            <div class="form-group row" show-errors>
+              <div class="col-xs-12">
+                <label for="conversion_time">转正时间</label>
+                <p class="input-group">
+                  <input name="conversion_time"
+                         type="text"
+                         ng-model="vm.partyMemberTableData.conversion_time"
+                         id="conversion_time"
+                         uib-datepicker-popup
+                         is-open="popup4.opened"
+                         datepicker-options="inlineOptions"
+                         ng-required="true"
+                         current-text="今天"
+                         clear-text="清空"
+                         close-text="关闭"
+                         class="form-control"
+                         placeholder="1900-01-01"
+                         required/>
+                  <span class="input-group-btn">
+                      <button type="button"
+                              class="btn btn-default"
+                              ng-click="open4()">
+                        <i class="glyphicon glyphicon-calendar"></i>
+                      </button>
+                 </span>
+                </p>
+
+                <div ng-messages="vm.partyMemberTableForm.conversion_time.$error" role="alert">
+                  <p class="help-block error-text" ng-message="required">请输入转正时间</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-3 column" style="margin-top: 0px;margin-bottom: 0px;">
+            <div class="form-group row" show-errors>
+              <div class="col-xs-12">
+                <label for="party_state">党籍状态</label>
+                <input name="party_state" type="text" ng-model="vm.partyMemberTableData.party_state" id="party_state"
+                       class="form-control" placeholder="" required>
+                <div ng-messages="vm.partyMemberTableForm.party_state.$error" role="alert">
+                  <p class="help-block error-text" ng-message="required">请输入党籍状态</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- 第6行-->
+        <div class="row clearfix">
+          <div class="col-xs-3 column" style="margin-top: 0px;margin-bottom: 0px;">
+            <div class="form-group row" show-errors>
+              <div class="col-xs-12">
+                <label for="float_trend">流动动向</label>
+                <input name="float_trend" type="text" ng-model="vm.partyMemberTableData.float_trend" id="float_trend"
+                       class="form-control" placeholder="" required>
+                <div ng-messages="vm.partyMemberTableForm.float_trend.$error" role="alert">
+                  <p class="help-block error-text" ng-message="required">请输入流动动向</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-9 column" style="margin-top: 0px;margin-bottom: 0px;">
+            <div class="form-group row">
+              <div class="col-xs-12">
+                <label for="remark">备注</label>
+                <input name="remark" type="text" ng-model="vm.partyMemberTableData.remark" id="remark"
+                       class="form-control" placeholder="">
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-primary"
+            style="width: 100px"
+            ng-if="!vm.disabled"
+            ng-click="vm.ok(vm.partyMemberTableForm.$valid)">确定
+    </button>
+    <button class="btn btn-warning"
+            style="width: 100px"
+            ng-click="vm.cancel()">取消
+    </button>
+  </div>
+</div>

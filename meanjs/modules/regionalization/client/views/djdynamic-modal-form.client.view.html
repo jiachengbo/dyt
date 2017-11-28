@@ -1,0 +1,172 @@
+<div class="regionalization-modal">
+  <div class="modal-header">
+    <h3>{{vm.method}} 党建动态</h3>
+  </div>
+  <div class="modal-body col-md-12">
+    <form name="vm.dynamicForm" class="form-horizontal" novalidate>
+      <fieldset ng-disabled="vm.disabled">
+        <div class="col-md-12 form-group" show-errors>
+          <label class="control-label" for="dynamictitle">标题</label>
+          <input name="dynamictitle" type="text" ng-model="vm.dynamicData.dynamictitle"
+                 id="dynamictitle" class="form-control"
+                 ng-maxlength="100"
+                 placeholder="请输入标题" required autofocus>
+          <div ng-messages="vm.dynamicForm.dynamictitle.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">标题不能为空！</p>
+          </div>
+          <div class="has-error" style="text-align: left">
+            <span class="help-block" ng-show="vm.dynamicForm.dynamictitle.$error.maxlength">请输入100字以内</span>
+          </div>
+        </div>
+        <div class="col-md-12 form-group">
+          <label class="control-label" for="dynamiccontext">内容</label>
+          <textarea name="dynamiccontext" data-ng-model="vm.dynamicData.dynamiccontext"
+                    id="dynamiccontext" class="form-control" cols="30"
+                    maxlength="1000"
+                    rows="3" placeholder="请输入内容"></textarea>
+          <div>
+            <span style="color: red"
+                  ng-show="vm.yzDynamiccontext">*内容不能为空！</span>
+          </div>
+          <div class="has-error" style="text-align: left">
+                <span class="help-block" ng-show="vm.dynamicForm.dynamiccontext.$error.maxlength">请输入1000字以内</span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="col-md-12">
+              <label class="control-label">图片一</label>
+              <div class="form-group text-center">
+                <img ngf-src="vm.fileSelected1 ? vm.picFile1 : vm.dynamicData.photoone"
+                     alt="" class="img-thumbnail djdynamic-profile-picture" ngf-drop>
+              </div>
+              <div ng-show="vm.loading1" class="form-group text-center">
+                <img ng-src="/modules/core/client/img/loaders/loader.gif"
+                     height="80" width="40" alt="Loading image...">
+              </div>
+              <div class="text-center form-group">
+                <button class="btn btn-default btn-file"
+                        ngf-select="(vm.fileSelected1 = true) && (vm.loading1 = false)"
+                        ng-model="vm.picFile1" accept="image/*"
+                        ngf-before-model-change="vm.loading1 = true" ngf-resize="{width: 400}"
+                        ngf-resize-if="$width > 400 || $height > 400">点击选择图片一
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="col-md-12">
+              <label class="control-label">图片二</label>
+              <div class="form-group text-center">
+                <img ngf-src="vm.fileSelected2 ? vm.picFile2 : vm.dynamicData.phototwo"
+                     alt="" class="img-thumbnail djdynamic-profile-picture" ngf-drop>
+              </div>
+              <div ng-show="vm.loading2" class="form-group text-center">
+                <img ng-src="/modules/core/client/img/loaders/loader.gif"
+                     height="80" width="40" alt="Loading image...">
+              </div>
+              <div class="text-center form-group">
+                <button class="btn btn-default btn-file"
+                        ngf-select="(vm.fileSelected2 = true) && (vm.loading2 = false)"
+                        ng-model="vm.picFile2" accept="image/*"
+                        ngf-before-model-change="vm.loading = true" ngf-resize="{width: 400}"
+                        ngf-resize-if="$width > 400 || $height > 400">点击选择图片二
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="col-md-12">
+              <label class="control-label">图片三</label>
+              <div class="form-group text-center">
+                <img ngf-src="vm.fileSelected3 ? vm.picFile3 : vm.dynamicData.photothree"
+                     alt="" class="img-thumbnail djdynamic-profile-picture" ngf-drop>
+              </div>
+              <div ng-show="vm.loading3" class="form-group text-center">
+                <img ng-src="/modules/core/client/img/loaders/loader.gif"
+                     height="80" width="40" alt="Loading image...">
+              </div>
+              <div class="text-center form-group">
+                <button class="btn btn-default btn-file"
+                        ngf-select="(vm.fileSelected3 = true) && (vm.loading3 = false)"
+                        ng-model="vm.picFile3" accept="image/*"
+                        ngf-before-model-change="vm.loading = true" ngf-resize="{width: 400}"
+                        ngf-resize-if="$width > 400 || $height > 400">点击选择图片三
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row clearfix" >
+          <div class="col-xs-12 column">
+            <div class="form-group col-xs-2 column">
+              <label class="control-label">上传文件</label>
+            </div>
+            <div class="col-xs-6 column text-center" >
+              <label>{{vm.fileSelect ? vm.fileFile.name: vm.dynamicData.file_path}}</label>
+            </div>
+            <div class="col-xs-2 column text-right" >
+              <button class="btn btn-default btn-file"
+                      ngf-select="(vm.fileSelect = true) && (vm.loading = false)"
+                      ngf-before-model-change="vm.loading = true" ngf-resize="{width: 400}"
+                      ng-model="vm.fileFile"
+                      accept="application/msword">点击选择文件
+              </button>
+            </div>
+            <div class="col-xs-2 column text-center" >
+              <a href="{{vm.fileSelect ? vm.fileFile.name: vm.dynamicData.file_path}}" ng-show="vm.dynamicData.file_path" target="_blank" style="display: inline-block;width: 80px;height: 34px;line-height: 34px;margin-top: 10px;border: 1px solid #ccc;border-radius: 5px;background-color: #e0e0e0;opacity: 0.65">查看</a>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="col-md-12 form-group">
+              <label class="control-label">类型</label>
+              <select class="form-control"
+                      ng-disabled="true"
+                      ng-model="vm.dynamicData.type"
+                      ng-change="vm.dangjianid(vm.dynamicData.type)"
+                      ng-options="pt.current_pt_typeName as pt.current_pt_typeName for pt in current_pt_typeInfo">
+              </select>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="col-md-12 form-group">
+              <label class="control-label">状态</label>
+              <select class="form-control"
+                      ng-model="vm.dynamicData.state"
+                      ng-options="pt.stateName as pt.stateName for pt in stateInfo">
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="col-md-12 form-group">
+              <label class="control-label">所属社区</label>
+              <select class="form-control"
+                      ng-disabled="vm.userCommId"
+                      ng-change="vm.shequid(vm.dynamicData.communityid)"
+                      ng-model="vm.dynamicData.communityid"
+                      ng-options="pt.id as pt.name for pt in communityInfo">
+              </select>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="col-md-12 form-group">
+              <label class="control-label">所属网格</label>
+              <select class="form-control"
+                      ng-model="vm.dynamicData.gridid"
+                      ng-options="pt.id as pt.name for pt in gridInfo">
+              </select>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-primary" ng-if="!vm.disabled" ng-click="vm.ok(vm.dynamicForm.$valid)">提交</button>
+    <button class="btn btn-warning" ng-click="vm.cancel()">取消</button>
+  </div>
+</div>

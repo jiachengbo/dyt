@@ -1,0 +1,117 @@
+<div class="basicinfo-modal">
+  <div class="modal-header">
+    <h3>{{vm.method}} 维权信箱</h3>
+  </div>
+  <div class="modal-body col-md-12">
+    <form name="vm.guardianmailboxForm" class="form-horizontal" novalidate>
+      <fieldset ng-disabled="vm.disabled">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="col-md-12 form-group" show-errors>
+              <label class="control-label" for="name">姓名</label>
+              <input name="name" type="text" ng-model="vm.guardianmailboxData.name"
+                     id="name" class="form-control" placeholder="请输入姓名"
+                     maxlength="20" required autofocus>
+              <div ng-messages="vm.guardianmailboxForm.name.$error" role="alert">
+                <p class="help-block error-text" ng-message="required">姓名不能为空</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="col-md-12 form-group">
+              <label class="control-label">性别</label>
+              <select class="form-control"
+                      ng-model="vm.guardianmailboxData.sex"
+                      ng-options="s.sexname as s.sexname for s in sexInfo">
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12 form-group" show-errors>
+          <label class="control-label" for="tel">联系电话</label>
+          <input name="tel" type="text" ng-model="vm.guardianmailboxData.tel" id="tel"
+                 ng-minlength="11" maxlength="11"
+                 ng-pattern="/^[0-9]*$/"
+                 class="form-control" placeholder="请输入联系电话" required autofocus>
+          <div ng-messages="vm.guardianmailboxForm.tel.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">联系电话不能为空！</p>
+          </div>
+          <div ng-show="vm.guardianmailboxForm.tel.$dirty && vm.guardianmailboxForm.tel.$invalid"
+               class="has-error"
+               style="text-align: left">
+                <span class="help-block" ng-show="vm.guardianmailboxForm.tel.$error.pattern||
+                vm.guardianmailboxForm.tel.$error.minlength">请输入有效的手机号码!</span>
+          </div>
+        </div>
+        <div class="row" ng-show="vm.iscreatedate">
+          <label>创建时间：{{vm.guardianmailboxData.createdate | date:'yyyy-MM-dd HH:mm:ss'}}</label>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+          </div>
+          <!-- <div class="col-md-6"> -->
+          <!-- <div class="col-md-12 form-group" show-errors> -->
+          <!-- <label class="control-label" for="birthday">出生年月</label> -->
+          <!-- <p class="input-group"> -->
+          <!-- <input name="birthday" type="text" class="form-control" id="birthday" -->
+          <!-- uib-datepicker-popup ng-model="vm.guardianmailboxData.birthday" is-open="popup1.opened" -->
+          <!-- datepicker-options="inlineOptions" ng-required="true" -->
+          <!-- close-text="Close" ng-disabled="vm.disabled" -->
+          <!-- placeholder="请选择出生年月"/> -->
+          <!-- <span class="input-group-btn"> -->
+          <!-- <button type="button" class="btn btn-default" -->
+          <!-- ng-click="open1()" ng-disabled="vm.disabled"><i -->
+          <!-- class="glyphicon glyphicon-calendar"></i></button> -->
+          <!-- </span> -->
+          <!-- </p> -->
+          <!-- <div ng-messages="vm.guardianmailboxForm.birthday.$error" role="alert"> -->
+          <!-- <p class="help-block error-text" ng-message="required">出生年月不能为空！</p> -->
+          <!-- </div> -->
+
+          <!-- </div> -->
+          <!-- </div> -->
+        </div>
+        <div class="col-md-12 form-group" show-errors>
+          <label class="control-label" for="email">邮箱</label>
+          <input name="email" type="text" ng-model="vm.guardianmailboxData.email"
+                 id="email" class="form-control" placeholder="请输入邮箱"
+                 maxlength="20" required autofocus>
+          <div ng-messages="vm.guardianmailboxForm.email.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">邮箱不能为空</p>
+          </div>
+        </div>
+        <div class="col-md-12 form-group" show-errors>
+          <label class="control-label" for="address">地址</label>
+          <input name="address" type="text" ng-model="vm.guardianmailboxData.address"
+                 id="address" class="form-control" placeholder="请输入地址"
+                 maxlength="25" required autofocus>
+          <div ng-messages="vm.guardianmailboxForm.address.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">地址不能为空</p>
+          </div>
+        </div>
+        <div class="col-md-12 form-group" show-errors>
+          <label class="control-label" for="title">标题</label>
+          <input name="title" type="text" ng-model="vm.guardianmailboxData.title"
+                 id="title" class="form-control" placeholder="请输入标题"
+                 maxlength="25" required autofocus>
+          <div ng-messages="vm.guardianmailboxForm.title.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">标题不能为空</p>
+          </div>
+        </div>
+        <div class="col-md-12 form-group">
+          <label class="control-label" for="content">内容</label>
+          <textarea name="content" data-ng-model="vm.guardianmailboxData.content"
+                    id="content" class="form-control" cols="30" rows="3"
+                    maxlength="2500" placeholder="请输入内容"></textarea>
+          <div>
+            <span style="color: red" ng-show="vm.yzContent">*内容不能为空！</span>
+          </div>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-primary" ng-if="!vm.disabled" ng-click="vm.ok(vm.guardianmailboxForm.$valid)">提交</button>
+    <button class="btn btn-warning" ng-click="vm.cancel()">退出</button>
+  </div>
+</div>

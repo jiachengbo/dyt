@@ -1,0 +1,290 @@
+<style>
+  .container-fluid{
+    padding: 0;
+  }
+  .page-container{
+    margin-top: 0!important;
+  }
+  .keyworkxq_lnav>ul>li a{
+    display: block;
+    width: 100%;
+    text-align: left;
+  }
+  .keyworkxq_lnav>ul>li{
+    border: 1px solid #ccc;
+    margin-top: 10px;
+    padding: 5px 0;
+    background-color: #F8F6F6;
+  }
+  .keyworkxq_lnav>ul>li a{
+    text-align: center;
+  }
+  .keyworkxq_lnav>ul>li a span {
+    width: 84%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+</style>
+<div class="logomask" ng-style="maskStyle" ng-show="logoShow" ng-click="showLogo()">
+</div>
+<div class="index1_model" ng-show="logoShow" ng-style="logoHeight" ng-click="showLogo()">
+  <div class="asa">    <a href="#"></a>    <a href="#"></a>    <a href="javascript:void(0)" ng-click="toSHYK()"></a>    <a href="javascript:void(0)" ng-click="toLXYZ()"></a>    <a href="/partybuild#jiaoliu"></a>    <a href="/partyDQ#dangzhishi"></a>    <a href="/partyInter"></a>    <a href="/partydt"></a>    <a href="/basic"></a>    <a href="#"></a>    <a href="javascript:void(0)" ng-click="toGDDR()"></a>    <a href="/fulian"></a>    <a href="/study#studydt"></a>    <a href="http://www.12371.cn/special/zsjs/sj2/index.shtml"></a>    <a href="#"></a>    <a href="#"></a>    <a href="/minqingE"></a>    <a href="/basic#jiadaobanzi"></a>    <a href="#"></a>    <a href="/partybuild#jifen"></a>    <a href="/basic"></a>    <a href="http://dygbjy.12371.cn/"></a>    <a href="/partybuild#xiangmu1"></a>    <a href="#"></a>    <a href="/tuanwei#tuanwei"></a>    <a href="/xiaqu#xiaqu"></a>    <a href="/gonghui"></a>    <a href="/lingtouyan"></a>    <div class="clear"></div>  </div>
+</div>
+<div id="index1_nav">
+    <div class="index1_title1">
+        <div class="index1_airt">
+            <div class="index1_mainbox">
+                <div class="top_left lt">
+                    <a href="http://www.gov.cn/">中央人民政府</a>
+                    <span></span>
+                    <a href="http://www.shaanxi.gov.cn/">陕西省人民政府</a>
+                    <span></span>
+                    <a href="http://www.xa.gov.cn/ptl/index.html">西安市人民政府</a>
+                </div>
+              <div class="top_right rt">
+                <a href="#">
+                  <i class="ic"></i>
+                  <span ng-click="wap()">手机版</span>
+                  <div class="top_ewm" ng-show="phone" >
+                    <img src="/modules/core/client/img/image/index/wap.png" width="100px;">
+                    <b>关注我们</b>
+                  </div>
+                </a>
+                <a ui-sref="authentication.signin">
+                  <i class="ic1"></i>
+                  <span>登录</span>
+                </a>
+              </div>
+              <div class="top_right rt" style="margin-right: 10px">
+                <a ui-sref="authentication.signin">
+                  <i class="sb"></i>
+                  <span>民情地图</span>
+                </a>
+                <a ui-sref="authentication.signin">
+                  <i class="sb1"></i>
+                  <span>党建地图</span>
+                </a>
+              </div>
+            </div>
+        </div>
+      <!--<div class="index1_imgt">-->      <!--<div class="animated bounceInLeft" ng-style="leftStyle">-->        <!--<img src="/modules/core/client/img/image/shouye/tuceng9.png">-->      <!--</div>-->      <!--<div class="animated bounceInRight" ng-style="rightStyle">-->        <!--<img src="/modules/core/client/img/image/shouye/toptu2.png">-->      <!--</div>-->    <!--</div>-->
+    </div>
+  <div class="tubiao">
+    <div class="div" ng-style="{'marginLeft': fixedLeft}">
+            <span ></span>
+            <ul class="tiem">
+                <li><a href="/index1"><span class="wit1 tiem"></span><span class="tiem">首页</span></a></li>
+                <li><a href="/basic"><span class="wit2 tiem"></span><span class="tiem">基础信息管理</span></a></li>
+                <li><a href="/study"><span class="wit3 tiem"></span><span class="tiem">重点工作动态</span></a></li>
+                <li><a href="/partybuild"><span class="wit4 tiem"></span><span class="tiem">区域化党建</span></a></li>
+                <li><a href="/partymap"><span class="wit5 tiem"></span><span class="tiem">党建地图</span></a></li>
+              <li ng-click="showLogo()"><span class="wit6 tiem"></span><span class="tiem logo">logo</span></li>
+            </ul>
+        </div>
+    </div>
+    <div class="container">
+    <!--标体-->
+        <div>
+            <!--<img src="/modules/core/client/img/image/shouye/tt.png" >-->
+        </div>
+    <!--固定党日-->
+    <div class="keyworkxq_border">
+        <div class="keyworkxq_work">
+            <div class="keyworkxq_lnav lt">
+                <a href="/fulian" class="woman">
+                    <i class="keyword_ico1"></i>
+                    <span>妇联信息</span>
+                </a>
+              <ul>
+                <li><a href="/woman-0"><span>中华全国妇女联合会章程</span></a></li>
+                <li><a href="/woman-1"><span>妇女联合会农村基层组织工作条例</span></a></li>
+                <li><a href="/woman-2"><span>妇女联合会城市街道、社区基层组织工作条例</span></a></li>
+                <li><a href="/woman-3"><span>妇女联合会机关、事业单位基层组织工作条例</span></a></li>
+                <li><a href="/woman-4"><span>妇女联合会团体会员工作条例</span></a></li>
+                <li><a href="/woman-5"><span>妇女联合会选举工作条例</span></a></li>
+                <li><a href="/woman-6"><span>妇女联合会执行委员会委员替补、增补及常务委员会组成人员增补的规定</span></a></li>
+                <li><a href="/woman-7"><span>中华人民共和国婚姻法</span></a></li>
+                <li><a href="/woman-8"><span>
+中华人民共和国妇女权益保障法（修正）</span></a></li>
+                <li><a href="/woman-9"><span>中华人民共和国未成年人保护法</span></a></li>
+                <li><a href="/woman-10"><span>中华人民共和国反家庭暴力法</span></a></li>
+                <li><a href="/woman-11"><span>关于进一步加强生育保险工作的指导意见</span></a></li>
+                <li><a href="/woman-12"><span>西安市流动人口计划生育条例</span></a></li>
+                <li><a href="/woman-13"><span>大雁塔街道妇联工作职责</span></a></li>
+                <li><a href="/woman-14"><span>妇女联合会执行委员会委员替补、增补及常务委员会组成人员增补的规定</span></a></li>
+              </ul>
+            </div>
+            <div class="keyworkxq_rnav lt">
+                <div class="keyworkxq_title">
+                    <b>
+                        <a href="/fulian">
+                            <i></i>
+                            当前位置：基础信息>妇联信息>机关、事业单位基层组织工作条例
+                        </a>
+                    </b>
+                </div>
+                <div class="keyworkxq_main">
+                       <div class="keyworkxq_mainr">
+                       <br>
+              <p style="text-align:center;text-indent:2em;">
+	<span style="font-size:20px;"><strong>妇女联合会机关、事业单位基层组织工作条例</strong></span>
+</p>
+<br>
+	<span style="font-size:18px;"><h3 align="center">（2010年1月13日全国妇联十届二次执委会议全体会议通过）</h3></span> 	<br>
+    <h1 align="center">第 一 章 总  则</h1>
+    <br>
+<p style="text-indent:2em;">
+	<span style="font-size:18px;">第一条 为加强机关、事业单位妇女工作，根据《中华全国妇女联合会章程》，制定本条例。</span>
+</p>
+<p style="text-indent:2em;">
+	<span style="font-size:18px;">第二条 妇女委员会、妇女工作委员会是妇女联合会在机关和事业单位的基层组织，是党和政府联系　　妇女群众的桥梁和纽带。</span>
+</p>
+<p style="text-indent:2em;">
+	<span style="font-size:18px;">第三条 机关和事业单位妇女委员会、妇女工作委员会以马克思列宁主义、毛泽东思想、邓小平理论和"三个代表"重要思想为指导，深入贯彻落实科学发展观，坚持和发展马克思主义妇女观，贯彻男女平等基本国策，推动中国妇女、儿童发展纲要的实施，代表和维护妇女合法权益，团结、引导广大女职工为完成本单位工作任务，推进社会主义经济建设、政治建设、文化建设、社会建设和生态文明建设贡献力量。</span>
+</p>
+<p style="text-indent:2em;">
+	<span style="font-size:18px;">第四条 妇女委员会、妇女工作委员会接受同级党组织和上级妇女组织的领导。</span>
+</p>
+  <br>
+ <h1 align="center">第 二 章    组  织</h1>
+    <br>
+<p style="text-indent:2em;">
+	<span style="font-size:18px;">第五条 坚持以党的基层组织建设带动妇女联合会机关、事业单位基层组织建设。机关、事业单位建立妇女委员会或妇女工作委员会。妇女委员会根据工作需要可下设妇女委员会分会、妇女小组。县级以上党的直属机关工作委员会建立妇女工作委员会，指导所属部门和系统的妇女委员会、妇女工作委员会工作。</span>
+</p>
+<p style="text-indent:2em;">
+	<span style="font-size:18px;">第六条 妇女委员会委员由妇女大会或妇女代表大会民主选举产生。每届任期三到五年，委员任职期间如有变动，可以补选。妇女工作委员会委员由妇女代表协商推举产生。</span>
+</p>
+<p style="text-indent:2em;">
+	<span style="font-size:18px;">第七条 妇女委员会、妇女工作委员会全体委员会议选举、推选主任一名，副主任若干名，主持日常工作。委员人数较多的，可推选常委若干名，组成常委会。妇女委员会换届、妇女工作委员会领导成员变动情况报上一级妇女组织备案。</span>
+</p>
+<p style="text-indent:2em;">
+	<span style="font-size:18px;">第八条 成立或撤销妇女委员会、妇女工作委员会，须经同级妇女代表大会通过或同级管理部门审核，报上一级妇女组织备案。</span>
+</p>
+ <br>
+ <h1 align="center">第 三 章    职 责 与 任 务</h1>
+    <br>
+<p style="text-indent:2em;">
+	<span style="font-size:18px;">第九条 妇女委员会、妇女工作委员会的主要职责：</span>
+</p>
+<p style="text-indent:2em;">
+	<span style="font-size:18px;">（一）贯彻执行上级妇联组织及本单位妇女大会或妇女代表大会决议，完成妇女联合会部署的工作，推动本单位业务工作的开展；</span>
+</p>
+<p style="text-indent:2em;">
+	<span style="font-size:18px;">（二）增进妇女委员会、妇女工作委员会之间及与其他妇女组织之间的交流与合作，密切同工会、共青团等群团组织的联系，共同做好本单位群众工作；</span>
+</p>
+<p style="text-indent:2em;">
+	<span style="font-size:18px;">（三）加强妇女委员会、妇女工作委员会自身建设，建立和完善学习培训、工作会议、人才培养和推荐、评比表彰等工作制度。</span>
+</p>
+<p style="text-indent:2em;">
+	<span style="font-size:18px;">第十条 妇女委员会、妇女工作委员会的主要任务：</span>
+</p>
+<p style="text-indent:2em;">
+	<span style="font-size:18px;">（一）宣传和贯彻党的路线、方针、政策。教育和引导妇女发扬自尊、自信、自立、自强精神，提高思想道德素质、科学文化素质和健康素质，成为有理想、有道德、有文化、有纪律的时代新女性。</span>
+</p>
+<p style="text-indent:2em;">
+	<span style="font-size:18px;">（二）开展"巾帼建功"、"五好文明家庭创建"和"女性素质工程"活动，组织培训、交流和研讨等活动，提高妇女的理论素养、知识水平和工作技能，弘扬社会公德、职业道德和家庭美德。</span>
+</p>
+<p style="text-indent:2em;">
+	<span style="font-size:18px;">（三）推动并参与有关妇女发展政策的制定和落实，向有关部门反映妇女的意见、建议和要求，代表妇女发挥民主参与、民主管理、民主监督作用。</span>
+</p>
+<p style="text-indent:2em;">
+	<span style="font-size:18px;">（四）维护女职工合法权益，协助所在单位以及有关部门查处侵害妇女儿童权益的行为。</span>
+</p>
+<p style="text-indent:2em;">
+	<span style="font-size:18px;">（五）宣传、表彰妇女先进典型，建立妇女人才信息库，定期向有关部门和上级妇女联合会推荐妇女人才，促进妇女人才成长。</span>
+</p>
+<br>
+ <h1 align="center">第 四 章    妇 女 工 作 者</h1>
+    <br>
+<p style="text-indent:2em;">
+	<span style="font-size:18px;">第十一条 妇女委员会、妇女工作委员会干部专兼职结合，工作任务列入单位干部岗位职责内容。</span>
+</p>
+<p style="text-indent:2em;">
+	<span style="font-size:18px;">第十二条 妇女委员会、妇女工作委员会主任的基本条件是：有较高的政治理论素质、思想道德素质、科技文化素质，有一定的参政议政和协调管理能力，热爱妇女工作，有较高威望。</span>
+</p>
+<p style="text-indent:2em;">
+	<span style="font-size:18px;">第十三条 妇女委员会、妇女工作委员会主任是党员的应参加或列席同级党委委员会议。</span>
+</p>
+<p style="text-indent:2em;">
+	<span style="font-size:18px;">第十四条 妇女委员会、妇女工作委员会主任，享受本单位所属部门主要负责人的政治、生活待遇。</span>
+</p>
+<br>
+ <h1 align="center">第 五 章    经 费</h1>
+    <br>
+<p style="text-indent:2em;">
+	<span style="font-size:18px;">第十五条 妇女委员会、妇女工作委员会经费来源：</span>
+</p>
+<p style="text-indent:2em;">
+	<span style="font-size:18px;">（一）列入单位财政预算；</span>
+</p>
+<p style="text-indent:2em;">
+	<span style="font-size:18px;">（二）实行企业管理的事业单位，经费纳入单位成本，专款专用；</span>
+</p>
+<p style="text-indent:2em;">
+	<span style="font-size:18px;">（三）按照国家有关规定，多渠道扩大经费来源。</span>
+</p>
+<br>
+ <h1 align="center">第 六 章  附 则</h1>
+    <br>
+<p style="text-indent:2em;">
+	<span style="font-size:18px;">第十六条 本条例适用于县级及县级以上各级机关和科教文卫等事业单位，包括党的机关、人大机关、行政机关、政协机关、审判机关、检察机关、人民团体机关及其直属事业单位。本条例也适用于各类社会组织。</span>
+</p>
+<p style="text-indent:2em;">
+	<span style="font-size:18px;">第十七条 本条例解释权属于中华全国妇女联合会。</span>
+</p>
+<p style="text-indent:2em;">
+	<span style="font-size:18px;">第十八条 本条例自通过之日起施行。2004年12月13日全国妇联九届二次执委会议通过的《机关、事业单位妇女委员会工作条例（试行）》同时废止。</span>
+</p>
+                    </div>
+</div>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+</div>
+    <div class="keyworkxq_foot">
+        <div class="keyworkxq_mainbox">
+            <div class="keyworkxq_line"></div>
+            <div class="keyworkxq_line1"></div>
+            <p>主办：西安市雁塔区大雁塔街道 &nbsp;&nbsp;承办：西安杰森电子科技有限公司</p>
+        </div>
+    </div>
+</div>
+<script>
+    $('.top_right a').eq(0).mouseover(function(){
+        $('.top_ewm').css('display','block');
+    });
+    $('.top_right a').eq(0).mouseout(function(){
+        $('.top_ewm').css('display','none');
+    });
+    $(function() {
+        var left = ($(window).width() - 1200) / 2;
+        $('.tubiao>div').css('left', (left - 40) + 'px');
+        $('.asa').css('left', left + 'px');
+        $('.index1_imgt div:nth-of-type(2)').css({
+            'margin-right':(left-50)+'px'
+        });
+        $('.index1_imgt div:nth-of-type(1)').css({
+            'margin-left':(left-50)+'px'
+        });
+        $('.logo').click(function (event) {
+            event.preventDefault();
+            $('#index1_nav').css({
+                'background': '#ddd',
+                'opacity': 0.5
+            });
+            $('.asa').css('display', 'block');
+        });
+        $('.asa').on('click', function () {
+            $('.asa').css('display', 'none');
+            $('#index1_nav').css({
+                'background': '',
+                'opacity': ''
+            });
+        });
+    })
+</script>
+</body>
+</html>
