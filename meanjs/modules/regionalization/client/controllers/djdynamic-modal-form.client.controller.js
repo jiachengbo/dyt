@@ -5,8 +5,8 @@
     .module('regionalization')
     .controller('DjdynamicModalFormController', DjdynamicModalFormController);
 
-  DjdynamicModalFormController.$inject = ['$scope', '$uibModalInstance', 'dynamicData', 'method', 'localStorageService', 'userCommId', 'party'];
-  function DjdynamicModalFormController($scope, $uibModalInstance, dynamicData, method, localStorageService, userCommId, party) {
+  DjdynamicModalFormController.$inject = ['$scope', '$uibModalInstance', 'dynamicData', 'method', 'localStorageService', 'userCommId', 'party', '$window'];
+  function DjdynamicModalFormController($scope, $uibModalInstance, dynamicData, method, localStorageService, userCommId, party, $window) {
     var vm = this;
     vm.dynamicData = dynamicData;
     vm.method = method;
@@ -117,6 +117,10 @@
     vm.dynamicData.type = party;
     //在这里处理要进行的操作
     vm.ok = function (isValid) {
+      if (vm.fileFile.name.slice(-4) !== 'html') {
+        $window.alert('请将word文件进行转换');
+        return;
+      }
       if (!isValid) {
         $scope.$broadcast('show-errors-check-validity', 'vm.dynamicForm');
         return;

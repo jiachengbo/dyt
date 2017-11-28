@@ -209,9 +209,10 @@
       }
       return '';
     }
+
     //在这里处理要进行的操作
     mo.ok = function (isValid) {
-		if(mo.fileFile.name.slice(-4) !== 'html'){
+      if (mo.fileFile.name.slice(-4) !== 'html') {
         $window.alert('请将word文件进行转换');
         return;
       }

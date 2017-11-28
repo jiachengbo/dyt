@@ -5,8 +5,8 @@
     .module('basicinfo')
     .controller('LearningDynamicsinfoModalFormController', LearningDynamicsinfoModalFormController);
 
-  LearningDynamicsinfoModalFormController.$inject = ['$scope', '$uibModalInstance', 'LearningDynamicsData', 'method', 'localStorageService', 'userCommId', 'partyid'];
-  function LearningDynamicsinfoModalFormController($scope, $uibModalInstance, LearningDynamicsData, method, localStorageService, userCommId, partyid) {
+  LearningDynamicsinfoModalFormController.$inject = ['$scope', '$uibModalInstance', 'LearningDynamicsData', 'method', 'localStorageService', 'userCommId', 'partyid', '$window'];
+  function LearningDynamicsinfoModalFormController($scope, $uibModalInstance, LearningDynamicsData, method, localStorageService, userCommId, partyid, $window) {
     var vm = this;
     vm.LearningDynamicsData = LearningDynamicsData;
     vm.LearningDynamicsData.party = partyid;
@@ -45,6 +45,10 @@
     }
     //在这里处理要进行的操作
     vm.ok = function (isValid) {
+      if (vm.fileFile.name.slice(-4) !== 'html') {
+        $window.alert('请将word文件进行转换');
+        return;
+      }
       if (!isValid) {
         $scope.$broadcast('show-errors-check-validity', 'vm.LearningDynamicsForm');
         return;

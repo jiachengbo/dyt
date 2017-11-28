@@ -9,6 +9,7 @@
   function ApplyNowModalFormController($scope, $uibModalInstance, applyNowData, method, localStorageService) {
     var vm = this;
     vm.applyNowData = applyNowData;
+    vm.partyzhibu = localStorageService.getItems('PartyOrganizationTable');
     if (method === '增加') {
       vm.applyNowData.zhuangtai = '已预约';
       vm.yuyue = true;
@@ -26,8 +27,7 @@
     $scope.cvs_nation = cvs_nation;
     var cvs_nation_place = localStorageService.getItems('NationPlaceConstant');
     $scope.cvs_nation_place = cvs_nation_place;
-    var cvsPartyBranchList = localStorageService.getItems('PartyBranchConstant');
-    $scope.cvs_party_branch = cvsPartyBranchList;
+    $scope.cvs_party_branch = vm.partyzhibu;
     //在这里处理要进行的操作
     vm.ok = function (isValid) {
       if (!isValid) {

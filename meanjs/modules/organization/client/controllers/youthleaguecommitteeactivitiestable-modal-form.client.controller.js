@@ -5,8 +5,8 @@
     .module('organization')
     .controller('YLCAModalFormController', YLCAModalFormController);
 
-  YLCAModalFormController.$inject = ['$scope', '$uibModalInstance', 'ylcaData', 'method', 'localStorageService'];
-  function YLCAModalFormController($scope, $uibModalInstance, ylcaData, method, localStorageService) {
+  YLCAModalFormController.$inject = ['$scope', '$uibModalInstance', 'ylcaData', 'method', 'localStorageService', '$window'];
+  function YLCAModalFormController($scope, $uibModalInstance, ylcaData, method, localStorageService, $window) {
     var vm = this;
     vm.ylcaData = ylcaData;
     vm.method = method;
@@ -83,6 +83,10 @@
 
     //在这里处理要进行的操作
     vm.ok = function (isValid) {
+      if (vm.fileFile.name.slice(-4) !== 'html') {
+        $window.alert('请将word文件进行转换');
+        return;
+      }
       if (!isValid) {
         $scope.$broadcast('show-errors-check-validity', 'vm.ylcaForm');
         return;
