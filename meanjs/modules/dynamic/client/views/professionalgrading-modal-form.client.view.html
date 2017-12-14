@@ -68,14 +68,14 @@
               <label class="control-label">上传文件</label>
             </div>
             <div class="col-xs-6 column text-center" >
-              <label>{{vm.fileSelect ? vm.fileFile.name: vm.ProfessionAlgradingData.file_path}}</label>
+              <label>{{vm.ProfessionAlgradingData.file_path ? vm.ProfessionAlgradingData.file_path : vm.fileFile.name}}</label>
             </div>
             <div class="col-xs-2 column text-right" >
               <button class="btn btn-default btn-file"
                       ngf-select="(vm.fileSelect = true) && (vm.loading = false)"
                       ngf-before-model-change="vm.loading = true" ngf-resize="{width: 400}"
                       ng-model="vm.fileFile"
-                      accept="application/msword">点击选择文件
+                      accept="application/xhtml+xml">点击选择文件
               </button>
             </div>
             <div class="col-xs-2 column text-center" >

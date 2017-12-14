@@ -11,13 +11,54 @@
     vm.partyMemberTableData = partyMemberTableData;
     vm.partyMemberTableData.partytype = party;
     vm.partyorg = localStorageService.getItems('PartyOrganizationUnitTypeConstant');
+    vm.partyzhibu = localStorageService.getItems('PartyOrganizationTable');
     vm.method = method;
     vm.disabled = (method === '浏览');
     vm.columnDefs = columnDefs;
-    partyfuquService.query().$promise.then(function (data) {
+    // vm.partyzhibu = partyzhibu;
+/*    partyfuquService.query().$promise.then(function (data) {
       vm.partyzhibu = data;
 
-    });
+    });*/
+    // 获取查询到的 党支部列表，提前查过的
+    $timeout(function () {
+      vm.shequ = function (num) {
+        $scope.cvs_party_branch = [];
+        angular.forEach(vm.partyzhibu, function (v, k) {
+          if (v.community === num + '') {
+            $scope.cvs_party_branch.push(v);
+          }
+        });
+      };
+      if (method === '新增') {
+        if (vm.partyzhibu) {
+          if (party === 1) {
+            if (userCommId) {
+              vm.shequ(parseInt(userCommId, 0));
+            } else {
+              vm.shequ(1);
+            }
+          } else {
+            if (userCommId) {
+              vm.shequ(parseInt(userCommId, 0));
+            }
+          }
+          // vm.partyMemberTableData.party_branch = vm.partyzhibu[0].name;
+          vm.partyMemberTableData.party_branch = $scope.cvs_party_branch[0].name;
+        } else {
+          vm.partyMemberTableData.party_branch = '无';
+        }
+      } else if (method === '修改') {
+        $scope.cvs_party_branch = [];
+        angular.forEach(vm.partyzhibu, function (v, k) {
+          if (v.community === partyMemberTableData.community + '') {
+            $scope.cvs_party_branch.push(v);
+          }
+        });
+        vm.partyMemberTableData.party_branch = $scope.cvs_party_branch[0].name;
+      }
+    }, 200);
+
     //在这里处理要进行的操作
     vm.ok = function (isValid) {
       if (!isValid) {
@@ -154,6 +195,7 @@
 
 
     //----党支部常量表----
+    /*
     $timeout(function () {
       vm.shequ = function (num) {
         $scope.cvs_party_branch = [];
@@ -189,7 +231,7 @@
         });
         vm.partyMemberTableData.party_branch = $scope.cvs_party_branch[0].name;
       }
-    }, 200);
+    }, 1000);*/
 
     /*var cvsPartyBranchList = localStorageService.getItems('PartyBranchConstant');
      $scope.cvs_party_branch = cvsPartyBranchList;*/

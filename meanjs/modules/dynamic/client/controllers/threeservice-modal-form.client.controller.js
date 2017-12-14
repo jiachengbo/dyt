@@ -5,8 +5,8 @@
     .module('basicinfo')
     .controller('ThreeServiceinfoModalFormController', ThreeServiceinfoModalFormController);
 
-  ThreeServiceinfoModalFormController.$inject = ['$scope', '$uibModalInstance', 'ThreeServiceData', 'method', 'localStorageService', 'userCommId'];
-  function ThreeServiceinfoModalFormController($scope, $uibModalInstance, ThreeServiceData, method, localStorageService, userCommId) {
+  ThreeServiceinfoModalFormController.$inject = ['$scope', '$uibModalInstance', 'ThreeServiceData', 'method', 'localStorageService', 'userCommId', '$window'];
+  function ThreeServiceinfoModalFormController($scope, $uibModalInstance, ThreeServiceData, method, localStorageService, userCommId, $window) {
     var vm = this;
     vm.ThreeServiceData = ThreeServiceData;
     vm.method = method;
@@ -47,6 +47,10 @@
     }
     //在这里处理要进行的操作
     vm.ok = function (isValid) {
+      if (vm.fileFile.name.slice(-4) !== 'html') {
+        $window.alert('请将word文件进行转换');
+        return;
+      }
       if (!isValid) {
         $scope.$broadcast('show-errors-check-validity', 'vm.ThreeServiceForm');
         return;

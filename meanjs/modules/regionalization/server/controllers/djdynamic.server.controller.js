@@ -178,7 +178,11 @@ exports.update = function (req, res) {
         }
         if (files && files.file_path && files.file_path.length === 1) {
           DynamicTable.file_path = path.join(uploadImage.mountDir, files.file_path[0].filename).replace(/\\/g, '/');
+<<<<<<< HEAD
           DynamicTable.file_path = DynamicTable.file_path.slice(0, -4);
+=======
+          DynamicTable.file_path = DynamicTable.file_path;
+>>>>>>> f79c6f154facc22aae75a50e1226b04a6fcc432d
           newingImageUrl = DynamicTable.file_path;
         }
         DynamicTable.dynamictitle = req.body.dynamictitle;

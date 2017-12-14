@@ -5,8 +5,8 @@
     .module('basicinfo')
     .controller('TradeUnionActivitiesinfoModalFormController', TradeUnionActivitiesinfoModalFormController);
 
-  TradeUnionActivitiesinfoModalFormController.$inject = ['$scope', '$uibModalInstance', 'tradeunionactivitiesData', 'method'];
-  function TradeUnionActivitiesinfoModalFormController($scope, $uibModalInstance, tradeunionactivitiesData, method) {
+  TradeUnionActivitiesinfoModalFormController.$inject = ['$scope', '$uibModalInstance', 'tradeunionactivitiesData', 'method', '$window'];
+  function TradeUnionActivitiesinfoModalFormController($scope, $uibModalInstance, tradeunionactivitiesData, method, $window) {
     var vm = this;
     vm.tradeunionactivitiesData = tradeunionactivitiesData;
     vm.method = method;
@@ -23,7 +23,11 @@
       vm.tradeunionactivitiesData.type = types[0].typename;
     }
     //在这里处理要进行的操作
-    vm.ok = function(isValid) {
+    vm.ok = function (isValid) {
+      if (vm.fileFile.name.slice(-4) !== 'html') {
+        $window.alert('请将word文件进行转换');
+        return;
+      }
       if (!isValid) {
         $scope.$broadcast('show-errors-check-validity', 'vm.tradeunionactivitiesForm');
         return;
@@ -42,7 +46,7 @@
       }
       $uibModalInstance.close(vm.tradeunionactivitiesData);
     };
-    vm.cancel = function() {
+    vm.cancel = function () {
       $uibModalInstance.dismiss('cancel');
     };
   }

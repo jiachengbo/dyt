@@ -1,5 +1,7 @@
 'use strict';
 
+var path = require('path'),
+  dbExtend = require(path.resolve('./config/lib/dbextend'));
 module.exports = function (sequelize, DataTypes) {
 
   var PartyOrganizationTable = sequelize.define('PartyOrganizationTable',
@@ -110,6 +112,6 @@ module.exports = function (sequelize, DataTypes) {
       comment: '党组织信息管理 表'
     }
   );
-
+  dbExtend.addBaseCode('PartyOrganizationTable', {attributes: ['id', 'community', 'name']});
   return PartyOrganizationTable;
 };

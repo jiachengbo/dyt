@@ -5,8 +5,8 @@
     .module('basicinfo')
     .controller('StreetDynamicsinfoModalFormController', StreetDynamicsinfoModalFormController);
 
-  StreetDynamicsinfoModalFormController.$inject = ['$scope', '$uibModalInstance', 'streetdynamicsData', 'method'];
-  function StreetDynamicsinfoModalFormController($scope, $uibModalInstance, streetdynamicsData, method) {
+  StreetDynamicsinfoModalFormController.$inject = ['$scope', '$uibModalInstance', 'streetdynamicsData', 'method', '$window'];
+  function StreetDynamicsinfoModalFormController($scope, $uibModalInstance, streetdynamicsData, method, $window) {
     var vm = this;
     vm.streetdynamicsData = streetdynamicsData;
     vm.method = method;
@@ -23,7 +23,11 @@
       vm.streetdynamicsData.ispush = ispushs[0].ispushname;
     }
     //在这里处理要进行的操作
-    vm.ok = function(isValid) {
+    vm.ok = function (isValid) {
+      if (vm.fileFile.name.slice(-4) !== 'html') {
+        $window.alert('请将word文件进行转换');
+        return;
+      }
       if (!isValid) {
         $scope.$broadcast('show-errors-check-validity', 'vm.streetdynamicsForm');
         return;
@@ -42,7 +46,7 @@
       }
       $uibModalInstance.close(vm.streetdynamicsData);
     };
-    vm.cancel = function() {
+    vm.cancel = function () {
       $uibModalInstance.dismiss('cancel');
     };
   }

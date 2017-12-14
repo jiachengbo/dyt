@@ -5,8 +5,8 @@
     .module('basicinfo')
     .controller('StarJudgmentsinfoModalFormController', StarJudgmentsinfoModalFormController);
 
-  StarJudgmentsinfoModalFormController.$inject = ['$scope', '$uibModalInstance', 'StarJudgmentsData', 'method', 'partyid'];
-  function StarJudgmentsinfoModalFormController($scope, $uibModalInstance, StarJudgmentsData, method, partyid) {
+  StarJudgmentsinfoModalFormController.$inject = ['$scope', '$uibModalInstance', 'StarJudgmentsData', 'method', 'partyid', '$window'];
+  function StarJudgmentsinfoModalFormController($scope, $uibModalInstance, StarJudgmentsData, method, partyid, $window) {
     var vm = this;
     vm.StarJudgmentsData = StarJudgmentsData;
     vm.StarJudgmentsData.party = partyid;
@@ -18,6 +18,10 @@
     }
     //在这里处理要进行的操作
     vm.ok = function (isValid) {
+      if (vm.fileFile.name.slice(-4) !== 'html') {
+        $window.alert('请将word文件进行转换');
+        return;
+      }
       if (!isValid) {
         $scope.$broadcast('show-errors-check-validity', 'vm.StarJudgmentsForm');
         return;

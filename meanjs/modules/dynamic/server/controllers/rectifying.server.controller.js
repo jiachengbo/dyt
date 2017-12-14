@@ -27,7 +27,7 @@ var typeParam = {
 };
 var uploadImage = new multer(saveDir,
   100 * 1024 * 1024,
-  /image/, '.jpg');
+  /image/, '.html');
 //创建目录
 uploadImage.mkPaths();
 /**
@@ -123,7 +123,7 @@ exports.update = function (req, res) {
       {name: 'file_path'}
     ])
       .then(updateUserInfo)
-      .then(deleteOldImage)
+      // .then(deleteOldImage)
       .then(function () {
         res.json(PartyOrganizationReorganizationTable);
       })
@@ -140,6 +140,9 @@ exports.update = function (req, res) {
   function updateUserInfo(files) {
     return new Promise(function (resolve, reject) {
       if (PartyOrganizationReorganizationTable) {
+        if (files && files.file_path && files.file_path.length === 1) {
+          PartyOrganizationReorganizationTable.file_path = path.join(uploadImage.mountDir, files.file_path[0].filename).replace(/\\/g, '/');
+        }
         PartyOrganizationReorganizationTable.name = req.body.name;
         PartyOrganizationReorganizationTable.peoplenum = req.body.peoplenum;
         PartyOrganizationReorganizationTable.head = req.body.head;
@@ -148,76 +151,76 @@ exports.update = function (req, res) {
         PartyOrganizationReorganizationTable.Measures = req.body.Measures;
         PartyOrganizationReorganizationTable.communityid = req.body.communityid;
         //图片
-        if (files && files.file_path && files.file_path.length === 1) {
-          existingImagejpg = path.join(mountDir1, files.file_path[0].filename).replace(/\\/g, '/');
-          // newingFileUrl = womenInformationManagement.file_path;
-          //  转HTML
-          var diskFileName = path.join(diskDir1, files.file_path[0].filename);
-          fs.exists(diskFileName, function (exists) {
-            if (!exists) {
-              logger.warn('conv docfile %s not exists', diskFileName);
-              return res.status(404).send('参数文件不存在:' + diskFileName);
-            }
+        /*if (files && files.file_path && files.file_path.length === 1) {
+         existingImagejpg = path.join(mountDir1, files.file_path[0].filename).replace(/\\/g, '/');
+         // newingFileUrl = womenInformationManagement.file_path;
+         //  转HTML
+         var diskFileName = path.join(diskDir1, files.file_path[0].filename);
+         fs.exists(diskFileName, function (exists) {
+         if (!exists) {
+         logger.warn('conv docfile %s not exists', diskFileName);
+         return res.status(404).send('参数文件不存在:' + diskFileName);
+         }
 
-            var type = distType + (typeParam[distType] ? typeParam[distType] : '');
-            var cmdLine = util.format('"%s" --headless --convert-to "%s"  --outdir "%s" "%s"',
-              config.sofficePathName, type, diskDir1, diskFileName);
+         var type = distType + (typeParam[distType] ? typeParam[distType] : '');
+         var cmdLine = util.format('"%s" --headless --convert-to "%s"  --outdir "%s" "%s"',
+         config.sofficePathName, type, diskDir1, diskFileName);
 
-            child_process.exec(cmdLine, function (error, stdout, stderr) {
-              if (error) {
-                logger.warn('conv docfile %s to pdf error:', diskFileName, error.message);
-                return res.status(404).send('文件转换错误:' + diskFileName);
-              }
-              var distFile = path.basename(files.file_path[0].filename, path.extname(files.file_path[0].filename)) + '.' + distType;
-              var distFileName = path.join(diskDir1, distFile);
-              // aaa = distFileName.replace(/\\/g, '/');
-              fs.exists(distFileName, function (exists) {
-                if (!exists) {
-                  return res.status(404).send('转换后的文件不存在:' + distFileName);
-                }
-                var options = {};
-                var distFileName1 = path.join(uploadImage.mountDir, distFile).replace(/\\/g, '/');
-                newingFileUrl = distFileName1;
-                PartyOrganizationReorganizationTable.file_path = distFileName1;
-                PartyOrganizationReorganizationTable.save().then(function () {
-                  return PartyOrganizationReorganizationTable.reload({
-                    include: [
-                      {
-                        model: CommunityVillageConstant,
-                        attributes: ['name']
-                      }
-                    ]
-                  })
-                    .then(function () {
-                      resolve();
-                    });
-                }).catch(function (err) {
-                  reject(err);
-                });
-              });
-            });
-          });
-        }
+         child_process.exec(cmdLine, function (error, stdout, stderr) {
+         if (error) {
+         logger.warn('conv docfile %s to pdf error:', diskFileName, error.message);
+         return res.status(404).send('文件转换错误:' + diskFileName);
+         }
+         var distFile = path.basename(files.file_path[0].filename, path.extname(files.file_path[0].filename)) + '.' + distType;
+         var distFileName = path.join(diskDir1, distFile);
+         // aaa = distFileName.replace(/\\/g, '/');
+         fs.exists(distFileName, function (exists) {
+         if (!exists) {
+         return res.status(404).send('转换后的文件不存在:' + distFileName);
+         }
+         var options = {};
+         var distFileName1 = path.join(uploadImage.mountDir, distFile).replace(/\\/g, '/');
+         newingFileUrl = distFileName1;
+         PartyOrganizationReorganizationTable.file_path = distFileName1;
+         PartyOrganizationReorganizationTable.save().then(function () {
+         return PartyOrganizationReorganizationTable.reload({
+         include: [
+         {
+         model: CommunityVillageConstant,
+         attributes: ['name']
+         }
+         ]
+         })
+         .then(function () {
+         resolve();
+         });
+         }).catch(function (err) {
+         reject(err);
+         });
+         });
+         });
+         });
+         }*/
         // var distFile = path.basename(files.file_path[0].filename, path.extname(files.file_path[0].filename)) + '.' + distType;
         // var distFileName1 = path.join(uploadImage.mountDir, distFile).replace(/\\/g, '/');
         // LearningDynamicsTable.file_path = distFileName1;
-        if (!(files && files.file_path && files.file_path.length === 1)) {
-          PartyOrganizationReorganizationTable.save().then(function () {
-            return PartyOrganizationReorganizationTable.reload({
-              include: [
-                {
-                  model: CommunityVillageConstant,
-                  attributes: ['name']
-                }
-              ]
-            })
-              .then(function () {
-                resolve();
-              });
-          }).catch(function (err) {
-            reject(err);
-          });
-        }
+        // if (!(files && files.file_path && files.file_path.length === 1)) {
+        PartyOrganizationReorganizationTable.save().then(function () {
+          return PartyOrganizationReorganizationTable.reload({
+            include: [
+              {
+                model: CommunityVillageConstant,
+                attributes: ['name']
+              }
+            ]
+          })
+            .then(function () {
+              resolve();
+            });
+        }).catch(function (err) {
+          reject(err);
+        });
+        //}
       } else {
         reject(new Error('no YLC_activitiesTable img upload'));
       }
