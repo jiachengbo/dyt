@@ -1,0 +1,52 @@
+<div class="stonehill-modal">
+  <div class="modal-header">
+    <h1>{{vm.methodname}} 他山之石</h1>
+  </div>
+  <div class="modal-body col-md-12">
+    <form name="vm.stonehillForm" class="form-horizontal" novalidate>
+      <fieldset ng-disabled="vm.disabled">
+        <div class="form-group" show-errors>
+          <label class="control-label" for="title">标题</label>
+          <input name="title" type="text" ng-model="vm.stonehillData.title" id="title" class="form-control" placeholder="Title" required autofocus>
+          <div ng-messages="vm.stonehillForm.title.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">标题是必须的.</p>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label" for="content">内容</label>
+          <textarea name="content" data-ng-model="vm.stonehillData.content" id="content" class="form-control" cols="30" rows="10" placeholder="Content"></textarea>
+        </div>
+        <div class="form-group" ng-show="vm.methodname === '新增' || vm.methodname === '修改'">
+          <label class="control-label">照片</label>
+          <!--<input name="photo" ng-model="vm.teammembersData.photo" id="photo" class="form-control" cols="30" rows="10" placeholder="照片">-->
+          <div>
+            <button class="btn btn-default btn-file"
+                    ngf-select="(vm.fileSelected = true) && (vm.loading = false)"
+                    ng-model="vm.create_photoPicFile" accept="image/*" ngf-before-model-change="vm.loading = true"
+                    ngf-resize="{width: 400}" ngf-resize-if="$width > 400 || $height > 400">照片
+            </button>
+          </div>
+          <div class="text-center" style="margin-top: 10px;">
+            <img id="create_photo" ngf-src="vm.fileSelected ? vm.create_photoPicFile : vm.stonehillData.photo"
+                 alt="没有图片" class="img-thumbnail" ngf-drop>
+          </div>
+          <div ng-show="vm.loading" class="form-group text-center">
+            <img ng-src="/modules/core/client/img/loaders/loader.gif" height="50" width="50" alt="Loading image...">
+          </div>
+        </div>
+        <div class="form-group" ng-show="vm.methodname === '查看'">
+          <label class="control-label">照片</label>
+          <!--<input name="photo" ng-model="vm.teammembersData.photo" id="photo" class="form-control" cols="30" rows="10" placeholder="照片">-->
+          <div class="text-center" style="margin-top: 10px;">
+            <img ngf-src="vm.stonehillData.photo"
+                 alt="没有图片" class="img-thumbnail" ngf-drop>
+          </div>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-primary" ng-if="!vm.disabled" ng-click="vm.ok(vm.stonehillForm.$valid)">确认</button>
+    <button class="btn btn-warning" ng-click="vm.cancel()">取消</button>
+  </div>
+</div>
