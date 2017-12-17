@@ -280,7 +280,7 @@ exports.jiedaoDTBuild = function (req, res) {
     var page = req.query.page;
     sql = 'SELECT a.*  FROM streetdynamicstable a order by a.id desc limit ' + (page - 1) * 8 + ',8';
   } else {
-    sql = 'SELECT a.*  FROM streetdynamicstable a order by a.id desc limit 0,8';
+    sql = 'SELECT a.*  FROM streetdynamicstable a order by a.createdate desc limit 0,8';
   }
 
   sequelize.query(sql).spread(function (results, metadata) {
