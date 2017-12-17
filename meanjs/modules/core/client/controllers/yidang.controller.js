@@ -4,58 +4,36 @@
   angular
     .module('core')
     .controller('yidangController', yidangController);
-  yidangController.$inject = ['$scope', '$rootScope', '$state', '$window', 'GetKeyWorkService', '$interval'];
-  function yidangController($scope, $rootScope, $state, $window, GetKeyWorkService, $interval) {
+  yidangController.$inject = ['$scope', '$rootScope', '$state', '$window', 'PartyylService', '$interval'];
+  function yidangController($scope, $rootScope, $state, $window, PartyylService, $interval) {
     var vm = this;
     $rootScope.$emit('state', $state.current.url);
-    // $interval.cancel($rootScope.kouhao);
-    // function getKeyWorkData(array, key, id) {
-    //   GetKeyWorkService.query({key: key, typeid: id}).$promise.then(function (data) {
-    //     var len;
-    //     // console.log(data);
-    //     // if (id === 5) {
-    //     //   if (len < 4) {
-    //     //     len = data.lenght;
-    //     //   } else {
-    //     //     len = 4;
-    //     //   }
-    //     // } else {
-    //     //   if (len < 6) {
-    //     //     len = data.lenght;
-    //     //   } else {
-    //     //     len = 6;
-    //     //   }
-    //     // }
-    //     if (len < 6) {
-    //       len = data.lenght;
-    //     } else {
-    //       len = 6;
-    //     }
-    //
-    //     for (var i = 0; i < len; i++) {
-    //       array.push(data[i]);
-    //     }
-    //   });
-    // }
-    //
-    // vm.shangji = [];
-    // vm.shangji1 = [];
-    // vm.shangji2 = [];
-    // vm.shangji3 = [];
-    // vm.shangji4 = [];
-    // vm.shangji5 = [];
-    // getKeyWorkData(vm.shangji, '两学一做', 1);
-    // getKeyWorkData(vm.shangji1, '两学一做', 2);
-    // getKeyWorkData(vm.shangji2, '两学一做', 3);
-    // getKeyWorkData(vm.shangji3, '两学一做', 4);
-    // getKeyWorkData(vm.shangji4, '两学一做', 5);
-    // getKeyWorkData(vm.shangji5, '两学一做', 6);
-    // vm.jcdt = function (id, type) {
-    //   if (type === 3) {
-    //     $state.go('jicengdt', {keyworkid: id, typeId: type});
-    //   } else {
-    //     $state.go('liangxuexq', {keyworkid: id, typeId: type});
-    //   }
-    // };
+    function getKeyWorkData(array, typeid) {
+      PartyylService.query({
+        isqiantai: true,
+        typeId: typeid
+      }).$promise.then(function (data) {
+        angular.forEach(data, function (v, k) {
+          array.push(v);
+        });
+      });
+    }
+    vm.jzfp = [];
+    vm.qszq = [];
+    vm.shjz = [];
+    vm.wggl = [];
+    vm.whsh = [];
+    vm.pajs = [];
+    getKeyWorkData(vm.jzfp, '精准扶贫');
+    getKeyWorkData(vm.qszq, '亲商助企');
+    getKeyWorkData(vm.shjz, '社会救助');
+    getKeyWorkData(vm.wggl, '网格化管理');
+    getKeyWorkData(vm.whsh, '文化生活');
+    getKeyWorkData(vm.pajs, '平安建设');
+    vm.toxqyl = function (e, data) {
+      e.preventDefault();
+      $state.go('partyylxq', {data: data});
+      console.log(data);
+    };
   }
 }());

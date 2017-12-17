@@ -140,6 +140,11 @@
       state: 'applyNow.curd',
       roles: ['*']
     });
+    menuService.addSubMenuItem('sidemenu', 'jd', {
+      title: '党建引领',
+      state: 'partyyl.curd',
+      roles: ['*']
+    });
     //非公党建管理
     menuService.addMenuItem('sidemenu', {
       title: '基础信息管理',

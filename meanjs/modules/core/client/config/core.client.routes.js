@@ -797,6 +797,18 @@
           typeId: 1
         }
       })
+      .state('partyylxq', {
+        url: '/partyylxq',
+        templateUrl: '/modules/core/client/views/partyylxq.html',
+        controller: 'partyylxqController',
+        controllerAs: 'vm',
+        data: {
+          pageTitle: '党建引领'
+        },
+        params: {
+          data: 0
+        }
+      })
       .state('liangxuexq', {
         url: '/liangxuexq',
         templateUrl: '/modules/core/client/views/liangxuexq.html',
