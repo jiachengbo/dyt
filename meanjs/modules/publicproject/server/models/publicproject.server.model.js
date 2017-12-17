@@ -36,7 +36,7 @@ module.exports = function (sequelize, DataTypes) {
         comment: '申报时间'
       },
       projecttype: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.STRING,
         comment: '项目类型'
       },
       benefitnum: {
@@ -62,6 +62,14 @@ module.exports = function (sequelize, DataTypes) {
       measure: {
         type: DataTypes.STRING,
         comment: '项目推进措施'
+      },
+      file_path: {
+        type: DataTypes.STRING,
+        comment: '文件'
+      },
+      community: {
+        type: DataTypes.STRING,
+        comment: '社区'
       }
     },
     {

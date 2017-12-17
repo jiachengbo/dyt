@@ -13,11 +13,11 @@
             <p class="help-block error-text" ng-message="required">请输入标题.</p>
           </div>
         </div>
-        <div class="form-group">
-          <label class="control-label" for="intro">简介</label>
-          <textarea name="intro" data-ng-model="vm.publicprojectData.intro" id="intro" class="form-control"
-                    cols="30" rows="10" placeholder="intro"></textarea>
-        </div>
+        <!--<div class="form-group">-->
+          <!--<label class="control-label" for="intro">简介</label>-->
+          <!--<textarea name="intro" data-ng-model="vm.publicprojectData.intro" id="intro" class="form-control"-->
+                    <!--cols="30" rows="10" placeholder="intro"></textarea>-->
+        <!--</div>-->
         <div class="form-group">
           <label class="control-label">照片</label>
           <div>
@@ -36,14 +36,14 @@
             <img ng-src="/modules/core/client/img/loaders/loader.gif" height="50" width="50" alt="Loading image...">
           </div>
         </div>
-        <div class="form-group" show-errors>
-          <label class="control-label" for="projectsource">项目来源</label>
-          <input name="projectsource" type="text" ng-model="vm.publicprojectData.projectsource" id="projectsource"
-                 class="form-control" required autofocus>
-          <div ng-messages="vm.publicprojectForm.projectsource.$error" role="alert">
-            <p class="help-block error-text" ng-message="required">请输入项目来源.</p>
-          </div>
-        </div>
+        <!--<div class="form-group" show-errors>-->
+          <!--<label class="control-label" for="projectsource">项目来源</label>-->
+          <!--<input name="projectsource" type="text" ng-model="vm.publicprojectData.projectsource" id="projectsource"-->
+                 <!--class="form-control" required autofocus>-->
+          <!--<div ng-messages="vm.publicprojectForm.projectsource.$error" role="alert">-->
+            <!--<p class="help-block error-text" ng-message="required">请输入项目来源.</p>-->
+          <!--</div>-->
+        <!--</div>-->
         <div class="form-group" show-errors>
           <label class="control-label" for="projecttype">项目类型</label>
           <input name="projecttype" type="text" ng-model="vm.publicprojectData.projecttype" id="projecttype"
@@ -52,74 +52,102 @@
             <p class="help-block error-text" ng-message="required">请输入项目类型.</p>
           </div>
         </div>
-        <div class="form-group">
-          <label class="control-label" for="sbtime">申报时间</label>
-          <input type="text" uib-datepicker-popup
-                 ng-model="dt1" is-open="popup1.opened"
-                 datepicker-options="inlineOptions" ng-required="true" close-text="Close" name="sbtime" id="sbtime"
-                 class="form-control" cols="30" rows="10" placeholder="申报时间"/>
-          <span class="input-group-btn">
-            <button type="button" class="btn btn-default" ng-click="open1()"><i
-              class="glyphicon glyphicon-calendar"></i></button>
-          </span>
-        </div>
-        <div class="form-group">
-          <label class="control-label" for="endtime">完成时间</label>
-          <input type="text" uib-datepicker-popup
-                 ng-model="dt2" is-open="popup2.opened"
-                 datepicker-options="inlineOptions" ng-required="true" close-text="Close" name="endtime" id="endtime"
-                 class="form-control" cols="30" rows="10" placeholder="完成时间"/>
-          <span class="input-group-btn">
-            <button type="button" class="btn btn-default" ng-click="open2()"><i
-              class="glyphicon glyphicon-calendar"></i></button>
-          </span>
-        </div>
+        <!--<div class="form-group">-->
+          <!--<label class="control-label" for="sbtime">申报时间</label>-->
+          <!--<input type="text" uib-datepicker-popup-->
+                 <!--ng-model="dt1" is-open="popup1.opened"-->
+                 <!--datepicker-options="inlineOptions" ng-required="true" close-text="Close" name="sbtime" id="sbtime"-->
+                 <!--class="form-control" cols="30" rows="10" placeholder="申报时间"/>-->
+          <!--<span class="input-group-btn">-->
+            <!--<button type="button" class="btn btn-default" ng-click="open1()"><i-->
+              <!--class="glyphicon glyphicon-calendar"></i></button>-->
+          <!--</span>-->
+        <!--</div>-->
+        <!--<div class="form-group">-->
+          <!--<label class="control-label" for="endtime">完成时间</label>-->
+          <!--<input type="text" uib-datepicker-popup-->
+                 <!--ng-model="dt2" is-open="popup2.opened"-->
+                 <!--datepicker-options="inlineOptions" ng-required="true" close-text="Close" name="endtime" id="endtime"-->
+                 <!--class="form-control" cols="30" rows="10" placeholder="完成时间"/>-->
+          <!--<span class="input-group-btn">-->
+            <!--<button type="button" class="btn btn-default" ng-click="open2()"><i-->
+              <!--class="glyphicon glyphicon-calendar"></i></button>-->
+          <!--</span>-->
+        <!--</div>-->
+        <!--<div class="form-group" show-errors>-->
+          <!--<label class="control-label" for="claimunit">认领单位</label>-->
+          <!--<input name="claimunit" type="text" ng-model="vm.publicprojectData.claimunit" id="claimunit" class="form-control"-->
+                 <!--required autofocus>-->
+          <!--<div ng-messages="vm.publicprojectForm.claimunit.$error" role="alert">-->
+            <!--<p class="help-block error-text" ng-message="required">请输入认领单位.</p>-->
+          <!--</div>-->
+        <!--</div>-->
+        <!--<div class="form-group" show-errors>-->
+          <!--<label class="control-label" for="claimperson">认领人</label>-->
+          <!--<input name="claimperson" type="text" ng-model="vm.publicprojectData.claimperson" id="claimperson"-->
+                 <!--class="form-control" required autofocus>-->
+          <!--<div ng-messages="vm.publicprojectForm.claimperson.$error" role="alert">-->
+            <!--<p class="help-block error-text" ng-message="required">请输入认领人.</p>-->
+          <!--</div>-->
+        <!--</div>-->
+        <!--<div class="form-group" show-errors>-->
+          <!--<label class="control-label" for="chargeperson">负责人</label>-->
+          <!--<input name="chargeperson" type="text" ng-model="vm.publicprojectData.chargeperson" id="chargeperson"-->
+                 <!--class="form-control" required autofocus>-->
+          <!--<div ng-messages="vm.publicprojectForm.chargeperson.$error" role="alert">-->
+            <!--<p class="help-block error-text" ng-message="required">请输入负责人.</p>-->
+          <!--</div>-->
+        <!--</div>-->
+        <!--<div class="form-group" show-errors>-->
+          <!--<label class="control-label" for="benefitnum">受益人数</label>-->
+          <!--<input name="benefitnum" type="text" ng-model="vm.publicprojectData.benefitnum" id="benefitnum"-->
+                 <!--class="form-control" required autofocus>-->
+          <!--<div ng-messages="vm.publicprojectForm.benefitnum.$error" role="alert">-->
+            <!--<p class="help-block error-text" ng-message="required">请输入受益人数.</p>-->
+          <!--</div>-->
+        <!--</div>-->
+        <!--<div class="form-group" show-errors>-->
+          <!--<label class="control-label" for="starlevel">项目星级</label>-->
+          <!--<input name="starlevel" type="text" ng-model="vm.publicprojectData.starlevel" id="starlevel"-->
+                 <!--class="form-control" required autofocus>-->
+          <!--<div ng-messages="vm.publicprojectForm.starlevel.$error" role="alert">-->
+            <!--<p class="help-block error-text" ng-message="required">请输入项目星级（数字）.</p>-->
+          <!--</div>-->
+        <!--</div>-->
         <div class="form-group" show-errors>
-          <label class="control-label" for="claimunit">认领单位</label>
-          <input name="claimunit" type="text" ng-model="vm.publicprojectData.claimunit" id="claimunit" class="form-control"
-                 required autofocus>
-          <div ng-messages="vm.publicprojectForm.claimunit.$error" role="alert">
-            <p class="help-block error-text" ng-message="required">请输入认领单位.</p>
-          </div>
-        </div>
-        <div class="form-group" show-errors>
-          <label class="control-label" for="claimperson">认领人</label>
-          <input name="claimperson" type="text" ng-model="vm.publicprojectData.claimperson" id="claimperson"
-                 class="form-control" required autofocus>
-          <div ng-messages="vm.publicprojectForm.claimperson.$error" role="alert">
-            <p class="help-block error-text" ng-message="required">请输入认领人.</p>
-          </div>
-        </div>
-        <div class="form-group" show-errors>
-          <label class="control-label" for="chargeperson">负责人</label>
-          <input name="chargeperson" type="text" ng-model="vm.publicprojectData.chargeperson" id="chargeperson"
-                 class="form-control" required autofocus>
-          <div ng-messages="vm.publicprojectForm.chargeperson.$error" role="alert">
-            <p class="help-block error-text" ng-message="required">请输入负责人.</p>
-          </div>
-        </div>
-        <div class="form-group" show-errors>
-          <label class="control-label" for="benefitnum">受益人数</label>
-          <input name="benefitnum" type="text" ng-model="vm.publicprojectData.benefitnum" id="benefitnum"
-                 class="form-control" required autofocus>
-          <div ng-messages="vm.publicprojectForm.benefitnum.$error" role="alert">
-            <p class="help-block error-text" ng-message="required">请输入受益人数.</p>
-          </div>
-        </div>
-        <div class="form-group" show-errors>
-          <label class="control-label" for="starlevel">项目星级</label>
-          <input name="starlevel" type="text" ng-model="vm.publicprojectData.starlevel" id="starlevel"
+          <label class="control-label" for="community">社区</label>
+          <input name="community" type="text" ng-model="vm.publicprojectData.community" id="community"
                  class="form-control" required autofocus>
           <div ng-messages="vm.publicprojectForm.starlevel.$error" role="alert">
-            <p class="help-block error-text" ng-message="required">请输入项目星级（数字）.</p>
+            <p class="help-block error-text" ng-message="required">请输入社区.</p>
           </div>
         </div>
-        <div class="form-group" show-errors>
-          <label class="control-label" for="measure">项目推进措施</label>
-          <input name="measure" type="text" ng-model="vm.publicprojectData.measure" id="measure"
-                 class="form-control" required autofocus>
-          <div ng-messages="vm.publicprojectForm.measure.$error" role="alert">
-            <p class="help-block error-text" ng-message="required">请输入项目推进措施.</p>
+        <!--<div class="form-group" show-errors>-->
+          <!--<label class="control-label" for="measure">项目推进措施</label>-->
+          <!--<input name="measure" type="text" ng-model="vm.publicprojectData.measure" id="measure"-->
+                 <!--class="form-control" required autofocus>-->
+          <!--<div ng-messages="vm.publicprojectForm.measure.$error" role="alert">-->
+            <!--<p class="help-block error-text" ng-message="required">请输入项目推进措施.</p>-->
+          <!--</div>-->
+        <!--</div>-->
+        <div class="form-group" >
+          <label class="control-label">文件</label>
+          <div ng-show="vm.methodname !== '查看'">
+            <button class="btn btn-default btn-file"
+                    ngf-select="(vm.fileSelect = true) && (vm.loading = false)"
+                    ngf-before-model-change="vm.loading = true" ngf-resize="{width: 400}"
+                    ng-model="vm.publicprojectData.file_path"
+                    accept="application/msword" >点击选择文件
+            </button>
+          </div>
+          <div class="text-center" style="margin-top: 10px;" ng-show="vm.methodname !== '查看'">
+            <label>{{vm.fileSelect ? vm.publicprojectData.file_path.name: vm.publicprojectData.file_path}}</label>
+          </div>
+          <div class="text-center" style="margin-top: 10px;" ng-show="vm.methodname !== '新增'">
+            <a href="{{vm.publicprojectData.file_path}}" ng-show="vm.publicprojectData.file_path" target="_blank">查看</a>
+          </div>
+          <div ng-show="vm.loading" class="form-group text-center">
+            <img ng-src="/modules/core/client/img/loaders/loader.gif" height="50" width="50" alt="Loading image...">
           </div>
         </div>
       </fieldset>

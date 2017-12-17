@@ -13,7 +13,7 @@ var path = require('path'),
   child_process = require('child_process'),
   logger = require(path.resolve('./config/lib/logger')).getLogger_FileNameBase(__filename);
 //创建项目进展对象
-var saveDir = 'Threelessonsfile';
+var saveDir = 'publicproject';
 var diskDir1 = path.resolve(config.uploads.rootDiskDir, saveDir);
 var mountDir1 = path.join(config.uploads.rootMountDir, saveDir).replace(/\\/g, '/');
 //目标文件类型
@@ -24,7 +24,7 @@ var typeParam = {
   html: ':XHTML Writer File:UTF8'
 };
 var uploadImage = new multer(saveDir,
-  2 * 1024 * 1024,
+  10 * 1024 * 1024,
   /image/, '.jpg');
 //创建目录
 uploadImage.mkPaths();
@@ -89,7 +89,7 @@ exports.update = function (req, res) {
     existingImageUrl = publicproject.photo;
     existingFileUrl = publicproject.file_path;
     uploadImage.recv(req, res, [
-      {name: 'photo'}
+      {name: 'photo'}, {name: 'file_path'}
     ])
       .then(updateUserInfo)
       .then(deleteOldImage)
@@ -116,57 +116,58 @@ exports.update = function (req, res) {
         }
         publicproject.title = req.body.title;
         publicproject.starlevel = req.body.starlevel;
-        publicproject.intro = req.body.intro;
-        publicproject.projectsource = req.body.projectsource;
-        publicproject.sbtime = req.body.sbtime;
+        publicproject.community = req.body.community;
+        // publicproject.intro = req.body.intro;
+        // publicproject.projectsource = req.body.projectsource;
+        // publicproject.sbtime = req.body.sbtime;
         publicproject.projecttype = req.body.projecttype;
-        publicproject.benefitnum = req.body.benefitnum;
-        publicproject.endtime = req.body.endtime;
-        publicproject.claimunit = req.body.claimunit;
-        publicproject.claimperson = req.body.claimperson;
-        publicproject.chargeperson = req.body.chargeperson;
-        publicproject.measure = req.body.measure;
-        //图片
-        // if (files && files.file_path && files.file_path.length === 1) {
-        //   existingImagejpg = path.join(mountDir1, files.file_path[0].filename).replace(/\\/g, '/');
-        //   var diskFileName = path.join(diskDir1, files.file_path[0].filename);
-        //   fs.exists(diskFileName, function (exists) {
-        //     if (!exists) {
-        //       logger.warn('conv docfile %s not exists', diskFileName);
-        //       return res.status(404).send('参数文件不存在:' + diskFileName);
-        //     }
-        //     var type = distType + (typeParam[distType] ? typeParam[distType] : '');
-        //     var cmdLine = util.format('"%s" --headless --convert-to "%s"  --outdir "%s" "%s"',
-        //       config.sofficePathName, type, diskDir1, diskFileName);
-        //     child_process.exec(cmdLine, function (error, stdout, stderr) {
-        //       if (error) {
-        //         logger.warn('conv docfile %s to pdf error:', diskFileName, error.message);
-        //         return res.status(404).send('文件转换错误:' + diskFileName);
-        //       }
-        //
-        //       var distFile = path.basename(files.file_path[0].filename, path.extname(files.file_path[0].filename)) + '.' + distType;
-        //       var distFileName = path.join(diskDir1, distFile);
-        //       // aaa = distFileName.replace(/\\/g, '/');
-        //       fs.exists(distFileName, function (exists) {
-        //         if (!exists) {
-        //           return res.status(404).send('转换后的文件不存在:' + distFileName);
-        //         }
-        //         var options = {};
-        //         var distFileName1 = path.join(uploadImage.mountDir, distFile).replace(/\\/g, '/');
-        //         newingFileUrl = distFileName1;
-        //         publicproject.file_path = distFileName1;
-        //         publicproject.save().then(function () {
-        //           return publicproject.reload()
-        //             .then(function () {
-        //               resolve();
-        //             });
-        //         }).catch(function (err) {
-        //           reject(err);
-        //         });
-        //       });
-        //     });
-        //   });
-        // }
+        // publicproject.benefitnum = req.body.benefitnum;
+        // publicproject.endtime = req.body.endtime;
+        // publicproject.claimunit = req.body.claimunit;
+        // publicproject.claimperson = req.body.claimperson;
+        // publicproject.chargeperson = req.body.chargeperson;
+        // publicproject.measure = req.body.measure;
+        //文件
+        if (files && files.file_path && files.file_path.length === 1) {
+          existingImagejpg = path.join(mountDir1, files.file_path[0].filename).replace(/\\/g, '/');
+          var diskFileName = path.join(diskDir1, files.file_path[0].filename);
+          fs.exists(diskFileName, function (exists) {
+            if (!exists) {
+              logger.warn('conv docfile %s not exists', diskFileName);
+              return res.status(404).send('参数文件不存在:' + diskFileName);
+            }
+            var type = distType + (typeParam[distType] ? typeParam[distType] : '');
+            var cmdLine = util.format('"%s" --headless --convert-to "%s"  --outdir "%s" "%s"',
+              config.sofficePathName, type, diskDir1, diskFileName);
+            child_process.exec(cmdLine, function (error, stdout, stderr) {
+              if (error) {
+                logger.warn('conv docfile %s to pdf error:', diskFileName, error.message);
+                return res.status(404).send('文件转换错误:' + diskFileName);
+              }
+
+              var distFile = path.basename(files.file_path[0].filename, path.extname(files.file_path[0].filename)) + '.' + distType;
+              var distFileName = path.join(diskDir1, distFile);
+              // aaa = distFileName.replace(/\\/g, '/');
+              fs.exists(distFileName, function (exists) {
+                if (!exists) {
+                  return res.status(404).send('转换后的文件不存在:' + distFileName);
+                }
+                var options = {};
+                var distFileName1 = path.join(uploadImage.mountDir, distFile).replace(/\\/g, '/');
+                newingFileUrl = distFileName1;
+                publicproject.file_path = distFileName1;
+                publicproject.save().then(function () {
+                  return publicproject.reload()
+                    .then(function () {
+                      resolve();
+                    });
+                }).catch(function (err) {
+                  reject(err);
+                });
+              });
+            });
+          });
+        }
         if (!(files && files.file_path && files.file_path.length === 1)) {
           publicproject.save().then(function () {
             return publicproject.reload()

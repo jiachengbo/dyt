@@ -131,8 +131,8 @@
       data: vm.tableData,
       columnDefs: [
         {field: 'title', displayName: '标题'},
-        {field: 'intro', displayName: '简介'},
-        {field: 'sbtime', displayName: '申报时间', cellFilter: 'date: \"yyyy-MM-dd HH:mm:ss\"'}
+        {field: 'projecttype', displayName: '项目类型'},
+        {field: 'community', displayName: '社区'}
       ],
       onRegisterApi: function (gridApi) {
         //保存api调用对象
