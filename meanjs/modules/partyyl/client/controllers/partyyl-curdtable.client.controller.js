@@ -22,7 +22,6 @@
         templateUrl: '/modules/partyyl/client/views/partyyl-modal-form.client.view.html',
         controller: 'PartyylModalFormController',
         controllerAs: 'mo',
-        size: 'lg',
         backdrop: 'static',
         resolve: resarg
       });
@@ -135,17 +134,17 @@
       //表数据
       data: vm.tableData,
       columnDefs: [
-        {field: 'title', displayName: '活动主题', width: 200},
-        {field: 'content', displayName: '活动内容', width: 400},
+        {field: 'title', displayName: '标题', width: '20%'},
+        {field: 'content', displayName: '内容', width: '60%'},
         // {field: 'KeyWorkTypeConstant.name', displayName: '活动类型'},
-        {field: 'typeId', displayName: '活动类型'},
-        {field: 'starttime', displayName: '开始时间', cellFilter: 'date:\"yyyy-MM-dd\"'},
-        {field: 'endtime', displayName: '结束时间', cellFilter: 'date:\"yyyy-MM-dd\"'},
+        {field: 'typeId', displayName: '类型'},
+        //{field: 'starttime', displayName: '开始时间', cellFilter: 'date:\"yyyy-MM-dd\"'},
+        {field: 'endtime', displayName: '申报时间', cellFilter: 'date:\"yyyy-MM-dd\"'},
         //{field: 'CommunityVillageConstant.name', displayName: '所属社区'},
-        {field: 'head', displayName: '负责人'},
-        {field: 'peoplenum', displayName: '参加人数'},
-        {field: 'phone', displayName: '联系电话'},
-        {field: 'address', displayName: '活动地点'}
+        {field: 'head', displayName: '负责人'}
+        //{field: 'peoplenum', displayName: '参加人数'},
+        //{field: 'phone', displayName: '联系电话'},
+       //{field: 'address', displayName: '活动地点'}
       ],
 
       onRegisterApi: function (gridApi) {

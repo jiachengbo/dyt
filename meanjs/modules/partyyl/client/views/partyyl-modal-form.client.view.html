@@ -5,59 +5,25 @@
   <div class="modal-body col-md-12">
     <form name="mo.partyylForm" class="form-horizontal" novalidate>
       <fieldset ng-disabled="mo.disabled">
+
         <div class="row">
-          <div class="col-md-6">
-            <div class="row">
-              <div class="col-md-12 form-group" show-errors>
-                <label class="control-label" for="title">活动主题</label>
-                <input name="title" type="text" ng-model="mo.partyylData.title"
-                       maxlength="50"
-                       id="title" class="form-control" placeholder="请输入活动主题" required autofocus>
-                <div ng-messages="mo.partyylForm.title.$error" role="alert">
-                  <p class="help-block error-text" ng-message="required">活动主题不能为空！</p>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-12 form-group">
-                <label class="control-label">所属社区</label>
-                <select class="form-control"
-                        ng-disabled="mo.userCommId"
-                        ng-model="mo.partyylData.communityid"
-                        ng-options="c.id as c.name for c in communityInfo">
-                </select>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-12 form-group">
-                <label class="control-label">活动类型：</label>
-                <select class="form-control"
-                        ng-model="mo.partyylData.typeId"
-                        ng-options="t.name as t.name for t in typeInfo">
-                </select>
-              </div>
+          <div class="col-md-12 form-group" show-errors>
+            <label class="control-label" for="title">标题</label>
+            <input name="title" type="text" ng-model="mo.partyylData.title"
+                   maxlength="50"
+                   id="title" class="form-control" placeholder="请输入标题" required autofocus>
+            <div ng-messages="mo.partyylForm.title.$error" role="alert">
+              <p class="help-block error-text" ng-message="required">标题不能为空！</p>
             </div>
           </div>
-          <div class="col-md-6">
-            <div class="col-md-12">
-              <label class="control-label">活动图片</label>
-              <div class="form-group text-center">
-                <img ngf-src="mo.fileSelected ? mo.picFile : mo.partyylData.photo"
-                     alt="" class="img-thumbnail dynamic-profile-picture" ngf-drop>
-              </div>
-              <div ng-show="mo.loading" class="form-group text-center">
-                <img ng-src="/modules/core/client/img/loaders/loader.gif"
-                     height="80" width="40" alt="Loading image...">
-              </div>
-              <div ng-show="!mo.fileSelected" class="text-center form-group">
-                <button class="btn btn-default btn-file"
-                        ngf-select="(mo.fileSelected = true) && (mo.loading = false)"
-                        ng-model="mo.picFile" accept="image/*"
-                        ngf-before-model-change="mo.loading = true" ngf-resize="{width: 400}"
-                        ngf-resize-if="$width > 400 || $height > 400">点击选择活动图片
-                </button>
-              </div>
-            </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 form-group">
+            <label class="control-label">类型：</label>
+            <select class="form-control"
+                    ng-model="mo.partyylData.typeId"
+                    ng-options="t.name as t.name for t in typeInfo">
+            </select>
           </div>
         </div>
         <div class="row clearfix" >
@@ -65,10 +31,10 @@
             <div class="form-group col-xs-2 column">
               <label class="control-label">上传文件</label>
             </div>
-            <div class="col-xs-8 column text-center" >
+            <div class="col-xs-7 column text-center" >
               <label>{{mo.fileSelect ? mo.fileFile.name: mo.partyylData.file_path}}</label>
             </div>
-            <div class="col-xs-2 column text-right" >
+            <div class="col-xs-3 column text-right" >
               <button class="btn btn-default btn-file"
                       ngf-select="(mo.fileSelect = true) && (mo.loading = false)"
                       ngf-before-model-change="mo.loading = true" ngf-resize="{width: 400}"
@@ -80,91 +46,65 @@
         </div>
         <div>
           <div class="row">
-            <div class="col-md-6">
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="col-md-12 form-group" show-errors>
-                    <label class="control-label" for="starttime">开始时间</label>
-                    <p class="input-group">
-                      <input name="starttime" type="text" class="form-control" id="starttime"
-                             uib-datepicker-popup ng-model="mo.partyylData.starttime" is-open="popup1.opened"
-                             datepicker-options="inlineOptions" ng-required="true"
-                             close-text="Close" ng-disabled="mo.disabled"
-                             placeholder="请选择开始时间"/>
-                      <span class="input-group-btn">
-            <button type="button" class="btn btn-default"
-                    ng-click="open1()" ng-disabled="mo.disabled"><i
-              class="glyphicon glyphicon-calendar"></i></button>
-          </span>
-                    </p>
-                    <div ng-messages="mo.partyylForm.starttime.$error" role="alert">
-                      <p class="help-block error-text" ng-message="required">开始时间不能为空！</p>
-                    </div>
-                    <div>
-                      <span style="color: red" ng-show="mo.yzStartAndEndTime">*开始时间不能大于等于结束时间！</span>
-                    </div>
-                  </div>
+            <!--<div class="col-md-6">
+              <div class="col-md-12 form-group" show-errors>
+                <label class="control-label" for="starttime">开始时间</label>
+                <p class="input-group">
+                  <input name="starttime" type="text" class="form-control" id="starttime"
+                         uib-datepicker-popup ng-model="mo.partyylData.starttime" is-open="popup1.opened"
+                         datepicker-options="inlineOptions" ng-required="true"
+                         close-text="Close" ng-disabled="mo.disabled"
+                         placeholder="请选择开始时间"/>
+                  <span class="input-group-btn">
+        <button type="button" class="btn btn-default"
+                ng-click="open1()" ng-disabled="mo.disabled"><i
+          class="glyphicon glyphicon-calendar"></i></button>
+      </span>
+                </p>
+                <div ng-messages="mo.partyylForm.starttime.$error" role="alert">
+                  <p class="help-block error-text" ng-message="required">开始时间不能为空！</p>
                 </div>
-                <div class="col-md-6">
-                  <div class="col-md-12 form-group" show-errors>
-                    <label class="control-label" for="endtime">结束时间</label>
-                    <p class="input-group">
-                      <input name="endtime" type="text" class="form-control" id="endtime"
-                             uib-datepicker-popup ng-model="mo.partyylData.endtime" is-open="popup2.opened"
-                             datepicker-options="inlineOptions" ng-required="true"
-                             close-text="Close" ng-disabled="mo.disabled"
-                             placeholder="请选择结束时间"/>
-                      <span class="input-group-btn">
+                <div>
+                  <span style="color: red" ng-show="mo.yzStartAndEndTime">*开始时间不能大于等于结束时间！</span>
+                </div>
+              </div>
+            </div>-->
+              <div class="col-md-12 form-group" show-errors>
+                <label class="control-label" for="endtime">申报时间</label>
+                <p class="input-group">
+                  <input name="endtime" type="text" class="form-control" id="endtime"
+                         uib-datepicker-popup ng-model="mo.partyylData.endtime" is-open="popup2.opened"
+                         datepicker-options="inlineOptions" ng-required="true"
+                         close-text="Close" ng-disabled="mo.disabled"
+                         placeholder="请选择结束时间"/>
+                  <span class="input-group-btn">
             <button type="button" class="btn btn-default"
                     ng-click="open2()" ng-disabled="mo.disabled"><i
               class="glyphicon glyphicon-calendar"></i></button>
           </span>
-                    </p>
-                    <div ng-messages="mo.partyylForm.endtime.$error" role="alert">
-                      <p class="help-block error-text" ng-message="required">结束时间不能为空！</p>
-                    </div>
-                  </div>
+                </p>
+                <div ng-messages="mo.partyylForm.endtime.$error" role="alert">
+                  <p class="help-block error-text" ng-message="required">结束时间不能为空！</p>
                 </div>
               </div>
-            </div>
-            <div class="col-md-6">
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="col-md-12 form-group" show-errors>
-                    <label class="control-label" for="head">责任人</label>
-                    <input name="head" type="text" ng-model="mo.partyylData.head"
-                           id="head" class="form-control"
-                           ng-pattern="/^[\u4e00-\u9fa5]/" maxlength="20"
-                           placeholder="请输入责任人" required autofocus>
-                    <div ng-messages="mo.partyylForm.head.$error" role="alert">
-                      <p class="help-block error-text" ng-message="required">责任人不能为空！</p>
-                    </div>
-                    <div ng-show="mo.partyylForm.head.$dirty && mo.partyylForm.head.$invalid" class="has-error"
-                         style="text-align: left">
-                      <span class="help-block" ng-show="mo.partyylForm.head.$error.pattern">责任人必须是汉字!</span>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="col-md-12 form-group" show-errors>
-                    <label class="control-label" for="peoplenum">参加人数</label>
-                    <input name="peoplenum" type="text" ng-model="mo.partyylData.peoplenum"
-                           id="peoplenum" class="form-control"
-                           ng-pattern="/^[0-9]*$/" maxlength="10"
-                           placeholder="请输入参加人数" required autofocus>
-                    <div ng-messages="mo.partyylForm.peoplenum.$error" role="alert">
-                      <p class="help-block error-text" ng-message="required">参加人数不能为空！</p>
-                    </div>
-                    <div ng-show="mo.partyylForm.peoplenum.$dirty && mo.partyylForm.peoplenum.$invalid" class="has-error"
-                         style="text-align: left">
-                      <span class="help-block" ng-show="mo.partyylForm.peoplenum.$error.pattern">参加人数只能为数字!</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
           <div class="row">
+              <div class="col-md-12 form-group" show-errors>
+                <label class="control-label" for="head">责任人</label>
+                <input name="head" type="text" ng-model="mo.partyylData.head"
+                       id="head" class="form-control"
+                       ng-pattern="/^[\u4e00-\u9fa5]/" maxlength="20"
+                       placeholder="请输入责任人" required autofocus>
+                <div ng-messages="mo.partyylForm.head.$error" role="alert">
+                  <p class="help-block error-text" ng-message="required">责任人不能为空！</p>
+                </div>
+                <div ng-show="mo.partyylForm.head.$dirty && mo.partyylForm.head.$invalid" class="has-error"
+                     style="text-align: left">
+                  <span class="help-block" ng-show="mo.partyylForm.head.$error.pattern">责任人必须是汉字!</span>
+                </div>
+              </div>
+          </div>
+          <!--<div class="row">
             <div class="col-md-6">
               <div class="col-md-12 form-group" show-errors>
                 <label class="control-label" for="phone">联系电话</label>
@@ -193,9 +133,9 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div>-->
           <div class="col-md-12 form-group">
-            <label class="control-label" for="content">活动内容</label>
+            <label class="control-label" for="content">内容</label>
             <textarea name="content" data-ng-model="mo.partyylData.content" id="content"
                       class="form-control" cols="30" rows="3" maxlength="2000"
                       placeholder="请输入活动内容"></textarea>
