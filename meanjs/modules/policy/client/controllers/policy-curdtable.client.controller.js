@@ -2,28 +2,27 @@
   'use strict';
 
   angular
-    .module('applyNow')
-    .controller('ApplyNowCURDTableController', ApplyNowCURDTableController);
+    .module('policy')
+    .controller('PolicyCURDTableController', PolicyCURDTableController);
 
-  ApplyNowCURDTableController.$inject = ['$scope', 'Notification', '$log', '$window',
-    'uiGridConstants', 'ApplyNowService',
-    '$uibModal'];
-  function ApplyNowCURDTableController($scope, Notification, $log, $window,
-                                       uiGridConstants, ApplyNowService, $uibModal) {
+  PolicyCURDTableController.$inject = ['$scope', 'Notification', '$log', '$window',
+    'uiGridConstants', 'PolicyService',
+    '$uibModal', 'Upload', '$stateParams'];
+  function PolicyCURDTableController($scope, Notification, $log, $window,
+                                       uiGridConstants, PolicyService, $uibModal, Upload, $stateParams) {
     var vm = this;
     //表数据
     vm.tableData = [];
     //ui-grid 当前选择的行
     vm.selectedRow = null;
-
+    var type = $stateParams.type;
     //打开模态框,返回模态框实例
     vm._openModal = function(resarg) {
       return $uibModal.open({
-        templateUrl: '/modules/applynow/client/views/applyNow-modal-form.client.view.html',
-        controller: 'ApplyNowModalFormController',
+        templateUrl: '/modules/policy/client/views/policy-modal-form.client.view.html',
+        controller: 'PolicyModalFormController',
         controllerAs: 'vm',
         backdrop: 'static',
-        size: 'lg',
         resolve: resarg
       });
     };
@@ -31,10 +30,10 @@
     //增加数据
     vm.add = function() {
       var modalInstance = vm._openModal({
-        //applyNow会传入modal的controller
-        applyNowData: function() {
+        //policy会传入modal的controller
+        policyData: function() {
           //空数据
-          return new ApplyNowService();
+          return new PolicyService();
         },
         //表明是增加
         method: function() {
@@ -45,15 +44,20 @@
       // 模态窗口关闭之后返回的值
       modalInstance.result.then(function(result) {
         $log.log('modal ok:', result);
-        result.$save()
+        result.type = type;
+        //result.$save()
+        Upload.upload({
+          url: '/api/policy',
+          data: result
+        })
           .then(function(res) {
-            vm.gridOptions.data.push(res);
-            Notification.success({ message: '<i class="glyphicon glyphicon-ok"></i> applyNow add saved successfully!' });
+            vm.gridOptions.data.push(res.data);
+            Notification.success({ message: '<i class="glyphicon glyphicon-ok"></i> policy add saved successfully!' });
           })
           .catch(function(err) {
-            $log.error('applyNow add save error:', err.data.message);
+            $log.error('policy add save error:', err.data.message);
             Notification.error({ message: err.data.message, title: '<i class="glyphicon glyphicon-remove"></i>' +
-              ' applyNow add save error!' });
+              ' policy add save error!' });
           });
       })
       .catch(function(reason) {
@@ -70,12 +74,12 @@
           vm.tableData.splice(rowindex, 1);
           //复位当前行
           vm.selectedRow = null;
-          Notification.success({ message: '<i class="glyphicon glyphicon-ok"></i> applyNow deleted successfully!' });
+          Notification.success({ message: '<i class="glyphicon glyphicon-ok"></i> policy deleted successfully!' });
         })
         .catch(function(err) {
-          $log.error('applyNow deleted error:', err.data.message);
+          $log.error('policy deleted error:', err.data.message);
           Notification.error({ message: err.data.message, title: '<i class="glyphicon glyphicon-remove"></i>' +
-          ' applyNow delete error!' });
+          ' policy delete error!' });
         });
       }
     };
@@ -83,29 +87,32 @@
     //修改或查看数据
     vm._updateorview = function(isupdate) {
       var modalInstance = vm._openModal({
-        applyNowData: function() {
+        policyData: function() {
           //复制当前选择的数据, 不要直接修改，否则表格上会直接显示模态框中修改后的内容
           return angular.copy(vm.selectedRow);
         },
         method: function() {
-          return isupdate ? 'update' : 'view';
+          return isupdate ? '修改' : '查看';
         }
       });
 
       modalInstance.result.then(function(result) {
         $log.log('modal ok:', result);
         if (isupdate) {
-          result.$update()
+          //result.$update()
+          Upload.upload({
+            url: '/api/policy/' + result.id,
+            data: result
+          })
             .then(function(res) {
               //修改表格显示的数据
-              console.log(res);
-              angular.extend(vm.selectedRow, res);
-              Notification.success({ message: '<i class="glyphicon glyphicon-ok"></i> applyNow update saved successfully!' });
+              angular.extend(vm.selectedRow, res.data);
+              Notification.success({ message: '<i class="glyphicon glyphicon-ok"></i> policy update saved successfully!' });
             })
             .catch(function(err) {
-              $log.error('applyNow update save error:', err.data.message);
+              $log.error('policy update save error:', err.data.message);
               Notification.error({ message: err.data.message, title: '<i class="glyphicon glyphicon-remove"></i> ' +
-              'applyNow update save error!' });
+              'policy update save error!' });
             });
         }
       }).catch(function(reason) {
@@ -127,20 +134,11 @@
       //表数据
       data: vm.tableData,
       columnDefs: [
-        {field: 'name', displayName: '姓名'},
-        {field: 'gender', displayName: '性别'},
-        {field: 'phoneNumber', displayName: '联系方式'},
-        {field: 'idcard', displayName: '身份证号'},
-        {field: 'zhibu', displayName: '所在支部'},
-        {field: 'mingzu', displayName: '民族'},
-        {field: 'partytime', displayName: '入党时间', cellFilter: 'date:"yyyy-MM-dd"'},
-        {field: 'brith', displayName: '出生日期', cellFilter: 'date:"yyyy-MM-dd"'},
-        {field: 'danwei', displayName: '工作单位'},
-        {field: 'adress', displayName: '家庭住址'},
-        {field: 'partymoney', displayName: '党费'},
-        {field: 'jiguan', displayName: '籍贯'},
-        {field: 'zhuangtai', displayName: '预约状态'}
+        {field: 'title', displayName: '标题'},
+        {field: 'content', displayName: '内容'},
+        {field: 'type', displayName: '类型'}
       ],
+
       onRegisterApi: function (gridApi) {
         //保存api调用对象
         vm.gridApi = gridApi;
@@ -149,9 +147,17 @@
           $log.log('row selected ' + row.isSelected, row);
           vm.selectedRow = row.isSelected ? row.entity : null;
         });
+        gridApi.pagination.on.paginationChanged($scope, function (newPage, pageSize) {
+          refreshPageData(newPage, pageSize);
+        });
       },
 
       //如果不需要在表格左上角菜单显示功能，以下参数可以去掉
+      paginationPageSizes: [20, 30, 40], //每页显示个数可选项
+      paginationCurrentPage: 1, //当前页码
+      paginationPageSize: 20,
+      //使用自定义翻页控制
+      useExternalPagination: true,
       //允许表格左上角菜单
       enableGridMenu: true,
       //添加自定义菜单
@@ -194,10 +200,45 @@
         }
       ]
     };
-
-    //取后台ApplyNow表所有数据
-    ApplyNowService.query().$promise.then(function(data) {
-      vm.gridOptions.data = vm.tableData = data;
-    });
+    vm.queryParam = {
+      offset: 1,
+      type: type,
+      count: true
+    };
+    refreshRecordCount(vm.queryParam);
+    function refreshRecordCount(queryParam) {
+      PolicyService.query(queryParam).$promise
+        .then(function (result) {
+          vm.gridOptions.totalItems = result[0].sum;
+        })
+        .then(function () {
+          refreshPageData(1, vm.gridOptions.paginationPageSize);
+        })
+        .catch(function (err) {
+          $log.error('getCount error:', err);
+        });
+    }
+    //取后台Partyyl表所有数据
+    function refreshPageData(pageNumber, pageSize) {
+      vm.gridOptions.paginationCurrentPage = pageNumber;//当前页码
+      //页面，记录数限制参数
+      var pageParam = {
+        offset: pageNumber,
+        type: type
+      };
+      //取后台数据，默认按创建时间降序排序
+      return PolicyService.query(pageParam).$promise
+        .then(function (data) {
+          vm.gridOptions.data = vm.tableData = data;
+          return data;
+        })
+        .catch(function (err) {
+          $log.error('query error:', err);
+        });
+    }
+    //取后台Policy表所有数据
+    // PolicyService.query().$promise.then(function(data) {
+    //   vm.gridOptions.data = vm.tableData = data;
+    // });
   }
 }());
