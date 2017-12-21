@@ -1,10 +1,9 @@
 'use strict';
-
 module.exports = function (sequelize, DataTypes) {
   //重点工作动态表
-  var KeyWorkTable = sequelize.define('KeyWorkTable',
+  var Partyyl = sequelize.define('Partyyl',
     {
-      keyworkid: {
+      id: {
         type: DataTypes.INTEGER,
         autoIncrement: true,
         primaryKey: true,
@@ -26,7 +25,7 @@ module.exports = function (sequelize, DataTypes) {
         comment: 'type'
       },
       typeId: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.STRING(100),
         defaultValue: 0,
         comment: 'typeId'
       },
@@ -113,21 +112,8 @@ module.exports = function (sequelize, DataTypes) {
       }
     },
     {
-      comment: 'KeyWorkTable',
-      indexes: [
-        {
-          fields: ['communityid', 'typeId']
-        }
-      ],
-      classMethods: {
-        associate: function (models) {
-          this.belongsTo(models.CommunityVillageConstant,
-            {foreignKey: 'communityid'});
-          this.belongsTo(models.KeyWorkTypeConstant,
-            {foreignKey: 'typeId'});
-        }
-      }
+      comment: 'Partyyl'
     }
   );
-  return KeyWorkTable;
+  return Partyyl;
 };

@@ -103,7 +103,7 @@
             </ul>
         </div>
     </div>
-    <div class="container">
+    <div class="container" style="min-height: 408px">
       <!--<div class="row">-->
         <!--<div class="col-md-12">-->
           <!--<img src="/modules/core/client/img/image/liangxueyizuo/top.png" alt="">-->
@@ -119,12 +119,7 @@
               <div class="liangxue_cont">
                 <!--<img src="/modules/core/client/img/image/liangxueyizuo/01.png">-->
                 <ul>
-                  <li><a href="#">找准企业运营瓶颈 落实精准包抓工作</a></li>
-                  <li><a href="#">我委财政金融局赴华南城有限公司 帮助企业解决实际困难</a></li>
-                  <li><a href="#">构建亲清新型政商关系 支持企业做大做强做优</a></li>
-                  <li><a href="#">上官吉庆市长调研亲商助企联系企业</a></li>
-                  <li><a href="#">六月份“千人亲商助企”活动开展情况</a></li>
-                  <li><a href="#">关于贯彻落实省委常委、市委书记王永康同志批示精神的通知</a></li>
+                  <li ng-repeat="jzfp in vm.qszq"><a href="/index1" ng-click="vm.toxqyl($event, jzfp)">{{jzfp.title}}</a></li>
                 </ul>
               </div>
             </div>
@@ -138,12 +133,7 @@
             <div class="liangxue_cont">
               <!--<img src="/modules/core/client/img/image/liangxueyizuo/02.png">-->
               <ul>
-                <li><a href="#">西安雁塔区：凝心聚力惠民生 精准扶贫促发展</a></li>
-                <li><a href="#">雁塔发力精准扶贫 打赢攻坚硬仗</a></li>
-                <li><a href="#">以产业扶贫助力精准脱贫</a></li>
-                <li><a href="#">西安市脱贫攻坚政策之精准脱贫</a></li>
-                <li><a href="#">脱贫攻坚进行时 | 有一种温暖叫“精准扶贫”</a></li>
-                <li><a href="#">全力推动精准扶贫精准脱贫落地生根</a></li>
+                <li ng-repeat="jzfp in vm.jzfp"><a href="/index1" ng-click="vm.toxqyl($event, jzfp)">{{jzfp.title}}</a></li>
               </ul>
             </div>
           </div>
@@ -157,12 +147,7 @@
             <div class="liangxue_cont">
               <!--<img src="/modules/core/client/img/image/liangxueyizuo/03.png">-->
               <ul>
-                <li><a href="#">双创无盲点 雁塔区为残疾人搭建文创空间</a></li>
-                <li><a href="#">关于提高城乡最低生活保障标准的通知</a></li>
-                <li><a href="#">关于调整我市部分优抚对象等人员抚恤和生活补助标准的通知</a></li>
-                <li><a href="#">农村五保供养工作条例</a></li>
-                <li><a href="#">西安市城市低收入家庭认定暂行办法的通知</a></li>
-                <li><a href="#">城市生活无着的流浪乞讨人员救助管理办法</a></li>
+                <li ng-repeat="jzfp in vm.shjz"><a href="#" ng-click="vm.toxqyl($event, jzfp)">{{jzfp.title}}</a></li>
               </ul>
             </div>
           </div>
@@ -182,12 +167,7 @@
             </div>
             <div class="liangxue_cont">
               <ul>
-                <li><a href="#">西安:社会管理“网格化” 服务市民“随叫随到”</a></li>
-                <li><a href="#">雁塔区治污减霾网格化管理实施方案</a></li>
-                <li><a href="#">雁塔：网格化监管为食药安全“兜底”</a></li>
-                <li><a href="#">西安市雁塔区230名网格长集中开展城乡环境大整治</a></li>
-                <li><a href="#">让群众在雁塔生活得更方便更舒心更美好</a></li>
-                <li><a href="#">雁塔区鱼化寨街道精细化管理出实招</a></li>
+                <li ng-repeat="jzfp in vm.wggl"><a href="#" ng-click="vm.toxqyl($event, jzfp)">{{jzfp.title}}</a></li>
               </ul>
             </div>
           </div>
@@ -200,12 +180,7 @@
             </div>
             <div class="liangxue_cont">
               <ul>
-                <li><a href="#">西安全面构建现代公共文化服务体系</a></li>
-                <li><a href="#">西安城墙根的文化生活</a></li>
-                <li><a href="#">西安积极发展文化事业 提升城市竞争力影响力</a></li>
-                <li><a href="#">集群化发展让西安文化更具影响力和穿透力</a></li>
-                <li><a href="#">国家重大文化活动频定西安 中华文化首善之都再迎历史机遇</a></li>
-                <li><a href="#">中央候补委员王永康：西安将打造“丝路文化高地”</a></li>
+                <li ng-repeat="jzfp in vm.whsh"><a href="#" ng-click="vm.toxqyl($event, jzfp)">{{jzfp.title}}</a></li>
               </ul>
             </div>
           </div>
@@ -218,12 +193,7 @@
             </div>
             <div class="liangxue_cont">
               <ul>
-                <li><a href="#">群众的平安才是雁塔的平安</a></li>
-                <li><a href="#">雁塔：聚力平安建设 助力追赶超越</a></li>
-                <li><a href="#">放飞平安翅膀 翱翔和谐蓝天 </a></li>
-                <li><a href="#">西安市雁塔区：平安建设宣传周活动--拉开帷幕</a></li>
-                <li><a href="#">雁塔区举行平安建设宣传周活动</a></li>
-                <li><a href="#">发动群众一起做社区平安的建设者</a></li>
+                <li ng-repeat="jzfp in vm.pajs"><a href="#" ng-click="vm.toxqyl($event, jzfp)">{{jzfp.title}}</a></li>
               </ul>
             </div>
           </div>

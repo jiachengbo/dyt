@@ -44,6 +44,11 @@
       state: 'basicinfo.volunteerteam',
       roles: ['*']
     });
+    menuService.addSubMenuItem('sidemenu', 'tw', {
+      title: '政策法规',
+      state: 'policy.tuanwei',
+      roles: ['*']
+    });
     //妇联
     menuService.addMenuItem('sidemenu', {
       title: '妇联信息管理',
@@ -55,6 +60,11 @@
     menuService.addSubMenuItem('sidemenu', 'fl', {
       title: '妇联信息',
       state: 'womenInformationManagement',
+      roles: ['*']
+    });
+    menuService.addSubMenuItem('sidemenu', 'fl', {
+      title: '政策法规',
+      state: 'policy.curd',
       roles: ['*']
     });
     // menuService.addSubMenuItem('sidemenu', 'fl', {
@@ -85,6 +95,11 @@
     menuService.addSubMenuItem('sidemenu', 'gh', {
       title: '维权信箱',
       state: 'basicinfo.guardianmailbox',
+      roles: ['*']
+    });
+    menuService.addSubMenuItem('sidemenu', 'gh', {
+      title: '政策法规',
+      state: 'policy.gonghui',
       roles: ['*']
     });
     //街道管理
@@ -138,6 +153,11 @@
     menuService.addSubMenuItem('sidemenu', 'jd', {
       title: '党关系转接在线申请',
       state: 'applyNow.curd',
+      roles: ['*']
+    });
+    menuService.addSubMenuItem('sidemenu', 'jd', {
+      title: '党建引领',
+      state: 'partyyl.curd',
       roles: ['*']
     });
     //非公党建管理

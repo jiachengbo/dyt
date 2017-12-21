@@ -1,0 +1,45 @@
+<div class="policy-modal">
+  <div class="modal-header">
+    <h1>{{vm.method}} 政策法规</h1>
+  </div>
+  <div class="modal-body col-md-12">
+    <form name="vm.policyForm" class="form-horizontal" novalidate>
+      <fieldset ng-disabled="vm.disabled">
+        <div class="form-group" show-errors>
+          <label class="control-label" for="title">标题</label>
+          <input name="title" type="text" ng-model="vm.policyData.title" id="title" class="form-control" placeholder="标题" required autofocus>
+          <div ng-messages="vm.policyForm.title.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">标题是必须的</p>
+          </div>
+        </div>
+        <div class="form-group" show-errors>
+          <div class="row">
+            <div class="form-group col-xs-2 column">
+              <label class="control-label">上传文件</label>
+            </div>
+            <div class="col-xs-7 column text-center" >
+              <label>{{vm.fileSelect ? vm.fileFile.name: vm.policyData.file_path}}</label>
+            </div>
+            <div class="col-xs-3 column text-right" >
+              <button class="btn btn-default btn-file"
+                      ngf-select="(vm.fileSelect = true) && (vm.loading = false)"
+                      ngf-before-model-change="vm.loading = true"
+                      ng-model="vm.fileFile"
+                      name="file_path"
+                      accept="application/xhtml+xml">点击选择文件
+              </button>
+            </div>
+          </div>
+          </div>
+        <div class="form-group">
+          <label class="control-label" for="content">内容</label>
+          <textarea name="content" data-ng-model="vm.policyData.content" id="content" class="form-control" cols="30" rows="10" placeholder="内容"></textarea>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-primary" ng-if="!vm.disabled" ng-click="vm.ok(vm.policyForm.$valid)">确认</button>
+    <button class="btn btn-warning" ng-click="vm.cancel()">取消</button>
+  </div>
+</div>
