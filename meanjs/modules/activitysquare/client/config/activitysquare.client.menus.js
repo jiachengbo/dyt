@@ -2,24 +2,24 @@
   'use strict';
 
   angular
-    .module('publicproject')
+    .module('activitysquare')
     .run(menuConfig);
 
   menuConfig.$inject = ['menuService'];
 
   function menuConfig(menuService) {
     menuService.addMenuItem('sidemenu', {
-      title: '项目公示',
-      state: 'publicproject.curd',
+      title: '活动广场',
+      state: 'activitysquare.curd',
       // type: 'dropdown',
       roles: ['xtadmin'],
       position: 0
     });
 
     // Add the dropdown list item
-    // menuService.addSubMenuItem('sidemenu', 'publicproject', {
-    //   title: 'manager Publicproject Table',
-    //   state: 'publicproject.curd',
+    // menuService.addSubMenuItem('sidemenu', 'activitysquare', {
+    //   title: 'manager Activitysquare Table',
+    //   state: 'activitysquare.curd',
     //   roles: ['*']
     // });
 

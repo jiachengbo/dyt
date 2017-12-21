@@ -1,0 +1,57 @@
+<div class="partyserver-modal">
+  <div class="modal-header">
+    <h1>{{vm.methodname}} 党群服务</h1>
+  </div>
+  <div class="modal-body col-md-12">
+    <form name="vm.partyserverForm" class="form-horizontal" novalidate>
+      <fieldset ng-disabled="vm.disabled">
+        <div class="form-group" show-errors>
+          <label class="control-label" for="department">部门</label>
+          <input name="department" type="text" ng-model="vm.partyserverData.department" id="department" class="form-control" required autofocus>
+          <div ng-messages="vm.partyserverForm.department.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">请输入部门.</p>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label" for="workduty">工作职责</label>
+          <textarea name="workduty" data-ng-model="vm.partyserverData.workduty" id="workduty" class="form-control" cols="30" rows="10" ></textarea>
+        </div>
+        <div class="form-group">
+          <label class="control-label">图片</label>
+          <div>
+            <button class="btn btn-default btn-file"
+                    ngf-select="(vm.fileSelected = true) && (vm.loading = false)"
+                    ng-model="vm.partyserverData.photo" accept="image/*" ngf-before-model-change="vm.loading = true"
+                    ngf-resize="{width: 400}" ngf-resize-if="$width > 400 || $height > 400" ng-show="vm.method !== 'view'">请选择图片
+            </button>
+          </div>
+          <div class="text-center" style="margin-top: 10px;">
+            <img id="create_photo" ngf-src="vm.partyserverData.photo" alt="没有图片" class="img-thumbnail" ngf-drop>
+          </div>
+          <div ng-show="vm.loading" class="form-group text-center">
+            <img ng-src="/modules/core/client/img/loaders/loader.gif" height="50" width="50" alt="Loading image...">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label">文件</label>
+          <div>
+            <button class="btn btn-default btn-file"
+                    ngf-select="(vm.fileSelect = true) && (vm.loading = false)"
+                    ngf-before-model-change="vm.loading = true" ngf-resize="{width: 400}"
+                    ng-model="vm.partyserverData.file_path"
+                    accept="application/msword" ng-show="vm.method !== 'view'">点击选择文件
+            </button>
+          </div>
+          <div class="text-center" style="margin-top: 10px;">
+            <label ng-show="vm.method !== 'view'">{{vm.fileSelect ? vm.partyserverData.file_path.name: vm.partyserverData.file_path}}</label>
+            <label ng-show="vm.method === 'view'"><a href="{{vm.partyserverData.file_path}}" target="_blank">查看</a> </label>
+          </div>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-primary" ng-if="!vm.disabled" ng-click="vm.ok(vm.partyserverForm.$valid)">确认</button>
+    <button class="btn btn-warning" ng-click="vm.cancel()">取消</button>
+  </div>
+</div>

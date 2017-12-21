@@ -13,7 +13,7 @@ var path = require('path'),
   child_process = require('child_process'),
   logger = require(path.resolve('./config/lib/logger')).getLogger_FileNameBase(__filename);
 //创建项目进展对象
-var saveDir = 'publicproject';
+var saveDir = 'Partyserver';
 var diskDir1 = path.resolve(config.uploads.rootDiskDir, saveDir);
 var mountDir1 = path.join(config.uploads.rootMountDir, saveDir).replace(/\\/g, '/');
 //目标文件类型
@@ -30,21 +30,22 @@ var uploadImage = new multer(saveDir,
 uploadImage.mkPaths();
 
 /**
- * Create an publicproject
+ * Create an partyserver
  */
 exports.create = function (req, res) {
-  var Publicproject = sequelize.model('Publicproject');
-  var publicproject = Publicproject.build(req.body);
-  publicproject.save().then(function () {
-    //重新加载数据，使数据含有关联表的内容
-    return publicproject.reload({
+  var Partyserver = sequelize.model('Partyserver');
+  var partyserver = Partyserver.build(req.body);
 
+  partyserver.user_id = req.user.id;
+  partyserver.save().then(function () {
+    //重新加载数据，使数据含有关联表的内容
+    return partyserver.reload({
     })
     .then(function() {
-      res.json(publicproject);
+      res.json(partyserver);
     });
   }).catch(function (err) {
-    logger.error('publicproject create error:', err);
+    logger.error('partyserver create error:', err);
     return res.status(422).send({
       message: errorHandler.getErrorMessage(err)
     });
@@ -52,83 +53,70 @@ exports.create = function (req, res) {
 };
 
 /**
- * Show the current publicproject
+ * Show the current partyserver
  */
 exports.read = function (req, res) {
-  var publicproject = req.model ? req.model.toJSON() : {};
+  var partyserver = req.model ? req.model.toJSON() : {};
 
-  //publicproject.isCurrentUserOwner = !!(req.user && publicproject.user && publicproject.user._id.toString() === req.user._id.toString());
-  publicproject.isCurrentUserOwner = !!(req.user && publicproject.user && publicproject.user.id.toString() === req.user.id.toString());
+  //partyserver.isCurrentUserOwner = !!(req.user && partyserver.user && partyserver.user._id.toString() === req.user._id.toString());
+  partyserver.isCurrentUserOwner = !!(req.user && partyserver.user && partyserver.user.id.toString() === req.user.id.toString());
 
-  res.json(publicproject);
+  res.json(partyserver);
 };
 
 /**
- * Update an publicproject
+ * Update an partyserver
  */
 exports.update = function (req, res) {
-  // var Publicproject = sequelize.model('Publicproject');
-  // var publicproject = Publicproject.build(req.body);
-  var publicproject;
-  var Publicproject;
+  var partyserver;
+  var Partyserver;
   var existingImageUrl;
   var existingFileUrl;
   var existingImagejpg;
   var newingFileUrl;
   var newingImageUrl;
   if (req.model) {
-    publicproject = req.model;
+    partyserver = req.model;
   } else {
-    Publicproject = sequelize.model('Publicproject');
-    publicproject = Publicproject.build(req.body);
+    Partyserver = sequelize.model('Partyserver');
+    partyserver = Partyserver.build(req.body);
   }
-  if (publicproject) {
-    existingImageUrl = publicproject.photo;
-    existingFileUrl = publicproject.file_path;
+  if (partyserver) {
+    existingImageUrl = partyserver.photo;
+    existingFileUrl = partyserver.file_path;
     uploadImage.recv(req, res, [
       {name: 'photo'}, {name: 'file_path'}
     ])
       .then(updateUserInfo)
       .then(deleteOldImage)
       .then(function () {
-        res.json(publicproject);
+        res.json(partyserver);
       })
       .catch(function (err) {
-        logger.error('recv upload publicproject picture err:', err);
+        logger.error('recv upload partyserver picture err:', err);
         res.status(422).send(err);
       });
   } else {
     res.status(401).send({
-      message: 'publicproject is not exist'
+      message: 'partyserver is not exist'
     });
   }
 
   function updateUserInfo(files) {
     return new Promise(function (resolve, reject) {
       console.log(req.body);
-      if (publicproject) {
+      if (partyserver) {
         if (files && files.photo && files.photo.length === 1) {
-          publicproject.photo = path.join(uploadImage.mountDir, files.photo[0].filename).replace(/\\/g, '/');
-          newingImageUrl = publicproject.photo;
+          partyserver.photo = path.join(uploadImage.mountDir, files.photo[0].filename).replace(/\\/g, '/');
+          newingImageUrl = partyserver.photo;
         }
         if (files && files.file_path && files.file_path.length === 1) {
-          publicproject.file_path = path.join(uploadImage.mountDir, files.file_path[0].filename).replace(/\\/g, '/');
-          newingFileUrl = publicproject.file_path;
+          partyserver.file_path = path.join(uploadImage.mountDir, files.file_path[0].filename).replace(/\\/g, '/');
+          newingImageUrl = partyserver.file_path;
         }
-        publicproject.title = req.body.title;
-        publicproject.starlevel = req.body.starlevel;
-        publicproject.community = req.body.community;
-        // publicproject.intro = req.body.intro;
-        // publicproject.projectsource = req.body.projectsource;
-        // publicproject.sbtime = req.body.sbtime;
-        publicproject.projecttype = req.body.projecttype;
-        // publicproject.benefitnum = req.body.benefitnum;
-        // publicproject.endtime = req.body.endtime;
-        // publicproject.claimunit = req.body.claimunit;
-        // publicproject.claimperson = req.body.claimperson;
-        // publicproject.chargeperson = req.body.chargeperson;
-        // publicproject.measure = req.body.measure;
-        //文件
+        partyserver.department = req.body.department;
+        partyserver.workduty = req.body.workduty;
+        // //图片
         // if (files && files.file_path && files.file_path.length === 1) {
         //   existingImagejpg = path.join(mountDir1, files.file_path[0].filename).replace(/\\/g, '/');
         //   var diskFileName = path.join(diskDir1, files.file_path[0].filename);
@@ -156,9 +144,9 @@ exports.update = function (req, res) {
         //         var options = {};
         //         var distFileName1 = path.join(uploadImage.mountDir, distFile).replace(/\\/g, '/');
         //         newingFileUrl = distFileName1;
-        //         publicproject.file_path = distFileName1;
-        //         publicproject.save().then(function () {
-        //           return publicproject.reload()
+        //         partyserver.file_path = distFileName1;
+        //         partyserver.save().then(function () {
+        //           return partyserver.reload()
         //             .then(function () {
         //               resolve();
         //             });
@@ -169,8 +157,8 @@ exports.update = function (req, res) {
         //     });
         //   });
         // }
-        publicproject.save().then(function () {
-          return publicproject.reload()
+        partyserver.save().then(function () {
+          return partyserver.reload()
             .then(function () {
               resolve();
             });
@@ -178,8 +166,8 @@ exports.update = function (req, res) {
           reject(err);
         });
         // if (!(files && files.file_path && files.file_path.length === 1)) {
-        //   publicproject.save().then(function () {
-        //     return publicproject.reload()
+        //   partyserver.save().then(function () {
+        //     return partyserver.reload()
         //       .then(function () {
         //         resolve();
         //       });
@@ -188,7 +176,7 @@ exports.update = function (req, res) {
         //   });
         // }
       } else {
-        reject(new Error('no publicproject img upload'));
+        reject(new Error('no partyserver img upload'));
       }
     });
   }
@@ -253,13 +241,13 @@ exports.update = function (req, res) {
   }
 };
 /**
- * Delete an publicproject
+ * Delete an partyserver
  */
 exports.delete = function (req, res) {
-  var publicproject = req.model;
+  var partyserver = req.model;
 
-  publicproject.destroy().then(function () {
-    res.json(publicproject);
+  partyserver.destroy().then(function () {
+    res.json(partyserver);
   }).catch(function (err) {
     return res.status(422).send({
       message: errorHandler.getErrorMessage(err)
@@ -268,44 +256,44 @@ exports.delete = function (req, res) {
 };
 
 /**
- * List of Publicproject
+ * List of Partyserver
  */
 exports.list = function (req, res) {
-  var Publicproject = sequelize.model('Publicproject');
+  var Partyserver = sequelize.model('Partyserver');
   var User = sequelize.model('User');
 
-  Publicproject.findAll({
+  Partyserver.findAll({
     order: 'id ASC'
-  }).then(function (publicproject) {
-    return res.jsonp(publicproject);
+  }).then(function (partyserver) {
+    return res.jsonp(partyserver);
   }).catch(function (err) {
-    logger.error('publicproject list error:', err);
+    logger.error('partyserver list error:', err);
     return res.status(422).send(err);
   });
 };
 
 /**
- * Publicproject middleware
+ * Partyserver middleware
  */
-exports.publicprojectByID = function (req, res, next, id) {
-  var Publicproject = sequelize.model('Publicproject');
+exports.partyserverByID = function (req, res, next, id) {
+  var Partyserver = sequelize.model('Partyserver');
   var User = sequelize.model('User');
 
-  Publicproject.findOne({
+  Partyserver.findOne({
     where: {id: id}
-  }).then(function (publicproject) {
-    if (!publicproject) {
-      logger.error('No publicproject with that identifier has been found');
+  }).then(function (partyserver) {
+    if (!partyserver) {
+      logger.error('No partyserver with that identifier has been found');
       return res.status(404).send({
-        message: 'No publicproject with that identifier has been found'
+        message: 'No partyserver with that identifier has been found'
       });
     }
 
-    req.model = publicproject;
+    req.model = partyserver;
     next();
   }).catch(function (err) {
     //return next(err);
-    logger.error('publicproject ByID error:', err);
+    logger.error('partyserver ByID error:', err);
     res.status(422).send({
       message: errorHandler.getErrorMessage(err)
     });

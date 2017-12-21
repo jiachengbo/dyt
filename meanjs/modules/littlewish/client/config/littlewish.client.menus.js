@@ -2,24 +2,24 @@
   'use strict';
 
   angular
-    .module('publicproject')
+    .module('littlewish')
     .run(menuConfig);
 
   menuConfig.$inject = ['menuService'];
 
   function menuConfig(menuService) {
     menuService.addMenuItem('sidemenu', {
-      title: '项目公示',
-      state: 'publicproject.curd',
+      title: '微心愿',
+      state: 'littlewish.curd',
       // type: 'dropdown',
       roles: ['xtadmin'],
       position: 0
     });
 
     // Add the dropdown list item
-    // menuService.addSubMenuItem('sidemenu', 'publicproject', {
-    //   title: 'manager Publicproject Table',
-    //   state: 'publicproject.curd',
+    // menuService.addSubMenuItem('sidemenu', 'littlewish', {
+    //   title: 'manager Littlewish Table',
+    //   state: 'littlewish.curd',
     //   roles: ['*']
     // });
 

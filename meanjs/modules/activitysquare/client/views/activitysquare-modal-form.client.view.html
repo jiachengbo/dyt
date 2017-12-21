@@ -1,0 +1,116 @@
+<div class="activitysquare-modal">
+  <div class="modal-header">
+    <h1>{{vm.methodname}} 活动广场</h1>
+  </div>
+  <div class="modal-body col-md-12">
+    <form name="vm.activitysquareForm" class="form-horizontal" novalidate>
+      <fieldset ng-disabled="vm.disabled">
+        <div class="form-group" show-errors>
+          <label class="control-label" for="title">标题</label>
+          <input name="title" type="text" ng-model="vm.activitysquareData.title" id="title" class="form-control" required autofocus>
+          <div ng-messages="vm.activitysquareForm.title.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">请输入标题.</p>
+          </div>
+        </div>
+        <div class="form-group" show-errors>
+          <label class="control-label" for="hostunit">主办单位</label>
+          <input name="hostunit" type="text" ng-model="vm.activitysquareData.hostunit" id="hostunit" class="form-control" required autofocus>
+          <div ng-messages="vm.activitysquareForm.hostunit.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">请输入主办单位.</p>
+          </div>
+        </div>
+        <div class="form-group" show-errors>
+          <label class="control-label" for="underunit">承办单位</label>
+          <input name="underunit" type="text" ng-model="vm.activitysquareData.underunit" id="underunit" class="form-control" required autofocus>
+          <div ng-messages="vm.activitysquareForm.underunit.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">请输入承办单位.</p>
+          </div>
+        </div>
+        <div class="form-group" show-errors>
+          <label class="control-label" for="address">活动地点</label>
+          <input name="address" type="text" ng-model="vm.activitysquareData.address" id="address" class="form-control" required autofocus>
+          <div ng-messages="vm.activitysquareForm.address.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">请输入活动地点.</p>
+          </div>
+        </div>
+        <div class="form-group" show-errors>
+          <label class="control-label" for="peoplenum">活动人数</label>
+          <input name="peoplenum" type="text" ng-model="vm.activitysquareData.peoplenum" id="peoplenum" class="form-control" required autofocus ng-pattern="/^[1-9]\d*$/" >
+          <div ng-messages="vm.activitysquareForm.peoplenum.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">请输入活动人数.</p>
+          </div>
+          <div ng-messages="vm.activitysquareForm.peoplenum.$error" role="alert">
+            <p class="help-block error-text" ng-message="pattern">请输入整数.</p>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label" for="fbtime">发布时间</label>
+          <input type="text" uib-datepicker-popup
+                 ng-model="vm.activitysquareData.fbtime" is-open="popup1.opened"
+                 datepicker-options="inlineOptions" ng-required="true" close-text="Close" name="fbtime" id="fbtime" class="form-control" cols="30" rows="10"/>
+          <span class="input-group-btn">
+            <button type="button" class="btn btn-default" ng-click="open1()"><i
+              class="glyphicon glyphicon-calendar"></i></button>
+          </span>
+        </div>
+        <div class="form-group">
+          <label class="control-label" for="starttime">开始时间</label>
+          <input type="text" uib-datepicker-popup
+                 ng-model="vm.activitysquareData.starttime" is-open="popup2.opened"
+                 datepicker-options="inlineOptions" ng-required="true" close-text="Close" name="starttime" id="starttime" class="form-control" cols="30" rows="10" placeholder="开始时间"/>
+          <span class="input-group-btn">
+            <button type="button" class="btn btn-default" ng-click="open2()"><i
+              class="glyphicon glyphicon-calendar"></i></button>
+          </span>
+        </div>
+        <div class="form-group" >
+          <label class="control-label" for="endtime">结束时间</label>
+          <input type="text" uib-datepicker-popup
+                 ng-model="vm.activitysquareData.endtime" is-open="popup3.opened"
+                 datepicker-options="inlineOptions" ng-required="true" close-text="Close"  name="endtime" id="endtime" class="form-control" cols="30" rows="10" placeholder="结束时间"/>
+          <span class="input-group-btn">
+            <button type="button" class="btn btn-default" ng-click="open3()"><i class="glyphicon glyphicon-calendar"></i></button>
+          </span>
+        </div>
+        <div class="form-group">
+          <label class="control-label" for="applytime">报名开始时间</label>
+          <input type="text" uib-datepicker-popup
+                 ng-model="vm.activitysquareData.applytime" is-open="popup4.opened"
+                 datepicker-options="inlineOptions" ng-required="true" close-text="Close" name="applytime" id="applytime" class="form-control" cols="30" rows="10" placeholder="报名开始时间"/>
+          <span class="input-group-btn">
+            <button type="button" class="btn btn-default" ng-click="open4()"><i
+              class="glyphicon glyphicon-calendar"></i></button>
+          </span>
+        </div>
+        <div class="form-group" >
+          <label class="control-label" for="applyendtime">报名结束时间</label>
+          <input type="text" uib-datepicker-popup
+                 ng-model="vm.activitysquareData.applyendtime" is-open="popup5.opened"
+                 datepicker-options="inlineOptions" ng-required="true" close-text="Close"  name="applyendtime" id="applyendtime" class="form-control" cols="30" rows="10" placeholder="报名结束时间"/>
+          <span class="input-group-btn">
+            <button type="button" class="btn btn-default" ng-click="open5()"><i class="glyphicon glyphicon-calendar"></i></button>
+          </span>
+        </div>
+        <div class="form-group">
+          <label class="control-label">文件</label>
+          <div>
+            <button class="btn btn-default btn-file"
+                    ngf-select="(vm.fileSelect = true) && (vm.loading = false)"
+                    ngf-before-model-change="vm.loading = true" ngf-resize="{width: 400}"
+                    ng-model="vm.activitysquareData.file_path"
+                    accept="application/msword" ng-show="vm.method === 'add' || vm.method === 'update'">点击选择文件
+            </button>
+          </div>
+          <div class="text-center" style="margin-top: 10px;">
+            <a href="{{vm.activitysquareData.file_path}}" target="_blank" ng-show="vm.activitysquareData.file_path">查看</a>
+            <label ng-show="vm.method === 'add'">{{vm.fileSelect ? vm.activitysquareData.file_path.name: vm.activitysquareData.file_path}}</label>
+          </div>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-primary" ng-if="!vm.disabled" ng-click="vm.ok(vm.activitysquareForm.$valid)">确认</button>
+    <button class="btn btn-warning" ng-click="vm.cancel()">取消</button>
+  </div>
+</div>

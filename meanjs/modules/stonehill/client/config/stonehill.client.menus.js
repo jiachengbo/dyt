@@ -9,7 +9,7 @@
 
   function menuConfig(menuService) {
     menuService.addMenuItem('sidemenu', {
-      title: 'Stonehill',
+      title: '他山之石',
       state: 'stonehill.curd',
       // type: 'dropdown',
       roles: ['xtadmin'],

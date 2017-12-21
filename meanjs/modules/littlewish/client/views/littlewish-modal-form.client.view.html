@@ -1,0 +1,48 @@
+<div class="littlewish-modal">
+  <div class="modal-header">
+    <h1>{{vm.methodname}} 微心愿</h1>
+  </div>
+  <div class="modal-body col-md-12">
+    <form name="vm.littlewishForm" class="form-horizontal" novalidate>
+      <fieldset ng-disabled="vm.disabled">
+        <div class="form-group" show-errors>
+          <label class="control-label" for="title">名称</label>
+          <input name="title" type="text" ng-model="vm.littlewishData.title" id="title" class="form-control"  required autofocus>
+          <div ng-messages="vm.littlewishForm.title.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Littlewish title is required.</p>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label" for="content">内容</label>
+          <textarea name="content" data-ng-model="vm.littlewishData.content" id="content" class="form-control" cols="30" rows="10"></textarea>
+        </div>
+        <div class="form-group" show-errors>
+          <label class="control-label" for="fbperson">发布人</label>
+          <input name="fbperson" type="text" ng-model="vm.littlewishData.fbperson" id="fbperson" class="form-control"  required autofocus>
+          <div ng-messages="vm.littlewishForm.fbperson.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">请输入发布人.</p>
+          </div>
+        </div>
+        <div class="form-group" show-errors>
+          <label class="control-label" for="community">所属社区</label>
+          <input name="community" type="text" ng-model="vm.littlewishData.community" id="community" class="form-control"  required autofocus>
+          <div ng-messages="vm.littlewishForm.community.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">请输入社区.</p>
+          </div>
+        </div>
+        <div class="form-group" ng-if="vm.method === 'view'">
+          <label class="control-label" for="state">心愿状态</label>
+          <input name="state" type="text" ng-model="vm.littlewishData.state" id="state" class="form-control">
+        </div>
+        <div class="form-group" ng-if="vm.method === 'view'">
+          <label class="control-label" for="claimperson">认领人</label>
+          <input name="claimperson" type="text" ng-model="vm.littlewishData.claimperson" id="claimperson" class="form-control">
+        </div>
+      </fieldset>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-primary" ng-if="!vm.disabled" ng-click="vm.ok(vm.littlewishForm.$valid)">确认</button>
+    <button class="btn btn-warning" ng-click="vm.cancel()">取消</button>
+  </div>
+</div>

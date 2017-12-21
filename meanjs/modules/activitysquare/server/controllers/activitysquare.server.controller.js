@@ -13,7 +13,7 @@ var path = require('path'),
   child_process = require('child_process'),
   logger = require(path.resolve('./config/lib/logger')).getLogger_FileNameBase(__filename);
 //创建项目进展对象
-var saveDir = 'publicproject';
+var saveDir = 'activitysquare';
 var diskDir1 = path.resolve(config.uploads.rootDiskDir, saveDir);
 var mountDir1 = path.join(config.uploads.rootMountDir, saveDir).replace(/\\/g, '/');
 //目标文件类型
@@ -30,21 +30,23 @@ var uploadImage = new multer(saveDir,
 uploadImage.mkPaths();
 
 /**
- * Create an publicproject
+ * Create an activitysquare
  */
 exports.create = function (req, res) {
-  var Publicproject = sequelize.model('Publicproject');
-  var publicproject = Publicproject.build(req.body);
-  publicproject.save().then(function () {
-    //重新加载数据，使数据含有关联表的内容
-    return publicproject.reload({
+  var User = sequelize.model('User');
+  var Activitysquare = sequelize.model('Activitysquare');
+  var activitysquare = Activitysquare.build(req.body);
 
+  activitysquare.user_id = req.user.id;
+  activitysquare.save().then(function () {
+    //重新加载数据，使数据含有关联表的内容
+    return activitysquare.reload({
     })
     .then(function() {
-      res.json(publicproject);
+      res.json(activitysquare);
     });
   }).catch(function (err) {
-    logger.error('publicproject create error:', err);
+    logger.error('activitysquare create error:', err);
     return res.status(422).send({
       message: errorHandler.getErrorMessage(err)
     });
@@ -52,82 +54,71 @@ exports.create = function (req, res) {
 };
 
 /**
- * Show the current publicproject
+ * Show the current activitysquare
  */
 exports.read = function (req, res) {
-  var publicproject = req.model ? req.model.toJSON() : {};
+  var activitysquare = req.model ? req.model.toJSON() : {};
 
-  //publicproject.isCurrentUserOwner = !!(req.user && publicproject.user && publicproject.user._id.toString() === req.user._id.toString());
-  publicproject.isCurrentUserOwner = !!(req.user && publicproject.user && publicproject.user.id.toString() === req.user.id.toString());
+  //activitysquare.isCurrentUserOwner = !!(req.user && activitysquare.user && activitysquare.user._id.toString() === req.user._id.toString());
+  activitysquare.isCurrentUserOwner = !!(req.user && activitysquare.user && activitysquare.user.id.toString() === req.user.id.toString());
 
-  res.json(publicproject);
+  res.json(activitysquare);
 };
 
 /**
- * Update an publicproject
+ * Update an activitysquare
  */
 exports.update = function (req, res) {
-  // var Publicproject = sequelize.model('Publicproject');
-  // var publicproject = Publicproject.build(req.body);
-  var publicproject;
-  var Publicproject;
+  var activitysquare;
+  var Activitysquare;
   var existingImageUrl;
   var existingFileUrl;
   var existingImagejpg;
   var newingFileUrl;
   var newingImageUrl;
   if (req.model) {
-    publicproject = req.model;
+    activitysquare = req.model;
   } else {
-    Publicproject = sequelize.model('Publicproject');
-    publicproject = Publicproject.build(req.body);
+    Activitysquare = sequelize.model('Activitysquare');
+    activitysquare = Activitysquare.build(req.body);
   }
-  if (publicproject) {
-    existingImageUrl = publicproject.photo;
-    existingFileUrl = publicproject.file_path;
+  if (activitysquare) {
+    existingFileUrl = activitysquare.file_path;
     uploadImage.recv(req, res, [
-      {name: 'photo'}, {name: 'file_path'}
+      {name: 'file_path'}
     ])
       .then(updateUserInfo)
       .then(deleteOldImage)
       .then(function () {
-        res.json(publicproject);
+        res.json(activitysquare);
       })
       .catch(function (err) {
-        logger.error('recv upload publicproject picture err:', err);
+        logger.error('recv upload activitysquare picture err:', err);
         res.status(422).send(err);
       });
   } else {
     res.status(401).send({
-      message: 'publicproject is not exist'
+      message: 'activitysquare is not exist'
     });
   }
 
   function updateUserInfo(files) {
     return new Promise(function (resolve, reject) {
-      console.log(req.body);
-      if (publicproject) {
-        if (files && files.photo && files.photo.length === 1) {
-          publicproject.photo = path.join(uploadImage.mountDir, files.photo[0].filename).replace(/\\/g, '/');
-          newingImageUrl = publicproject.photo;
-        }
+      if (activitysquare) {
         if (files && files.file_path && files.file_path.length === 1) {
-          publicproject.file_path = path.join(uploadImage.mountDir, files.file_path[0].filename).replace(/\\/g, '/');
-          newingFileUrl = publicproject.file_path;
+          activitysquare.file_path = path.join(uploadImage.mountDir, files.file_path[0].filename).replace(/\\/g, '/');
+          newingImageUrl = activitysquare.file_path;
         }
-        publicproject.title = req.body.title;
-        publicproject.starlevel = req.body.starlevel;
-        publicproject.community = req.body.community;
-        // publicproject.intro = req.body.intro;
-        // publicproject.projectsource = req.body.projectsource;
-        // publicproject.sbtime = req.body.sbtime;
-        publicproject.projecttype = req.body.projecttype;
-        // publicproject.benefitnum = req.body.benefitnum;
-        // publicproject.endtime = req.body.endtime;
-        // publicproject.claimunit = req.body.claimunit;
-        // publicproject.claimperson = req.body.claimperson;
-        // publicproject.chargeperson = req.body.chargeperson;
-        // publicproject.measure = req.body.measure;
+        activitysquare.title = req.body.title;
+        activitysquare.hostunit = req.body.hostunit;
+        activitysquare.underunit = req.body.underunit;
+        activitysquare.fbtime = req.body.fbtime;
+        activitysquare.starttime = req.body.starttime;
+        activitysquare.endtime = req.body.endtime;
+        activitysquare.address = req.body.address;
+        activitysquare.peoplenum = req.body.peoplenum;
+        activitysquare.applytime = req.body.applytime;
+        activitysquare.applyendtime = req.body.applyendtime;
         //文件
         // if (files && files.file_path && files.file_path.length === 1) {
         //   existingImagejpg = path.join(mountDir1, files.file_path[0].filename).replace(/\\/g, '/');
@@ -156,9 +147,9 @@ exports.update = function (req, res) {
         //         var options = {};
         //         var distFileName1 = path.join(uploadImage.mountDir, distFile).replace(/\\/g, '/');
         //         newingFileUrl = distFileName1;
-        //         publicproject.file_path = distFileName1;
-        //         publicproject.save().then(function () {
-        //           return publicproject.reload()
+        //         activitysquare.file_path = distFileName1;
+        //         activitysquare.save().then(function () {
+        //           return activitysquare.reload()
         //             .then(function () {
         //               resolve();
         //             });
@@ -169,8 +160,8 @@ exports.update = function (req, res) {
         //     });
         //   });
         // }
-        publicproject.save().then(function () {
-          return publicproject.reload()
+        activitysquare.save().then(function () {
+          return activitysquare.reload()
             .then(function () {
               resolve();
             });
@@ -178,8 +169,8 @@ exports.update = function (req, res) {
           reject(err);
         });
         // if (!(files && files.file_path && files.file_path.length === 1)) {
-        //   publicproject.save().then(function () {
-        //     return publicproject.reload()
+        //   activitysquare.save().then(function () {
+        //     return activitysquare.reload()
         //       .then(function () {
         //         resolve();
         //       });
@@ -188,7 +179,7 @@ exports.update = function (req, res) {
         //   });
         // }
       } else {
-        reject(new Error('no publicproject img upload'));
+        reject(new Error('no activitysquare img upload'));
       }
     });
   }
@@ -253,13 +244,13 @@ exports.update = function (req, res) {
   }
 };
 /**
- * Delete an publicproject
+ * Delete an activitysquare
  */
 exports.delete = function (req, res) {
-  var publicproject = req.model;
+  var activitysquare = req.model;
 
-  publicproject.destroy().then(function () {
-    res.json(publicproject);
+  activitysquare.destroy().then(function () {
+    res.json(activitysquare);
   }).catch(function (err) {
     return res.status(422).send({
       message: errorHandler.getErrorMessage(err)
@@ -268,44 +259,43 @@ exports.delete = function (req, res) {
 };
 
 /**
- * List of Publicproject
+ * List of Activitysquare
  */
 exports.list = function (req, res) {
-  var Publicproject = sequelize.model('Publicproject');
+  var Activitysquare = sequelize.model('Activitysquare');
   var User = sequelize.model('User');
 
-  Publicproject.findAll({
+  Activitysquare.findAll({
     order: 'id ASC'
-  }).then(function (publicproject) {
-    return res.jsonp(publicproject);
+  }).then(function (activitysquare) {
+    return res.jsonp(activitysquare);
   }).catch(function (err) {
-    logger.error('publicproject list error:', err);
+    logger.error('activitysquare list error:', err);
     return res.status(422).send(err);
   });
 };
 
 /**
- * Publicproject middleware
+ * Activitysquare middleware
  */
-exports.publicprojectByID = function (req, res, next, id) {
-  var Publicproject = sequelize.model('Publicproject');
+exports.activitysquareByID = function (req, res, next, id) {
+  var Activitysquare = sequelize.model('Activitysquare');
   var User = sequelize.model('User');
 
-  Publicproject.findOne({
+  Activitysquare.findOne({
     where: {id: id}
-  }).then(function (publicproject) {
-    if (!publicproject) {
-      logger.error('No publicproject with that identifier has been found');
+  }).then(function (activitysquare) {
+    if (!activitysquare) {
+      logger.error('No activitysquare with that identifier has been found');
       return res.status(404).send({
-        message: 'No publicproject with that identifier has been found'
+        message: 'No activitysquare with that identifier has been found'
       });
     }
-
-    req.model = publicproject;
+    req.model = activitysquare;
     next();
   }).catch(function (err) {
     //return next(err);
-    logger.error('publicproject ByID error:', err);
+    logger.error('activitysquare ByID error:', err);
     res.status(422).send({
       message: errorHandler.getErrorMessage(err)
     });
