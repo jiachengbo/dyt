@@ -79,13 +79,15 @@
         muser_row: vm.currMUser,
         muser_rowop: vm.currMUserOp,
         workposition_rows: workpositionResolve,
-        department_rows: departmentResolve
+        department_rows: departmentResolve,
+        value: vm.values
       });
     };
 
     //显示选择行
     vm.showSelected = function(sel) {
       vm.disabled = true;
+      vm.values = sel;
       if (vm.currMUserOp && vm.currMUserOp.cvm && vm.currMUserOp.cvm.muserForm) {
         //清除form错误提示
         $scope.$broadcast('show-errors-reset', vm.currMUserOp.cvm.muserForm.$name);
@@ -160,11 +162,11 @@
 
     // 删除
     vm.remove = function() {
-      if ($window.confirm('Are you sure you want to delete?')) {
+      if ($window.confirm('你确定要删除吗?')) {
         vm.currMUser.$remove()
           .then(function() {
             vm.showSelected(vm.serviceTree.removeNode(vm.selected));
-            Notification.success({ message: '<i class="glyphicon glyphicon-ok"></i> muser deleted successfully!' });
+            Notification.success({ message: '<i class="glyphicon glyphicon-ok"></i> 成功删除!' });
           })
           .catch(function(err) {
             $log.error('muser remove error:', err.data.message);
@@ -195,21 +197,21 @@
             //更新变量值
             vm.selected.value = res;
             vm.showSelected(vm.selected);
-            Notification.success({ message: '<i class="glyphicon glyphicon-ok"></i> muser update saved successfully!' });
+            Notification.success({ message: '<i class="glyphicon glyphicon-ok"></i> 更新保存成功!' });
           })
           .catch(function(err) {
             $log.error('muser update save error:', err.data.message);
-            Notification.error({ message: err.data.message, title: '<i class="glyphicon glyphicon-remove"></i> muser update save error!' });
+            Notification.error({ message: err.data.message, title: '<i class="glyphicon glyphicon-remove"></i> 更新保存失败!' });
           });
       } else {
         vm.currMUser.$save()
           .then(function(res) {
             vm.showSelected(vm.serviceTree.addValue2Node(res, vm.currDepartmentNode));
-            Notification.success({ message: '<i class="glyphicon glyphicon-ok"></i> muser add saved successfully!' });
+            Notification.success({ message: '<i class="glyphicon glyphicon-ok"></i> 添加保存成功!' });
           })
           .catch(function(err) {
             $log.error('muser add save error:', err.data.message);
-            Notification.error({ message: err.data.message, title: '<i class="glyphicon glyphicon-remove"></i> muser add save error!' });
+            Notification.error({ message: err.data.message, title: '<i class="glyphicon glyphicon-remove"></i> 添加保存失败!' });
           });
       }
     };

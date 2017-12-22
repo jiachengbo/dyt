@@ -16,6 +16,8 @@ module.exports = function (app) {
     .get(activitysquare.read)
     .post(activitysquare.update)
     .delete(activitysquare.delete);
+  app.route('/api/Activitc')
+    .get(activitysquare.active);
 
   // Finish by binding the activitysquare middleware
   app.param('activitysquareId', activitysquare.activitysquareByID);

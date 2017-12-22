@@ -360,32 +360,32 @@ exports.dynamicByID = function (req, res, next, id) {
   var partytype = req.query.partytype;
   if (offset !== 0 && id === '0') {
     if (commId !== '') {
-      if (partytype) {
-        listByPage_comm(req, res, limit, offset, typeId, parseInt(commId, 0), type, partytype);
-      } else {
-        listByPage_comm(req, res, limit, offset, typeId, parseInt(commId, 0), type);
-      }
+      // if (partytype) {
+      listByPage_comm(req, res, limit, offset, typeId, parseInt(commId, 0), type, partytype);
+      // } else {
+      //   listByPage_comm(req, res, limit, offset, typeId, parseInt(commId, 0), type);
+      // }
     } else {
-      if (partytype) {
-        listByPage(req, res, limit, offset, typeId, type, partytype);
-      } else {
-        listByPage(req, res, limit, offset, typeId, type);
-      }
+      //if (partytype) {
+      listByPage(req, res, limit, offset, typeId, type, partytype);
+      // } else {
+      //   listByPage(req, res, limit, offset, typeId, type);
+      // }
     }
   } else if (limit === 0 && offset === 0 && id === '0') {
     if (commId !== '') {
-      if (partytype) {
-        listCount_comm(req, res, typeId, parseInt(commId, 0), type, partytype);
-      } else {
-        listCount_comm(req, res, typeId, parseInt(commId, 0), type);
-      }
+      // if (partytype) {
+      listCount_comm(req, res, typeId, parseInt(commId, 0), type, partytype);
+      // } else {
+      //   listCount_comm(req, res, typeId, parseInt(commId, 0), type);
+      // }
 
     } else {
-      if (partytype) {
-        listCount(req, res, typeId, type, partytype);
-      } else {
-        listCount(req, res, typeId, type);
-      }
+      // if (partytype) {
+      listCount(req, res, typeId, type, partytype);
+      // } else {
+      //   listCount(req, res, typeId, type);
+      // }
 
     }
   } else if (id !== '0') {

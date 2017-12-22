@@ -9,6 +9,10 @@
     '$uibModal', 'Authentication', 'CommunityService', 'localStorageService'];
   function PartyMemberTableCURDTableController($scope, Notification, $log, $window, PartyMemberTableService, $uibModal, Authentication, CommunityService, localStorageService) {
     var vm = this;
+    if (Authentication.user) {
+      vm.id_card = Authentication.user.IDcard;
+      vm.grade = Authentication.user.roles.indexOf('partym');
+    }
     vm.userCommId = '';
     //表数据
     vm.tableData = [];
@@ -229,6 +233,7 @@
               partyMemberTableId: 0,
               limit: 0,
               offset: 0,
+              id_card: vm.id_card,
               partytype: vm.type,
               communityId: vm.userCommId
             };
@@ -237,6 +242,7 @@
               partyMemberTableId: 0,
               limit: 0,
               offset: 0,
+              id_card: vm.id_card,
               communityId: vm.userCommId
             };
           }
@@ -249,6 +255,7 @@
             partyMemberTableId: 0,
             limit: 0,
             offset: 0,
+            id_card: vm.id_card,
             partytype: vm.type,
             communityId: vm.userCommId
           };
@@ -257,6 +264,7 @@
             partyMemberTableId: 0,
             limit: 0,
             offset: 0,
+            id_card: vm.id_card,
             communityId: vm.userCommId
           };
         }
@@ -275,6 +283,7 @@
           limit: (pageNumber - 1) * pageSize,
           offset: pageSize,
           partytype: vm.type,
+          id_card: vm.id_card,
           communityId: vm.userCommId
         };
       } else {
@@ -282,6 +291,7 @@
           partyMemberTableId: 0,
           limit: (pageNumber - 1) * pageSize,
           offset: pageSize,
+          id_card: vm.id_card,
           communityId: vm.userCommId
         };
       }

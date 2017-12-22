@@ -40,11 +40,10 @@ exports.create = function (req, res) {
   activitysquare.user_id = req.user.id;
   activitysquare.save().then(function () {
     //重新加载数据，使数据含有关联表的内容
-    return activitysquare.reload({
-    })
-    .then(function() {
-      res.json(activitysquare);
-    });
+    return activitysquare.reload({})
+      .then(function () {
+        res.json(activitysquare);
+      });
   }).catch(function (err) {
     logger.error('activitysquare create error:', err);
     return res.status(422).send({
@@ -263,16 +262,74 @@ exports.delete = function (req, res) {
  */
 exports.list = function (req, res) {
   var Activitysquare = sequelize.model('Activitysquare');
-  var User = sequelize.model('User');
+  var Activitcy = sequelize.model('Activitcy');
+  var iscanyu = req.query.iscanyu;
+  var where;
+  var shuzu;
+  //var User = sequelize.model('User');
+  if (iscanyu) {
+    getact();
+  } else {
+    where = {
+      order: 'id ASC'
+    };
+    getdata(where);
+  }
+  function getact() {
+    Activitcy.findAll({
+      userid: req.user.id
+    }).then(function (activitc) {
+      shuzu = [];
+      if (activitc.length > 0) {
+        activitc.forEach(function (v, k) {
+          shuzu.push(v.dataValues.activitID);
+        });
+        if (iscanyu === '我未参与') {
+          getdatas(1, shuzu);
+        } else {
+          getdatas(2, shuzu);
+        }
+      }
+      //console.log(activitc[0].dataValues, activitc[1].dataValues);
+      //return res.jsonp(arr);
+      // getdatas();
+    }).catch(function (err) {
+      logger.error('activitysquare list error:', err);
+      return res.status(422).send(err);
+    });
+  }
 
-  Activitysquare.findAll({
-    order: 'id ASC'
-  }).then(function (activitysquare) {
-    return res.jsonp(activitysquare);
-  }).catch(function (err) {
-    logger.error('activitysquare list error:', err);
-    return res.status(422).send(err);
-  });
+  function getdatas(num, shuzu) {
+    var tiaojian;
+    if (num === 2) {
+      tiaojian = {
+        where: {
+          id: shuzu
+        }
+      };
+    } else {
+      tiaojian = {
+        where: {
+          id: {$notIn: shuzu}
+        }
+      };
+    }
+    Activitysquare.findAll(tiaojian).then(function (activitysquare) {
+      return res.jsonp(activitysquare);
+    }).catch(function (err) {
+      logger.error('activitysquare list error:', err);
+      return res.status(422).send(err);
+    });
+  }
+
+  function getdata() {
+    Activitysquare.findAll(where).then(function (activitysquare) {
+      return res.jsonp(activitysquare);
+    }).catch(function (err) {
+      logger.error('activitysquare list error:', err);
+      return res.status(422).send(err);
+    });
+  }
 };
 
 /**
@@ -299,5 +356,16 @@ exports.activitysquareByID = function (req, res, next, id) {
     res.status(422).send({
       message: errorHandler.getErrorMessage(err)
     });
+  });
+};
+exports.active = function (req, res) {
+  var Activitcy = sequelize.model('Activitcy');
+  Activitcy.create(req.query).then(function (activitc) {
+    var arr = [];
+    arr.push(activitc.dataValues);
+    return res.jsonp(arr);
+  }).catch(function (err) {
+    logger.error('activitysquare list error:', err);
+    return res.status(422).send(err);
   });
 };

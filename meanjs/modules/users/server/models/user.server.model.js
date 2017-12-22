@@ -48,6 +48,10 @@ module.exports = function (sequelize, DataTypes) {
         type: DataTypes.STRING(128),
         defaultValue: '123456'
       },
+      IDcard: {
+        type: DataTypes.STRING(100),
+        defaultValue: ''
+      },
       profileImageURL: {
         type: DataTypes.STRING(128),
         defaultValue: '/modules/users/client/img/profile/default.png'

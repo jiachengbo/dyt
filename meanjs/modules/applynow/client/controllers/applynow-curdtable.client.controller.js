@@ -7,17 +7,21 @@
 
   ApplyNowCURDTableController.$inject = ['$scope', 'Notification', '$log', '$window',
     'uiGridConstants', 'ApplyNowService',
-    '$uibModal'];
+    '$uibModal', 'Authentication'];
   function ApplyNowCURDTableController($scope, Notification, $log, $window,
-                                       uiGridConstants, ApplyNowService, $uibModal) {
+                                       uiGridConstants, ApplyNowService, $uibModal, Authentication) {
     var vm = this;
+    if (Authentication.user) {
+      vm.idcard = Authentication.user.IDcard;
+      vm.grade = Authentication.user.roles.indexOf('partym');
+    }
     //表数据
     vm.tableData = [];
     //ui-grid 当前选择的行
     vm.selectedRow = null;
 
     //打开模态框,返回模态框实例
-    vm._openModal = function(resarg) {
+    vm._openModal = function (resarg) {
       return $uibModal.open({
         templateUrl: '/modules/applynow/client/views/applyNow-modal-form.client.view.html',
         controller: 'ApplyNowModalFormController',
@@ -29,96 +33,102 @@
     };
 
     //增加数据
-    vm.add = function() {
+    vm.add = function () {
       var modalInstance = vm._openModal({
         //applyNow会传入modal的controller
-        applyNowData: function() {
+        applyNowData: function () {
           //空数据
           return new ApplyNowService();
         },
         //表明是增加
-        method: function() {
+        method: function () {
           return '增加';
         }
       });
 
       // 模态窗口关闭之后返回的值
-      modalInstance.result.then(function(result) {
+      modalInstance.result.then(function (result) {
         $log.log('modal ok:', result);
         result.$save()
-          .then(function(res) {
+          .then(function (res) {
             vm.gridOptions.data.push(res);
-            Notification.success({ message: '<i class="glyphicon glyphicon-ok"></i> applyNow add saved successfully!' });
+            Notification.success({message: '<i class="glyphicon glyphicon-ok"></i> applyNow add saved successfully!'});
           })
-          .catch(function(err) {
+          .catch(function (err) {
             $log.error('applyNow add save error:', err.data.message);
-            Notification.error({ message: err.data.message, title: '<i class="glyphicon glyphicon-remove"></i>' +
-              ' applyNow add save error!' });
+            Notification.error({
+              message: err.data.message, title: '<i class="glyphicon glyphicon-remove"></i>' +
+              ' applyNow add save error!'
+            });
           });
       })
-      .catch(function(reason) {
-        $log.log('Modal dismissed:', reason);
-      });
+        .catch(function (reason) {
+          $log.log('Modal dismissed:', reason);
+        });
     };
 
     //删除数据
-    vm.remove = function() {
+    vm.remove = function () {
       if ($window.confirm('Are you sure you want to remove selected record?')) {
-        vm.selectedRow.$remove(function() {
+        vm.selectedRow.$remove(function () {
           var rowindex = vm.tableData.indexOf(vm.selectedRow);
           //去掉表格中的数据
           vm.tableData.splice(rowindex, 1);
           //复位当前行
           vm.selectedRow = null;
-          Notification.success({ message: '<i class="glyphicon glyphicon-ok"></i> applyNow deleted successfully!' });
+          Notification.success({message: '<i class="glyphicon glyphicon-ok"></i> applyNow deleted successfully!'});
         })
-        .catch(function(err) {
-          $log.error('applyNow deleted error:', err.data.message);
-          Notification.error({ message: err.data.message, title: '<i class="glyphicon glyphicon-remove"></i>' +
-          ' applyNow delete error!' });
-        });
+          .catch(function (err) {
+            $log.error('applyNow deleted error:', err.data.message);
+            Notification.error({
+              message: err.data.message, title: '<i class="glyphicon glyphicon-remove"></i>' +
+              ' applyNow delete error!'
+            });
+          });
       }
     };
 
     //修改或查看数据
-    vm._updateorview = function(isupdate) {
+    vm._updateorview = function (isupdate) {
       var modalInstance = vm._openModal({
-        applyNowData: function() {
+        applyNowData: function () {
           //复制当前选择的数据, 不要直接修改，否则表格上会直接显示模态框中修改后的内容
           return angular.copy(vm.selectedRow);
         },
-        method: function() {
+        method: function () {
           return isupdate ? 'update' : 'view';
         }
       });
 
-      modalInstance.result.then(function(result) {
+      modalInstance.result.then(function (result) {
         $log.log('modal ok:', result);
         if (isupdate) {
           result.$update()
-            .then(function(res) {
+            .then(function (res) {
               //修改表格显示的数据
               console.log(res);
               angular.extend(vm.selectedRow, res);
-              Notification.success({ message: '<i class="glyphicon glyphicon-ok"></i> applyNow update saved successfully!' });
+              Notification.success({message: '<i class="glyphicon glyphicon-ok"></i> applyNow update saved successfully!'});
             })
-            .catch(function(err) {
+            .catch(function (err) {
               $log.error('applyNow update save error:', err.data.message);
-              Notification.error({ message: err.data.message, title: '<i class="glyphicon glyphicon-remove"></i> ' +
-              'applyNow update save error!' });
+              Notification.error({
+                message: err.data.message, title: '<i class="glyphicon glyphicon-remove"></i> ' +
+                'applyNow update save error!'
+              });
             });
         }
-      }).catch(function(reason) {
+      }).catch(function (reason) {
         $log.log('Modal dismissed:', reason);
       });
     };
 
     //修改
-    vm.update = function() {
+    vm.update = function () {
       return vm._updateorview(true);
     };
     //查看
-    vm.view = function() {
+    vm.view = function () {
       return vm._updateorview(false);
     };
 
@@ -145,7 +155,7 @@
         //保存api调用对象
         vm.gridApi = gridApi;
         //监视行改变函数
-        gridApi.selection.on.rowSelectionChanged($scope, function(row, event) {
+        gridApi.selection.on.rowSelectionChanged($scope, function (row, event) {
           $log.log('row selected ' + row.isSelected, row);
           vm.selectedRow = row.isSelected ? row.entity : null;
         });
@@ -194,9 +204,12 @@
         }
       ]
     };
-
+    var where = {};
+    if (vm.grade > -1) {
+      where.idcard = vm.idcard;
+    }
     //取后台ApplyNow表所有数据
-    ApplyNowService.query().$promise.then(function(data) {
+    ApplyNowService.query(where).$promise.then(function (data) {
       vm.gridOptions.data = vm.tableData = data;
     });
   }

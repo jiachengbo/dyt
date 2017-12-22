@@ -28,6 +28,7 @@ exports.renderIndex = function (req, res) {
       provider: escape(req.user.provider),
       username: escape(req.user.username),
       createdAt: req.user.createdAt.toString(),
+      IDcard: req.user.IDcard,
       roles: req.user.roles,
       profileImageURL: req.user.profileImageURL,
       email: escape(req.user.email),

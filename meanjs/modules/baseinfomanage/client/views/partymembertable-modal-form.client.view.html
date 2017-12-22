@@ -255,7 +255,7 @@
                         ng-model="vm.partyMemberTableData.partytype"
                         ng-options="party.id as party.name for party in vm.partyorg"
                         required
-                        ng-disabled="true"
+                        ng-disabled="vm.grade === -1"
                         name='partytype'
                 >
                 </select>

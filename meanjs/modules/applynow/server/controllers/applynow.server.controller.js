@@ -16,11 +16,10 @@ exports.create = function (req, res) {
   var applyNow = ApplyNow.build(req.body);
 
   applyNow.save().then(function () {
-    return applyNow.reload({
-    })
-    .then(function() {
-      res.json(applyNow);
-    });
+    return applyNow.reload({})
+      .then(function () {
+        res.json(applyNow);
+      });
   }).catch(function (err) {
     logger.error('applyNow create error:', err);
     return res.status(422).send({
@@ -88,8 +87,21 @@ exports.delete = function (req, res) {
  */
 exports.list = function (req, res) {
   var ApplyNow = sequelize.model('ApplyNow');
-  ApplyNow.findAll({
-  }).then(function (applyNow) {
+  var idcard = req.query.idcard;
+  var where;
+  if (idcard) {
+    where = {
+      where: {
+        idcard: idcard
+      },
+      order: 'id desc'
+    };
+  } else {
+    where = {
+      order: 'id desc'
+    };
+  }
+  ApplyNow.findAll(where).then(function (applyNow) {
     return res.jsonp(applyNow);
   }).catch(function (err) {
     logger.error('applyNow list error:', err);

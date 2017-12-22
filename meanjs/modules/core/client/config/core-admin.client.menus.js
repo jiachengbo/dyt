@@ -15,6 +15,77 @@
       roles: ['xtadmin'],
       position: 1000
     });
+    //手机管理
+    menuService.addMenuItem('sidemenu', {
+      title: '手机管理',
+      state: 'phone',
+      type: 'dropdown',
+      roles: ['xtadmin'],
+      position: 1000
+    });
+    menuService.addSubMenuItem('sidemenu', 'phone', {
+      title: '活动广场',
+      state: 'activitysquare.curd',
+      roles: ['*']
+    });
+    menuService.addSubMenuItem('sidemenu', 'phone', {
+      title: '微心愿',
+      state: 'littlewish.curd',
+      roles: ['*']
+    });
+    menuService.addSubMenuItem('sidemenu', 'phone', {
+      title: '党群服务',
+      state: 'partyserver.curd',
+      roles: ['*']
+    });
+    menuService.addSubMenuItem('sidemenu', 'phone', {
+      title: '项目公示',
+      state: 'publicproject.curd',
+      roles: ['*']
+    });
+    menuService.addSubMenuItem('sidemenu', 'phone', {
+      title: '他山之石',
+      state: 'stonehill.curd',
+      roles: ['*']
+    });
+    //党员
+    menuService.addMenuItem('sidemenu', {
+      title: '党员信息',
+      state: 'partys',
+      type: 'dropdown',
+      roles: ['partym'],
+      position: 1000
+    });
+    menuService.addSubMenuItem('sidemenu', 'partys', {
+      title: '活动广场',
+      state: 'activitysquare.curd',
+      roles: ['*']
+    });
+    menuService.addSubMenuItem('sidemenu', 'partys', {
+      title: '微心愿',
+      state: 'littlewish.curd',
+      roles: ['*']
+    });
+    menuService.addSubMenuItem('sidemenu', 'partys', {
+      title: '党关系转接在线申请',
+      state: 'applyNow.curd',
+      roles: ['*']
+    });
+    menuService.addSubMenuItem('sidemenu', 'partys', {
+      title: '党员',
+      state: 'partyMemberTable',
+      roles: ['*']
+    });
+    menuService.addSubMenuItem('sidemenu', 'partys', {
+      title: '工作动态',
+      state: 'dynamic.main.one',
+      roles: ['*']
+    });
+    menuService.addSubMenuItem('sidemenu', 'partys', {
+      title: '党建动态',
+      state: 'regionalization.dynamic',
+      roles: ['*']
+    });
     //团委
     menuService.addMenuItem('sidemenu', {
       title: '团委信息管理',
@@ -28,7 +99,6 @@
       state: 'leagueMemberTable',
       roles: ['*']
     });
-    // Add the dropdown list item
     menuService.addSubMenuItem('sidemenu', 'tw', {
       title: '团组织',
       state: 'leagueOrganizationTable',

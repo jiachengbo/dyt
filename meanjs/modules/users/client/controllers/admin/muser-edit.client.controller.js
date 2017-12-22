@@ -8,7 +8,7 @@
   MUserEditController.$inject = ['$scope', 'Notification', '$log', '$window', '$state', '$stateParams',
     'treeService', 'WorkPositionService'];
   function MUserEditController($scope, Notification, $log, $window, $state, $stateParams,
-                                      treeService, WorkPositionService) {
+                               treeService, WorkPositionService) {
     var vm = this;
     //当前行数据
     vm.muser_row = $stateParams.muser_row;
@@ -19,7 +19,14 @@
     vm.muser_rowop = $stateParams.muser_rowop;
     //不能修改
     vm.disabled = vm.muser_rowop.disabled;
-
+    //选中的数据
+    vm.workposition_data = $stateParams.value.value;
+    if (vm.workposition_data.displayName) {
+      vm.showa = vm.workposition_data.displayName === '党员' ? true : false;
+    }
+    if (vm.workposition_data.wps) {
+      vm.showa = vm.workposition_data.wps[0].id === 71 ? true : false;
+    }
     //设置cvm，用于回传本控制
     vm.muser_rowop.cvm = vm;
 
@@ -41,12 +48,12 @@
     };
 
     //列表显示的内容
-    vm.treeTitle = function(node) {
+    vm.treeTitle = function (node) {
       return node.value.displayName ? node.value.displayName : node.value.name;
     };
 
     //显示选择行
-    vm.showSelected = function(sel) {
+    vm.showSelected = function (sel) {
       if (sel) {
         //展开父
         if (vm.expanded.indexOf(sel.parent) === -1) {
@@ -60,7 +67,7 @@
       }
     };
 
-    vm.changed = function(node) {
+    vm.changed = function (node) {
       var workposition = {id: node.value.id};
       //删除当前数据保存的指定workposition.id的记录
       for (var index = 0; index < vm.muser_row.wps.length; index++) {
@@ -76,7 +83,7 @@
     };
 
     var workpositions = vm.workposition_rows.map(function (ele) {
-      ele.selected = vm.muser_row.wps.some(function(workposition) {
+      ele.selected = vm.muser_row.wps.some(function (workposition) {
         return ele.id === workposition.id;
       });
       return ele;

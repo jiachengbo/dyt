@@ -61,6 +61,8 @@ module.exports = function (sequelize, DataTypes) {
             {foreignKey: 'communityid', targetKey: 'id'});
           this.hasMany(models.ThreeMasterMemberManagement,
             {foreignKey: 'community', targetKey: 'id'});
+          this.hasMany(models.Littlewish,
+            {foreignKey: 'community', targetKey: 'id'});
         }
       }
     }

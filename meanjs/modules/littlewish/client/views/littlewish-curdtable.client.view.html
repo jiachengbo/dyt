@@ -3,16 +3,16 @@
     <h1>
       微心愿
       <div class="btn-group pull-right" role="group" aria-label="oper">
-        <a class="btn btn-primary" ng-click="vm.add()">
+        <a class="btn btn-primary" ng-click="vm.add()" tooltip-placement="top" uib-tooltip="微心愿发布">
           <i class="glyphicon glyphicon-plus"></i>
         </a>
-        <a class="btn btn-primary" ng-click="vm.update()" ng-show="!!vm.selectedRow">
+        <a class="btn btn-primary" ng-click="vm.update()" ng-show="!!vm.selectedRow" tooltip-placement="top" uib-tooltip="微心愿修改">
           <i class="glyphicon glyphicon-edit"></i>
         </a>
-        <a class="btn btn-primary" ng-click="vm.remove()" ng-show="!!vm.selectedRow">
+        <a class="btn btn-primary" ng-click="vm.remove()" ng-show="!!vm.selectedRow" tooltip-placement="top" uib-tooltip="微心愿删除">
           <i class="glyphicon glyphicon-trash"></i>
         </a>
-        <a class="btn btn-primary" ng-click="vm.view()" ng-show="!!vm.selectedRow">
+        <a class="btn btn-primary" ng-click="vm.view()" ng-show="!!vm.selectedRow" tooltip-placement="top" uib-tooltip="认领微心愿">
           <i class="glyphicon glyphicon-eye-open"></i>
         </a>
       </div>

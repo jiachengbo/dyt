@@ -50,7 +50,9 @@
           //岗位表所有数据
           workposition_rows: null,
           //部门表所有数据
-          department_rows: null
+          department_rows: null,
+          //选中的数据
+          value: null
         },
         data: {
           pageTitle: '详情'

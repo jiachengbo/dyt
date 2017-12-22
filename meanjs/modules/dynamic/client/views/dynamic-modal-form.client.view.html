@@ -34,6 +34,7 @@
                 <label class="control-label" ng-show="mo.tablename !== '两学一做'">{{mo.dynamicData.type}}</label>
                 <select class="form-control"
                         ng-show="mo.tablename === '两学一做'"
+                        ng-disabled="true"
                         ng-model="mo.dynamicData.typeId"
                         ng-options="t.id as t.name for t in typeInfo">
                 </select>

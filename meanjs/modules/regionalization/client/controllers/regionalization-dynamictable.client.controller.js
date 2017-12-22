@@ -6,12 +6,57 @@
     .controller('RegionalizationDynamicController', RegionalizationDynamicController);
 
   RegionalizationDynamicController.$inject = ['$scope', 'Notification', '$log', '$window',
-    'Upload', 'DjdynamicService', '$uibModal', 'Authentication', 'CommunityService', 'localStorageService'];
+    'Upload', 'DjdynamicService', '$uibModal', 'Authentication', 'CommunityService', 'localStorageService', 'PartyMemberTableService'];
   function RegionalizationDynamicController($scope, Notification, $log, $window,
-                                            Upload, DjdynamicService, $uibModal, Authentication, CommunityService, localStorageService) {
+                                            Upload, DjdynamicService, $uibModal, Authentication, CommunityService, localStorageService, PartyMemberTableService) {
     var vm = this;
     vm.userCommId = '';
-
+    if (Authentication.user) {
+      vm.id_card = Authentication.user.IDcard;
+      vm.grade = Authentication.user.roles.indexOf('partym');
+      if (vm.grade > 0) {
+        vm.queryParam = {
+          partyMemberTableId: 0,
+          limit: 0,
+          offset: 20,
+          id_card: vm.id_card,
+          communityId: ''
+        };
+        PartyMemberTableService.query(vm.queryParam).$promise.then(function (data) {
+          vm.partym = data[0];
+          vm.userCommId = vm.partym.community;
+          vm.type = vm.partym.partytype;
+          switch (vm.type) {
+            case 1:
+              vm.type = '城市党建';
+              break;
+            case 2:
+              vm.type = '农村党建';
+              break;
+            case 3:
+              vm.type = '社会组织党建';
+              break;
+            case 4:
+              vm.type = '机关党建';
+              break;
+            case 5:
+              vm.type = '非公党建';
+              break;
+            default:
+              break;
+          }
+        }).then(function () {
+          vm.queryParam = {
+            dynamicId: 0,
+            limit: 0,
+            offset: 0,
+            communityId: vm.userCommId,
+            type: vm.type
+          };
+          refreshRecordCount(vm.queryParam);
+        });
+      }
+    }
     //表数据
     vm.tableData = [];
     //ui-grid 当前选择的行
@@ -267,7 +312,9 @@
           };
         }
         //刷新记录总数
-        refreshRecordCount(vm.queryParam);
+        if (vm.grade === -1) {
+          refreshRecordCount(vm.queryParam);
+        }
       }
     }
 

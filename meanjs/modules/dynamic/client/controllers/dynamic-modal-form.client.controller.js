@@ -5,8 +5,8 @@
     .module('dynamic')
     .controller('DynamicModalFormController', DynamicModalFormController);
 
-  DynamicModalFormController.$inject = ['$scope', '$log', '$uibModalInstance', 'dynamicData', 'method', 'tableName', 'localStorageService', 'userCommId', 'Authentication', '$stateParams', '$window', 'partyid'];
-  function DynamicModalFormController($scope, $log, $uibModalInstance, dynamicData, method, tableName, localStorageService, userCommId, Authentication, $stateParams, $window, partyid) {
+  DynamicModalFormController.$inject = ['$scope', '$log', '$uibModalInstance', 'dynamicData', 'method', 'tableName', 'localStorageService', 'userCommId', 'Authentication', '$stateParams', '$window', 'partyid', 'huodong'];
+  function DynamicModalFormController($scope, $log, $uibModalInstance, dynamicData, method, tableName, localStorageService, userCommId, Authentication, $stateParams, $window, partyid, huodong) {
     var mo = this;
 
     mo.dynamicData = dynamicData;
@@ -61,16 +61,20 @@
       partytypesInfo = [
         {'name': '社会组织党建'}
       ];
+    } else if (roles.indexOf('partym') !== -1) {
+      var obj = {};
+      obj.name = partyid;
+      partytypesInfo = [obj];
     }
     $scope.partytypesInfo = partytypesInfo;
     if (method === '新增') {
       //党建类型
       if (partytypesInfo.length > 0) {
-        if (tableName !== '两学一做') {
-          mo.dynamicData.partytype = partytypesInfo[0].name;
-        } else {
-          mo.dynamicData.partytype = '';
-        }
+        //if (tableName !== '两学一做') {
+        mo.dynamicData.partytype = partytypesInfo[0].name;
+        // } else {
+        //   mo.dynamicData.partytype = '';
+        // }
       }
     }
     //上级部署、安排落实、基层动态、书记讲党课、榜样的力量、长安新语
@@ -89,7 +93,7 @@
     if (method === '新增') {
       if (typeInfo.length > 0) {
         if (tableName === '两学一做') {
-          mo.dynamicData.typeId = typeInfo[0].id;
+          mo.dynamicData.typeId = huodong;
           mo.dynamicData.type = '两学一做';
         } else {
           mo.dynamicData.type = tableName;

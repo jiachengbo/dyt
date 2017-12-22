@@ -18,11 +18,10 @@ exports.create = function (req, res) {
   littlewish.fbtime = new Date();
   littlewish.save().then(function () {
     //重新加载数据，使数据含有关联表的内容
-    return littlewish.reload({
-    })
-    .then(function() {
-      res.json(littlewish);
-    });
+    return littlewish.reload({})
+      .then(function () {
+        res.json(littlewish);
+      });
   }).catch(function (err) {
     logger.error('littlewish create error:', err);
     return res.status(422).send({
@@ -47,17 +46,30 @@ exports.read = function (req, res) {
  * Update an littlewish
  */
 exports.update = function (req, res) {
+  var CommunityVillageConstant = sequelize.model('CommunityVillageConstant');
   var littlewish = req.model;
-
   littlewish.title = req.body.title;
   littlewish.content = req.body.content;
   littlewish.community = req.body.community;
   littlewish.state = req.body.state;
   littlewish.claimperson = req.body.claimperson;
   littlewish.fbperson = req.body.fbperson;
-
+  littlewish.IDcard = req.body.IDcard;
+  littlewish.tel = req.body.tel;
+  littlewish.claimpersonID = req.body.claimpersonID;
   littlewish.save().then(function () {
-    res.json(littlewish);
+    return littlewish.reload({
+      include: [
+        {
+          model: CommunityVillageConstant,
+          attributes: ['name']
+        }
+      ],
+      order: 'id ASC'
+    })
+      .then(function () {
+        res.json(littlewish);
+      });
   }).catch(function (err) {
     return res.status(422).send({
       message: errorHandler.getErrorMessage(err)
@@ -85,9 +97,14 @@ exports.delete = function (req, res) {
  */
 exports.list = function (req, res) {
   var Littlewish = sequelize.model('Littlewish');
-  var User = sequelize.model('User');
-
+  var CommunityVillageConstant = sequelize.model('CommunityVillageConstant');
   Littlewish.findAll({
+    include: [
+      {
+        model: CommunityVillageConstant,
+        attributes: ['name']
+      }
+    ],
     order: 'id ASC'
   }).then(function (littlewish) {
     return res.jsonp(littlewish);
@@ -105,7 +122,7 @@ exports.littlewishByID = function (req, res, next, id) {
   var User = sequelize.model('User');
 
   Littlewish.findOne({
-    where: {id: id},
+    where: {id: id}
   }).then(function (littlewish) {
     if (!littlewish) {
       logger.error('No littlewish with that identifier has been found');
@@ -113,7 +130,6 @@ exports.littlewishByID = function (req, res, next, id) {
         message: 'No littlewish with that identifier has been found'
       });
     }
-
     req.model = littlewish;
     next();
   }).catch(function (err) {

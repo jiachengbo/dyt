@@ -3,21 +3,28 @@
     <h1>
       活动广场
       <div class="btn-group pull-right" role="group" aria-label="oper">
-        <a class="btn btn-primary" ng-click="vm.add()">
+        <a class="btn btn-primary" ng-click="vm.add()" ng-if="vm.partyshow">
           <i class="glyphicon glyphicon-plus"></i>
         </a>
-        <a class="btn btn-primary" ng-click="vm.update()" ng-show="!!vm.selectedRow">
+        <a class="btn btn-primary" ng-click="vm.update()" ng-if="vm.partyshow" ng-show="!!vm.selectedRow">
           <i class="glyphicon glyphicon-edit"></i>
         </a>
-        <a class="btn btn-primary" ng-click="vm.remove()" ng-show="!!vm.selectedRow">
+        <a class="btn btn-primary" ng-click="vm.remove()" ng-if="vm.partyshow" ng-show="!!vm.selectedRow">
           <i class="glyphicon glyphicon-trash"></i>
         </a>
-        <a class="btn btn-primary" ng-click="vm.view()" ng-show="!!vm.selectedRow">
+        <a class="btn btn-primary" ng-click="vm.view()" ng-if="vm.mecanyu"  ng-show="!!vm.selectedRow">
           <i class="glyphicon glyphicon-eye-open"></i>
         </a>
       </div>
     </h1>
   </div>
-
+  <div class="row">
+    <uib-tabset active="0" ng-if="!vm.partyshow">
+      <uib-tab index="0" heading="我未参与" select="vm.alertMe('我未参与')">
+      </uib-tab>
+      <uib-tab index="1" heading="我已参与" select="vm.alertMe('我已参与')">
+      </uib-tab>
+    </uib-tabset>
+  </div>
   <div ui-grid="vm.gridOptions" ui-grid-selection ui-grid-pagination ui-grid-resize-columns class="activitysquare-grid"></div>
 </section>

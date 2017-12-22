@@ -8,13 +8,13 @@
   menuConfig.$inject = ['menuService'];
 
   function menuConfig(menuService) {
-    menuService.addMenuItem('sidemenu', {
+    /*menuService.addMenuItem('sidemenu', {
       title: '项目公示',
       state: 'publicproject.curd',
       // type: 'dropdown',
       roles: ['xtadmin'],
       position: 0
-    });
+    });*/
 
     // Add the dropdown list item
     // menuService.addSubMenuItem('sidemenu', 'publicproject', {

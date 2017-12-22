@@ -12,8 +12,7 @@ var path = require('path'),
  */
 module.exports = function (app, sequelize) {
   //创建自己的表
-  /*
-  var Activitysquare = sequelize.model('Activitysquare');
+ /* var Activitysquare = sequelize.model('Activitcy');
   Activitysquare.sync({
     force: true,
     loging: true
@@ -23,7 +22,6 @@ module.exports = function (app, sequelize) {
   }).catch(function (err) {
     logger.error('Database table Activitysquare synchronized error: ', err);
     throw err;
-  });
-  */
+  });*/
 
 };

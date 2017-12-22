@@ -30,16 +30,16 @@ exports.create = function (req, res) {
   policy.save().then(function () {
     //重新加载数据，使数据含有关联表的内容
     return policy.reload(/*{
-      include: [
-        {
-          model: User,
-          attributes: ['displayName']
-        }
-      ]
-    }*/)
-    .then(function() {
-      res.json(policy);
-    });
+     include: [
+     {
+     model: User,
+     attributes: ['displayName']
+     }
+     ]
+     }*/)
+      .then(function () {
+        res.json(policy);
+      });
   }).catch(function (err) {
     logger.error('policy create error:', err);
     return res.status(422).send({
@@ -167,19 +167,19 @@ exports.update = function (req, res) {
   }
 };
 /*exports.update = function (req, res) {
-  var policy = req.model;
+ var policy = req.model;
 
-  policy.title = req.body.title;
-  policy.content = req.body.content;
-  policy.type = req.body.type;
-  policy.save().then(function () {
-    res.json(policy);
-  }).catch(function (err) {
-    return res.status(422).send({
-      message: errorHandler.getErrorMessage(err)
-    });
-  });
-};*/
+ policy.title = req.body.title;
+ policy.content = req.body.content;
+ policy.type = req.body.type;
+ policy.save().then(function () {
+ res.json(policy);
+ }).catch(function (err) {
+ return res.status(422).send({
+ message: errorHandler.getErrorMessage(err)
+ });
+ });
+ };*/
 
 /**
  * Delete an policy
@@ -218,7 +218,7 @@ exports.list = function (req, res) {
       logger.error('partyyl list error:', err);
       return res.status(422).send(err);
     });
-  }else {
+  } else {
     if (isqian) {
       where = {
         where: {type: type},
@@ -256,12 +256,12 @@ exports.policyByID = function (req, res, next, id) {
 
   Policy.findOne({
     where: {id: id}/*,
-    include: [
-      {
-        model: User,
-        attributes: ['displayName']
-      }
-    ]*/
+     include: [
+     {
+     model: User,
+     attributes: ['displayName']
+     }
+     ]*/
   }).then(function (policy) {
     if (!policy) {
       logger.error('No policy with that identifier has been found');

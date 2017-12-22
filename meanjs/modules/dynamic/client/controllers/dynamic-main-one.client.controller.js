@@ -5,14 +5,61 @@
     .module('dynamic')
     .controller('DynamicMainOneTableController', DynamicMainOneTableController);
 
-  DynamicMainOneTableController.$inject = ['$scope', '$stateParams', 'Notification', '$log', '$window', 'DynamicService', '$uibModal', 'Upload', 'Authentication', 'CommunityService', '$timeout', 'localStorageService', '$state', '$rootScope'];
-  function DynamicMainOneTableController($scope, $stateParams, Notification, $log, $window, DynamicService, $uibModal, Upload, Authentication, CommunityService, $timeout, localStorageService, $state, $rootScope) {
+  DynamicMainOneTableController.$inject = ['$scope', '$stateParams', 'Notification', '$log', '$window', 'DynamicService', '$uibModal', 'Upload', 'Authentication', 'CommunityService', '$timeout', 'localStorageService', '$state', '$rootScope', 'PartyMemberTableService'];
+  function DynamicMainOneTableController($scope, $stateParams, Notification, $log, $window, DynamicService, $uibModal, Upload, Authentication, CommunityService, $timeout, localStorageService, $state, $rootScope, PartyMemberTableService) {
     var vmo = this;
     vmo.userCommId = '';
-    //获取参数
     vmo.id = $stateParams.tabindex;
     vmo.name = $stateParams.tabname;
-    console.log(vmo.name);
+    if (Authentication.user) {
+      vmo.id_card = Authentication.user.IDcard;
+      vmo.grade = Authentication.user.roles.indexOf('partym');
+      if (vmo.grade > 0) {
+        vmo.queryParam = {
+          partyMemberTableId: 0,
+          limit: 0,
+          offset: 20,
+          id_card: vmo.id_card,
+          communityId: ''
+        };
+        PartyMemberTableService.query(vmo.queryParam).$promise.then(function (data) {
+          vmo.partym = data[0];
+          vmo.userCommId = vmo.partym.community;
+          vmo.type = vmo.partym.partytype;
+          switch (vmo.type) {
+            case 1:
+              vmo.type = '城市党建';
+              break;
+            case 2:
+              vmo.type = '农村党建';
+              break;
+            case 3:
+              vmo.type = '社会组织党建';
+              break;
+            case 4:
+              vmo.type = '机关党建';
+              break;
+            case 5:
+              vmo.type = '非公党建';
+              break;
+            default:
+              break;
+          }
+        }).then(function () {
+          vmo.queryParam = {
+            typeId: 0,
+            type: vmo.name,
+            limit: 0,
+            offset: 0,
+            communityId: vmo.userCommId,
+            partytype: vmo.type,
+            typeId1: vmo.name === '两学一做' ? $stateParams.typeId : 0
+          };
+          refreshRecordCount(vmo.queryParam);
+        });
+      }
+    }
+    //获取参数
     var keytype = localStorageService.getItems('KeyWorkTypeConstant');
     vmo.keytype = [];
     for (var i = 0; i < keytype.length; i++) {
@@ -110,6 +157,10 @@
         partyid: function () {
           return vmo.type;
         },
+        //活动类型
+        huodong: function () {
+          return vmo.typeid;
+        },
         //当前登录用户所属的社区id
         userCommId: function () {
           return vmo.userCommId;
@@ -190,6 +241,10 @@
         },
         tableName: function () {
           return vmo.name;
+        },
+        //活动类型
+        huodong: function () {
+          return vmo.typeid;
         },
         //当前登录用户所属的社区id
         userCommId: function () {
@@ -354,7 +409,9 @@
           };
         }
         //刷新记录总数
-        refreshRecordCount(vmo.queryParam);
+        if (vmo.grade === -1) {
+          refreshRecordCount(vmo.queryParam);
+        }
       }
     }
     //刷新记录总数

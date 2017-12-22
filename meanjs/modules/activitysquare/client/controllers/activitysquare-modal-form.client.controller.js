@@ -5,9 +5,18 @@
     .module('activitysquare')
     .controller('ActivitysquareModalFormController', ActivitysquareModalFormController);
 
-  ActivitysquareModalFormController.$inject = ['$scope', '$uibModalInstance', 'activitysquareData', 'method'];
-  function ActivitysquareModalFormController($scope, $uibModalInstance, activitysquareData, method) {
+  ActivitysquareModalFormController.$inject = ['$scope', '$uibModalInstance', 'activitysquareData', 'method', 'Authentication', 'ActivitcService', 'Notification'];
+  function ActivitysquareModalFormController($scope, $uibModalInstance, activitysquareData, method, Authentication, ActivitcService, Notification) {
     var vm = this;
+    if (Authentication.user) {
+      vm.idcard = Authentication.user.IDcard;
+      vm.grade = Authentication.user.roles.indexOf('partym');
+      if (vm.grade > 0) {
+        vm.partyshow = false;
+      } else {
+        vm.partyshow = true;
+      }
+    }
     vm.activitysquareData = activitysquareData;
     vm.method = method;
     vm.disabled = (method === 'view');
@@ -133,5 +142,17 @@
       }
       return '';
     }
+
+    vm.active = function () {
+      var obj = new ActivitcService();
+      obj.userid = Authentication.user.id;
+      obj.activitID = vm.activitysquareData.id;
+      ActivitcService.query(obj).$promise.then(function (data) {
+        // vm.gridOptions.data = vm.tableData = data;
+        if (data) {
+          Notification.success({message: '<i class="glyphicon glyphicon-ok"></i> 参与成功!'});
+        }
+      });
+    };
   }
 }());

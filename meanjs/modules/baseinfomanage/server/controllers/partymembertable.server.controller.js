@@ -125,7 +125,7 @@ exports.list = function (req, res) {
   });
 };
 //----分页
-function listByPage(req, res, limit, offset, partytype) {
+function listByPage(req, res, limit, offset, partytype, id_card) {
   var CommunityVillageConstant = sequelize.model('CommunityVillageConstant');
   var PartyMemberTable = sequelize.model('PartyMemberTable');
   var where;
@@ -144,16 +144,32 @@ function listByPage(req, res, limit, offset, partytype) {
       order: 'id ASC'
     };
   } else {
-    where = {
-      include: [
-        {
-          model: CommunityVillageConstant,
-          attributes: ['name']
-        }
-      ],
-      limit: [limit, offset],
-      order: 'id ASC'
-    };
+    if (id_card) {
+      where = {
+        where: {
+          id_card: id_card
+        },
+        include: [
+          {
+            model: CommunityVillageConstant,
+            attributes: ['name']
+          }
+        ],
+        limit: [limit, offset],
+        order: 'id ASC'
+      };
+    } else {
+      where = {
+        include: [
+          {
+            model: CommunityVillageConstant,
+            attributes: ['name']
+          }
+        ],
+        limit: [limit, offset],
+        order: 'id ASC'
+      };
+    }
   }
   PartyMemberTable.findAll(where).then(function (partyMemberTable) {
     return res.jsonp(partyMemberTable);
@@ -163,12 +179,16 @@ function listByPage(req, res, limit, offset, partytype) {
   });
 }
 //---------总数
-function listCount(req, res, partytype) {
+function listCount(req, res, partytype, id_card) {
   var sql;
   if (partytype) {
     sql = 'select count(*) sum from PartyMemberTable where partytype = ' + partytype;
   } else {
-    sql = 'select count(*) sum from PartyMemberTable';
+    if (id_card) {
+      sql = 'select count(*) sum from PartyMemberTable where id_card = ' + id_card;
+    } else {
+      sql = 'select count(*) sum from PartyMemberTable';
+    }
   }
   sequelize.query(sql, {type: sequelize.QueryTypes.SELECT}).then(function (infos) {
     res.jsonp(infos);
@@ -178,7 +198,7 @@ function listCount(req, res, partytype) {
   });
 }
 //----分页
-function listByPage_comm(req, res, limit, offset, commId, partytype) {
+function listByPage_comm(req, res, limit, offset, commId, partytype, id_card) {
   var CommunityVillageConstant = sequelize.model('CommunityVillageConstant');
   var PartyMemberTable = sequelize.model('PartyMemberTable');
   var where;
@@ -210,7 +230,7 @@ function listByPage_comm(req, res, limit, offset, commId, partytype) {
   });
 }
 //---------总数
-function listCount_comm(req, res, commId, partytype) {
+function listCount_comm(req, res, commId, partytype, id_card) {
   var sql;
   if (partytype) {
     sql = 'select count(*) sum from PartyMemberTable where community = ' + commId + ' and partytype = ' + partytype;
@@ -231,35 +251,36 @@ exports.partyMemberTableByID = function (req, res, next, id) {
   var limit = parseInt(req.query.limit, 0);//(pageNum-1)*10
   var offset = parseInt(req.query.offset, 0);//10 每页总数
   var commId = req.query.communityId;
+  var id_card = req.query.id_card;
   var partytype = req.query.partytype;
   var PartyMemberTable = sequelize.model('PartyMemberTable');
   if (offset !== 0 && id === '0') {
     if (commId !== '') {
-      if (partytype) {
-        listByPage_comm(req, res, limit, offset, parseInt(commId, 0), partytype);
-      } else {
-        listByPage_comm(req, res, limit, offset, parseInt(commId, 0));
-      }
+      // if (partytype) {
+      listByPage_comm(req, res, limit, offset, parseInt(commId, 0), partytype, id_card);
+      // } else {
+      //   listByPage_comm(req, res, limit, offset, parseInt(commId, 0));
+      // }
     } else {
-      if (partytype) {
-        listByPage(req, res, limit, offset, partytype);
-      } else {
-        listByPage(req, res, limit, offset);
-      }
+      //if (partytype) {
+      listByPage(req, res, limit, offset, partytype, id_card);
+      // } else {
+      //   listByPage(req, res, limit, offset);
+      // }
     }
   } else if (limit === 0 && offset === 0 && id === '0') {
     if (commId !== '') {
-      if (partytype) {
-        listCount_comm(req, res, parseInt(commId, 0), partytype);
-      } else {
-        listCount_comm(req, res, parseInt(commId, 0));
-      }
+      //if (partytype) {
+      listCount_comm(req, res, parseInt(commId, 0), partytype, id_card);
+      // } else {
+      //   listCount_comm(req, res, parseInt(commId, 0));
+      // }
     } else {
-      if (partytype) {
-        listCount(req, res, partytype);
-      } else {
-        listCount(req, res);
-      }
+      // if (partytype) {
+      listCount(req, res, partytype, id_card);
+      // } else {
+      //   listCount(req, res);
+      // }
     }
   } else if (id !== '0') {
     PartyMemberTable.findOne({
