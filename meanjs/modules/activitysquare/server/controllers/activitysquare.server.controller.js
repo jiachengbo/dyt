@@ -277,18 +277,20 @@ exports.list = function (req, res) {
   }
   function getact() {
     Activitcy.findAll({
-      userid: req.user.id
+      where: {
+        userid: req.user.id
+      }
     }).then(function (activitc) {
       shuzu = [];
       if (activitc.length > 0) {
         activitc.forEach(function (v, k) {
           shuzu.push(v.dataValues.activitID);
         });
-        if (iscanyu === '我未参与') {
-          getdatas(1, shuzu);
-        } else {
-          getdatas(2, shuzu);
-        }
+      }
+      if (iscanyu === '我未参与') {
+        getdatas(1, shuzu);
+      } else {
+        getdatas(2, shuzu);
       }
       //console.log(activitc[0].dataValues, activitc[1].dataValues);
       //return res.jsonp(arr);
@@ -313,6 +315,9 @@ exports.list = function (req, res) {
           id: {$notIn: shuzu}
         }
       };
+      if (shuzu.length === 0) {
+        delete tiaojian.where;
+      }
     }
     Activitysquare.findAll(tiaojian).then(function (activitysquare) {
       return res.jsonp(activitysquare);
@@ -322,7 +327,7 @@ exports.list = function (req, res) {
     });
   }
 
-  function getdata() {
+  function getdata(where) {
     Activitysquare.findAll(where).then(function (activitysquare) {
       return res.jsonp(activitysquare);
     }).catch(function (err) {
