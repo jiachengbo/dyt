@@ -5,10 +5,13 @@
     .module('publicproject')
     .controller('PublicprojectModalFormController', PublicprojectModalFormController);
 
-  PublicprojectModalFormController.$inject = ['$scope', '$uibModalInstance', 'publicprojectData', 'method'];
-  function PublicprojectModalFormController($scope, $uibModalInstance, publicprojectData, method) {
+  PublicprojectModalFormController.$inject = ['$scope', '$uibModalInstance', 'publicprojectData', 'method', 'localStorageService'];
+  function PublicprojectModalFormController($scope, $uibModalInstance, publicprojectData, method, localStorageService) {
     var vm = this;
     vm.publicprojectData = publicprojectData;
+    vm.publicprojectData.projecttype = '党群建设';
+    vm.publicprojectData.community = '武警医院社区';
+    vm.CommunityV = localStorageService.getItems('CommunityVillageConstant');
     vm.method = method;
     vm.disabled = (method === 'view');
     if (vm.method === 'add') {

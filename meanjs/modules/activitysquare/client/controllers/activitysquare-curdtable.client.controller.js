@@ -16,9 +16,9 @@
       vm.idcard = Authentication.user.IDcard;
       vm.grade = Authentication.user.roles.indexOf('partym');
       if (vm.grade > 0) {
-        vm.partyshow = false;
-      } else {
         vm.partyshow = true;
+      } else {
+        vm.partyshow = false;
       }
     }
     vm.tableData = [];
@@ -47,6 +47,9 @@
         //表明是增加
         method: function () {
           return 'add';
+        },
+        mecanyu: function () {
+          return false;
         }
       });
 
@@ -104,11 +107,15 @@
         },
         method: function () {
           return isupdate ? 'update' : 'view';
+        },
+        mecanyu: function () {
+          return vm.mecanyu;
         }
       });
 
       modalInstance.result.then(function (result) {
         $log.log('modal ok:', result);
+        vm.selectedRow = null;
         if (isupdate) {
           Upload.upload({
             url: '/api/activitysquare/' + result.id,
@@ -209,12 +216,12 @@
         vm.gridOptions.data = vm.tableData = data;
       });
     };
-    if (vm.partyshow) {
+    if (!vm.partyshow) {
       vm.getTableData();
     }
     //
     vm.alertMe = function (num) {
-      console.log(num);
+      vm.selectedRow = null;
       if (num === '我未参与') {
         vm.mecanyu = true;
       } else {

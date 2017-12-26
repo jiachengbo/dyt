@@ -23,6 +23,10 @@ module.exports = function (sequelize, DataTypes) {
         type: DataTypes.STRING,
         comment: '图片'
       },
+      file_path: {
+        type: DataTypes.STRING,
+        comment: '文件'
+      },
       time: {
         type: DataTypes.DATE,
         comment: '时间'

@@ -25,7 +25,7 @@ var typeParam = {
 };
 var uploadImage = new multer(saveDir,
   10 * 1024 * 1024,
-  /image/, '.jpg');
+  /image/, '.html');
 //创建目录
 uploadImage.mkPaths();
 /**
@@ -67,20 +67,6 @@ exports.read = function (req, res) {
  * Update an stonehill
  */
 exports.update = function (req, res) {
-  var stonehill = req.model;
-
-  stonehill.title = req.body.title;
-  stonehill.content = req.body.content;
-
-  stonehill.save().then(function () {
-    res.json(stonehill);
-  }).catch(function (err) {
-    return res.status(422).send({
-      message: errorHandler.getErrorMessage(err)
-    });
-  });
-};
-exports.update = function (req, res) {
   // var Stonehill = sequelize.model('Stonehill');
   // var stonehill = Stonehill.build(req.body);
   var stonehill;
@@ -95,13 +81,12 @@ exports.update = function (req, res) {
   } else {
     Stonehill = sequelize.model('Stonehill');
     stonehill = Stonehill.build(req.body);
-    stonehill.time = new Date();
   }
   if (stonehill) {
     existingImageUrl = stonehill.photo;
     // existingFileUrl = stonehill.file_path;
     uploadImage.recv(req, res, [
-      {name: 'photo'}
+      {name: 'photo'}, {name: 'file_path'}
     ])
       .then(updateUserInfo)
       .then(deleteOldImage)
@@ -124,6 +109,10 @@ exports.update = function (req, res) {
         if (files && files.photo && files.photo.length === 1) {
           stonehill.photo = path.join(uploadImage.mountDir, files.photo[0].filename).replace(/\\/g, '/');
           newingImageUrl = stonehill.photo;
+        }
+        if (files && files.file_path && files.file_path.length === 1) {
+          stonehill.file_path = path.join(uploadImage.mountDir, files.file_path[0].filename).replace(/\\/g, '/');
+          newingImageUrl = stonehill.file_path;
         }
         stonehill.title = req.body.title;
         stonehill.content = req.body.content;
@@ -169,16 +158,24 @@ exports.update = function (req, res) {
         //     });
         //   });
         // }
-        if (!(files && files.file_path && files.file_path.length === 1)) {
-          stonehill.save().then(function () {
-            return stonehill.reload()
-              .then(function () {
-                resolve();
-              });
-          }).catch(function (err) {
-            reject(err);
-          });
-        }
+        stonehill.save().then(function () {
+          return stonehill.reload()
+            .then(function () {
+              resolve();
+            });
+        }).catch(function (err) {
+          reject(err);
+        });
+        // if (!(files && files.file_path && files.file_path.length === 1)) {
+        //   stonehill.save().then(function () {
+        //     return stonehill.reload()
+        //       .then(function () {
+        //         resolve();
+        //       });
+        //   }).catch(function (err) {
+        //     reject(err);
+        //   });
+        // }
       } else {
         reject(new Error('no stonehill img upload'));
       }

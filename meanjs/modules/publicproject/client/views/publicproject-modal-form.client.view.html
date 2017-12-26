@@ -46,8 +46,14 @@
         <!--</div>-->
         <div class="form-group" show-errors>
           <label class="control-label" for="projecttype">项目类型</label>
-          <input name="projecttype" type="text" ng-model="vm.publicprojectData.projecttype" id="projecttype"
-                 class="form-control" required autofocus>
+          <select name="projecttype" id="projecttype" class="form-control" ng-model="vm.publicprojectData.projecttype" required>
+            <option value="党群建设">党群建设</option>
+            <option value="环境治理">环境治理</option>
+            <option value="民生改善">民生改善</option>
+            <option value="社会组织培训孵化">社会组织培训孵化</option>
+            <option value="文明共创">文明共创</option>
+            <option value="综治联防">综治联防</option>
+          </select>
           <div ng-messages="vm.publicprojectForm.projecttype.$error" role="alert">
             <p class="help-block error-text" ng-message="required">请输入项目类型.</p>
           </div>
@@ -114,13 +120,17 @@
             <!--<p class="help-block error-text" ng-message="required">请输入项目星级（数字）.</p>-->
           <!--</div>-->
         <!--</div>-->
+        <!--<div class="form-group" show-errors>-->
+          <!--<label class="control-label" for="community">社区</label>-->
+          <!--<input name="community" type="text" ng-model="vm.publicprojectData.community" id="community"-->
+                 <!--class="form-control" required autofocus>-->
+          <!--<div ng-messages="vm.publicprojectForm.starlevel.$error" role="alert">-->
+            <!--<p class="help-block error-text" ng-message="required">请输入社区.</p>-->
+          <!--</div>-->
+        <!--</div>-->
         <div class="form-group" show-errors>
-          <label class="control-label" for="community">社区</label>
-          <input name="community" type="text" ng-model="vm.publicprojectData.community" id="community"
-                 class="form-control" required autofocus>
-          <div ng-messages="vm.publicprojectForm.starlevel.$error" role="alert">
-            <p class="help-block error-text" ng-message="required">请输入社区.</p>
-          </div>
+          <label class="control-label" for="community">所属社区</label>
+          <select name="community" id="community" ng-model="vm.publicprojectData.community" class="form-control"  ng-options="CommunityV.name as CommunityV.name for CommunityV in vm.CommunityV" required></select>
         </div>
         <!--<div class="form-group" show-errors>-->
           <!--<label class="control-label" for="measure">项目推进措施</label>-->
@@ -134,8 +144,8 @@
           <label class="control-label">文件</label>
           <div ng-show="vm.methodname !== '查看'">
             <button class="btn btn-default btn-file"
-                    ngf-select="(vm.fileSelect = true) && (vm.loading = false)"
-                    ngf-before-model-change="vm.loading = true" ngf-resize="{width: 400}"
+                    ngf-select="(vm.fileSelect = true) && (vm.loading1 = false)"
+                    ngf-before-model-change="vm.loading1 = true" ngf-resize="{width: 400}"
                     ng-model="vm.publicprojectData.file_path"
                     accept="application/msword" >点击选择文件
             </button>
@@ -146,7 +156,7 @@
           <div class="text-center" style="margin-top: 10px;" ng-show="vm.methodname !== '新增'">
             <a href="{{vm.publicprojectData.file_path}}" ng-show="vm.publicprojectData.file_path" target="_blank">查看</a>
           </div>
-          <div ng-show="vm.loading" class="form-group text-center">
+          <div ng-show="vm.loading1" class="form-group text-center">
             <img ng-src="/modules/core/client/img/loaders/loader.gif" height="50" width="50" alt="Loading image...">
           </div>
         </div>

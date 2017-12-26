@@ -6,10 +6,10 @@
     .controller('LittlewishCURDTableController', LittlewishCURDTableController);
 
   LittlewishCURDTableController.$inject = ['$scope', 'Notification', '$log', '$window',
-    'uiGridConstants', 'LittlewishService',
+    'Upload', 'LittlewishService',
     '$uibModal', 'Authentication'];
   function LittlewishCURDTableController($scope, Notification, $log, $window,
-                                         uiGridConstants, LittlewishService, $uibModal, Authentication) {
+                                         Upload, LittlewishService, $uibModal, Authentication) {
     var vm = this;
     //表数据
     console.log(Authentication.user);
@@ -46,7 +46,10 @@
       // 模态窗口关闭之后返回的值
       modalInstance.result.then(function (result) {
         $log.log('modal ok:', result);
-        result.$save()
+        Upload.upload({
+          url: '/api/littlewish',
+          data: result
+        })
           .then(function (res) {
             // vm.gridOptions.data.push(res);
             vm.getTableData();
@@ -99,13 +102,20 @@
       });
 
       modalInstance.result.then(function (result) {
-        result.state = isupdate ? result.state : '实施中';
+        // if (result.state !== '已完成') {
+        //   result.state = isupdate ? result.state : '实施中';
+        // }
+
         $log.log('modal ok:', result);
         // if (isupdate) {
-        result.$update()
+        Upload.upload({
+          url: '/api/littlewish/' + result.id,
+          data: result
+        })
           .then(function (res) {
             //修改表格显示的数据
-            angular.extend(vm.selectedRow, res);
+            // angular.extend(vm.selectedRow, res);
+            vm.getTableData();
             Notification.success({message: '<i class="glyphicon glyphicon-ok"></i> 修改成功!'});
           })
           .catch(function (err) {

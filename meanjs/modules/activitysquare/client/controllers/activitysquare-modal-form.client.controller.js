@@ -5,20 +5,24 @@
     .module('activitysquare')
     .controller('ActivitysquareModalFormController', ActivitysquareModalFormController);
 
-  ActivitysquareModalFormController.$inject = ['$scope', '$uibModalInstance', 'activitysquareData', 'method', 'Authentication', 'ActivitcService', 'Notification'];
-  function ActivitysquareModalFormController($scope, $uibModalInstance, activitysquareData, method, Authentication, ActivitcService, Notification) {
+  ActivitysquareModalFormController.$inject = ['$scope', '$uibModalInstance', 'activitysquareData', 'method', 'Authentication', 'ActivitcService', 'Notification', 'mecanyu'];
+  function ActivitysquareModalFormController($scope, $uibModalInstance, activitysquareData, method, Authentication, ActivitcService, Notification, mecanyu) {
     var vm = this;
-    if (Authentication.user) {
-      vm.idcard = Authentication.user.IDcard;
-      vm.grade = Authentication.user.roles.indexOf('partym');
-      if (vm.grade > 0) {
-        vm.partyshow = false;
-      } else {
-        vm.partyshow = true;
-      }
-    }
+
+    // if (Authentication.user) {
+    //   vm.idcard = Authentication.user.IDcard;
+    //   vm.grade = Authentication.user.roles.indexOf('partym');
+    //   if (vm.grade > 0) {
+    //     vm.partyshow = false;
+    //   } else {
+    //     vm.partyshow = true;
+    //   }
+    // }
     vm.activitysquareData = activitysquareData;
     vm.method = method;
+    if (vm.method !== 'add') {
+      vm.mecanyu = mecanyu;
+    }
     vm.disabled = (method === 'view');
     if (vm.method === 'add') {
       vm.methodname = '新增';

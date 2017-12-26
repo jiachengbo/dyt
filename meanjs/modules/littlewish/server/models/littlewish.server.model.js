@@ -54,6 +54,25 @@ module.exports = function (sequelize, DataTypes) {
         type: DataTypes.STRING,
         defaultValue: '',
         comment: '认领人身份证号'
+      },
+      claimphone: {
+        type: DataTypes.STRING,
+        defaultValue: '',
+        comment: '认领人电话'
+      },
+      feelings: {
+        type: DataTypes.STRING,
+        defaultValue: '',
+        comment: '心愿感想'
+      },
+      claimtime: {
+        type: DataTypes.DATE,
+        comment: '认领时间'
+      },
+      endphoto: {
+        type: DataTypes.STRING,
+        defaultValue: '',
+        comment: '完成照片'
       }
     },
     {

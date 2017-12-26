@@ -42,6 +42,26 @@
                  alt="没有图片" class="img-thumbnail" ngf-drop>
           </div>
         </div>
+        <div class="form-group" >
+          <label class="control-label">文件</label>
+          <div ng-show="vm.methodname !== '查看'">
+            <button class="btn btn-default btn-file"
+                    ngf-select="(vm.fileSelect = true) && (vm.loading1 = false)"
+                    ngf-before-model-change="vm.loading1 = true" ngf-resize="{width: 400}"
+                    ng-model="vm.stonehillData.file_path"
+                    accept="application/msword" >点击选择文件
+            </button>
+          </div>
+          <div class="text-center" style="margin-top: 10px;" ng-show="vm.methodname !== '查看'">
+            <label>{{vm.fileSelect ? vm.stonehillData.file_path.name: vm.stonehillData.file_path}}</label>
+          </div>
+          <div class="text-center" style="margin-top: 10px;" ng-show="vm.methodname !== '新增'">
+            <a href="{{vm.stonehillData.file_path}}" ng-show="vm.stonehillData.file_path" target="_blank">查看</a>
+          </div>
+          <div ng-show="vm.loading1" class="form-group text-center">
+            <img ng-src="/modules/core/client/img/loaders/loader.gif" height="50" width="50" alt="Loading image...">
+          </div>
+        </div>
       </fieldset>
     </form>
   </div>

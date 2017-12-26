@@ -57,24 +57,24 @@
               <p class="help-block error-text" ng-message="required">请输入社区.</p>
             </div>
           </div>
-         <!-- <div class="form-group" ng-if="vm.method === 'view'">
-            <label class="control-label" for="state">心愿状态</label>
-            <input name="state" type="text" ng-model="vm.littlewishData.state" id="state" class="form-control">
+         <div class="form-group" ng-if="vm.method === 'update' && vm.Auditstate">
+            <label class="control-label" for="state">微心愿审核</label>
+           <select name="Audit" id="Audit" ng-model="vm.littlewishData.state" class="form-control">
+             <option value="待审核">待审核</option>
+             <option value="待认领">审核通过</option>
+             <option value="不通过">审核不通过</option>
+           </select>
           </div>
-          <div class="form-group" ng-if="vm.method === 'view'">
-            <label class="control-label" for="claimperson">认领人</label>
-            <input name="claimperson" type="text" ng-model="vm.littlewishData.claimperson" id="claimperson" class="form-control">
-          </div>-->
         </div>
       </fieldset>
         <uib-tabset active="0" ng-if="vm.method === 'view'">
-          <uib-tab index="0" heading="微心愿发布">
+          <uib-tab index="0" heading="微心愿发布信息">
             <fieldset ng-disabled="vm.disabled">
             <div class="form-group" show-errors>
               <label class="control-label" for="title">名称</label>
               <input name="title" type="text" ng-model="vm.littlewishData.title" id="title" class="form-control"  required autofocus>
               <div ng-messages="vm.littlewishForm.title.$error" role="alert">
-                <p class="help-block error-text" ng-message="required">Littlewish title is required.</p>
+                <p class="help-block error-text" ng-message="required">请输入微心愿标题.</p>
               </div>
             </div>
             <div class="form-group">
@@ -128,8 +128,8 @@
             </div>
             </fieldset>
           </uib-tab>
-          <uib-tab index="1" heading="微心愿认领">
-            <fieldset ng-disabled="vm.renling">
+          <uib-tab index="1" heading="微心愿认领信息" ng-show="vm.littlewishData.state !== '待审核'">
+            <fieldset ng-disabled="vm.renling || vm.renling1">
             <div class="form-group" show-errors>
               <label class="control-label" for="fbperson">认领人身份证号</label>
               <input name="claimpersonID" type="text" ng-model="vm.littlewishData.claimpersonID" id="claimpersonID" class="form-control"  required autofocus maxlength="18" minlength="18" ng-pattern="/^[1-9]\d{7}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}$|^[1-9]\d{5}[1-9]\d{3}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}([0-9]|X)$/">
@@ -150,13 +150,51 @@
               <label class="control-label" for="claimperson">认领人</label>
               <input name="claimperson" type="text" ng-model="vm.littlewishData.claimperson" id="claimperson" class="form-control">
             </div>
+              <div class="form-group" show-errors>
+                <label class="control-label" for="claimphone">认领人电话</label>
+                <input name="claimphone" type="text" ng-model="vm.littlewishData.claimphone" id="claimphone" ng-pattern="/^1[3|4|5|8][0-9]\d{8}$/" class="form-control"  required autofocus>
+                <div ng-messages="vm.littlewishForm.claimphone.$error" role="alert">
+                  <p class="help-block error-text" ng-message="required">请输入发布人电话.</p>
+                </div>
+                <div ng-messages="vm.littlewishForm.claimphone.$error" role="alert">
+                  <p class="help-block error-text" ng-message="pattern">输入电话号码格式有误.</p>
+                </div>
+              </div>
+            </fieldset>
+          </uib-tab>
+          <uib-tab index="2" heading="微心愿完成信息" ng-if="vm.littlewishData.state === '实施中' || vm.littlewishData.state === '已完成'">
+            <fieldset ng-disabled="vm.ended || vm.ended1">
+              <div class="form-group" show-errors>
+                <label class="control-label" for="feelings">心愿感想</label>
+                <input name="feelings" type="text" ng-model="vm.littlewishData.feelings" id="feelings" class="form-control"  required >
+                <div ng-messages="vm.littlewishForm.claimpersonID.$error" role="alert">
+                  <p class="help-block error-text" ng-message="required">请输入心愿感想.</p>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label">完成照片</label>
+                <div>
+                  <button class="btn btn-default btn-file"
+                          ngf-select="(vm.fileSelected = true) && (vm.loading = false)"
+                          ng-model="vm.littlewishData.endphoto" accept="image/*" ngf-before-model-change="vm.loading = true"
+                          ngf-resize="{width: 400}" ngf-resize-if="$width > 400 || $height > 400">照片
+                  </button>
+                </div>
+                <div class="text-center" style="margin-top: 10px;">
+                  <img id="create_photo" ngf-src="vm.littlewishData.endphoto"
+                       alt="没有图片" class="img-thumbnail" ngf-drop>
+                </div>
+                <div ng-show="vm.loading" class="form-group text-center">
+                  <img ng-src="/modules/core/client/img/loaders/loader.gif" height="50" width="50" alt="Loading image...">
+                </div>
+              </div>
             </fieldset>
           </uib-tab>
         </uib-tabset>
     </form>
   </div>
   <div class="modal-footer">
-    <button class="btn btn-primary" ng-if="!vm.renling" ng-click="vm.ok(vm.littlewishForm.$valid)">确认</button>
+    <button class="btn btn-primary" ng-click="vm.ok(vm.littlewishForm.$valid)" ng-if="!vm.disabled || !vm.ended || !vm.renling">确认</button>
     <button class="btn btn-warning" ng-click="vm.cancel()">取消</button>
   </div>
 </div>
