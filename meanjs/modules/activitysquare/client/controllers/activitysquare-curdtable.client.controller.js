@@ -112,9 +112,11 @@
           return vm.mecanyu;
         }
       });
-
       modalInstance.result.then(function (result) {
         $log.log('modal ok:', result);
+        if (result === 1) {
+          vm.alertMe('我未参与');
+        }
         vm.selectedRow = null;
         if (isupdate) {
           Upload.upload({
@@ -137,7 +139,6 @@
         $log.log('Modal dismissed:', reason);
       });
     };
-
     //修改
     vm.update = function () {
       return vm._updateorview(true);
