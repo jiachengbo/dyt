@@ -6,18 +6,28 @@
         <a class="btn btn-primary" ng-click="vm.add()" tooltip-placement="top" uib-tooltip="微心愿发布">
           <i class="glyphicon glyphicon-plus"></i>
         </a>
-        <a class="btn btn-primary" ng-click="vm.update()" ng-show="!!vm.selectedRow" tooltip-placement="top" uib-tooltip="微心愿修改">
+        <a class="btn btn-primary" ng-click="vm.update()" ng-show="!!vm.selectedRow" tooltip-placement="top"
+           uib-tooltip="微心愿修改及审核" ng-if="vm.shishi">
           <i class="glyphicon glyphicon-edit"></i>
         </a>
-        <a class="btn btn-primary" ng-click="vm.remove()" ng-show="!!vm.selectedRow" tooltip-placement="top" uib-tooltip="微心愿删除">
+        <a class="btn btn-primary" ng-click="vm.remove()" ng-show="!!vm.selectedRow" tooltip-placement="top"
+           uib-tooltip="微心愿删除">
           <i class="glyphicon glyphicon-trash"></i>
         </a>
-        <a class="btn btn-primary" ng-click="vm.view()" ng-show="!!vm.selectedRow" tooltip-placement="top" uib-tooltip="认领和完成">
+        <a class="btn btn-primary" ng-click="vm.view()" ng-show="!!vm.selectedRow" tooltip-placement="top"
+           uib-tooltip="认领和完成">
           <i class="glyphicon glyphicon-eye-open"></i>
         </a>
       </div>
     </h1>
   </div>
-
-  <div ui-grid="vm.gridOptions" ui-grid-selection ui-grid-pagination ui-grid-resize-columns class="littlewish-grid"></div>
+  <uib-tabset active="active" type="tabs">
+    <uib-tab index="0" heading="待审核" select="vm.alertMe('待审核')"></uib-tab>
+    <uib-tab index="1" heading="不通过" select="vm.alertMe('不通过')"></uib-tab>
+    <uib-tab index="2" heading="待认领" select="vm.alertMe('待认领')"></uib-tab>
+    <uib-tab index="3" heading="实施中" select="vm.alertMe('实施中')"></uib-tab>
+    <uib-tab index="4" heading="已完成" select="vm.alertMe('已完成')"></uib-tab>
+  </uib-tabset>
+  <div ui-grid="vm.gridOptions" ui-grid-selection ui-grid-pagination ui-grid-resize-columns
+       class="littlewish-grid"></div>
 </section>

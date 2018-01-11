@@ -321,7 +321,11 @@ exports.delete = function (req, res) {
 exports.list = function (req, res) {
   var Littlewish = sequelize.model('Littlewish');
   var CommunityVillageConstant = sequelize.model('CommunityVillageConstant');
+  var state = req.query.state;
   Littlewish.findAll({
+    where: {
+      state: state
+    },
     include: [
       {
         model: CommunityVillageConstant,
