@@ -246,39 +246,5 @@
         </div>
     </div>
 </div>
-<script>
-    $('.top_right a').eq(0).mouseover(function(){
-        $('.top_ewm').css('display','block');
-    });
-    $('.top_right a').eq(0).mouseout(function(){
-        $('.top_ewm').css('display','none');
-    });
-    $(function() {
-        var left = ($(window).width() - 1200) / 2;
-        $('.tubiao>div').css('left', (left - 40) + 'px');
-        $('.asa').css('left', left + 'px');
-        $('.index1_imgt div:nth-of-type(2)').css({
-            'margin-right':(left-50)+'px'
-        });
-        $('.index1_imgt div:nth-of-type(1)').css({
-            'margin-left':(left-50)+'px'
-        });
-        $('.logo').click(function (event) {
-            event.preventDefault();
-            $('#index1_nav').css({
-                'background': '#ddd',
-                'opacity': 0.5
-            });
-            $('.asa').css('display', 'block');
-        });
-        $('.asa').on('click', function () {
-            $('.asa').css('display', 'none');
-            $('#index1_nav').css({
-                'background': '',
-                'opacity': ''
-            });
-        });
-    })
-</script>
 </body>
 </html>

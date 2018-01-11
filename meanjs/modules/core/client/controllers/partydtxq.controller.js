@@ -14,16 +14,17 @@
       partydtService.query({id: id}).$promise.then(function (data) {
         console.log(data);
         vm.partydt = data[0];
+        $timeout(function () {
+          var iframe = document.querySelector('.myiframe');
+          var bHeight = iframe.contentWindow.document.body.scrollHeight;
+          var dHeight = iframe.contentWindow.document.documentElement.scrollHeight;
+          var height = Math.max(bHeight, dHeight);
+          iframe.height = height;
+          iframe.contentWindow.document.body.style.margin = '0 auto';
+        }, 1000);
       });
     }
     getKeyWorkData(vm.partydtid);
-    $timeout(function () {
-      var iframe = document.querySelector('.myiframe');
-      var bHeight = iframe.contentWindow.document.body.scrollHeight;
-      var dHeight = iframe.contentWindow.document.documentElement.scrollHeight;
-      var height = Math.max(bHeight, dHeight);
-      iframe.height = height;
-      iframe.contentWindow.document.body.style.margin = '0 auto';
-    }, 500);
+
   }
 }());

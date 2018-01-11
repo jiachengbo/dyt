@@ -116,7 +116,7 @@
                             活动详情
                     </b>
                 </div>
-                <div class="keyworkxq_huod">
+                <div class="keyworkxq_huod" ng-if="!vm.keyWorkArr.file_path">
                     <p style="text-indent: 2em;">{{vm.keyWorkArr.content}}</p>
                 </div>
               <iframe ng-src="{{vm.keyWorkArr.file_path}}" width="100%" class="myiframe" frameborder="0"></iframe>

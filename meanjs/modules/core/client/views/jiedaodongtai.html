@@ -108,12 +108,11 @@
                         </a>
                     </b>
                 </div>
-              <!--<div style="text-align: center;">-->
-                <!--<h1 style="font-size: 20px; padding: 20px;">{{vm.jiedaodt.title}}</h1>-->
-                <!--<img src="{{vm.jiedaodt.photos}}">-->
-                <!--<p  style="text-align: left;padding: 20px">{{vm.jiedaodt.content}}</p>-->
-                <!--&lt;!&ndash;<iframe src="/uploads/womenfile/1506495151751-test1.doc.html" width="100%" id="myiframe" frameborder="0"></iframe>&ndash;&gt;-->
-              <!--</div>-->
+              <div style="text-align: center;" ng-if="!vm.jiedaodt.file_path">
+                <h1 style="font-size: 20px; padding: 20px;">{{vm.jiedaodt.title}}</h1>
+                <img src="{{vm.jiedaodt.photos}}">
+                <p  style="text-align: left;padding: 20px">{{vm.jiedaodt.content}}</p>
+              </div>
               <iframe ng-src="{{vm.jiedaodt.file_path}}" width="100%" class="myiframe" frameborder="0"></iframe>
             </div>
             <div class="clear"></div>

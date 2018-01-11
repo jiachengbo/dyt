@@ -13,16 +13,17 @@
     var id = $stateParams.id;
     GetTopVoiceService.query({id: id}).$promise.then(function (data) {
       vm.detailsData = data[0];
+      $timeout(function () {
+        var iframe = document.querySelector('.myiframe');
+        var bHeight = iframe.contentWindow.document.body.scrollHeight;
+        var dHeight = iframe.contentWindow.document.documentElement.scrollHeight;
+        var height = Math.max(bHeight, dHeight);
+        iframe.height = height;
+        iframe.contentWindow.document.body.style.margin = '0 auto';
+      }, 1000);
     });
 
-    $timeout(function () {
-      var iframe = document.querySelector('.myiframe');
-      var bHeight = iframe.contentWindow.document.body.scrollHeight;
-      var dHeight = iframe.contentWindow.document.documentElement.scrollHeight;
-      var height = Math.max(bHeight, dHeight);
-      iframe.height = height;
-      iframe.contentWindow.document.body.style.margin = '0 auto';
-    }, 500);
+
     // vm.type = $window.localStorage.getItem('type');
     // vm.keyworkid = $window.localStorage.getItem('keyworkid');
     // console.log(vm.keyworkid);

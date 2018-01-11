@@ -115,7 +115,7 @@
                     </b>
                 </div>
                 <div class="keyworkxq_huod">
-                    <!--<p style="text-indent:2em">{{vm.partydt.dynamiccontext}}</p>-->
+                    <p style="text-indent:2em" ng-if="!vm.partydt.file_path">{{vm.partydt.dynamiccontext}}</p>
                   <iframe ng-src="{{vm.partydt.file_path}}" width="100%" class="myiframe" frameborder="0"></iframe>
                 </div>
             </div>

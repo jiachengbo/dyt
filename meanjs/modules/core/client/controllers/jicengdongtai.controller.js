@@ -13,7 +13,6 @@
     function getKeyWorkData(keyid) {
       GetKeyWorkService.query({keyworkid: keyid}).$promise.then(function (data) {
         vm.keyWorkArr = data[0];
-        console.log(data);
       });
     }
     getKeyWorkData(keyworkid);

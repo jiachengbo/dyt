@@ -23,13 +23,34 @@
         console.log(data);
       });
     }
-    $timeout(function () {
-      var iframe = document.querySelector('.myiframe');
-      var bHeight = iframe.contentWindow.document.body.scrollHeight;
-      var dHeight = iframe.contentWindow.document.documentElement.scrollHeight;
-      var height = Math.max(bHeight, dHeight);
-      iframe.height = height;
-    }, 800);
+    var iframe = document.querySelector('.myiframe');
+    var bHeight;
+    var dHeight;
+    var height;
+    if (iframe.attachEvent) {
+      iframe.attachEvent('onload', function() {
+        // var iframe = document.querySelector('.myiframe');
+        bHeight = iframe.contentWindow.document.body.scrollHeight;
+        dHeight = iframe.contentWindow.document.documentElement.scrollHeight;
+        height = Math.max(bHeight, dHeight);
+        iframe.height = height;
+      });
+    } else {
+      iframe.onload = function() {
+        // var iframe = document.querySelector('.myiframe');
+        bHeight = iframe.contentWindow.document.body.scrollHeight;
+        dHeight = iframe.contentWindow.document.documentElement.scrollHeight;
+        height = Math.max(bHeight, dHeight);
+        iframe.height = height;
+      };
+    }
+    // $timeout(function () {
+    //   var iframe = document.querySelector('.myiframe');
+    //   var bHeight = iframe.contentWindow.document.body.scrollHeight;
+    //   var dHeight = iframe.contentWindow.document.documentElement.scrollHeight;
+    //   var height = Math.max(bHeight, dHeight);
+    //   iframe.height = height;
+    // }, 800);
     // vm.type = $window.localStorage.getItem('type');
     // vm.keyworkid = $window.localStorage.getItem('keyworkid');
     // console.log(vm.keyworkid);

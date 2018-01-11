@@ -16,16 +16,15 @@
     vm.id = $location.search().id;
     jiedaodtService.query({id: vm.id}).$promise.then(function (data) {
       vm.jiedaodt = data[0];
+      console.log(vm.jiedaodt);
+      $timeout(function () {
+        var iframe = document.querySelector('.myiframe');
+        var bHeight = iframe.contentWindow.document.body.scrollHeight;
+        var dHeight = iframe.contentWindow.document.documentElement.scrollHeight;
+        var height = Math.max(bHeight, dHeight);
+        iframe.height = height;
+        iframe.contentWindow.document.body.style.margin = '0 auto';
+      }, 1000);
     });
-
-    $timeout(function () {
-      var iframe = document.querySelector('.myiframe');
-      var bHeight = iframe.contentWindow.document.body.scrollHeight;
-      var dHeight = iframe.contentWindow.document.documentElement.scrollHeight;
-      var height = Math.max(bHeight, dHeight);
-      iframe.height = height;
-      iframe.contentWindow.document.body.style.margin = '0 auto';
-    }, 1000);
-
   }
 }());
