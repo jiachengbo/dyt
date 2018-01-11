@@ -10,20 +10,20 @@
     var vm = this;
     vm.littlewishData = littlewishData;
     vm.userIdCard = Authentication.user.IDcard;
-    console.log(vm.littlewishData);
+    var danguan = Authentication.user.roles.indexOf('partym');
     if (vm.littlewishData.state === '待认领') {
-    //  自己不能认领自己的微心愿
+      //  自己不能认领自己的微心愿
       if (vm.littlewishData.IDcard === vm.userIdCard) {
         vm.renling1 = true;
       } else {
         vm.renling1 = false;
       }
     } else if (vm.littlewishData.state === '实施中') {
-    //  别人不能完成不是自己的认领的微心愿
+      //  别人不能完成不是自己的认领的微心愿
       if (vm.userIdCard !== vm.littlewishData.claimpersonID) {
-        vm.ended1 = true;
+        //vm.ended1 = true;
       } else {
-        vm.ended1 = false;
+        //vm.ended1 = false;
       }
     }
     vm.CommunityV = localStorageService.getItems('CommunityVillageConstant');
@@ -40,7 +40,12 @@
       vm.methodname = '修改';
     }
     if (vm.littlewishData.state === '待审核') {
-      vm.Auditstate = true;
+      if (danguan !== -1) {
+        vm.Auditstate = false;
+      } else {
+        vm.Auditstate = true;
+      }
+
     }
     if (vm.littlewishData.state === '已完成') {
       vm.ended = true;

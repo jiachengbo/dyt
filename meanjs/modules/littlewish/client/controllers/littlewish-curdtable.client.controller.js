@@ -12,6 +12,16 @@
                                          Upload, LittlewishService, $uibModal, Authentication) {
     var vm = this;
     //表数据
+    vm.alertMe = function (name) {
+      vm.status = name;
+      vm.selectedRow = null;
+      if (name === '实施中') {
+        vm.shishi = false;
+      } else {
+        vm.shishi = true;
+      }
+      vm.getTableData();
+    };
     console.log(Authentication.user);
     console.log(Authentication.user.roles.indexOf('partym'));
     vm.tableData = [];
@@ -208,10 +218,9 @@
 
     //取后台Littlewish表所有数据
     vm.getTableData = function () {
-      LittlewishService.query().$promise.then(function (data) {
+      LittlewishService.query({state: vm.status}).$promise.then(function (data) {
         vm.gridOptions.data = vm.tableData = data;
       });
     };
-    vm.getTableData();
   }
 }());

@@ -285,6 +285,18 @@
       state: 'dynamic.professionalgrading',
       roles: ['*']
     });
+    menuService.addMenuItem('sidemenu', {
+      title: '微心愿管理',
+      state: 'fgwxy',
+      type: 'dropdown',
+      roles: ['fgadmin'],
+      position: 1000
+    });
+    menuService.addSubMenuItem('sidemenu', 'fgwxy', {
+      title: '微心愿',
+      state: 'littlewish.curd',
+      roles: ['*']
+    });
     //机关党建管理
     menuService.addMenuItem('sidemenu', {
       title: '基础信息管理',
@@ -340,6 +352,18 @@
       state: 'dynamic.professionalgrading',
       roles: ['*']
     });
+    menuService.addMenuItem('sidemenu', {
+      title: '微心愿管理',
+      state: 'jgwxy',
+      type: 'dropdown',
+      roles: ['jgadmin'],
+      position: 1000
+    });
+    menuService.addSubMenuItem('sidemenu', 'jgwxy', {
+      title: '微心愿',
+      state: 'littlewish.curd',
+      roles: ['*']
+    });
     //社会组织党建管理
     menuService.addMenuItem('sidemenu', {
       title: '基础信息管理',
@@ -393,6 +417,18 @@
     menuService.addSubMenuItem('sidemenu', 'shzz', {
       title: '职业水平认证',
       state: 'dynamic.professionalgrading',
+      roles: ['*']
+    });
+    menuService.addMenuItem('sidemenu', {
+      title: '微心愿管理',
+      state: 'shwxy',
+      type: 'dropdown',
+      roles: ['shzzadmin'],
+      position: 1000
+    });
+    menuService.addSubMenuItem('sidemenu', 'shwxy', {
+      title: '微心愿',
+      state: 'littlewish.curd',
       roles: ['*']
     });
     //社区党建管理
@@ -510,6 +546,18 @@
       state: 'basicinfo.pioneerexemplary',
       roles: ['*']
     });
+    menuService.addMenuItem('sidemenu', {
+      title: '微心愿管理',
+      state: 'sqwxy',
+      type: 'dropdown',
+      roles: ['sqadmin'],
+      position: 1000
+    });
+    menuService.addSubMenuItem('sidemenu', 'sqwxy', {
+      title: '微心愿',
+      state: 'littlewish.curd',
+      roles: ['*']
+    });
     //农村党建管理
     menuService.addMenuItem('sidemenu', {
       title: '基础信息管理',
@@ -579,6 +627,18 @@
     menuService.addSubMenuItem('sidemenu', 'ncdj', {
       title: '脱贫攻坚',
       state: 'dynamic.povertyalleviation',
+      roles: ['*']
+    });
+    menuService.addMenuItem('sidemenu', {
+      title: '微心愿管理',
+      state: 'ncwxy',
+      type: 'dropdown',
+      roles: ['ncadmin'],
+      position: 1000
+    });
+    menuService.addSubMenuItem('sidemenu', 'ncwxy', {
+      title: '微心愿',
+      state: 'littlewish.curd',
       roles: ['*']
     });
   }

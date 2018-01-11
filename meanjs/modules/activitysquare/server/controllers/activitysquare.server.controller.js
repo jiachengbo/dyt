@@ -284,7 +284,9 @@ exports.list = function (req, res) {
       shuzu = [];
       if (activitc.length > 0) {
         activitc.forEach(function (v, k) {
-          shuzu.push(v.dataValues.activitID);
+          if (shuzu.indexOf(v.dataValues.activitID) === -1) {
+            shuzu.push(v.dataValues.activitID);
+          }
         });
       }
       if (iscanyu === '我未参与') {

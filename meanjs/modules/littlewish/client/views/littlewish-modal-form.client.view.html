@@ -129,7 +129,8 @@
             </fieldset>
           </uib-tab>
           <uib-tab index="1" heading="微心愿认领信息" ng-show="vm.littlewishData.state !== '待审核'">
-            <fieldset ng-disabled="vm.renling || vm.renling1">
+            <!--ng-disabled="vm.renling || vm.renling1"-->
+            <fieldset ng-disabled="vm.renling">
             <div class="form-group" show-errors>
               <label class="control-label" for="fbperson">认领人身份证号</label>
               <input name="claimpersonID" type="text" ng-model="vm.littlewishData.claimpersonID" id="claimpersonID" class="form-control"  required autofocus maxlength="18" minlength="18" ng-pattern="/^[1-9]\d{7}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}$|^[1-9]\d{5}[1-9]\d{3}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}([0-9]|X)$/">

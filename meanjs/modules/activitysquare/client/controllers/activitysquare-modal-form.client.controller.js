@@ -131,7 +131,6 @@
         status: 'partially'
       }
     ];
-
     function getDayClass(data) {
       var date = data.date,
         mode = data.mode;
@@ -146,14 +145,13 @@
       }
       return '';
     }
-
     vm.active = function () {
       var obj = new ActivitcService();
       obj.userid = Authentication.user.id;
       obj.activitID = vm.activitysquareData.id;
       ActivitcService.query(obj).$promise.then(function (data) {
-        // vm.gridOptions.data = vm.tableData = data;
         if (data) {
+          $uibModalInstance.close(1);
           Notification.success({message: '<i class="glyphicon glyphicon-ok"></i> 参与成功!'});
         }
       });
